@@ -1,0 +1,115 @@
+PADRÃO DE BRANCHES – ESTUDOS JAVA OCA
+===================================
+
+Este repositório é destinado a estudos colaborativos para a certificação
+Java OCA. O fluxo foi pensado para ser simples, rastreável e adequado a
+um ambiente de aprendizado.
+
+
+ESTRUTURA DE BRANCHES
+--------------------
+
+main
+ |
+ |____ dev-1
+ |____ dev-2
+ |____ dev-3
+
+
+DESCRIÇÃO DAS BRANCHES
+---------------------
+
+main
+- Branch principal e central do repositório
+- Representa o estado atual e consolidado do aprendizado do grupo
+- Contém apenas código revisado e validado
+- Todos os merges acontecem nesta branch
+- NÃO é permitido commit direto nesta branch
+
+dev-1 / dev-2 / dev-3
+- Branches individuais de cada integrante
+- Criadas exclusivamente para atender uma Issue
+- Usadas para estudo, testes e experimentação
+- Devem sempre ser criadas a partir da main
+
+
+ISSUES (OBRIGATÓRIAS)
+--------------------
+
+- Toda task de estudo deve começar com a criação de uma Issue
+- Nenhuma branch pode ser criada sem uma Issue associada
+- A Issue deve descrever:
+  - o tópico de estudo
+  - o objetivo da task
+  - o escopo do que será implementado
+- As Issues representam o backlog de estudo do grupo
+
+
+PADRÃO DE NOMENCLATURA DE BRANCHES
+---------------------------------
+
+- As branches devem referenciar o número da Issue
+
+Padrão sugerido:
+
+dev-1/issue-12-variaveis
+dev-2/issue-15-arrays
+dev-3/issue-18-controle-fluxo
+
+
+FLUXO DE TRABALHO
+----------------
+
+1. Criar uma Issue descrevendo a task de estudo
+2. Criar a branch individual a partir da main, vinculada à Issue
+3. Desenvolver e estudar normalmente na branch individual
+4. Ao concluir a task:
+   - abrir Pull Request para a main
+   - referenciar a Issue correspondente
+5. Revisar em grupo
+6. Após aprovação:
+   - realizar o merge na main
+   - fechar a Issue
+   - criar uma tag indicando a finalização da task
+7. Ao finalizar um capítulo ou marco importante:
+   - criar uma tag de capítulo na main
+
+
+USO DE TAGS (FINALIZAÇÃO DE TASKS)
+---------------------------------
+
+- Toda task concluída e validada deve ser marcada com uma tag
+- As tags devem ser criadas após o merge na main
+- As tags representam pontos de revisão e consolidação do estudo
+
+Padrão sugerido de tags:
+
+task-01-variaveis
+task-02-operadores
+task-03-controle-de-fluxo
+task-04-arrays
+task-05-classes-e-metodos
+
+Ou, por capítulo:
+
+cap-01-fundamentos
+cap-02-java-basico
+cap-03-oo
+
+
+OBJETIVO DO FLUXO
+----------------
+
+- Manter o repositório simples e organizado
+- Garantir rastreabilidade entre Issue, branch, código e tag
+- Facilitar revisões futuras para a prova OCA
+- Estimular boas práticas de versionamento desde o início
+
+
+OBSERVAÇÕES
+-----------
+
+- Nunca trabalhar diretamente na branch main
+- Nenhuma branch sem Issue
+- Preferir commits pequenos e bem descritos
+- O histórico de commits, Issues e tags faz parte do material de estudo
