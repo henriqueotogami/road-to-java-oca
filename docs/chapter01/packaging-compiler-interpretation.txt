@@ -1,0 +1,11 @@
+Anotações: Guia de Estudos OCA Java SE 8.pdf
+Data 02/02/2026
+Capítulo 1 - Empacotamento, Compilação e Interpretação de código Java
+Página 40 de 546
+======================================================================
+Origem
+
+- A linguagem Java foi lançada em 1995 pela Sun Microsystems como uma versão Beta
+- O objetivo era criar uma linguagem de programação que fosse independente da plataforma em que fosse executada.
+======================================================================
+
