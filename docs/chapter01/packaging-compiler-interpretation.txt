@@ -1,0 +1,30 @@
+Anotações: Guia de Estudos OCA Java SE 8.pdf
+Data 02/02/2026
+Capítulo 1 - Empacotamento, Compilação e Interpretação de código Java
+Página 40 de 546
+======================================================================
+Origem
+
+- A linguagem Java foi lançada em 1995 pela Sun Microsystems como uma versão Beta
+- O objetivo era criar uma linguagem de programação que fosse independente da plataforma em que fosse executada.
+======================================================================
+Data 03/02/2026
+A plataforma Java:
+
+- Java Standard Edition (Java SE)   = para aplicações desktop e servidor
+- Java Enterprise Edition (Java EE) = para aplicações corporativas
+- Java Micro Edition (Java ME)      = para dispositivos móveis e embarcados
+- Java Virtual Machine (JVM)        = é a máquina virtual que interpreta o bytecode Java
+
+Quando o Java é compilado, o código-fonte (.java) é transformado em bytecode (.class) pela Java Compiler (javac).
+O bytecode é um formato intermediário que pode ser executado em qualquer plataforma que tenha uma JVM instalada.
+
+O Java utiliza a filosofia de Orientaçção a Objetos, permitindo organizar dados e códigos relacionados em objetos em um encapsulamento.
+Um objeto encapsulado apenas expõe comportamentos e dados necessários, promovendo a reutilização e manutenção do código.
+
+O design de orientação a objetos permite a abstração, que é uma prá favorece a generalizacão de algoritmos.
+
+Java foi projetado para não ter ponteiros explícitos. As variáveis armazenam referências a objetos na memória, mas o programador não tem acesso direto aos endereços de memória.
+Utilizando o Gabage collector foi possível gerenciar a memória automaticamente, se maneira a limpar objetos não referenciados ou fora de escopo.
+
+======================================================================
