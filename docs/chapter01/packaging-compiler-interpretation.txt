@@ -28,3 +28,48 @@ Java foi projetado para não ter ponteiros explícitos. As variáveis armazenam 
 Utilizando o Gabage collector foi possível gerenciar a memória automaticamente, se maneira a limpar objetos não referenciados ou fora de escopo.
 
 ======================================================================
+Data 04/02/2026
+Pacotes em Java:
+
+- Pacotes são usados para organizar classes e interfaces em namespaces, evitando conflitos de nomes.
+- Um pacote é declarado no início de um arquivo Java usando a palavra-chave "package".
+- Exemplo: package com.exemplo.meupacote;
+
+- Classes dentro do mesmo pacote podem acessar membros com visibilidade "default" (sem modificador de acesso).
+- Pacotes podem ser importados usando a palavra-chave "import".
+- Exemplo: import com.exemplo.meupacote.MinhaClasse;
+
+- O Java possui pacotes padrão, como java.lang, java.util, java.io, entre outros.
+- O pacote java.lang é importado automaticamente em todas as classes Java.
+
+- O nome de classe totalmente qualificado inclui o nome do pacote e o nome da classe.
+- Exemplo: com.exemplo.meupacote.MinhaClasse
+
+- Acoplamento de Classes: As dependências dos pacotes são reduzidas
+- Acoplamento do Sistema: As dependências dos pacotes são reduzidas
+- Tamanho do Pacote: Pacotes menores são mais fáceis de gerenciar
+- Capacidade de Manutenção: Alterações ficam restritas a um pacote que contém funcionalidades específicas
+- Nomeclatura: Convenção de nomes para pacotes em Java é usar letras minúsculas e o domínio invertido da organização (exemplo: com.exemplo.meupacote)
+
+Imports em Java:
+- A palavra-chave "import" é usada para importar classes ou pacotes inteiros.
+- Exemplo: import java.util.List; // importa a classe List do pacote java.util
+- Exemplo: import java.util.*; // importa todas as classes do pacote java.util
+
+- Para fins de manutenção, é melhor importar classes explicitamente em vez de usar curingas (*).
+- Classes do mesmo pacote não precisam ser importadas.
+- Classes do pacote java.lang são importadas automaticamente.
+
+Import estático:
+- A palavra-chave "import static" é usada para importar membros estáticos (métodos ou variáveis) de uma classe.
+- Exemplo: import static java.lang.Math.PI; // importa a constante PI da classe Math
+- Exemplo: import static java.lang.Math.*; // importa todos os membros estáticos da classe Math
+
+- Importações estáticas permitem usar membros estáticos sem qualificar com o nome da classe.
+- Exemplo: System.out.println(PI); // sem precisar usar Math.PI
+
+Exemplos de código:
+src.main.java.oca.chapter01.fundamentals.Example01PackageImport
+src.main.java.oca.chapter01.fundamentals.Example02SingleStaticImport
+src.main.java.oca.chapter01.fundamentals.Example03MultiStaticImport
+======================================================================
