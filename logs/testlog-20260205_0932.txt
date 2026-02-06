@@ -1,0 +1,3 @@
+fev 05, 2026 9:32:19 PM oca.chapter01.fundamentals.exercises.Exercise01Import main
+INFORMAÇÕES: 
+This is a logged information message. 

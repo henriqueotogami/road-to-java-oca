@@ -73,3 +73,7 @@ src.main.java.oca.chapter01.fundamentals.Example01PackageImport
 src.main.java.oca.chapter01.fundamentals.Example02SingleStaticImport
 src.main.java.oca.chapter01.fundamentals.Example03MultiStaticImport
 ======================================================================
+Data 05/02/2026
+Exercício de imports, compilação e execução:
+src.main.java.oca.chapter01.fundamentals.exercises.Exercise01PackageImport
+======================================================================
