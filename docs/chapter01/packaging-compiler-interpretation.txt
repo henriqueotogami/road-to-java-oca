@@ -77,3 +77,23 @@ Data 05/02/2026
 Exercício de imports, compilação e execução:
 src.main.java.oca.chapter01.fundamentals.exercises.Exercise01PackageImport
 ======================================================================
+Data 09/02/2026
+Classes Derivadas de Pacotes:
+
+- A Oracle incluiu mais de 200 pacotes na API do Java SE 8.
+As seções a seguir abordarão essas APIs:
+- API Java de utilitários
+- API Java de entrada/saída básica
+- API Java de rede
+- API Java do Abstract Window Toolkit
+- API Java do Swing
+- JavaFX
+
+API Java de utilitários:
+- A API de utilitários do Java está contida no pacote java.util.
+- o Java Collections Framework tem maior peso, entre as categorias de classes, porque é usado com frequência e fornece as estruturas de dados
+básicas necessárias à construção de aplicativos Java úteis.
+
+API Java de entrada/saída básica:
+- A API de entrada/saída básica do Java está contida no pacote java.io.
+- Essa API fornece funcionalidades gerais de entrada e saída do sistema no que diz respeito a fluxos de dados, serialização e o sistema de arquivos.
