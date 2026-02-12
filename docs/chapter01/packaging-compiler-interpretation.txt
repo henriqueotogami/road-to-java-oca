@@ -97,3 +97,32 @@ básicas necessárias à construção de aplicativos Java úteis.
 API Java de entrada/saída básica:
 - A API de entrada/saída básica do Java está contida no pacote java.io.
 - Essa API fornece funcionalidades gerais de entrada e saída do sistema no que diz respeito a fluxos de dados, serialização e o sistema de arquivos.
+=======================================================================
+Data 12/02/2026
+API Java de rede:
+- A API de rede do Java está contida no pacote java.net.
+- Essa API fornece funcionalidades para comunicação de rede, incluindo classes para trabalhar com URLs, sockets e
+protocolo HTTP.
+
+Observação:
+- O pacote com desempenho aperfeiçoado de I/O da API (java.nio), que fornece fun-
+  cionalidades de rede não bloqueantes e o pacote de suporte à factory de soquetes (javax.
+  net), não cai no exame.
+
+ API Java do Abstract Window Toolkit:
+- A API do Abstract Window Toolkit (AWT) do Java está contida no pacote java.awt.
+- Essa API fornece funcionalidades para criar interfaces gráficas de usuário (GUIs) usando componentes como botões, caixas de texto e painéis.
+
+API Java do Swing:
+- A API do Swing do Java está contida no pacote javax.swing.
+- Essa API é construída sobre o AWT e fornece uma biblioteca mais rica de componentes GUI, como tabelas, árvores e barras de ferramentas.
+- O Swing se beneficia da arquitetura MVC (model-view-controller). Nesta arquitetura, model representa o estado atual de cada componente.
+View é a representação dos componentes na tela. Controller é a funcionalidade que vincula os componentes da interface do usuário a eventos.
+
+API Java do JavaFX:
+- A API do JavaFX do Java está contida no pacote javafx.*.
+- Essa API fornece funcionalidades para criar aplicações ricas de internet (RIAs) com gráficos avançados, animações e mídia.
+- Uma linguagem de marcação baseada em XML, chamada FXML, foi criada para definir interfaces de usuário. Muitos dos mais de 60 controles
+  de UI podem ser estilizados com o uso de CSS (Cascading Style Sheets).
+- Um ótimo guia de referência de JavaFX é Introducing JavaFX 8 Programming, de Herbert Schildt (Oracle Press).
+=======================================================================
