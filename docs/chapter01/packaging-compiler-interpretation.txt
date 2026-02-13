@@ -125,4 +125,28 @@ API Java do JavaFX:
 - Uma linguagem de marcação baseada em XML, chamada FXML, foi criada para definir interfaces de usuário. Muitos dos mais de 60 controles
   de UI podem ser estilizados com o uso de CSS (Cascading Style Sheets).
 - Um ótimo guia de referência de JavaFX é Introducing JavaFX 8 Programming, de Herbert Schildt (Oracle Press).
+
+Estrutura das Classes Java:
+- As classes Java são organizadas em pacotes, que são agrupamentos lógicos de classes e interfaces relacionados.
+- Cada classe Java tem um nome totalmente qualificado, que inclui o nome do pacote e o nome da classe.
+- Exemplo: java.util.ArrayList
+
+Convenções de nomenclatura:
+- Pacotes: letras minúsculas, usando o domínio invertido da organização (exemplo: com.exemplo.meupacote)
+- Classes e Interfaces: letras maiúsculas para cada palavra (exemplo: MinhaClasse, MinhaInterface)
+- Métodos e Variáveis: letras minúsculas para a primeira palavra e maiúsculas para as palavras subsequentes (exemplo: minhaVariavel, meuMetodo)
+
+Estrutura das classes Java:
+- Declaração do pacote (opcional)
+- Importações (opcional)
+- Declaração da classe
+- Membros da classe (variáveis, métodos, construtores, blocos de inicialização)
+
+Compilar e interpretar código Java:
+- O código-fonte Java é escrito em arquivos com a extensão .java.
+- O compilador Java (javac) é usado para compilar o código-fonte em bytecode, que é armazenado em arquivos com a extensão .class.
+- O bytecode é interpretado pela Java Virtual Machine (JVM) para executar o programa Java.
+
+- Compilador -> javac GreetingsUniverse.java
+- Interpretador -> java GreetingsUniverse
 =======================================================================
