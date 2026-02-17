@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple06;
 
 import java.util.Properties;
 

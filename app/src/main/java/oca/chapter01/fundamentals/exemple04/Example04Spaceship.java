@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple04;
 
 /**
  * <br>Classe que representa uma nave espacial, estendendo a classe abstrata Example04Ship e implementando a interface Example04Dockable.

@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple02;
 
 /* Importa o membro estático ITALY */
 import static java.util.Locale.ITALY;

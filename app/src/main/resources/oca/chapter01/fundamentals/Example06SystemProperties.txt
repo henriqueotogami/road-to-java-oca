@@ -1,0 +1,197 @@
+Last login: Tue Feb 17 17:41:19 on console
+HMAP :: ~ » java --version
+openjdk 23.0.2 2025-01-21
+OpenJDK Runtime Environment (build 23.0.2+7-58)
+OpenJDK 64-Bit Server VM (build 23.0.2+7-58, mixed mode, sharing)
+HMAP :: ~ » java help
+Error: Could not find or load main class help
+Caused by: java.lang.ClassNotFoundException: help
+HMAP :: ~ 1 » java --help
+Usage: java [options] <mainclass> [args...]
+           (to execute a class)
+   or  java [options] -jar <jarfile> [args...]
+           (to execute a jar file)
+   or  java [options] -m <module>[/<mainclass>] [args...]
+       java [options] --module <module>[/<mainclass>] [args...]
+           (to execute the main class in a module)
+   or  java [options] <sourcefile> [args]
+           (to execute a source-file program)
+
+ Arguments following the main class, source file, -jar <jarfile>,
+ -m or --module <module>/<mainclass> are passed as the arguments to
+ main class.
+
+ where options include:
+
+    -cp <class search path of directories and zip/jar files>
+    -classpath <class search path of directories and zip/jar files>
+    --class-path <class search path of directories and zip/jar files>
+                  A : separated list of directories, JAR archives,
+                  and ZIP archives to search for class files.
+    -p <module path>
+    --module-path <module path>...
+                  A : separated list of elements, each element is a file path
+                  to a module or a directory containing modules. Each module is either
+                  a modular JAR or an exploded-module directory.
+    --upgrade-module-path <module path>...
+                  A : separated list of elements, each element is a file path
+                  to a module or a directory containing modules to replace
+                  upgradeable modules in the runtime image. Each module is either
+                  a modular JAR or an exploded-module directory.
+    --add-modules <module name>[,<module name>...]
+                  root modules to resolve in addition to the initial module.
+                  <module name> can also be ALL-DEFAULT, ALL-SYSTEM,
+                  ALL-MODULE-PATH.
+    --enable-native-access <module name>[,<module name>...]
+                  allow code in modules to access code and data outside the Java runtime.
+                  <module name> can also be ALL-UNNAMED to indicate code on the class path.
+    --list-modules
+                  list observable modules and exit
+    -d <module name>
+    --describe-module <module name>
+                  describe a module and exit
+    --dry-run     create VM and load main class but do not execute main method.
+                  The --dry-run option may be useful for validating the
+                  command-line options such as the module system configuration.
+    --validate-modules
+                  validate all modules and exit
+                  The --validate-modules option may be useful for finding
+                  conflicts and other errors with modules on the module path.
+    -D<name>=<value>
+                  set a system property
+    -verbose:[class|module|gc|jni]
+                  enable verbose output for the given subsystem
+    -version      print product version to the error stream and exit
+    --version     print product version to the output stream and exit
+    -showversion  print product version to the error stream and continue
+    --show-version
+                  print product version to the output stream and continue
+    --show-module-resolution
+                  show module resolution output during startup
+    -? -h -help
+                  print this help message to the error stream
+    --help        print this help message to the output stream
+    -X            print help on extra options to the error stream
+    --help-extra  print help on extra options to the output stream
+    -ea[:<packagename>...|:<classname>]
+    -enableassertions[:<packagename>...|:<classname>]
+                  enable assertions with specified granularity
+    -da[:<packagename>...|:<classname>]
+    -disableassertions[:<packagename>...|:<classname>]
+                  disable assertions with specified granularity
+    -esa | -enablesystemassertions
+                  enable system assertions
+    -dsa | -disablesystemassertions
+                  disable system assertions
+    -agentlib:<libname>[=<options>]
+                  load native agent library <libname>, e.g. -agentlib:jdwp
+                  see also -agentlib:jdwp=help
+    -agentpath:<pathname>[=<options>]
+                  load native agent library by full pathname
+    -javaagent:<jarpath>[=<options>]
+                  load Java programming language agent, see java.lang.instrument
+    -splash:<imagepath>
+                  show splash screen with specified image
+                  HiDPI scaled images are automatically supported and used
+                  if available. The unscaled image filename, e.g. image.ext,
+                  should always be passed as the argument to the -splash option.
+                  The most appropriate scaled image provided will be picked up
+                  automatically.
+                  See the SplashScreen API documentation for more information
+    @argument files
+                  one or more argument files containing options
+    --disable-@files
+                  prevent further argument file expansion
+    --enable-preview
+                  allow classes to depend on preview features of this release
+To specify an argument for a long option, you can use --<name>=<value> or
+--<name> <value>.
+
+HMAP :: ~ » java -version
+openjdk version "23.0.2" 2025-01-21
+OpenJDK Runtime Environment (build 23.0.2+7-58)
+OpenJDK 64-Bit Server VM (build 23.0.2+7-58, mixed mode, sharing)
+HMAP :: ~ » java --version
+openjdk 23.0.2 2025-01-21
+OpenJDK Runtime Environment (build 23.0.2+7-58)
+OpenJDK 64-Bit Server VM (build 23.0.2+7-58, mixed mode, sharing)
+HMAP :: ~ » java -cp
+Error: -cp requires class path specification
+HMAP :: ~ 1 » cd Documents/Github/road-to-java-oca 
+HMAP :: Documents/Github/road-to-java-oca » cd app/src/main/java/oca/chapter01/
+HMAP :: java/oca/chapter01 » java -cp                            
+Error: -cp requires class path specification
+HMAP :: java/oca/chapter01 1 » java fundamentals.Example06PropertiesManager -cp
+Error: Could not find or load main class fundamentals.Example06PropertiesManager
+Caused by: java.lang.NoClassDefFoundError: fundamentals/Example06PropertiesManager (wrong name: oca/chapter01/fundamentals/Example06PropertiesManager)
+HMAP :: java/oca/chapter01 1 » java fundamentals.Example06PropertiesManager 
+Error: Could not find or load main class fundamentals.Example06PropertiesManager
+Caused by: java.lang.NoClassDefFoundError: fundamentals/Example06PropertiesManager (wrong name: oca/chapter01/fundamentals/Example06PropertiesManager)
+HMAP :: java/oca/chapter01 1 » java fundamentals.Example06PropertiesManager.jar
+Error: Could not find or load main class fundamentals.Example06PropertiesManager.jar
+Caused by: java.lang.ClassNotFoundException: fundamentals.Example06PropertiesManager.jar
+HMAP :: java/oca/chapter01 1 » java fundamentals.Example06PropertiesManager.java
+Error: Could not find or load main class fundamentals.Example06PropertiesManager.java
+Caused by: java.lang.ClassNotFoundException: fundamentals.Example06PropertiesManager.java
+HMAP :: java/oca/chapter01 1 » java fundamentals.Example06PropertiesManager.class
+Error: Could not find or load main class fundamentals.Example06PropertiesManager.class
+Caused by: java.lang.ClassNotFoundException: fundamentals.Example06PropertiesManager.class
+HMAP :: java/oca/chapter01 1 » cd ../..
+HMAP :: src/main/java » java -Dnew_property1=new_value1 oca.chapter01.fundamentals.Example06PropertiesManager -list_all
+-- listing properties --
+java.specification.version=23
+sun.jnu.encoding=UTF-8
+java.class.path=.
+java.vm.vendor=Oracle Corporation
+sun.arch.data.model=64
+java.vendor.url=https://java.oracle.com/
+java.vm.specification.version=23
+os.name=Mac OS X
+sun.java.launcher=SUN_STANDARD
+user.country=BR
+sun.boot.library.path=/Users/henriquematheusalvespereira/Li...
+sun.java.command=oca.chapter01.fundamentals.Example06P...
+http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+jdk.debug=release
+sun.cpu.endian=little
+user.home=/Users/henriquematheusalvespereira
+user.language=pt
+java.specification.vendor=Oracle Corporation
+java.version.date=2025-01-21
+java.home=/Users/henriquematheusalvespereira/Li...
+file.separator=/
+java.vm.compressedOopsMode=Zero based
+line.separator=
+
+java.vm.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+apple.awt.application.name=Example06PropertiesManager
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+java.runtime.version=23.0.2+7-58
+user.name=henriquematheusalvespereira
+stdout.encoding=UTF-8
+path.separator=:
+os.version=15.7.2
+java.runtime.name=OpenJDK Runtime Environment
+file.encoding=UTF-8
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vendor.url.bug=https://bugreport.java.com/bugreport/
+java.io.tmpdir=/var/folders/0r/rqwj_7910h183r57kdpm1...
+java.version=23.0.2
+user.dir=/Users/henriquematheusalvespereira/Do...
+os.arch=x86_64
+java.vm.specification.name=Java Virtual Machine Specification
+native.encoding=UTF-8
+java.library.path=/Users/henriquematheusalvespereira/Li...
+java.vm.info=mixed mode, sharing
+stderr.encoding=UTF-8
+java.vendor=Oracle Corporation
+java.vm.version=23.0.2+7-58
+sun.io.unicode.encoding=UnicodeBig
+socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16
+java.class.version=67.0
+new_property1=new_value1
+new_property2=new_value2
+HMAP :: src/main/java » 
+

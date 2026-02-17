@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple05;
 
 public class Example05GreetingsUniverse {
 

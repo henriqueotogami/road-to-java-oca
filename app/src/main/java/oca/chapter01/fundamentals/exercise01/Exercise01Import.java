@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals.exercises;
+package oca.chapter01.fundamentals.exercise01;
 
 import java.io.*;
 import java.nio.file.Files;

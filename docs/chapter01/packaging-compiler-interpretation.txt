@@ -69,9 +69,9 @@ Import estático:
 - Exemplo: System.out.println(PI); // sem precisar usar Math.PI
 
 Exemplos de código:
-src.main.java.oca.chapter01.fundamentals.Example01PackageImport
-src.main.java.oca.chapter01.fundamentals.Example02SingleStaticImport
-src.main.java.oca.chapter01.fundamentals.Example03MultiStaticImport
+src.main.java.oca.chapter01.fundamentals.exemple01.Example01PackageImport
+src.main.java.oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport
+src.main.java.oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport
 ======================================================================
 Data 05/02/2026
 Exercício de imports, compilação e execução:

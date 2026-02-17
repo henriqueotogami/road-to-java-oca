@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple04;
 
 /**
  * <br>Exemplo de simulador de nave espacial em Java.

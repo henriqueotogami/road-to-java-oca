@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals; // -> Declara o pacote de Fundamentos
+package oca.chapter01.fundamentals.exemple01; // -> Declara o pacote de Fundamentos
 
 import java.util.ArrayList; // Importa a classe ArrayList a partir do pacote java.util
 import java.io.*;           // Importa todas as classes do pacote java.io

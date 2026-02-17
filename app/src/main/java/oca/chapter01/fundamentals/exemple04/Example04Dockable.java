@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple04;
 
 /**
  * <br>Interface que define o comportamento de acoplamento para naves.

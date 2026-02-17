@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple03;
 
 /* Importa todos os membros estáticos da classe Locale */
 import static java.util.Locale.*;

@@ -1,9 +1,9 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.plus;
 
 import java.util.StringTokenizer;
 
 /**
- * Exemplo de uso da classe StringTokenizer em Java.
+ * Exemplo de uso da classe StringTokenizer em Java e NAO CONTEMPLA ESTUDO DO JAVA OCA.
  * A classe StringTokenizer é usada para dividir uma string em tokens com base em um delimitador especificado.
  * @author henriqueotogami
  * @since 2026-02-09

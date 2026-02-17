@@ -1,4 +1,4 @@
-package oca.chapter01.fundamentals;
+package oca.chapter01.fundamentals.exemple04;
 
 /**
  * <br>Classe abstrata que define as características básicas de uma nave.
