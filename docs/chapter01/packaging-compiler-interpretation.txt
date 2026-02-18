@@ -28,3 +28,125 @@ Java foi projetado para não ter ponteiros explícitos. As variáveis armazenam 
 Utilizando o Gabage collector foi possível gerenciar a memória automaticamente, se maneira a limpar objetos não referenciados ou fora de escopo.
 
 ======================================================================
+Data 04/02/2026
+Pacotes em Java:
+
+- Pacotes são usados para organizar classes e interfaces em namespaces, evitando conflitos de nomes.
+- Um pacote é declarado no início de um arquivo Java usando a palavra-chave "package".
+- Exemplo: package com.exemplo.meupacote;
+
+- Classes dentro do mesmo pacote podem acessar membros com visibilidade "default" (sem modificador de acesso).
+- Pacotes podem ser importados usando a palavra-chave "import".
+- Exemplo: import com.exemplo.meupacote.MinhaClasse;
+
+- O Java possui pacotes padrão, como java.lang, java.util, java.io, entre outros.
+- O pacote java.lang é importado automaticamente em todas as classes Java.
+
+- O nome de classe totalmente qualificado inclui o nome do pacote e o nome da classe.
+- Exemplo: com.exemplo.meupacote.MinhaClasse
+
+- Acoplamento de Classes: As dependências dos pacotes são reduzidas
+- Acoplamento do Sistema: As dependências dos pacotes são reduzidas
+- Tamanho do Pacote: Pacotes menores são mais fáceis de gerenciar
+- Capacidade de Manutenção: Alterações ficam restritas a um pacote que contém funcionalidades específicas
+- Nomeclatura: Convenção de nomes para pacotes em Java é usar letras minúsculas e o domínio invertido da organização (exemplo: com.exemplo.meupacote)
+
+Imports em Java:
+- A palavra-chave "import" é usada para importar classes ou pacotes inteiros.
+- Exemplo: import java.util.List; // importa a classe List do pacote java.util
+- Exemplo: import java.util.*; // importa todas as classes do pacote java.util
+
+- Para fins de manutenção, é melhor importar classes explicitamente em vez de usar curingas (*).
+- Classes do mesmo pacote não precisam ser importadas.
+- Classes do pacote java.lang são importadas automaticamente.
+
+Import estático:
+- A palavra-chave "import static" é usada para importar membros estáticos (métodos ou variáveis) de uma classe.
+- Exemplo: import static java.lang.Math.PI; // importa a constante PI da classe Math
+- Exemplo: import static java.lang.Math.*; // importa todos os membros estáticos da classe Math
+
+- Importações estáticas permitem usar membros estáticos sem qualificar com o nome da classe.
+- Exemplo: System.out.println(PI); // sem precisar usar Math.PI
+
+Exemplos de código:
+src.main.java.oca.chapter01.fundamentals.exemple01.Example01PackageImport
+src.main.java.oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport
+src.main.java.oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport
+======================================================================
+Data 05/02/2026
+Exercício de imports, compilação e execução:
+src.main.java.oca.chapter01.fundamentals.exercises.Exercise01PackageImport
+======================================================================
+Data 09/02/2026
+Classes Derivadas de Pacotes:
+
+- A Oracle incluiu mais de 200 pacotes na API do Java SE 8.
+As seções a seguir abordarão essas APIs:
+- API Java de utilitários
+- API Java de entrada/saída básica
+- API Java de rede
+- API Java do Abstract Window Toolkit
+- API Java do Swing
+- JavaFX
+
+API Java de utilitários:
+- A API de utilitários do Java está contida no pacote java.util.
+- o Java Collections Framework tem maior peso, entre as categorias de classes, porque é usado com frequência e fornece as estruturas de dados
+básicas necessárias à construção de aplicativos Java úteis.
+
+API Java de entrada/saída básica:
+- A API de entrada/saída básica do Java está contida no pacote java.io.
+- Essa API fornece funcionalidades gerais de entrada e saída do sistema no que diz respeito a fluxos de dados, serialização e o sistema de arquivos.
+=======================================================================
+Data 12/02/2026
+API Java de rede:
+- A API de rede do Java está contida no pacote java.net.
+- Essa API fornece funcionalidades para comunicação de rede, incluindo classes para trabalhar com URLs, sockets e
+protocolo HTTP.
+
+Observação:
+- O pacote com desempenho aperfeiçoado de I/O da API (java.nio), que fornece fun-
+  cionalidades de rede não bloqueantes e o pacote de suporte à factory de soquetes (javax.
+  net), não cai no exame.
+
+ API Java do Abstract Window Toolkit:
+- A API do Abstract Window Toolkit (AWT) do Java está contida no pacote java.awt.
+- Essa API fornece funcionalidades para criar interfaces gráficas de usuário (GUIs) usando componentes como botões, caixas de texto e painéis.
+
+API Java do Swing:
+- A API do Swing do Java está contida no pacote javax.swing.
+- Essa API é construída sobre o AWT e fornece uma biblioteca mais rica de componentes GUI, como tabelas, árvores e barras de ferramentas.
+- O Swing se beneficia da arquitetura MVC (model-view-controller). Nesta arquitetura, model representa o estado atual de cada componente.
+View é a representação dos componentes na tela. Controller é a funcionalidade que vincula os componentes da interface do usuário a eventos.
+
+API Java do JavaFX:
+- A API do JavaFX do Java está contida no pacote javafx.*.
+- Essa API fornece funcionalidades para criar aplicações ricas de internet (RIAs) com gráficos avançados, animações e mídia.
+- Uma linguagem de marcação baseada em XML, chamada FXML, foi criada para definir interfaces de usuário. Muitos dos mais de 60 controles
+  de UI podem ser estilizados com o uso de CSS (Cascading Style Sheets).
+- Um ótimo guia de referência de JavaFX é Introducing JavaFX 8 Programming, de Herbert Schildt (Oracle Press).
+
+Estrutura das Classes Java:
+- As classes Java são organizadas em pacotes, que são agrupamentos lógicos de classes e interfaces relacionados.
+- Cada classe Java tem um nome totalmente qualificado, que inclui o nome do pacote e o nome da classe.
+- Exemplo: java.util.ArrayList
+
+Convenções de nomenclatura:
+- Pacotes: letras minúsculas, usando o domínio invertido da organização (exemplo: com.exemplo.meupacote)
+- Classes e Interfaces: letras maiúsculas para cada palavra (exemplo: MinhaClasse, MinhaInterface)
+- Métodos e Variáveis: letras minúsculas para a primeira palavra e maiúsculas para as palavras subsequentes (exemplo: minhaVariavel, meuMetodo)
+
+Estrutura das classes Java:
+- Declaração do pacote (opcional)
+- Importações (opcional)
+- Declaração da classe
+- Membros da classe (variáveis, métodos, construtores, blocos de inicialização)
+
+Compilar e interpretar código Java:
+- O código-fonte Java é escrito em arquivos com a extensão .java.
+- O compilador Java (javac) é usado para compilar o código-fonte em bytecode, que é armazenado em arquivos com a extensão .class.
+- O bytecode é interpretado pela Java Virtual Machine (JVM) para executar o programa Java.
+
+- Compilador -> javac GreetingsUniverse.java
+- Interpretador -> java GreetingsUniverse
+=======================================================================
