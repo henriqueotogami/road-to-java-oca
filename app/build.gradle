@@ -8,11 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
-    id 'java'
 }
-
-group = 'org.example'
-version = 'v1.0'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -30,16 +26,7 @@ java {
     }
 }
 
-jar {
-    manifest {
-        attributes(
-                'Main-Class': 'org.example.App'
-        )
-    }
-
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+application {
+    // Define the main class for the application.
+    mainClass = 'org.example.App'
 }
