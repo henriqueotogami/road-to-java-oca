@@ -1,0 +1,196 @@
+Teste Final - Capítulo 01
+Data: 17/02/2026
+
+01. Quais são as duas intruções import que permitirão a importação da classe HashMap ?
+A. import java.util.HashMap;
+B. import java.util.*;
+C. import java.util.HashMap.*;
+D. import java.util.hashMap.
+
+Resposta - Henrique: A e B.
+As demais opções estão incorretas porque a letra C indica importar usanso um formato de importacão de pacotes,
+enquanto a letra D tem um erro de digitação.
+
+=====================================================================================================================
+
+02. Quakinstrução deignaria o pertencimento de um arquivo ao pacote com.ocajexam.utilities ?
+A. pack com.ocajexam.utilities;
+B. package com.ocajexam.utilities.*
+C. package com.ocajexam.utilities.*;
+D. package com.ocajexam.utilities;
+
+Resposta - Henrique: D.
+As demais opções estão incorretas porque a letra A utiliza a palavra de pacote incompleta,
+enquanto as demais tem erros de digitação.
+
+=====================================================================================================================
+
+03. Qual dos itens a seguir é o único pacote Java que é importado por padrão ?
+
+A. java.awt
+B. java.lang
+C. java.util
+D. java.io
+
+Resposta - Henrique: B.
+As demais opções estão incorretas porque os pacotes java.awt, java.util e java.io não são importados por padrão.
+
+=====================================================================================================================
+
+04. As classes JCheckBox e JComboBox pertencem a qual pacote ?
+A. java.awt
+B. javax.awt
+C. java.swing
+D. javax.swing
+
+Resposta - Henrique: C.
+Resposta certa: D.
+As demais opções estão incorretas porque as classes JCheckBox e JComboBox pertencem ao pacote javax.swing,
+e não aos pacotes java.awt, java.lang ou java.util.
+
+=====================================================================================================================
+
+05. Qual pacote contém o Java Collections Framework ?
+A. java.io
+B. java.net
+C. java.util
+D. java.utils
+
+Resposta - Henrique: C.
+As demais opções estão incorretas porque o Java Collections Framework está contido no pacote java.util,
+e não nos pacotes java.io, java.net ou java.utils (que não existe).
+
+=====================================================================================================================
+
+06. A API Java de entrada/saída básica contém quais tipos de classes e interfaces ?
+A. Internacionalização;
+B. RMI, JDBC e JNDI;
+C. Fluxos de dados (streams), serialização e sistema de arquivos;
+D. API de coleções e fluxos de dados.
+
+Resposta - Henrique: C.
+As demais opções estão incorretas porque a não fazem parte do escopo de entrada e saída.
+
+=====================================================================================================================
+
+07. Qual API fornece uma solução leve para componentes de GUI ?
+A. AWT
+B. Abstract Window Toolkit
+C. Swing
+D. AWT e Swing
+
+Resposta - Henrique: C.
+As demais opções estão incorretas porque a API Swing é a solução leve para componentes de GUI,
+enquanto a AWT é uma API mais antiga e pesada.
+
+=====================================================================================================================
+
+08. Considere a ilustração a seguir. Qual problema existe com o empacotamento ? Se quiser, como fonte de ajuda,
+consulte o Apêndice G, que é sobre a Unified Modeling Language (UML).
+
+com.ocajexam.backing_beans      ->      COM.OCAJEXAM.UTILS
+|-- BeanA                               |-- UtilityA
+|-- BeanB                               |-- UtilityB
+
+A. Só pode haver uma única classe por pacote.
+B. Os pacotes não podem ter associações entre eles.
+C. O pacote com.ocajexam.backing_beans não segue as convenções de nomenclatura de pacotes apropriadas.
+D. O pacote COM.OCAJEXAM.UTILS não segue as convenções de nomenclatura de pacotes apropriadas.
+
+Resposta - Henrique: D.
+As demais opções estão incorretas porque a letra A é falsa, a letra B é falsa, e a letra C é falsa,
+já que o pacote com.ocajexam.backing_beans segue as convenções de nomenclatura de pacotes apropriadas.
+
+=====================================================================================================================
+
+09. Na aplicação de convenções de nomenclatura, quais elementos Java devem começãr com uma letra maiúscula e
+seguir com o uso de conveção CamelCase ?
+
+A. Nomes de classes
+B. Nomes de interfaces
+C. Nomes de constantes
+D. Nomes de pacotes
+E. Todos os itens acima
+
+Resposta - Henrique: A e B.
+As demais opções estão incorretas porque as constantes devem ser escritas em letras maiúsculas e os pacotes
+devem ser escritos em letras minúsculas.
+
+=====================================================================================================================
+
+10 Na instanciação de um objeto com genéricos, você deve usal colchetes angulares, colchetes retos, chaves ou aspas duplas para delimitar o tipo genérico ?
+Selecione a resposta correta.
+A. List<Integer> list = new ArrayList<Integer>();
+B. List[Integer] list = new ArrayList[Integer]();
+C. List{Integer} list = new ArrayList{Integer}();
+D. List"Integer" list = new ArrayList"Integer"();
+
+Resposta - Henrique: A.
+As demais opções estão incorretas porque os genéricos em Java utilizam colchetes angulares para delimitar o tipo
+genérico, e não colchetes retos, chaves ou aspas duplas.
+
+=====================================================================================================================
+
+11. Na organização dos elementos de uma classe, qual ordem é preferencial ?
+A. Membros de dados, métodos, construtores
+B. Memebros de dados, construtores, métodos
+C. Construtores, métodos, membros de dados
+D. Construtores, membros de dados, métodos
+E. Métodos, construtores, membros de dados
+
+Resposta - Henrique: B.
+As demais opções estão incorretas porque a ordem preferencial é membros de dados, construtores, métodos,
+e não membros de dados, métodos, construtores ou qualquer outra combinação.
+
+=====================================================================================================================
+
+12. Qual sintaxe representa uma maneira válida de compilar uma classe Java ?
+A. java MainClass.class
+B. javac MainClass
+C. javac MainClass.source
+D. javac MainClass.java
+
+Resposta - Henrique: D.
+As demais opções estão incorretas porque a letra A é a sintaxe para executar uma classe Java,
+a letra B é uma sintaxe incorreta para compilar uma classe Java, e a letra C é uma sintaxe incorreta para
+compilar uma classe Java, já que os arquivos de fonte Java devem ter a extensão .java.
+
+=====================================================================================================================
+
+13. Quais são as duas chamadas de linha de comando do inteerpretador Java que retornam a versão do interpretador ?
+A. java -version
+B. java --version
+C. java -version NomeDoPrograma
+D. Java NomeDoPrograma -version
+
+Resposta - Henrique: A e B.
+As demais opções estão incorretas porque a letra C é uma sintaxe incorreta para obter a versão do interpretador Java,
+e a letra D é uma sintaxe incorreta para obter a versão do interpretador Java, já que o nome do programa deve ser
+especificado após a opção de versão, e não antes.
+
+=====================================================================================================================
+
+14. Quais são as duas sintaxes de linha de comando que identificam apropriadamente o caminho das classes ?
+A. javac -cp /project/classes/ MainClass.java
+B. javac -sp /project/classes/ MainClass.java
+C. javac -classpath /project/classes/ MainClass.java
+D. javac -classpaths /project/classes/ MainClass.java
+
+Resposta - Henrique: A e C.
+As demais opções estão incorretas porque a letra B é uma sintaxe incorreta para especificar o caminho das classes,
+e a letra D é uma sintaxe incorreta para especificar o caminho das classes, já que a opção correta é -classpath, e não -classpaths.
+
+=====================================================================================================================
+
+15. Qual sintaxe de linha de comando define apropriadamente o valor de uma propriedade de sistema ?
+A. java -Dcom.ocajexam.propertyValue=003 MainClass
+B. java -d com.ocajexam.propertyValue=003 MainClass
+C. java -prop com.ocajexam.propertyValue=003 MainClass
+B. java -D:com.ocajexam.propertyValue=003 MainClass
+
+Resposta - Henrique: A.
+As demais opções estão incorretas porque a letra B é uma sintaxe incorreta para definir o valor
+de uma propriedade de sistema, a letra C é uma sintaxe incorreta para definir o valor de uma propriedade de sistema,
+e a letra D é uma sintaxe incorreta para definir o valor de uma propriedade de sistema, já que a opção correta é -D, e não -D: ou -prop.
+
+=====================================================================================================================
