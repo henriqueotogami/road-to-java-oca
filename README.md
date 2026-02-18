@@ -3,6 +3,10 @@
 > Repositório destinado a **estudos colaborativos para a certificação Java OCA (Oracle Certified Associate)**.
 
 <div align="center">
+<a href="#" style="display:inline-block;padding:4px 12px;background:#0366d6;color:#fff;border-radius:4px;text-decoration:none;font-weight:bold;font-size:15px;">README v0.2</a>
+</div>
+<br>
+<div align="center">
 <img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/app/src/main/resources/images/rounded-header-otogami.png?raw=true">
 </div>
 <br>
@@ -39,21 +43,30 @@ O projeto utiliza **Gradle** para build e está estruturado por capítulos, faci
 
 ### Código Fonte (`app/src/main/java/oca/`)
 
-- **chapter01/fundamentals/** - Exemplos do Capítulo 1 (Fundamentos)
-  - Exemplos de `package`, `import` (single, static, multi)
-  - Interfaces, classes e simulações (ex.: Spaceship, Dockable)
-  - Propriedades do sistema (`Example06PropertiesManager`)
-  - Exercícios práticos em `exercises/`
+- **chapter01/fundamentals/** - Capítulo 1 (Fundamentos)
+  - **exemple01/** - `Example01PackageImport` (pacotes)
+  - **exemple02/** - `Example02SingleStaticImport` (import estático)
+  - **exemple03/** - `Example03MultiStaticImport` (import estático múltiplo)
+  - **exemple04/** - Interfaces e implementações (`Dockable`, `Ship`, `Spaceship`, `SpaceshipSimulator`)
+  - **exemple05/** - `Example05GreetingsUniverse`
+  - **exemple06/** - `Example06PropertiesManager` (propriedades do sistema)
+  - **exercise01/** - `Exercise01Import` (exercício de imports)
+  - **exercise02/** - `Exercise02Compile` e pacote **planets/** (`Earth`, `Mars`, `Venus`)
+  - **plus/** - `Study01StringTokenizer` (material complementar)
+- **chapter01/** - `chapterExam.txt` (anotações do exame)
 
 ### Documentação (`docs/`)
 
-- **chapter01/** - Anotações e guias do Capítulo 1
+- **chapter01/** - Anotações do Capítulo 1
   - `packaging-compiler-interpretation.txt` - Empacotamento, compilação e interpretação
 - `how-to-manage-branches.txt` - Fluxo de branches e trabalho colaborativo
+- `issue-1.txt` - Registro de issues
 
-### Recursos (`resources/`)
+### Recursos (`app/src/main/resources/`)
 
-- **images/** - Imagens e assets do projeto
+- **oca/chapter01/fundamentals/** - Arquivos de apoio (logs, propriedades, instruções)
+  - `Example06PropertiesManager.log`, `Example06SystemProperties.txt`, `Exercise02Compile.txt`
+- **images/** - Imagens e assets do projeto (header, Ko-fi)
 
 ## 📂 Estrutura do Repositório
 
@@ -72,20 +85,25 @@ road-to-java-oca/
 │       │   ├── java/
 │       │   │   ├── oca/
 │       │   │   │   └── chapter01/
+│       │   │   │       ├── chapterExam.txt
 │       │   │   │       └── fundamentals/
-│       │   │   │           ├── Example01PackageImport.java
-│       │   │   │           ├── Example02SingleStaticImport.java
-│       │   │   │           ├── Example03MultiStaticImport.java
-│       │   │   │           ├── Example04*.java
-│       │   │   │           ├── Example05GreetingsUniverse.java
-│       │   │   │           ├── Example06PropertiesManager.java
-│       │   │   │           ├── Study01StringTokenizer.java
-│       │   │   │           └── exercises/
-│       │   │   │               └── Exercise01Import.java
-│       │   │   └── org/example/
+│       │   │   │           ├── exemple01/Example01PackageImport.java
+│       │   │   │           ├── exemple02/Example02SingleStaticImport.java
+│       │   │   │           ├── exemple03/Example03MultiStaticImport.java
+│       │   │   │           ├── exemple04/Example04Dockable.java, Ship, Spaceship, SpaceshipSimulator.java
+│       │   │   │           ├── exemple05/Example05GreetingsUniverse.java
+│       │   │   │           ├── exemple06/Example06PropertiesManager.java
+│       │   │   │           ├── exercise01/Exercise01Import.java
+│       │   │   │           ├── exercise02/Exercise02Compile.java
+│       │   │   │           ├── exercise02/planets/Earth.java, Mars.java, Venus.java
+│       │   │   │           └── plus/Study01StringTokenizer.java
+│       │   │   └── org/example/App.java
 │       │   └── resources/
-│       └── test/
-│           └── java/
+│       │       └── oca/chapter01/fundamentals/
+│       │           ├── Example06PropertiesManager.log
+│       │           ├── Example06SystemProperties.txt
+│       │           └── Exercise02Compile.txt
+│       └── test/java/org/example/AppTest.java
 │
 ├── docs/
 │   ├── chapter01/
@@ -93,10 +111,8 @@ road-to-java-oca/
 │   ├── how-to-manage-branches.txt
 │   └── issue-1.txt
 │
-├── resources/
-│   └── images/
-│
 └── .github/
+    ├── FUNDING.yml
     └── workflows/
         └── gradle.yml
 ```
@@ -107,6 +123,7 @@ road-to-java-oca/
 - **Gradle** - Build e gerenciamento de dependências
 - **JUnit 4** - Testes unitários
 - **Git** - Controle de versão e fluxo colaborativo
+- **GitHub Actions** - CI (build e dependency submission)
 
 ## 🚀 Como Usar
 
@@ -134,8 +151,8 @@ cd road-to-java-oca
 ./gradlew run
 
 # Ou diretamente com Java (exemplo de Properties)
-./gradlew compileJava
-java -cp app/build/classes/java/main oca.chapter01.fundamentals.Example06PropertiesManager -list_all
+./gradlew :app:compileJava
+java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Example06PropertiesManager -list_all
 ```
 
 4. **Execute os testes:**
@@ -150,6 +167,7 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.Example06Propert
 - ✅ Imports (single, static, multi)
 - ✅ Interfaces e implementações
 - ✅ Propriedades do sistema (`-D`, `System.getProperty`)
+- ✅ Exercícios de compilação e pacotes (ex.: `planets`)
 - ✅ Boas práticas de versionamento (branches, issues, tags)
 - 🔲 Variáveis e tipos de dados
 - 🔲 Operadores
@@ -230,16 +248,14 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📝 Changelog
 
-### Versão 0.2 (em andamento)
-- Exemplos do Capítulo 1 (pacotes, imports, interfaces)
-- Documentação de empacotamento e compilação
-- Exercícios práticos em `exercises/`
+### Versão 0.2
+- Exemplos do Capítulo 1 em subpacotes: `exemple01`–`exemple06` (pacotes, imports, interfaces, propriedades)
+- Exercícios: `exercise01` (imports), `exercise02` (compilação e pacote `planets`: Earth, Mars, Venus)
+- Material complementar em `plus/` (StringTokenizer)
+- Recursos em `app/src/main/resources/oca/chapter01/fundamentals/` (logs, propriedades, instruções)
+- Documentação em `docs/` e anotações em `chapterExam.txt`
+- CI com GitHub Actions (Gradle build e dependency submission)
 - Fluxo de trabalho documentado
-
-### Versão 0.1
-- Estrutura inicial do projeto com Gradle
-- Configuração de branches e fluxo colaborativo
-- Primeiros exemplos de fundamentos Java
 
 ## 📄 Licença
 
@@ -260,18 +276,13 @@ aprendizado, boas práticas, versionamento, colaborativo
 <div align="center">
 <br>
 <a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/app/src/main/resources/images/kofi-henrique-otogami.jpg?raw=true" alt="Apoie no Ko-fi"></a>
-</div>
-<div align="center">
+<br><br>
+<a href="https://ko-fi.com/henriqueotogami" target="_blank"><img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie o Projeto" style="height:50px;"></a>
+<br><br>
+<a href="https://dev.to/henriqueotogami" target="_blank"><img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" alt="Dev.to"></a>
+<a href="https://medium.com/@henriqueotogami" target="_blank"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium"></a>
+<a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
+<a href="https://www.linkedin.com/in/henrique-matheus-alves-pereira" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+<a href="https://instagram.com/henriqueotogami.dev" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
 <br>
-<a href="https://ko-fi.com/henriqueotogami" target="_blank">
-  <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie o Projeto" style="height:50px;">
-</a>
-</div>
-
-<div align="center">
-    <a href="https://dev.to/henriqueotogami" target="_blank"><img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" alt="Dev.to"></a>
-    <a href="https://medium.com/@henriqueotogami" target="_blank"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium"></a>
-    <a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
-    <a href="https://www.linkedin.com/in/henrique-matheus-alves-pereira" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-    <a href="https://instagram.com/henriqueotogami.dev" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
 </div>
