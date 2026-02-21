@@ -3,7 +3,7 @@
 > Repositório destinado a **estudos colaborativos para a certificação Java OCA (Oracle Certified Associate)**.
 
 <div align="center">
-<a href="#" style="display:inline-block;padding:4px 12px;background:#0366d6;color:#fff;border-radius:4px;text-decoration:none;font-weight:bold;font-size:15px;">README v0.2</a>
+<img src="https://img.shields.io/github/v/release/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
 <br>
 <div align="center">
@@ -11,19 +11,24 @@
 </div>
 <br>
 <div align="center">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/henriqueotogami/road-to-java-oca">
-<img src="https://img.shields.io/github/checks-status/henriqueotogami/road-to-java-oca/main">
-<img src="https://img.shields.io/github/issues/henriqueotogami/road-to-java-oca">
+<img src="https://img.shields.io/github/actions/workflow/status/henriqueotogami/road-to-java-oca/.github%2Fworkflows%2Fgradle.yml?style=for-the-badge">
+<img src="https://img.shields.io/github/release-date/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
 <br>
 <div align="center">
-<img src="https://img.shields.io/github/forks/henriqueotogami/road-to-java-oca?style=flat">
-<img src="https://img.shields.io/github/stars/henriqueotogami/road-to-java-oca?style=flat">
-<img src="https://img.shields.io/github/license/henriqueotogami/road-to-java-oca">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/henriqueotogami/road-to-java-oca?style=for-the-badge">
+
+<img src="https://img.shields.io/github/checks-status/henriqueotogami/road-to-java-oca/main?style=for-the-badge">
+<img src="https://img.shields.io/github/issues/henriqueotogami/road-to-java-oca?style=for-the-badge">
+</div>
+<br>
+<div align="center">
+<img src="https://img.shields.io/github/forks/henriqueotogami/road-to-java-oca?style=for-the-badge">
+<img src="https://img.shields.io/github/stars/henriqueotogami/road-to-java-oca?style=for-the-badge">
+<img src="https://img.shields.io/github/license/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
 <div align="center">
 <br>
-<img src="https://img.shields.io/github/release-date/henriqueotogami/road-to-java-oca">
 <a href="https://wakatime.com/badge/user/1e53636e-c916-4d50-9ce1-f3ac75a883e3/project/3a5e3f46-b18c-49e9-8b81-cda72611432d"><img src="https://wakatime.com/badge/user/1e53636e-c916-4d50-9ce1-f3ac75a883e3/project/3a5e3f46-b18c-49e9-8b81-cda72611432d.svg" alt="wakatime"></a>
 </div>
 <div align="center">
