@@ -1,0 +1,257 @@
+Introdução
+Após quatro anos trabalhando com desenvolvimento de firmware embarcado utilizando Java ME, decidi me preparar para a certificação OCA (Oracle Certified Associate) Java SE 8.
+
+O objetivo não é apenas obter a certificação. Quero solidificar minha base, revisar fundamentos que muitas vezes usamos no automático e documentar o processo de aprendizado. Este artigo reúne minhas anotações do Capítulo 01 do livro Guia de Estudos OCA Java SE 8, da Casa do Código.
+
+O primeiro capítulo aborda os fundamentos da linguagem: histórico da plataforma, organização em pacotes, estrutura de classes, compilação e execução. Conceitos simples, mas que sustentam todo o restante.
+
+Sumário
+01. Plataforma
+02. Empacotamento
+03. Classes Derivadas de Pacotes
+04. Estrutura das Classes
+05. Compilação e Interpretação
+06. Exercício 01 — Logger e Arquivos
+07. Exercício 02 — Classpath na Prática
+08. Referências
+
+01. Plataforma
+A linguagem Java foi lançada em 1995 pela Sun Microsystems como uma versão Beta. O objetivo era criar uma linguagem de programação que funcionasse em qualquer plataforma, sem a necessidade de compilação específica para cada sistema operacional.
+
+A plataforma Java é composta pelos seguintes componentes:
+- Java SE — Java Standard Edition é utilizada em aplicações desktop e servidor;
+- Java EE — Java Enterprise Edition é utilizada em aplicações corporativas;
+- Java ME — Java Micro Edition é utilizada em dispositivos móveis e embarcados;
+- JVM — Java Virtual Machine é a máquina virtual que interpreta o código em Java.
+
+02. Empacotamento
+Os pacotes são usados para organizar classes e interfaces em namespaces, evitando conflitos de nomes.
+Um pacote é declarado no início de um arquivo Java usando a palavra-chave package.
+Por exemplo:
+
+package oca.chapter01.fundamentals;
+Já as classes dentro do mesmo pacote podem acessar métodos e variáveis com visibilidade default (sem modificador de acesso).
+Por exemplo:
+
+package oca.chapter01.fundamentals;
+public class CheckNumbers {
+  boolean isEven(int number) {
+     return number % 2 == 0;
+   }
+}
+
+package oca.chapter01.fundamentals;
+public class CheckNumbersTest {
+
+public static void main(String[] args) {
+  CheckNumbers check = new CheckNumbers();
+  boolean isValidEven = check.isEven(10);
+
+ }
+}
+
+Também é possível que pacotes diferentes e classes diferentes podem ser importados usando a palavra-chave import.
+Por exemplo:
+
+import oca.chapter01.fundamentals.example01;
+ou
+
+import oca.chapter01.fundamentals.*;
+Além disso, métodos e variáveis podem ser importados estaticamente usando a palavra-chave static.
+Por exemplo:
+
+package oca.chapter01.fundamentals;
+import static java.lang.Math.PI;
+import static java.lang.Math.*;
+
+public class Circle {
+
+  public double calculateArea(double radius) {
+    return PI * pow(radius, 2);
+   }
+}
+
+03. Classes Derivadas de Pacotes
+O Java possui pacotes padrão, como java.lang, java.util, java.io, entre outros. Ou seja, existem pacotes pré-definidos que contêm classes e interfaces úteis para diversas finalidades, como manipulação de strings, coleções, entrada/saída, etc.
+Por exemplo:
+
+package oca.chapter01.fundamentals;
+import java.util.List;
+
+public class StudentNameList {
+
+ List<String> names = new ArrayList<>();
+
+
+  public void addName(String name) {
+     names.add(name);
+   }
+}
+
+O pacote java.lang é uma exceção, porque é importado automaticamente em todas as classes Java.
+Isso significa que classes como String, System e Math estão sempre disponíveis sem a necessidade de importação explícita.
+
+package oca.chapter01.fundamentals;
+public class Greeting {
+
+  public static void main(String[] args) {
+
+    String message = "Hello, World!";
+    System.out.println(message);
+
+  }
+}
+
+04. Estrutura das Classes
+A estrutura de uma classe Java inclui:
+- Modificadores de acesso (public, private, protected)
+- Nome da classe
+- Corpo da classe, que pode conter campos, métodos, construtores e blocos de inicialização.
+Por exemplo:
+
+package oca.chapter01.fundamentals;
+public class Person {
+
+
+  private String name = "Unknown";
+
+
+  public Person(String name) {
+    this.name = name;
+   }
+
+
+ public String getName() {
+   return this.name;
+ }
+}
+
+05. Compilação e Interpretação
+Quando o código-fonte Java é compilado, ele é transformado em bytecode (.class) pela Java Compiler (javac).
+
+O bytecode é um formato intermediário que pode ser executado em qualquer plataforma que tenha uma JVM instalada.
+
+A JVM interpreta o bytecode e o executa, permitindo a portabilidade do código Java entre diferentes sistemas operacionais e arquiteturas de hardware.
+
+O fluxo básico:
+
+O código .java é compilado pelo javac
+Gera-se um arquivo .class (bytecode)
+A JVM executa o bytecode
+javac Person.java
+java Person
+O bytecode é independente de sistema operacional. A JVM é quem garante a portabilidade.
+
+06. Exercício 01 — Logger e Arquivos
+Crie um programa que registre mensagens de log em um arquivo. Use classes do pacote java.util.logging para configurar o logger e gravar mensagens de log em um arquivo com um nome baseado na data e hora atuais.
+
+Instruções
+01.Digite o aplicativo de exemplo em um novo arquivo e chame-o de Exercise01Import.java. Salve o arquivo.
+02. Compile e execute o aplicativo para verificar se criou o conteúdo do arquivo sem erro:
+- Compilar: javac Exercise01Import.java
+- Executar: java Exercise01Import.java
+03.Verifique se a mensagem de log está sendo exibida na tela. Verifique também se um arquivo foi criado no subdiretórios logs com a mesma mensagem.
+Resultados
+Compilação com código original
+O java não conseguiu compilar o código original, porque não encontrou o pacote da classe Files.
+
+Files.createDirectories(Paths.get("logs"));
+Log da compilação com falha
+
+HMAP :: chapter01/fundamentals/exercises » javac Exercise01Import.java
+Exercise01Import.java:28: error: cannot find symbol
+ Files.createDirectories(Paths.get("logs"));
+ ^
+ symbol: variable Files
+ location: class Exercise01Import
+
+Exercise01Import.java:28: error: cannot find symbol
+ Files.createDirectories(Paths.get("logs"));
+ ^
+ symbol: variable Paths
+ location: class Exercise01Import
+2 errors
+
+HMAP :: chapter01/fundamentals/exercises 1 »
+
+Compilação corrigida
+Para corrigir esse problema, utilizei as seguintes importações:
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+Log da compilação com sucesso
+
+HMAP :: chapter01/fundamentals/exercises » javac Exercise01Import.java
+HMAP :: chapter01/fundamentals/exercises » ls -la
+total 24
+drwxr-xr-x 4 henriquematheusalvespereira staff 128 Feb 5 22:54 .
+drwxr-xr-x 6 henriquematheusalvespereira staff 192 Feb 5 22:54 ..
+-rw-r - r - 1 henriquematheusalvespereira staff 3125 Feb 5 22:54 Exercise01Import.class
+-rw-r - r - 1 henriquematheusalvespereira staff 4184 Feb 5 22:53 Exercise01Import.java
+HMAP :: chapter01/fundamentals/exercises » java Exercise01Import.java
+Exercise01Import - BEGIN
+Nome do arquivo: logs/testlog-20260205_1054.txt
+fev. 05, 2026 10:54:40 PM oca.chapter01.fundamentals.exercises.Exercise01Import main
+
+INFO:
+This is a logged information message.
+Exercise01Import - END
+
+HMAP :: chapter01/fundamentals/exercises » ls -la
+total 24
+drwxr-xr-x 5 henriquematheusalvespereira staff 160 Feb 5 22:54 .
+drwxr-xr-x 6 henriquematheusalvespereira staff 192 Feb 5 22:54 ..
+-rw-r - r - 1 henriquematheusalvespereira staff 3125 Feb 5 22:54 Exercise01Import.class
+-rw-r - r - 1 henriquematheusalvespereira staff 4184 Feb 5 22:53 Exercise01Import.java
+drwxr-xr-x 3 henriquematheusalvespereira staff 96 Feb 5 22:54 logs
+
+HMAP :: chapter01/fundamentals/exercises » cd logs
+HMAP :: fundamentals/exercises/logs » ls -la
+total 8
+drwxr-xr-x 3 henriquematheusalvespereira staff 96 Feb 5 22:54 .
+drwxr-xr-x 5 henriquematheusalvespereira staff 160 Feb 5 22:54 ..
+-rw-r - r - 1 henriquematheusalvespereira staff 131 Feb 5 22:54 testlog-20260205_1054.txt
+
+HMAP :: fundamentals/exercises/logs »
+
+Classe Exercise01Import.java
+07.Exercício 02 — Classpath na Prática
+Neste exercício você compilará e executará o aplicativo com novas classes criadas em um pacote separado.
+
+Compile o programa: javac -d . GreetingsUniverse.java
+Execute o programa para ver se não há erros: java -cp . com.ocajexam.tutorial.GreetingsUniverse
+Crie três classes chamadas Earth, Mars e Venus e insira-as no pacote com.ocajexam.tutorial.planets.
+Crie construtores que exibam os nomes dos planetas na saída padrão.
+Certifique-se de que todo o código-fonte esteja nos caminhos src/com/ocajexam/tutorial/ e src/com/ocajexam/tutorial/planets/.
+Determine os argumentos de linha de comando necessários à compilação do programa completo. Compile o programa, e depure quando necessário.
+Determine os argumentos de linha de comando necessários à interpretação do programa. Execute o programa.
+A saída padrão será a seguinte:
+
+$ Greetings, Universe!
+Hello from Earth!
+Hello from Mars!
+Hello from Venus!
+
+Problema
+Durante a etapa de execução, percebi que o arquivo .class compilado não estava sendo encontrado.
+
+HMAP :: chapter01/fundamentals/exercises 1 » java Exercise02Compile
+Error: Could not find or load main class Exercise02Compile
+Caused by: java.lang.NoClassDefFoundError: Exercise02Compile (wrong name: oca/chapter01/fundamentals/exercises/Exercise02Compile)
+Isso aconteceu porque o classpath completo busca pelo caminho oca/chapter01/fundamentals/exercises/Exercise02Compile, e eu estava executando na pasta exercises, na qual não contém esse caminho.
+
+Solução
+O jeito correto é executar a classe no diretório que contém o caminho do classpath, no meu caso: src/main/java.
+
+HMAP :: src/main/java » java oca/chapter01/fundamentals/exercises/Exercise02Compile
+Greetings, Universe!
+
+08.Referências
+Guia de Estudos OCA Java SE 8 — Casa do Código
+Documentação oficial da linguagem Java — Oracle Corporation
+https://docs.oracle.com/javase/8/docs/
+Especificação da Java Virtual Machine (JVM) — Oracle Corporation
+https://docs.oracle.com/javase/specs/
+API Java SE 8 — https://docs.oracle.com/javase/8/docs/api/
+Código-fonte dos exercícios deste artigo:
+https://github.com/henriqueotogami/road-to-java-oca
