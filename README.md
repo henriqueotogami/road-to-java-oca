@@ -17,7 +17,6 @@
 <br>
 <div align="center">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/henriqueotogami/road-to-java-oca?style=for-the-badge">
-
 <img src="https://img.shields.io/github/checks-status/henriqueotogami/road-to-java-oca/main?style=for-the-badge">
 <img src="https://img.shields.io/github/issues/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
@@ -56,14 +55,19 @@ O projeto utiliza **Gradle** para build e está estruturado por capítulos, faci
   - **exemple05/** - `Example05GreetingsUniverse`
   - **exemple06/** - `Example06PropertiesManager` (propriedades do sistema)
   - **exercise01/** - `Exercise01Import` (exercício de imports)
-  - **exercise02/** - `Exercise02Compile` e pacote **planets/** (`Earth`, `Mars`, `Venus`)
+  - **exercise02/** - `Exercise02Compile`, interface `Planet` e pacote **planets/** (`Earth`, `Mars`, `Venus`)
   - **plus/** - `Study01StringTokenizer` (material complementar)
 - **chapter01/** - `chapterExam.txt` (anotações do exame)
+
+### Testes (`app/src/test/java/oca/`)
+
+- **chapter01/** - `ImportAndCompileTest` (testes JUnit 5 para `Exercise01Import` e `Exercise02Compile`)
 
 ### Documentação (`docs/`)
 
 - **chapter01/** - Anotações do Capítulo 1
   - `packaging-compiler-interpretation.txt` - Empacotamento, compilação e interpretação
+  - `article.txt` - Artigo do Capítulo 1 (plataforma, empacotamento, compilação, exercícios)
 - `how-to-manage-branches.txt` - Fluxo de branches e trabalho colaborativo
 - `issue-1.txt` - Registro de issues
 
@@ -73,60 +77,11 @@ O projeto utiliza **Gradle** para build e está estruturado por capítulos, faci
   - `Example06PropertiesManager.log`, `Example06SystemProperties.txt`, `Exercise02Compile.txt`
 - **images/** - Imagens e assets do projeto (header, Ko-fi)
 
-## 📂 Estrutura do Repositório
-
-```
-road-to-java-oca/
-├── LICENSE
-├── README.md
-├── .gitignore
-├── build.gradle
-├── settings.gradle
-│
-├── app/
-│   ├── build.gradle
-│   └── src/
-│       ├── main/
-│       │   ├── java/
-│       │   │   ├── oca/
-│       │   │   │   └── chapter01/
-│       │   │   │       ├── chapterExam.txt
-│       │   │   │       └── fundamentals/
-│       │   │   │           ├── exemple01/Example01PackageImport.java
-│       │   │   │           ├── exemple02/Example02SingleStaticImport.java
-│       │   │   │           ├── exemple03/Example03MultiStaticImport.java
-│       │   │   │           ├── exemple04/Example04Dockable.java, Ship, Spaceship, SpaceshipSimulator.java
-│       │   │   │           ├── exemple05/Example05GreetingsUniverse.java
-│       │   │   │           ├── exemple06/Example06PropertiesManager.java
-│       │   │   │           ├── exercise01/Exercise01Import.java
-│       │   │   │           ├── exercise02/Exercise02Compile.java
-│       │   │   │           ├── exercise02/planets/Earth.java, Mars.java, Venus.java
-│       │   │   │           └── plus/Study01StringTokenizer.java
-│       │   │   └── org/example/App.java
-│       │   └── resources/
-│       │       └── oca/chapter01/fundamentals/
-│       │           ├── Example06PropertiesManager.log
-│       │           ├── Example06SystemProperties.txt
-│       │           └── Exercise02Compile.txt
-│       └── test/java/org/example/AppTest.java
-│
-├── docs/
-│   ├── chapter01/
-│   │   └── packaging-compiler-interpretation.txt
-│   ├── how-to-manage-branches.txt
-│   └── issue-1.txt
-│
-└── .github/
-    ├── FUNDING.yml
-    └── workflows/
-        └── gradle.yml
-```
-
 ## 🛠️ Tecnologias Utilizadas
 
 - **Java 8 (SE)** - Linguagem e versão alvo da certificação OCA
 - **Gradle** - Build e gerenciamento de dependências
-- **JUnit 4** - Testes unitários
+- **JUnit 5 (Jupiter)** - Testes unitários
 - **Git** - Controle de versão e fluxo colaborativo
 - **GitHub Actions** - CI (build e dependency submission)
 
@@ -163,6 +118,11 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 4. **Execute os testes:**
 ```bash
 ./gradlew test
+```
+
+5. **Execute apenas os testes do Capítulo 1:**
+```bash
+./gradlew chapter01
 ```
 
 ## 📚 Conteúdos Abordados
@@ -252,6 +212,13 @@ Contribuições são bem-vindas! Para contribuir:
 5. Abra um **Pull Request** referenciando a Issue
 
 ## 📝 Changelog
+
+### Versão 0.3
+- Interface `Planet` no pacote `exercise02` (Earth, Mars, Venus implementam a interface)
+- Testes automatizados com JUnit 5: `ImportAndCompileTest` para `Exercise01Import` e `Exercise02Compile`
+- Task Gradle `chapter01` para executar apenas os testes do Capítulo 1 (`./gradlew chapter01`)
+- Documentação: `docs/chapter01/article.txt` (artigo do Capítulo 1: plataforma, empacotamento, compilação)
+- Tecnologias: migração de JUnit 4 para JUnit 5 (Jupiter)
 
 ### Versão 0.2
 - Exemplos do Capítulo 1 em subpacotes: `exemple01`–`exemple06` (pacotes, imports, interfaces, propriedades)
