@@ -21,13 +21,25 @@ import java.util.logging.*;
 public class Exercise01Import {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Exercise01Import - BEGIN");
+        Exercise01Import exercise01Import = new Exercise01Import();
+        exercise01Import.createFileLog();
+    }
+
+    /**
+     * <br>Cria um arquivo de log com mensagens de log usando o pacote java.util.logging.
+     * <br>O arquivo de log é criado no diretório "logs" com um nome baseado na data e hora atuais.
+     *
+     * @return true se o arquivo de log foi criado e as mensagens foram registradas com sucesso, false caso contrário.
+     */
+    public boolean createFileLog() {
+//        System.out.println("Exercise01Import - BEGIN");
 
         try {
             /* Assegura que o diretório seja criado */
             Files.createDirectories(Paths.get("logs"));
         } catch (IOException e) {
             System.out.println("Exercise01Import - Falha na criação do diretório logs");
+            return false;
         }
 
         /* Obtém a data a ser usada no nome do arquivo */
@@ -37,7 +49,7 @@ public class Exercise01Import {
 
         /* Define o nome do arquivo no diretório logs */
         String logFileName = "logs/testlog-" + date + ".txt";
-        System.out.println("Nome do arquivo: " + logFileName);
+//        System.out.println("Nome do arquivo: " + logFileName);
         FileHandler myFileHandler = null;
 
         try {
@@ -46,8 +58,10 @@ public class Exercise01Import {
             myFileHandler.setFormatter(new SimpleFormatter());
         } catch (IOException e) {
             System.out.println("Exercise01Import - Falha na criação do arquivo de log");
+            return false;
         } catch (SecurityException e) {
             System.out.println("Exercise01Import - Falha na permissão de impressão de logs  ");
+            return false;
         }
 
         Logger ocajLogger = Logger.getLogger("OCAJ Logger");
@@ -55,7 +69,7 @@ public class Exercise01Import {
         ocajLogger.addHandler(myFileHandler);
 
         /* Mensagem de log */
-        ocajLogger.info("\nThis is a logged information message. ");
+//        ocajLogger.info("\nThis is a logged information message. ");
         try {
             Thread.sleep(500);
             /* Fecha o arquivo */
@@ -64,9 +78,12 @@ public class Exercise01Import {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             System.out.println("Falha no salvamento do arquivo");
+            return false;
         } finally {
-            System.out.println("Exercise01Import - END");
+//            System.out.println("Exercise01Import - END");
         }
+
+        return true;
     }
 
 //    Instruções:
