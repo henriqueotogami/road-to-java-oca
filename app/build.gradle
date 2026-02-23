@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -29,4 +29,19 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
+}
+
+check {
+    dependsOn    'chapter01'
+}
+
+tasks.register('chapter01', Test) {
+    description = "Run Chapter 01 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter01.*"
+    }
 }
