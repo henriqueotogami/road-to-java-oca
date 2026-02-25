@@ -10,34 +10,70 @@ package oca.chapter02.primitives.example02;
  */
 public class Conditionals {
 
-    public boolean isItRaining = false;
+    /**
+     * <br>Constante representando o tempo de chuva.
+     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @return O tempo atual.
+     */
+    public static final String ITS_RAINING      = "It's raining!";
+    
+    /**
+     * <br>Constante representando o tempo de não chuva.
+     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @return O tempo atual.
+     */
+    public static final String ITS_NOT_RAINING  = "It's not raining!";
+
+    /**
+     * <br>Variável representando o tempo de chuva.
+     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @return O tempo atual.
+     */
+    private boolean isItRaining = false;
 
     /**
      * <br>Obtém o tempo atual.
+     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @return O tempo atual.
+     */
+    public boolean isItRaining() { return this.isItRaining; }
+
+    /**
+     * <br>Define o tempo atual.
+     * <br>Este metodo é importante para demonstrar como definir o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @param itRaining O tempo atual.
+     */
+    public void setItRaining(final boolean itRaining) { this.isItRaining = itRaining; }
+
+    /**     
+     * <br>Obtém o tempo atual por default.
      * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
      *
      * @return O tempo atual.
      */
     public String getWeatherByDefault() {
         if (isItRaining) {
-            return "It's raining!";
+            return ITS_RAINING;
         } else {
-            return "It's not raining!";
+            return ITS_NOT_RAINING;
         }
     }
 
     /**
-     * <br>Obtém o tempo atual.
+     * <br>Obtém o tempo atual por ternário.
      * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
      *
      * @return O tempo atual.
      */
-    public String getWeatherByTernary() {
-        return isItRaining ? "It's raining!" : "It's not raining!";
-    }
+    public String getWeatherByTernary() { return isItRaining ? ITS_RAINING : ITS_NOT_RAINING; }
 
     /**
-     * <br>Obtém o tempo atual.
+     * <br>Obtém o tempo atual por switch.
      * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
      *
      * @return O tempo atual.
@@ -45,16 +81,16 @@ public class Conditionals {
     public String getWeatherWithSwitch() {
         switch (String.valueOf(isItRaining).toLowerCase()) {
             case "true":
-                return "It's raining!";
+                return ITS_RAINING;
             case "false":
-                return "It's not raining!";
+                return ITS_NOT_RAINING;
             default:
                 return "Unknown weather condition!";
         }
     }
 
     /**
-     * <br>Método principal.
+     * <br>Metodo principal.
      * <br>Este metodo é importante para demonstrar como executar o programa, demonstrando o conceito de encapsulamento em Java.
      *
      * @param args Argumentos da linha de comando.
