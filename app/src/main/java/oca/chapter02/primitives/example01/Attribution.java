@@ -13,7 +13,8 @@ public class Attribution {
     private int degrees = 0; // Declaração de um inteiro
     private int totalFish; // Declaração de um inteiro sem inicialização
 
-    public int foundTotalFish = 0; // Declaração e inicialização de um inteiro
+    private int foundTotalFish = 0; // Declaração e inicialização de um inteiro
+    private int[] registersDegrees = new int[0];
 
     /**
      * <br>Configura o valor padrão de graus para 100.
@@ -77,6 +78,82 @@ public class Attribution {
     }
 
     /**
+     * <br>Incrementa o total de peixes.
+     * <br>Este metodo é importante para demonstrar como incrementar o total de peixes, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @param newFishes O número de peixes a serem incrementados.
+     */
+    public void incrementFishes(final int newFishes) {
+        final int previousFishes = totalFish;
+        this.totalFish = previousFishes + newFishes;
+    }
+
+    /**
+     * <br>Decrementa o total de peixes.
+     * <br>Este metodo é importante para demonstrar como decrementar o total de peixes, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @param lossFishes O número de peixes a serem decrementados.
+     */
+    public void decrementFishes(final int lossFishes) {
+        final int previousFishes = totalFish;
+        this.totalFish = previousFishes - lossFishes;
+    }
+
+    /**
+     * <br>Obtém os graus registrados.
+     * <br>Este metodo é importante para permitir o acesso ao valor da variável registersDegrees, demonstrando o conceito de encapsulamento em Java.
+     *
+     * @return Os graus registrados.
+     */
+    public int[] getRegistersDegrees() {
+        return this.registersDegrees;
+    }
+
+    /**
+     * <br>Incrementa os graus registrados.
+     * <br>Este metodo é importante para demonstrar como incrementar os graus registrados, demonstrando o conceito de encapsulamento em Java.
+     */
+    public void afterIncrementDegrees() {
+        this.registersDegrees = new int[] { 5, 4, 3 };
+        for (int index = 0; index < this.registersDegrees.length; index++) {
+            this.registersDegrees[index]++;
+        }
+    }
+
+    /**
+     * <br>Decrementa os graus registrados.
+     * <br>Este metodo é importante para demonstrar como decrementar os graus registrados, demonstrando o conceito de encapsulamento em Java.
+     */
+    public void afterDecrementDegrees() {
+        this.registersDegrees = new int[] { 7, 8, 9 };
+        for (int index = 0; index < this.registersDegrees.length; index++) {
+            this.registersDegrees[index]--;
+        }
+    }
+
+    /**
+     * <br>Incrementa os graus registrados.
+     * <br>Este metodo é importante para demonstrar como incrementar os graus registrados, demonstrando o conceito de encapsulamento em Java.
+     */
+    public void beforeIncrementDegrees() {
+        this.registersDegrees = new int[] { 1, 2, 3 };
+        for (int index = 0; index < this.registersDegrees.length; index++) {
+            ++this.registersDegrees[index];
+        }
+    }
+
+    /**
+     * <br>Decrementa os graus registrados.
+     * <br>Este metodo é importante para demonstrar como decrementar os graus registrados, demonstrando o conceito de encapsulamento em Java.
+     */
+    public void beforeDecrementDegrees() {
+        this.registersDegrees = new int[] { 10, 11, 12 };
+        for (int index = 0; index < this.registersDegrees.length; index++) {
+            --this.registersDegrees[index];
+        }
+    }
+
+    /**
      * <br>Ponto de entrada para executar o exemplo de atribuição.
      * <br>Este metodo é importante para demonstrar como criar uma instância da classe Attribution, configurar os valores e realizar operações de atribuição.
      *
@@ -86,5 +163,20 @@ public class Attribution {
         Attribution attribution = new Attribution();
         attribution.setDefaultDegrees();
         attribution.sumFishes(100, 50);
+
+        if(attribution.getTotalFish() == 150) {
+            attribution.decrementFishes(150);
+        }
+
+        if(attribution.getTotalFish() == 0) {
+            attribution.incrementFishes(30);
+        }
+
+        attribution.afterIncrementDegrees();
+        attribution.afterDecrementDegrees();
+
+        attribution.beforeIncrementDegrees();
+        attribution.beforeDecrementDegrees();
+
     }
 }

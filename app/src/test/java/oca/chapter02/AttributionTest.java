@@ -38,5 +38,21 @@ public class AttributionTest {
         Assertions.assertThrows(NumberFormatException.class, () -> { attribution.setFoundTotalFish("FISH"); });
         Assertions.assertEquals(100, attribution.getDegrees());
         Assertions.assertEquals(150, attribution.getTotalFish());
+
+        attribution.afterIncrementDegrees();
+        final int[] expectedDegrees1 = {6, 5, 4};
+        for(int index = 0; expectedDegrees1.length > index; index++) Assertions.assertEquals(expectedDegrees1[index], attribution.getRegistersDegrees()[index]);
+
+        attribution.afterDecrementDegrees();
+        final int[] expectedDegrees2 = new int[]{6, 7, 8};
+        for(int index = 0; expectedDegrees2.length > index; index++) Assertions.assertEquals(expectedDegrees2[index], attribution.getRegistersDegrees()[index]);
+
+        attribution.beforeIncrementDegrees();
+        final int[] expectedDegrees3 = {2, 3, 4};
+        for(int index = 0; expectedDegrees3.length > index; index++) Assertions.assertEquals(expectedDegrees3[index], attribution.getRegistersDegrees()[index]);
+
+        attribution.beforeDecrementDegrees();
+        final int[] expectedDegrees4 = {9, 10, 11};
+        for(int index = 0; expectedDegrees4.length > index; index++) Assertions.assertEquals(expectedDegrees4[index], attribution.getRegistersDegrees()[index]);
     }
 }
