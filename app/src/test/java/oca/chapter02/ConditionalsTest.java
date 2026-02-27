@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.util.Random;
+
 /**
  * <br>Teste de condições em Java.
  * <br>Este teste verifica o comportamento das condições em Java, incluindo o uso de switch, default e ternário.
@@ -27,15 +29,11 @@ public class ConditionalsTest {
     @Order(1)
     public void weatherTest() {
         final Conditionals conditionals = new Conditionals();
+        final Random random             = new Random();
+        final int randomIndex           = random.nextInt(Conditionals.Weather.values().length);
 
-        conditionals.setItRaining(true);
-        Assertions.assertEquals(Conditionals.ITS_RAINING, conditionals.getWeatherWithSwitch());
-        Assertions.assertEquals(Conditionals.ITS_RAINING, conditionals.getWeatherByDefault());
-        Assertions.assertEquals(Conditionals.ITS_RAINING, conditionals.getWeatherByTernary());
-
-        conditionals.setItRaining(false);
-        Assertions.assertEquals(Conditionals.ITS_NOT_RAINING, conditionals.getWeatherWithSwitch());
-        Assertions.assertEquals(Conditionals.ITS_NOT_RAINING, conditionals.getWeatherByDefault());
-        Assertions.assertEquals(Conditionals.ITS_NOT_RAINING, conditionals.getWeatherByTernary());
+        Assertions.assertEquals("SUN", conditionals.getWeatherEvent(Conditionals.Weather.ITS_SUNNY));
+        Assertions.assertEquals(Conditionals.Weather.values()[randomIndex], conditionals.getWeatherType(randomIndex));
+        Assertions.assertEquals(Conditionals.Weather.ITS_RAINING, conditionals.getWeatherType("ITS_RAINING"));
     }
 }

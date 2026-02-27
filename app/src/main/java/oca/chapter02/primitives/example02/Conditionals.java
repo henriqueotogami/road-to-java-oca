@@ -1,104 +1,152 @@
 package oca.chapter02.primitives.example02;
 
 /**
- * <br>Classe representando as condições em Java.
- * <br>Demonstrando o uso de condições em Java, como if, else, switch, ternário, etc.
+ * Classe demonstrativa sobre estruturas condicionais em Java.
+ * <p>
+ * Contém um enum interno {@link Weather} com vários estados de tempo e
+ * metodos utilitários para mapear identificadores (ids) e nomes para valores
+ * de enum, assim como para obter um evento de tempo (uma string resumida)
+ * a partir de um valor de {@code Weather}.
+ * <p>
+ * Este exemplo é usado para ilustrar o uso de: enums, switch, loops, exceções
+ * e asserções em código didático para preparação ao exame OCA.
+ *
+ * Principais responsabilidades:
+ * - Fornecer mapeamento de id -> {@code Weather} e nome -> {@code Weather}.
+ * - Converter um {@code Weather} para um evento textual curto (ex: "RAIN").
+ *
+ * Observações:
+ * - Os metodos lançam exceções documentadas quando parâmetros inválidos são
+ *   fornecidos (por exemplo, {@link ArrayIndexOutOfBoundsException} e
+ *   {@link IllegalArgumentException}).
+ * - O metodo {@link #getWeatherEvent(Weather)} assume que o argumento não é
+ *   nulo (passar {@code null} resultará em {@link NullPointerException}).
  *
  * @author henriqueotogami
  * @since 2026-02-25
- * @version 1.0
+ * @version 1.1
  */
 public class Conditionals {
 
     /**
-     * <br>Constante representando o tempo de chuva.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
-     *
-     * @return O tempo atual.
+     * Enum que representa diversos estados do tempo (weather).
+     * Cada constante possui um identificador inteiro e uma mensagem legível.
      */
-    public static final String ITS_RAINING      = "It's raining!";
-    
-    /**
-     * <br>Constante representando o tempo de não chuva.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
-     *
-     * @return O tempo atual.
-     */
-    public static final String ITS_NOT_RAINING  = "It's not raining!";
+    public enum Weather {
+        UNKNOWN_WEATHER (0,"Unknown weather condition!"),
 
-    /**
-     * <br>Variável representando o tempo de chuva.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
-     *
-     * @return O tempo atual.
-     */
-    private boolean isItRaining = false;
+        ITS_RAINING   (1,"It's raining!"),
+        ITS_WINDING   (2,"It's winding!"),
+        ITS_SUNNY     (3,"It's sunny!"),
+        ITS_THUNDERING(4,"It's thundering!"),
+        ITS_CLOUDY    (5,"It's cloudy!"),
 
-    /**
-     * <br>Obtém o tempo atual.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
-     *
-     * @return O tempo atual.
-     */
-    public boolean isItRaining() { return this.isItRaining; }
+        ITS_NOT_RAINING   (6,"It's not raining!"),
+        ITS_NOT_WINDING   (7,"It's not winding!"),
+        ITS_NOT_SUNNY     (8,"It's not sunny!"),
+        ITS_NOT_THUNDERING(9,"It's not thundering!"),
+        ITS_NOT_CLOUDY    (10,"It's cloudy!");
 
-    /**
-     * <br>Define o tempo atual.
-     * <br>Este metodo é importante para demonstrar como definir o tempo atual, demonstrando o conceito de encapsulamento em Java.
-     *
-     * @param itRaining O tempo atual.
-     */
-    public void setItRaining(final boolean itRaining) { this.isItRaining = itRaining; }
-
-    /**     
-     * <br>Obtém o tempo atual por default.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
-     *
-     * @return O tempo atual.
-     */
-    public String getWeatherByDefault() {
-        if (isItRaining) {
-            return ITS_RAINING;
-        } else {
-            return ITS_NOT_RAINING;
+        private final int id;
+        private final String message;
+        Weather(final int id, final String message) {
+            this.id      = id;
+            this.message = message;
         }
+
+        /** Retorna o identificador inteiro desta constante. */
+        public int getId() { return this.id; }
+
+        /** Retorna a mensagem legível associada a esta constante. */
+        public String getMessage() { return this.message; }
     }
 
     /**
-     * <br>Obtém o tempo atual por ternário.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     * Retorna o {@link Weather} correspondente ao identificador fornecido.
      *
-     * @return O tempo atual.
+     * Observação: este metodo percorre todas as constantes do enum e compara
+     * o campo {@code id}. Se nenhum valor corresponder, retorna {@code null}.
+     *
+     * @param id identificador do tempo (conforme definido nas constantes do enum)
+     * @return o {@code Weather} correspondente, ou {@code null} se não houver correspondência
+     * @throws ArrayIndexOutOfBoundsException se o id estiver fora de um intervalo
+     *         esperado (implementação atual verifica se id &gt; quantidade de constantes)
      */
-    public String getWeatherByTernary() { return isItRaining ? ITS_RAINING : ITS_NOT_RAINING; }
+    public Weather getWeatherType(final int id) throws ArrayIndexOutOfBoundsException {
+        final Weather[] allWeather = Conditionals.Weather.values();
+
+        if(id > allWeather.length) throw new ArrayIndexOutOfBoundsException();
+
+        for(Weather weather : allWeather) {
+            if(weather.getId() == id) {
+                System.out.println(weather.getMessage());
+                return weather;
+            }
+        }
+        return null;
+    }
 
     /**
-     * <br>Obtém o tempo atual por switch.
-     * <br>Este metodo é importante para demonstrar como obter o tempo atual, demonstrando o conceito de encapsulamento em Java.
+     * Converte um nome (string) no correspondente valor do enum {@link Weather}.
      *
-     * @return O tempo atual.
+     * Este metodo delega ao {@code Enum.valueOf} e, portanto, lança
+     * {@link IllegalArgumentException} se o nome não corresponder a nenhuma
+     * constante do enum (ou {@link NullPointerException} se o nome for nulo).
+     *
+     * @param name nome da constante do enum (ex.: "ITS_RAINING")
+     * @return o {@code Weather} correspondente ao nome fornecido
+     * @throws IllegalArgumentException se não existir constante com esse nome
      */
-    public String getWeatherWithSwitch() {
-        switch (String.valueOf(isItRaining).toLowerCase()) {
-            case "true":
-                return ITS_RAINING;
-            case "false":
-                return ITS_NOT_RAINING;
+    public Weather getWeatherType(final String name) throws IllegalArgumentException {
+        return Conditionals.Weather.valueOf(name);
+    }
+
+    /**
+     * Retorna um código de evento (string curta) para o {@link Weather} dado.
+     *
+     * Exemplos de retorno: "RAIN", "WIND", "SUN", "CLOUD".
+     * Se o {@code weather} não corresponder a nenhum case conhecido, retorna
+     * {@code "UNKNOWN"}.
+     *
+     * @param weather um valor do enum {@code Weather}; não deve ser {@code null}
+     * @return string representando o evento associado ao estado do tempo
+     */
+    public String getWeatherEvent(final Weather weather) {
+        switch (weather) {
+            case ITS_RAINING:
+                return "RAIN";
+
+            case ITS_WINDING:
+                return "WIND";
+
+            case ITS_SUNNY:
+                return "SUN";
+
+            case ITS_CLOUDY:
+                return "CLOUD";
+
             default:
-                return "Unknown weather condition!";
+                return "UNKNOWN";
         }
     }
 
     /**
-     * <br>Metodo principal.
-     * <br>Este metodo é importante para demonstrar como executar o programa, demonstrando o conceito de encapsulamento em Java.
+     * metodo principal para demonstrar execução simples do exemplo.
      *
-     * @param args Argumentos da linha de comando.
+     * Usa um gerador de números aleatórios para escolher um índice e demonstra
+     * chamadas aos metodos desta classe. As asserções servem apenas para
+     * verificar comportamento durante desenvolvimento com a flag -ea ativada.
+     *
+     * @param args argumentos de linha de comando (não utilizados)
      */
     public static void main(String[] args) {
         final Conditionals conditionals = new Conditionals();
-        System.out.println(conditionals.getWeatherByDefault());
-        System.out.println(conditionals.getWeatherByTernary());
-        System.out.println(conditionals.getWeatherWithSwitch());
+        // usa um id válido presente no enum para demonstrar a chamada
+        final int randomIndex           = Weather.ITS_SUNNY.getId();
+
+        assert (conditionals.getWeatherEvent(Weather.ITS_SUNNY) != null) : "Weather event should not be null!";
+        assert (conditionals.getWeatherType(randomIndex)        != null) : "Weather type should not be null!";
+        // usa o nome exato da constante enum
+        assert (conditionals.getWeatherType("ITS_RAINING")    != null) : "Weather type should not be null!";
     }
 }
