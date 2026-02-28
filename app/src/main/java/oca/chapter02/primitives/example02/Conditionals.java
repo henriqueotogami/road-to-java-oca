@@ -33,52 +33,61 @@ public class Conditionals {
      * Cada constante possui um identificador inteiro e uma mensagem legível.
      */
     public enum Weather {
-        UNKNOWN_WEATHER (0,"Unknown weather condition!"),
+        UNKNOWN_WEATHER(0, "Unknown weather condition!"),
 
-        ITS_RAINING   (1,"It's raining!"),
-        ITS_WINDING   (2,"It's winding!"),
-        ITS_SUNNY     (3,"It's sunny!"),
-        ITS_THUNDERING(4,"It's thundering!"),
-        ITS_CLOUDY    (5,"It's cloudy!"),
+        ITS_RAINING(1, "It's raining!"),
+        ITS_WINDING(2, "It's winding!"),
+        ITS_SUNNY(3, "It's sunny!"),
+        ITS_THUNDERING(4, "It's thundering!"),
+        ITS_CLOUDY(5, "It's cloudy!"),
 
-        ITS_NOT_RAINING   (6,"It's not raining!"),
-        ITS_NOT_WINDING   (7,"It's not winding!"),
-        ITS_NOT_SUNNY     (8,"It's not sunny!"),
-        ITS_NOT_THUNDERING(9,"It's not thundering!"),
-        ITS_NOT_CLOUDY    (10,"It's cloudy!");
+        ITS_NOT_RAINING(6, "It's not raining!"),
+        ITS_NOT_WINDING(7, "It's not winding!"),
+        ITS_NOT_SUNNY(8, "It's not sunny!"),
+        ITS_NOT_THUNDERING(9, "It's not thundering!"),
+        ITS_NOT_CLOUDY(10, "It's cloudy!");
 
         private final int id;
         private final String message;
+
         Weather(final int id, final String message) {
-            this.id      = id;
+            this.id = id;
             this.message = message;
         }
 
-        /** Retorna o identificador inteiro desta constante. */
-        public int getId() { return this.id; }
+        /**
+         * Retorna o identificador inteiro desta constante.
+         */
+        public int getId() {
+            return this.id;
+        }
 
-        /** Retorna a mensagem legível associada a esta constante. */
-        public String getMessage() { return this.message; }
+        /**
+         * Retorna a mensagem legível associada a esta constante.
+         */
+        public String getMessage() {
+            return this.message;
+        }
     }
 
     /**
      * Retorna o {@link Weather} correspondente ao identificador fornecido.
-     *
+     * <p>
      * Observação: este metodo percorre todas as constantes do enum e compara
      * o campo {@code id}. Se nenhum valor corresponder, retorna {@code null}.
      *
      * @param id identificador do tempo (conforme definido nas constantes do enum)
      * @return o {@code Weather} correspondente, ou {@code null} se não houver correspondência
      * @throws ArrayIndexOutOfBoundsException se o id estiver fora de um intervalo
-     *         esperado (implementação atual verifica se id &gt; quantidade de constantes)
+     *                                        esperado (implementação atual verifica se id &gt; quantidade de constantes)
      */
     public Weather getWeatherType(final int id) throws ArrayIndexOutOfBoundsException {
         final Weather[] allWeather = Conditionals.Weather.values();
 
-        if(id > allWeather.length) throw new ArrayIndexOutOfBoundsException();
+        if (id > allWeather.length) throw new ArrayIndexOutOfBoundsException();
 
-        for(Weather weather : allWeather) {
-            if(weather.getId() == id) {
+        for (Weather weather : allWeather) {
+            if (weather.getId() == id) {
                 System.out.println(weather.getMessage());
                 return weather;
             }
@@ -88,7 +97,7 @@ public class Conditionals {
 
     /**
      * Converte um nome (string) no correspondente valor do enum {@link Weather}.
-     *
+     * <p>
      * Este metodo delega ao {@code Enum.valueOf} e, portanto, lança
      * {@link IllegalArgumentException} se o nome não corresponder a nenhuma
      * constante do enum (ou {@link NullPointerException} se o nome for nulo).
@@ -103,7 +112,7 @@ public class Conditionals {
 
     /**
      * Retorna um código de evento (string curta) para o {@link Weather} dado.
-     *
+     * <p>
      * Exemplos de retorno: "RAIN", "WIND", "SUN", "CLOUD".
      * Se o {@code weather} não corresponder a nenhum case conhecido, retorna
      * {@code "UNKNOWN"}.
@@ -115,24 +124,48 @@ public class Conditionals {
         switch (weather) {
             case ITS_RAINING:
                 return "RAIN";
-
             case ITS_WINDING:
                 return "WIND";
-
             case ITS_SUNNY:
                 return "SUN";
-
             case ITS_CLOUDY:
                 return "CLOUD";
-
             default:
                 return "UNKNOWN";
         }
     }
 
+    public static void strangeBooleanCondition() {
+        boolean b;
+        boolean bValue = (b = true);
+
+        // Avaliada como verdadeira
+        if (bValue) System.out.println("TRUE");
+        else System.out.println("FALSE");
+
+        if (bValue = false) System.out.println("TRUE");
+        else System.out.println("FALSE");
+
+        if (bValue == false) System.out.println("TRUE");
+        else System.out.println("FALSE");
+
+    }
+
+    public static void wrapperBooleanCondition() {
+        Boolean wrapperBoolean = new Boolean("true");
+
+        /* Válido */
+        boolean primitiveBoolean1 = wrapperBoolean.booleanValue();
+
+        /* Válido por causa do unboxing */
+        boolean primitiveBoolean2 = wrapperBoolean;
+
+        if (wrapperBoolean) System.out.println("Funciona em razão do unboxing");
+    }
+
     /**
      * metodo principal para demonstrar execução simples do exemplo.
-     *
+     * <p>
      * Usa um gerador de números aleatórios para escolher um índice e demonstra
      * chamadas aos metodos desta classe. As asserções servem apenas para
      * verificar comportamento durante desenvolvimento com a flag -ea ativada.
@@ -142,11 +175,15 @@ public class Conditionals {
     public static void main(String[] args) {
         final Conditionals conditionals = new Conditionals();
         // usa um id válido presente no enum para demonstrar a chamada
-        final int randomIndex           = Weather.ITS_SUNNY.getId();
+        final int randomIndex = Weather.ITS_SUNNY.getId();
 
         assert (conditionals.getWeatherEvent(Weather.ITS_SUNNY) != null) : "Weather event should not be null!";
-        assert (conditionals.getWeatherType(randomIndex)        != null) : "Weather type should not be null!";
+        assert (conditionals.getWeatherType(randomIndex) != null) : "Weather type should not be null!";
         // usa o nome exato da constante enum
-        assert (conditionals.getWeatherType("ITS_RAINING")    != null) : "Weather type should not be null!";
+        assert (conditionals.getWeatherType("ITS_RAINING") != null) : "Weather type should not be null!";
+
+        strangeBooleanCondition();
+        wrapperBooleanCondition();
     }
+
 }
