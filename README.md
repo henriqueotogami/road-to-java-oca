@@ -26,6 +26,12 @@
 <img src="https://img.shields.io/github/stars/henriqueotogami/road-to-java-oca?style=for-the-badge">
 <img src="https://img.shields.io/github/license/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
+<br>
+<div align="center">
+<img src="https://sonarcloud.io/api/project_badges/measure?project=henriqueotogami_road-to-java-oca&metric=alert_status">
+<img src="https://sonarcloud.io/api/project_badges/measure?project=henriqueotogami_road-to-java-oca&metric=bugs">
+<img src="https://sonarcloud.io/api/project_badges/measure?project=henriqueotogami_road-to-java-oca&metric=coverage">
+</div>
 <div align="center">
 <br>
 <a href="https://wakatime.com/badge/user/1e53636e-c916-4d50-9ce1-f3ac75a883e3/project/3a5e3f46-b18c-49e9-8b81-cda72611432d"><img src="https://wakatime.com/badge/user/1e53636e-c916-4d50-9ce1-f3ac75a883e3/project/3a5e3f46-b18c-49e9-8b81-cda72611432d.svg" alt="wakatime"></a>

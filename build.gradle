@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id "org.sonarqube" version "3.5.0.2730"
 }
 
 java {
@@ -15,5 +16,13 @@ tasks.withType(JavaCompile).configureEach {
 task hello {
     doLast {
         println("Hello, Gradle!")
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "henriqueotogami_road-to-java-oca"
+        property "sonar.organization", "henriqueotogami"
+        property "sonar.host.url", "https://sonarcloud.io"
     }
 }
