@@ -49,4 +49,10 @@ public class FishingSession {
     public String getCastResult() { return this.castResult; }
 
     public Fish getFishResult() { return this.fishResult; }
+
+    private String active = "inactive";
+
+    public void setSession(final String active) { this.active = active; }
+
+    public String getSession() { return this.active; }
 }

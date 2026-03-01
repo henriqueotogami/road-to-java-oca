@@ -7,6 +7,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * Esta classe demonstra o uso de um ArrayList para armazenar e iterar sobre uma lista de tamanhos de peixes. O metodo {@code main}
+ * cria um ArrayList de floats representando os tamanhos dos peixes, e então itera sobre a lista para exibir somente os peixes
+ * que são maiores do que um tamanho mínimo especificado.
+ *
+ * @author henriqueotogami
+ * @since 2026-03-01
+ * @version 1.0
+ */
 public class ValidBigFishes {
 
     // Nesse exercício, você iterará sobre um ArrayList de floats. Especificamente, exibirá
