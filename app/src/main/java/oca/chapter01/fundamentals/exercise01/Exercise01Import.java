@@ -20,6 +20,8 @@ import java.util.logging.*;
  */
 public class Exercise01Import {
 
+    private static final org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger(Exercise01Import.class);
+    
     public static void main(String[] args) throws IOException {
         Exercise01Import exercise01Import = new Exercise01Import();
         exercise01Import.createFileLog();
@@ -32,13 +34,13 @@ public class Exercise01Import {
      * @return true se o arquivo de log foi criado e as mensagens foram registradas com sucesso, false caso contrário.
      */
     public boolean createFileLog() {
-//        System.out.println("Exercise01Import - BEGIN");
+//        logger.info("Exercise01Import - BEGIN");
 
         try {
             /* Assegura que o diretório seja criado */
             Files.createDirectories(Paths.get("logs"));
         } catch (IOException e) {
-            System.out.println("Exercise01Import - Falha na criação do diretório logs");
+            logger.info("Exercise01Import - Falha na criação do diretório logs");
             return false;
         }
 
@@ -49,7 +51,7 @@ public class Exercise01Import {
 
         /* Define o nome do arquivo no diretório logs */
         String logFileName = "logs/testlog-" + date + ".txt";
-//        System.out.println("Nome do arquivo: " + logFileName);
+//        logger.info("Nome do arquivo: " + logFileName);
         FileHandler myFileHandler = null;
 
         try {
@@ -57,10 +59,10 @@ public class Exercise01Import {
             myFileHandler = new FileHandler(logFileName);
             myFileHandler.setFormatter(new SimpleFormatter());
         } catch (IOException e) {
-            System.out.println("Exercise01Import - Falha na criação do arquivo de log");
+            logger.info("Exercise01Import - Falha na criação do arquivo de log");
             return false;
         } catch (SecurityException e) {
-            System.out.println("Exercise01Import - Falha na permissão de impressão de logs  ");
+            logger.info("Exercise01Import - Falha na permissão de impressão de logs  ");
             return false;
         }
 
@@ -77,10 +79,10 @@ public class Exercise01Import {
             myFileHandler.close();
             Thread.sleep(500);
         } catch (InterruptedException e) {
-            System.out.println("Falha no salvamento do arquivo");
+            logger.info("Falha no salvamento do arquivo");
             return false;
         } finally {
-//            System.out.println("Exercise01Import - END");
+//            logger.info("Exercise01Import - END");
         }
 
         return true;

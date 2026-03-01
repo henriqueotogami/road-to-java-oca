@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.example03;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Classe representando um peixe, com um atributo para o tipo de peixe.
  * <p>
@@ -12,6 +15,8 @@ package oca.chapter02.primitives.example03;
  * @version 1.0
  */
 public class Fish {
+
+    private static final Logger logger = LogManager.getLogger(Fish.class);
 
     private String typeOfFish = "Striped Bass";
 

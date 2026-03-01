@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.example02;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Classe demonstrativa sobre estruturas condicionais em Java.
  * <p>
@@ -28,6 +31,8 @@ package oca.chapter02.primitives.example02;
  */
 public class Conditionals {
 
+    private static final Logger logger = LogManager.getLogger(Conditionals.class);
+    
     /**
      * Enum que representa diversos estados do tempo (weather).
      * Cada constante possui um identificador inteiro e uma mensagem legível.
@@ -88,7 +93,7 @@ public class Conditionals {
 
         for (Weather weather : allWeather) {
             if (weather.getId() == id) {
-                System.out.println(weather.getMessage());
+                logger.info(weather.getMessage());
                 return weather;
             }
         }
@@ -140,14 +145,14 @@ public class Conditionals {
         boolean bValue = (b = true);
 
         // Avaliada como verdadeira
-        if (bValue) System.out.println("TRUE");
-        else System.out.println("FALSE");
+        if (bValue) logger.info("TRUE");
+        else logger.info("FALSE");
 
-        if (bValue = false) System.out.println("TRUE");
-        else System.out.println("FALSE");
+        if (bValue = false) logger.info("TRUE");
+        else logger.info("FALSE");
 
-        if (bValue == false) System.out.println("TRUE");
-        else System.out.println("FALSE");
+        if (bValue == false) logger.info("TRUE");
+        else logger.info("FALSE");
 
     }
 
@@ -160,7 +165,7 @@ public class Conditionals {
         /* Válido por causa do unboxing */
         boolean primitiveBoolean2 = wrapperBoolean;
 
-        if (wrapperBoolean) System.out.println("Funciona em razão do unboxing");
+        if (wrapperBoolean) logger.info("Funciona em razão do unboxing");
     }
 
     /**

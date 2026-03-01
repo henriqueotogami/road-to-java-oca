@@ -3,6 +3,8 @@ package oca.chapter01.fundamentals.exercise02;
 import oca.chapter01.fundamentals.exercise02.planets.Earth;
 import oca.chapter01.fundamentals.exercise02.planets.Mars;
 import oca.chapter01.fundamentals.exercise02.planets.Venus;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * <br>Exercicio 2: Escreva um programa Java que imprima "Greetings, Universe!" no console.
@@ -14,6 +16,7 @@ import oca.chapter01.fundamentals.exercise02.planets.Venus;
  */
 public class Exercise02Compile {
 
+    private static final Logger logger = LogManager.getLogger(Exercise02Compile.class);
     private boolean loggingEnabled = false;
 
     /**
@@ -26,9 +29,9 @@ public class Exercise02Compile {
         final Exercise02Compile exercise = new Exercise02Compile();
         exercise.setLoggingEnabled(true);
         if (exercise.startUniverse()) {
-            if(exercise.isLoggingEnabled()) System.out.println("Universe started successfully!");
+            if(exercise.isLoggingEnabled()) logger.info("Universe started successfully!");
         } else {
-            if(exercise.isLoggingEnabled()) System.out.println("Failed to start the universe.");
+            if(exercise.isLoggingEnabled()) logger.info("Failed to start the universe.");
         }
     }
 
@@ -43,21 +46,21 @@ public class Exercise02Compile {
             final Venus venus   = new Venus();
 
             if(isLoggingEnabled()) {
-                System.out.println("Greetings, Universe!");
+                logger.info("Greetings, Universe!");
 
                 earth.sayHello();
                 mars.sayHello();
                 venus.sayHello();
 
-                System.out.println("Is Earth habitable? "   + earth.isHabitable());
-                System.out.println("Is Mars habitable? "    + mars.isHabitable());
-                System.out.println("Is Venus habitable? "   + venus.isHabitable());
+                logger.info("Is Earth habitable? {}", earth.isHabitable());
+                logger.info("Is Mars habitable?  {}", mars.isHabitable());
+                logger.info("Is Venus habitable? {}", venus.isHabitable());
             }
 
             return true;
 
         } catch (Exception e) {
-            if(isLoggingEnabled()) System.out.println("An error occurred while starting the universe: " + e.getMessage());
+            if(isLoggingEnabled()) logger.info("An error occurred while starting the universe: " + e.getMessage());
             return false;
         }
     }

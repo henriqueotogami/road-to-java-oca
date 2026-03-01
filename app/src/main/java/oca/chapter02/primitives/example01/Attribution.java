@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.example01;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * <br>Classe de exemplo para demonstrar atribuições em Java.
  * <br>Esta classe é importante para ilustrar como as atribuições funcionam em Java, incluindo a declaração de variáveis, a atribuição de valores e o uso de operadores de atribuição.
@@ -9,6 +12,8 @@ package oca.chapter02.primitives.example01;
  * @version 0.4
  */
 public class Attribution {
+
+    private static final Logger logger = LogManager.getLogger(Attribution.class);
 
     private int degrees = 0; // Declaração de um inteiro
     private int totalFish; // Declaração de um inteiro sem inicialização

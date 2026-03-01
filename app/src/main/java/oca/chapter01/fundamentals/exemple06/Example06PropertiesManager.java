@@ -1,5 +1,8 @@
 package oca.chapter01.fundamentals.exemple06;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Properties;
 
 /**
@@ -11,6 +14,8 @@ import java.util.Properties;
  * @see <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Properties.html">Java Properties Documentation</a>
  */
 public class Example06PropertiesManager {
+
+    private static final Logger logger = LogManager.getLogger(Example06PropertiesManager.class);
 
     public static void main(String[] args) {
 
@@ -31,12 +36,12 @@ public class Example06PropertiesManager {
 
             case "-list_prop":
                 /* Lista valor */
-                System.out.println(props.getProperty(args[1]));
+                logger.info(props.getProperty(args[1]));
                 break;
 
             default:
-                System.out.println("Usage: java PropertiesManager[-list_all]");
-                System.out.println(" java PropertiesManager[-list_prop[property]]");
+                logger.info("Usage: java PropertiesManager[-list_all]");
+                logger.info(" java PropertiesManager[-list_prop[property]]");
                 break;
         }
     }

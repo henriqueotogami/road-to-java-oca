@@ -1,5 +1,8 @@
 package oca.chapter01.fundamentals.exemple01; // -> Declara o pacote de Fundamentos
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList; // Importa a classe ArrayList a partir do pacote java.util
 import java.io.*;           // Importa todas as classes do pacote java.io
 import java.util.Scanner;
@@ -13,26 +16,33 @@ import java.util.Scanner;
  */
 public class Example01PackageImport {
 
+    private static final Logger logger = LogManager.getLogger(Example01PackageImport.class);
+
     public static void main(String[] args) {
+        Example01PackageImport example = new Example01PackageImport();
+        example.generateCoolPlanets();
+    }
+
+    private void generateCoolPlanets() {
         Console console = System.console();// Cria um console a partir do pacote java.io – execute fora de seu IDE
         String planet   = "";
 
         final boolean isExecutingViaIDE = (console == null);
 
         if(isExecutingViaIDE) {
-            System.out.printf("Executando via IDE\r\n");
             Scanner scanner = new Scanner(System.in);
-            System.out.print(" \nEnter your favorite planet: ");
-            planet          = scanner.nextLine();
+            logger.info("Executando via IDE\n");
+            logger.info("nEnter your favorite planet: ");
+            planet = scanner.nextLine();
         } else {
 //          Aqui entra quando eh executado via javac
-            System.out.printf("Executando via console\r\n");
-            planet          = console.readLine(" \nEnter your favorite planet:");
+            logger.info("Executando via console\r\n");
+            planet = console.readLine(" \nEnter your favorite planet:");
         }
-        ArrayList planetList    = new ArrayList();                  // Cria lista de planetas
-        planetList.add(planet);                                     // Adiciona a entrada do usuário à lista
-        planetList.add("Gliese 581 c");                             // Adiciona uma string à lista
-        System.out.println("\nTwo cool planets: " + planetList);
+        ArrayList planetList = new ArrayList();    // Cria lista de planetas
+        planetList.add(planet);                    // Adiciona a entrada do usuário à lista
+        planetList.add("Gliese 581 c");            // Adiciona uma string à lista
+        logger.info("\nTwo cool planets: {}", planetList);
     }
 //    $ Enter your favorite planet: Jupiter
 //    $ Two cool planets: [Jupiter, Gliese 581 c]

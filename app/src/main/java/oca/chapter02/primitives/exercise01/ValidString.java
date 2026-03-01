@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.exercise01;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 /**
@@ -14,6 +17,8 @@ import java.util.Scanner;
  */
 public class ValidString {
 
+    private static final Logger logger = LogManager.getLogger(ValidString.class);
+    
     // Construa um programa pequeno que demonstre o uso da classe String sendo avaliada
     // em uma instrução switch. Siga o modelo que é usado para a instrução switch com os
     // outros tipos de dados e seu aplicativo será executado corretamente.
@@ -29,10 +34,10 @@ public class ValidString {
     private void hasSizeValid(String userInput) {
         switch(userInput.length()) {
             case 5:
-                System.out.println("This string has 5 characters.");
+                logger.info("This string has 5 characters.");
                 break;
             default:
-                System.out.println("This string does not have 5 characters.");
+                logger.info("This string does not have 5 characters.");
                 break;
         }
     }
@@ -40,10 +45,10 @@ public class ValidString {
     private void isInputValid(String userInput) {
         switch(userInput) {
             case "valid":
-                System.out.println("This string is valid.");
+                logger.info("This string is valid.");
                 break;
             default:
-                System.out.println("This string is not valid.");
+                logger.info("This string is not valid.");
                 break;
         }
     }

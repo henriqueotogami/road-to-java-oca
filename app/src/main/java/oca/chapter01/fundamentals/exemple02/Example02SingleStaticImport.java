@@ -1,6 +1,9 @@
 package oca.chapter01.fundamentals.exemple02;
 
 /* Importa o membro estático ITALY */
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import static java.util.Locale.ITALY;
 
 /**
@@ -12,7 +15,9 @@ import static java.util.Locale.ITALY;
  */
 public class Example02SingleStaticImport {
 
+    private static final Logger logger = LogManager.getLogger(Example02SingleStaticImport.class);
+
     public static void main(String[] args) {
-            System.out.println("Locale: " + ITALY); // Exibe "Local: it_IT"
+            logger.info("Locale: {}", ITALY); // Exibe "Local: it_IT"
     }
 }

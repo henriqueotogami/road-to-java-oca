@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.example03;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Classe representando uma sessão de pesca, onde o metodo {@code setCatch()}
  * simula o lançamento da linha e determina o resultado do lançamento (peixe,
@@ -14,6 +17,8 @@ package oca.chapter02.primitives.example03;
  * @version 1.0
  */
 public class FishingSession {
+
+    private static final Logger logger = LogManager.getLogger(FishingSession.class);
 
     private String castResult;
     private Fish fishResult;

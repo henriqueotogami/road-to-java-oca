@@ -1,5 +1,10 @@
 package oca.chapter02.primitives.example03;
 
+import org.apache.logging.log4j.EventLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.impl.Log4jLogEvent;
+
 /**
  * Classe demonstrativa sobre estruturas condicionais em Java, usando um cenário
  * de pesca para ilustrar o uso de if-else.
@@ -19,6 +24,7 @@ package oca.chapter02.primitives.example03;
  */
 public class FishingTrip {
 
+    private final Logger logger                 = LogManager.getLogger(FishingTrip.class);
     private final FishingSession fishingSession = new FishingSession();
 
     /**
@@ -32,19 +38,18 @@ public class FishingTrip {
     public void castForFish() {
 
         fishingSession.setCatch();
-        String resultOfCast = fishingSession.getCastResult();
+        final String resultOfCast = fishingSession.getCastResult();
 
         if (resultOfCast.equals("fish")) {
-            Fish keeperFish = new Fish();
-            keeperFish = fishingSession.getFishResult();
-            String type = keeperFish.getTypeOfFish();
-            System.out.println("Wahoo! Keeper fish: " + type);
+            final Fish keeperFish   = fishingSession.getFishResult();
+            final String type       = keeperFish.getTypeOfFish();
+            logger.info("Wahoo! Keeper fish: {}", type);
         } else if (resultOfCast.equals("shark")) {
-            System.out.println("Need to throw this one back!");
+            logger.info("Need to throw this one back!");
         } else if (resultOfCast.equals("skate")) {
-            System.out.println("Yuck, Leo can take this one off the hook!");
+            logger.info("Yuck, Leo can take this one off the hook!");
         } else {
-            System.out.println("Darn, no catch!");
+            logger.info("Darn, no catch!");
         }
     }
 

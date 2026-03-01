@@ -1,5 +1,8 @@
 package oca.chapter01.fundamentals.exemple04;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * <br>Classe abstrata que define as características básicas de uma nave.
  * <br>Esta classe é estendida pela classe Example04Spaceship, que representa uma nave espacial específica.
@@ -12,11 +15,13 @@ package oca.chapter01.fundamentals.exemple04;
  */
 public abstract class Example04Ship {
 
+    private static final Logger logger = LogManager.getLogger( Example04Ship.class);
+
     public enum ShipType {
         FRIGATE, BATTLESHIP, MINELAYER, ESCORT, DEFENSE
     }
 
     public Example04Ship() {
-        System.out.println("\nExample04Ship() - Ship created with default ship type.");
+        logger.info("\nExample04Ship() - Ship created with default ship type.");
     }
 }

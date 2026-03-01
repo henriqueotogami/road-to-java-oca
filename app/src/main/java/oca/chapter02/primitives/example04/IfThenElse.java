@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.example04;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Classe demonstrativa sobre estruturas condicionais em Java, comparando o uso
  * tradicional de if-else com a expressão ternária.
@@ -16,6 +19,8 @@ package oca.chapter02.primitives.example04;
  */
 public class IfThenElse {
 
+    private static final Logger logger = LogManager.getLogger(IfThenElse.class);
+    
     public static void main(String[] args) {
         final IfThenElse ifThenElse = new IfThenElse();
         ifThenElse.defaultIfElse();
@@ -25,7 +30,7 @@ public class IfThenElse {
     private void ternaryIfElse() {
         final int x = -5;
         final int valorAbsoluto = (x > 0) ? x : -x;
-        System.out.println(valorAbsoluto);
+        logger.info(valorAbsoluto);
     }
 
     public void defaultIfElse() {
@@ -37,6 +42,6 @@ public class IfThenElse {
         else{
             valorAbsoluto = -x;
         }
-        System.out.println(valorAbsoluto);
+        logger.info(valorAbsoluto);
     }
 }

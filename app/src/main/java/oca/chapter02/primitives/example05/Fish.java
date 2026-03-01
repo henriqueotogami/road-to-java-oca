@@ -1,5 +1,8 @@
 package oca.chapter02.primitives.example05;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Random;
 
 /**
@@ -13,6 +16,8 @@ import java.util.Random;
  */
 public class Fish {
 
+    private static final Logger logger = LogManager.getLogger(Fish.class);
+    
     public String generateRandomFish() {
         String randomFish;
         Random randomObject = new Random();
@@ -37,7 +42,7 @@ public class Fish {
     public static void main(String[] args) {
         final Fish fish = new Fish();
         for (int i = 0; i < 10; i++) {
-            System.out.println(fish.generateRandomFish());
+            logger.info(fish.generateRandomFish());
         }
     }
 }
