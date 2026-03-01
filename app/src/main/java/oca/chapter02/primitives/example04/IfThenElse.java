@@ -1,8 +1,28 @@
 package oca.chapter02.primitives.example04;
 
-public class Ternary {
+/**
+ * Classe demonstrativa sobre estruturas condicionais em Java, comparando o uso
+ * tradicional de if-else com a expressão ternária.
+ * <p>
+ * Esta classe contém dois metodos, {@code defaultIfElse()} e {@code ternaryIfElse()},
+ * que ambos calculam o valor absoluto de um número inteiro. O metodo
+ * {@code defaultIfElse()} utiliza a estrutura tradicional de if-else, enquanto o
+ * metodo {@code ternaryIfElse()} utiliza a expressão ternária para obter o mesmo
+ * resultado de forma mais concisa.
+ *
+ * @author henriqueotogami
+ * @since 2026-02-27
+ * @version 1.0
+ */
+public class IfThenElse {
 
     public static void main(String[] args) {
+        final IfThenElse ifThenElse = new IfThenElse();
+        ifThenElse.defaultIfElse();
+        ifThenElse.ternaryIfElse();
+    }
+
+    private void ternaryIfElse() {
         final int x = -5;
         final int valorAbsoluto = (x > 0) ? x : -x;
         System.out.println(valorAbsoluto);
