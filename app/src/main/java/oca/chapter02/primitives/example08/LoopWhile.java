@@ -31,6 +31,7 @@ public class LoopWhile {
             this.castForFish(); // Atualiza a variável de instância fishLimit
             if (this.fishLimit == 10) {
                 fishingSession.setSession("inactive");
+                logger.info("Limite de espera por peixes");
             }
         }
     }
