@@ -1,5 +1,8 @@
 package oca.chapter01.fundamentals.exemple04;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * <br>Exemplo de simulador de nave espacial em Java.
  * <br>Esta classe cria objetos da classe Example04Spaceship e exibe suas informações.
@@ -12,18 +15,20 @@ package oca.chapter01.fundamentals.exemple04;
  */
 public class Example04SpaceshipSimulator {
 
+    private static final Logger logger = LogManager.getLogger(Example04SpaceshipSimulator.class);
+
     public static void main(String[] args) {
 
         // Cria um objeto SpaceShip com o tipo de nave padrão
         Example04Spaceship ship1 = new Example04Spaceship ();
 
         // Exibe "The pirate ship is a battleship."
-        System.out.println(ship1);
+        logger.info(ship1);
 
         // Cria um objeto SpaceShip com o tipo de nave especificado
         Example04Spaceship ship2 = new Example04Spaceship (Example04Spaceship.ShipType.FRIGATE);
 
         // Exibe "The pirate ship is a frigate ship."
-        System.out.println(ship2);
+        logger.info(ship2);
     }
 }

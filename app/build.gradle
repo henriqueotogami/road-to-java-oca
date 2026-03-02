@@ -17,6 +17,8 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    implementation 'org.apache.logging.log4j:log4j-api:2.25.3'
+    implementation 'org.apache.logging.log4j:log4j-core:2.25.3'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -32,7 +34,7 @@ application {
 }
 
 check {
-    dependsOn    'chapter01'
+    dependsOn 'chapter01', 'chapter02'
 }
 
 tasks.register('chapter01', Test) {
@@ -43,5 +45,16 @@ tasks.register('chapter01', Test) {
 
     filter {
         includeTestsMatching "oca.chapter01.*"
+    }
+}
+
+tasks.register('chapter02', Test) {
+    description = "Run Chapter 02 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter02.*"
     }
 }

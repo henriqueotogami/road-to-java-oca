@@ -1,5 +1,8 @@
 package oca.chapter01.fundamentals.exemple04;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * <br>Classe que representa uma nave espacial, estendendo a classe abstrata Example04Ship e implementando a interface Example04Dockable.
  * <br>Esta classe define o tipo de nave e o comportamento de acoplamento para a nave espacial.
@@ -13,6 +16,8 @@ package oca.chapter01.fundamentals.exemple04;
  */
 public class Example04Spaceship extends Example04Ship implements Example04Dockable {
 
+    private static final Logger logger = LogManager.getLogger(Example04Spaceship.class);
+
     ShipType shipType = ShipType.BATTLESHIP;
 
     public Example04Spaceship() {
@@ -20,13 +25,13 @@ public class Example04Spaceship extends Example04Ship implements Example04Dockab
     }
 
     public Example04Spaceship(final ShipType shipType) {
-        System.out.println("\nExample04Spaceship - SpaceShip created with specified ship type.");
+        logger.info("\nExample04Spaceship - SpaceShip created with specified ship type.");
         this.shipType = shipType;
     }
 
     @Override
     public void dockShip () {
-        System.out.println("\ndockShip () - Docking the ship...");
+        logger.info("\ndockShip () - Docking the ship...");
     }
 
     @Override

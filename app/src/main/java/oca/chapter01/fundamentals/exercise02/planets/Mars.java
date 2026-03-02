@@ -1,6 +1,8 @@
 package oca.chapter01.fundamentals.exercise02.planets;
 
 import oca.chapter01.fundamentals.exercise02.Planet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * <br>Classe representando o planeta Marte.
@@ -13,13 +15,15 @@ import oca.chapter01.fundamentals.exercise02.Planet;
  */
 public class Mars implements Planet {
 
+    private static final Logger logger = LogManager.getLogger(Mars.class);
+    
     public Mars() {
-//        System.out.println("Mars was born!");
+//        logger.info("Mars was born!");
     }
 
     @Override
     public void sayHello() {
-        System.out.println("Hello from Mars!");
+        logger.info("Hello from Mars!");
     }
 
     @Override

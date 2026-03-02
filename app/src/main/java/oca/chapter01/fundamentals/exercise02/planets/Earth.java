@@ -1,6 +1,8 @@
 package oca.chapter01.fundamentals.exercise02.planets;
 
 import oca.chapter01.fundamentals.exercise02.Planet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * <br>Classe representando o planeta Terra.
@@ -13,14 +15,15 @@ import oca.chapter01.fundamentals.exercise02.Planet;
  */
 public class Earth implements Planet {
 
+    private static final Logger logger = LogManager.getLogger(Earth.class);
     private boolean loggingEnabled = false;
 
     public Earth() {
-//        System.out.println("Earth was born!");
+//        logger.info("Earth was born!");
     }
 
     public void sayHello() {
-        System.out.println("Hello from Earth!");
+        logger.info("Hello from Earth!");
     }
 
     public boolean isHabitable() { return true; }

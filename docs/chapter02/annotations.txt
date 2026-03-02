@@ -1,0 +1,18 @@
+Data 23/02/2026
+Instruções Java:
+- break:                    Usada para sair de uma instrução switch ou de um laço
+- case:                     Usada como parte da instrução switch para executar instruções quando seu valor for igual ao valor condicional da instrução switch
+- continue:                 Usada para terminar a iteração atual de um laço do-while, while ou for e iniciar a próxima iteração
+- while:                    Usada para iterações baseadas em uma condição
+- do-while:                 Usada para iterações baseadas em uma condição, mas o corpo é executado pelo menos uma vez.
+- instrução de expressão:   Usada para atribuir um valor a uma variável ou para chamar um método
+- for:                      Usada para iterações baseadas em uma condição
+- for melhorado:            Usada para iterar sobre um objeto ou array iterável
+- if:                       Usada para execução condicional de instruções
+- if-then:                  Usada para execução condicional de instruções, com o fornecimento de várias condições
+- if-then-else:             Usada para execução condicional de instruções, com o fornecimento de várias condições e execução até o final, quando nenhuma condição for atendida
+- return:                   Usada para sair de um método e retornar um valor
+- switch:                   Usada para código ramificado baseado em condições
+
+Acima estão listadas apenas as instruções indicadas no livro como importantes para o OCA
+

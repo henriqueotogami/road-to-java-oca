@@ -1,6 +1,8 @@
 package oca.chapter01.fundamentals.exercise02.planets;
 
 import oca.chapter01.fundamentals.exercise02.Planet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * <br>Classe representando o planeta Venus.
@@ -13,13 +15,15 @@ import oca.chapter01.fundamentals.exercise02.Planet;
  */
 public class Venus implements Planet {
 
+    private static final Logger logger = LogManager.getLogger(Venus.class);
+    
     public Venus() {
-//        System.out.println("Venus was born!");
+//        logger.info("Venus was born!");
     }
 
     @Override
     public void sayHello() {
-        System.out.println("Hello from Venus!");
+        logger.info("Hello from Venus!");
     }
 
     @Override

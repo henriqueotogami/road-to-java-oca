@@ -1,0 +1,192 @@
+Teste Final - Capítulo 02
+Data: 01/03/2026
+
+01.Qual desses itens não é um tipo de instrução?
+
+A. Instrução condicional
+B. Instrução de atribuição
+C. Instrução de iteração
+D. Instrução de propagação
+
+Resposta Henrique: Alternativa D - ok
+
+=====================================================================================================================
+
+02. De que tipo de instrução é a equação a seguir: y = (m*x) + b?
+
+A. Instrução condicional
+B. Instrução de atribuição
+C. Instrução de asserção
+D. Instrução de transferência de controle
+
+Resposta Henrique: Alternativa B - ok
+
+=====================================================================================================================
+
+03. Que instruções estão declarando corretamente variáveis booleanas?
+
+A. Boolean isValid = true;
+B. boolean isValid = TRUE;
+C. boolean isValid = new Boolean (true);
+D. boolean isValid = 1;
+
+Resposta Henrique: Alternativas A e C - ok
+
+=====================================================================================================================
+
+04. Se x tiver sido declarada com um inteiro válido, que instrução condicional não será compilada?
+
+A. if (x == 0) { System.out.println("True Statement"); }
+B. if (x == 0) { System.out.println("False Statement"); }
+C. if (x == 0) {;} elseif (x == 1) {System.out.println("Valid Statement");}
+D. if (x == 0) ; else if (x == 1){} else {;}
+
+Resposta Henrique: Alternativa D - nok
+
+=====================================================================================================================
+
+05. Uma instrução switch opera com que tipo(s) de classe wrapper/referência?
+
+A. Character
+B. Byte
+C. Short
+D. Int
+
+Resposta Henrique: Alternativa B, C e D - nok
+
+=====================================================================================================================
+
+06. Qual das instruções a seguir não será compilada?
+
+A. if (true) ;
+B. if (true) {}
+C. if (true) {;}
+D. if (true) {;;}
+E. if (true) ;{};
+F. Todas as instruções serão compiladas.
+
+Resposta Henrique: Alternativa E - nok
+
+=====================================================================================================================
+
+07. Dado o código:
+
+public class Dinner {
+    public static void main (String[] args)
+    {
+        boolean isKeeperFish = false;
+        if (isKeeperFish = true) {
+            System.out.println("Fish for dinner");
+        } else {
+            System.out.println("Take out for dinner");
+        }
+    }
+}
+
+Qual será o resultado da execução do aplicativo?
+
+A. Será exibido Fish for dinner.
+B. Será exibido Take out for dinner.
+C. Ocorrerá um erro de compilação.
+
+Resposta Henrique: Alternativa B - nok
+
+=====================================================================================================================
+
+08. Dado o código:
+
+int x = 1;
+String result = (x <= 1) ? "We are set for takeoff. " : "Launch Aborted!";
+
+Após sua execução, o que estará armazenado na variável result?
+
+A. We are set for takeoff.
+B. Launch Aborted!
+C. Ocorrerá um erro de compilação.
+
+Resposta Henrique: Alternativa A - ok
+
+=====================================================================================================================
+
+09.Dado o código:
+
+int cartwheelsInAMinute = 30;
+
+if (cartwheelsInAMinute > 48) {
+    System.out.println("New world record!");
+} else if (cartwheelsInAMinute > 30 && cartwheelsInAMinute <= 48) {
+    System.out.println("Awesome Job!");
+} else if (cartwheelsInAMinute > 0 && cartwheelsInAMinute <= 30) {
+    System.out.println("Still impressive!");
+} else {
+    System.out.println("Keep trying!");
+}
+
+Selecione a resposta correta.
+
+A. Será exibido New world record!
+B. Será exibido Awesome Job!
+C. Será exibido Still impressive!
+D. Será exibido Keep trying!
+
+Resposta Henrique: Alternativa C - ok
+
+=====================================================================================================================
+
+10.Você precisa atualizar um valor de uma tabela hash (isto é, HashMap) em que a chave primária deve ser igual a uma
+string especificada. Que instruções teria que usar na implementação desse algoritmo?
+
+A. Instrução de iteração
+B. Instrução de expressão
+C. Instrução condicional
+D. Instrução de transferência de controle
+
+Resposta Henrique: Alternativas A, C e D - nok
+
+=====================================================================================================================
+
+11. Que palavra-chave faz parte de uma instrução de transferência de controle?
+
+A. if
+B. return
+C. do
+D. assert
+
+Resposta Henrique: Alternativa B - ok
+
+=====================================================================================================================
+
+12.Dado o código:
+
+boolean isValid = true;
+
+while (isValid){
+    isValid = false;
+    System.out.print("test1 ");
+
+    if (isValid = true) {
+        System.out.println("test2 ");
+        break;
+    }
+
+isValid = false;
+System.out.println("test3");
+
+}
+}
+
+O que será exibido?
+
+A. Nada será exibido.
+B. test1 será exibido.
+C. test1 test2 será exibido.
+D. test1 test2 test3 será exibido.
+
+Resposta Henrique: Alternativa D - nok
+
+=====================================================================================================================
+
+Resultado
+
+Acertos: 06
+Erros:   06
