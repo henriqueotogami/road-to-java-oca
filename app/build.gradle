@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'jacoco'
 }
 
 repositories {
@@ -19,6 +20,30 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     implementation 'org.apache.logging.log4j:log4j-api:2.25.3'
     implementation 'org.apache.logging.log4j:log4j-core:2.25.3'
+}
+
+test {
+    useJUnitPlatform()
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+sonarqube {
+    properties {
+        // Ajustar caminho para o módulo app
+        property "sonar.sources", "app/src/main/java"
+        property "sonar.tests", "app/src/test/java"
+        property "sonar.junit.reportPaths", "app/build/test-results/test"
+        property "sonar.coverage.jacoco.xmlReportPaths", "app/build/reports/jacoco/test/jacocoTestReport.xml"
+    }
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

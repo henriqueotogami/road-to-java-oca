@@ -14,7 +14,6 @@ import org.junit.jupiter.api.TestMethodOrder;
  * @since 2026-02-23
  * @version 0.4
  * @see Attribution
- * @throws Exception
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
 public class AttributionTest {
@@ -27,11 +26,10 @@ public class AttributionTest {
      * @since 2026-02-23
      * @version 0.4
      * @see Attribution
-     * @throws Exception
      */
     @Test
     @Order(1)
-    public void fishTest() {
+    void fishTest() {
         Attribution attribution = new Attribution();
         attribution.setDefaultDegrees();
         attribution.sumFishes(100, 50);
