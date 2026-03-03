@@ -1,28 +1,94 @@
 plugins {
     id 'java'
     id 'application'
+    id 'jacoco'
     id "org.sonarqube" version "3.5.0.2730"
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    implementation 'org.apache.logging.log4j:log4j-api:2.25.3'
+    implementation 'org.apache.logging.log4j:log4j-core:2.25.3'
+}
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "henriqueotogami_road-to-java-oca"
+        property "sonar.organization", "henriqueotogami"
+        property "sonar.host.url", "https://sonarcloud.io"
+
+        property "sonar.sources", "src/main/java"
+        property "sonar.tests", "src/test/java"
+        property "sonar.junit.reportPaths", "build/test-results/test"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    }
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'org.example.App'
+}
+
+check {
+    dependsOn 'chapter01', 'chapter02'
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-task hello {
+tasks.register('hello') {
     doLast {
         println("Hello, Gradle!")
     }
 }
 
-sonarqube {
-    properties {
-        property "sonar.projectKey", "henriqueotogami_road-to-java-oca"
-        property "sonar.organization", "henriqueotogami"
-        property "sonar.host.url", "https://sonarcloud.io"
+tasks.register('chapter01', Test) {
+    description = "Run Chapter 01 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter01.*"
+    }
+}
+
+tasks.register('chapter02', Test) {
+    description = "Run Chapter 02 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter02.*"
     }
 }

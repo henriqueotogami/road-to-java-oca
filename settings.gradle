@@ -11,4 +11,3 @@
 //}
 
 rootProject.name = 'road-to-java-oca'
-include('app')
