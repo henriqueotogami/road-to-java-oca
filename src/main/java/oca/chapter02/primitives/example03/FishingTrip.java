@@ -5,6 +5,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
  * Classe demonstrativa sobre estruturas condicionais em Java, usando um cenário
  * de pesca para ilustrar o uso de if-else.
@@ -37,19 +39,24 @@ public class FishingTrip {
      */
     public void castForFish() {
 
-        fishingSession.setCatch();
-        final String resultOfCast = fishingSession.getCastResult();
+        try {
+            fishingSession.setCatch();
 
-        if (resultOfCast.equals("fish")) {
-            final Fish keeperFish   = fishingSession.getFishResult();
-            final String type       = keeperFish.getTypeOfFish();
-            logger.info("Wahoo! Keeper fish: {}", type);
-        } else if (resultOfCast.equals("shark")) {
-            logger.info("Need to throw this one back!");
-        } else if (resultOfCast.equals("skate")) {
-            logger.info("Yuck, Leo can take this one off the hook!");
-        } else {
-            logger.info("Darn, no catch!");
+            final String resultOfCast = fishingSession.getCastResult();
+
+            if (resultOfCast.equals("fish")) {
+                final Fish keeperFish   = fishingSession.getFishResult();
+                final String type       = keeperFish.getTypeOfFish();
+                logger.info("Wahoo! Keeper fish: {}", type);
+            } else if (resultOfCast.equals("shark")) {
+                logger.info("Need to throw this one back!");
+            } else if (resultOfCast.equals("skate")) {
+                logger.info("Yuck, Leo can take this one off the hook!");
+            } else {
+                logger.info("Darn, no catch!");
+            }
+        } catch (NoSuchAlgorithmException e) {
+            logger.error(e.getMessage());
         }
     }
 
