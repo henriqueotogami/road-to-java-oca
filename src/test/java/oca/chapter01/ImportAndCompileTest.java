@@ -16,7 +16,6 @@ import org.junit.jupiter.api.TestMethodOrder;
  * @version 1.0
  * @see Exercise01Import
  * @see Exercise02Compile
- * @throws Exception
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
 public class ImportAndCompileTest {
@@ -29,11 +28,10 @@ public class ImportAndCompileTest {
      * @since 2026-02-22
      * @version 1.0
      * @see Exercise01Import
-     * @throws Exception
      */
     @Test
     @Order(1)
-    public void exercise01ImportTest() throws Exception {
+    void exercise01ImportTest() {
         final Exercise01Import exercise = new Exercise01Import();
         final boolean hasCreatedFile    = exercise.createFileLog();
         Assertions.assertTrue(hasCreatedFile, "Expected log file to be created successfully");
@@ -47,11 +45,10 @@ public class ImportAndCompileTest {
      * @since 2026-02-22
      * @version 1.0
      * @see Exercise02Compile
-     * @throws Exception
      */
     @Test
     @Order(2)
-    public void exercise02CompileTest() throws Exception {
+    void exercise02CompileTest() {
         final Exercise02Compile exercise = new Exercise02Compile();
         final boolean hasStartedUniverse = exercise.startUniverse();
         Assertions.assertTrue(hasStartedUniverse, "Expected universe to start successfully");

@@ -3,6 +3,9 @@ package oca.chapter02.primitives.example03;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 /**
  * Classe representando uma sessão de pesca, onde o metodo {@code setCatch()}
  * simula o lançamento da linha e determina o resultado do lançamento (peixe,
@@ -29,9 +32,9 @@ public class FishingSession {
      * "no catch". Se um peixe for pego, ele também cria uma instância de {@link Fish}
      * e define o tipo de peixe como "trout".
      */
-    public void setCatch() {
+    public void setCatch() throws NoSuchAlgorithmException {
 
-        double random = Math.random();
+        double random = SecureRandom.getInstanceStrong().nextDouble();
 
         if (random < 0.25) {
             castResult = "fish";

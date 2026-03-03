@@ -3,6 +3,7 @@ package oca.chapter02.primitives.example05;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -20,7 +21,7 @@ public class Fish {
     
     public String generateRandomFish() {
         String randomFish;
-        Random randomObject = new Random();
+        SecureRandom randomObject = new SecureRandom();
         int randomNumber = randomObject.nextInt(4);
         switch (randomNumber) {
             case 0:
