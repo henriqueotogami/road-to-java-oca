@@ -21,7 +21,7 @@ public abstract class Example04Ship {
         FRIGATE, BATTLESHIP, MINELAYER, ESCORT, DEFENSE
     }
 
-    public Example04Ship() {
+    protected Example04Ship() {
         logger.info("\nExample04Ship() - Ship created with default ship type.");
     }
 }
