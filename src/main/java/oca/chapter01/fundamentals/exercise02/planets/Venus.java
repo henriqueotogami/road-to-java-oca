@@ -18,7 +18,7 @@ public class Venus implements Planet {
     private static final Logger logger = LogManager.getLogger(Venus.class);
     
     public Venus() {
-//        logger.info("Venus was born!");
+        logger.info("Venus was born!");
     }
 
     @Override

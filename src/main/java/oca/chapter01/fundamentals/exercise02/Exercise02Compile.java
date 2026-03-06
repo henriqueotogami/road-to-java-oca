@@ -45,17 +45,15 @@ public class Exercise02Compile {
             final Mars mars     = new Mars();
             final Venus venus   = new Venus();
 
-            if(isLoggingEnabled()) {
-                logger.info("Greetings, Universe!");
+            logger.info("Greetings, Universe!");
 
-                earth.sayHello();
-                mars.sayHello();
-                venus.sayHello();
+            earth.sayHello();
+            mars.sayHello();
+            venus.sayHello();
 
-                logger.info("Is Earth habitable? {}", earth.isHabitable());
-                logger.info("Is Mars habitable?  {}", mars.isHabitable());
-                logger.info("Is Venus habitable? {}", venus.isHabitable());
-            }
+            logger.info("Is Earth habitable? {}", earth.isHabitable());
+            logger.info("Is Mars habitable?  {}", mars.isHabitable());
+            logger.info("Is Venus habitable? {}", venus.isHabitable());
 
             return true;
 

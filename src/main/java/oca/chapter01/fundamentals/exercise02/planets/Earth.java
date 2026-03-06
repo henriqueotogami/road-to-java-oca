@@ -19,7 +19,7 @@ public class Earth implements Planet {
     private boolean loggingEnabled = false;
 
     public Earth() {
-//        logger.info("Earth was born!");
+        logger.info("Earth was born!");
     }
 
     public void sayHello() {

@@ -18,7 +18,7 @@ public class Mars implements Planet {
     private static final Logger logger = LogManager.getLogger(Mars.class);
     
     public Mars() {
-//        logger.info("Mars was born!");
+        logger.info("Mars was born!");
     }
 
     @Override
