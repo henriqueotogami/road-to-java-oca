@@ -21,7 +21,7 @@ public class Study01StringTokenizer {
         final StringTokenizer stringTokenizer = new StringTokenizer("um,dois,três", ",");
 
         while (stringTokenizer.hasMoreTokens()) {
-            System.out.println(stringTokenizer.nextToken());
+            logger.info(stringTokenizer.nextToken());
         }
 
     }
