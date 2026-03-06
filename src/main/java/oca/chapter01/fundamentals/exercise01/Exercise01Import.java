@@ -22,7 +22,7 @@ public class Exercise01Import {
 
     private static final org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger(Exercise01Import.class);
     
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Exercise01Import exercise01Import = new Exercise01Import();
         exercise01Import.createFileLog();
     }
