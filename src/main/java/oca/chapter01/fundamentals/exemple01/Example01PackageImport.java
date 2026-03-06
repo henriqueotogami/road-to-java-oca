@@ -39,7 +39,7 @@ public class Example01PackageImport {
             logger.info("Executando via console\r\n");
             planet = console.readLine(" \nEnter your favorite planet:");
         }
-        ArrayList planetList = new ArrayList();    // Cria lista de planetas
+        ArrayList<String> planetList = new ArrayList<String>();    // Cria lista de planetas
         planetList.add(planet);                    // Adiciona a entrada do usuário à lista
         planetList.add("Gliese 581 c");            // Adiciona uma string à lista
         logger.info("\nTwo cool planets: {}", planetList);
