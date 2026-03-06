@@ -60,7 +60,7 @@ public class Exercise02Compile {
             return true;
 
         } catch (Exception e) {
-            if(isLoggingEnabled()) logger.info("An error occurred while starting the universe: " + e.getMessage());
+            if(isLoggingEnabled()) logger.info("An error occurred while starting the universe: {}", e.getMessage());
             return false;
         }
     }
