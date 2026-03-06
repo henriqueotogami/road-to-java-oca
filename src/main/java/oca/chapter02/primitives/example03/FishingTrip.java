@@ -1,9 +1,7 @@
 package oca.chapter02.primitives.example03;
 
-import org.apache.logging.log4j.EventLogger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 
 import java.security.NoSuchAlgorithmException;
 
