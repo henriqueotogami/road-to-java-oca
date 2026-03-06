@@ -20,7 +20,8 @@ public class Example06PropertiesManager {
     public static void main(String[] args) {
 
         if (args.length == 0) {
-            System.exit(0);
+            logger.info("No arguments provided");
+            return;
         }
 
         final Properties props = System.getProperties();
@@ -31,10 +32,14 @@ public class Example06PropertiesManager {
         switch (args[0]) {
 
             case "-list_all":
-                props.list(System.out); // Lista todas as propriedades
+                props.forEach((k, v) -> logger.info("{} = {}", k, v)); // Lista todas as propriedades
                 break;
 
             case "-list_prop":
+                if (args.length < 2) {
+                    logger.error("Missing property name");
+                    return;
+                }
                 /* Lista valor */
                 logger.info(props.getProperty(args[1]));
                 break;
