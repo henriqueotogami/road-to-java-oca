@@ -47,7 +47,7 @@ public class ControlKeywords {
         int hoursAllowedFishing = 4;
 
         for (int index = 1; index < 25; ++index) {
-            totalHoursFishing = ++totalHoursFishing;
+            totalHoursFishing++;
 
             if (totalHoursFishing > hoursAllowedFishing) break;
 
@@ -71,8 +71,7 @@ public class ControlKeywords {
     }
 
     public int keywordReturn01(int saltWaterFishTotal, int freshWaterFishTotal, int brackishFishTotal) {
-        int fishTypesTotal = saltWaterFishTotal + freshWaterFishTotal + brackishFishTotal;
-        return fishTypesTotal;
+        return (saltWaterFishTotal + freshWaterFishTotal + brackishFishTotal);
     }
 
     public int keywordReturn02(int keeperFish, int throwBackFish) {
@@ -82,7 +81,7 @@ public class ControlKeywords {
     public void keywordReturn03(int keeperFish, int throwBackFish) {
         for (int index = 1; index < 10; ++index) {
             if (keeperFish + throwBackFish > 20) return;
-            logger.info("Fishing for hour {} .", index);
+            logger.info("Fishing for hour {} ", index);
         }
     }
 
