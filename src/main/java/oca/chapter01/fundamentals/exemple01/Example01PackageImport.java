@@ -31,19 +31,24 @@ public class Example01PackageImport {
 
         final boolean isExecutingViaIDE = (console == null);
 
-        if(isExecutingViaIDE) {
-            Scanner scanner = new Scanner(System.in);
-            logger.info("Executando via IDE\n");
-            logger.info("nEnter your favorite planet: ");
-            planet = scanner.nextLine();
-        } else {
-//          Aqui entra quando eh executado via javac
-            logger.info("Executando via console\r\n");
-            planet = console.readLine(" \nEnter your favorite planet:");
+        try {
+            if(isExecutingViaIDE) {
+                Scanner scanner = new Scanner(System.in);
+                logger.info("Executando via IDE\n");
+                logger.info("Enter your favorite planet: ");
+                planet = scanner.nextLine();
+            } else {
+    //          Aqui entra quando eh executado via javac
+                logger.info("Executando via console\r\n");
+                planet = console.readLine(" \nEnter your favorite planet:");
+            }
+        } catch (Exception e) {
+            planet = "Earth"; // Valor padrão caso haja um erro na leitura do console
+             logger.error("Error reading input, defaulting to Earth: {}", e.getMessage());
         }
         this.planetList.add(planet);                    // Adiciona a entrada do usuário à lista
         this.planetList.add("Gliese 581 c");            // Adiciona uma string à lista
-        logger.info("\nTwo cool planets: {}", planetList);
+        logger.info("Two cool planets: {}", planetList);
     }
 //    $ Enter your favorite planet: Jupiter
 //    $ Two cool planets: [Jupiter, Gliese 581 c]

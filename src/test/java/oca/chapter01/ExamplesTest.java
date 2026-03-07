@@ -1,10 +1,12 @@
 package oca.chapter01;
 
 import oca.chapter01.fundamentals.exemple01.Example01PackageImport;
+import oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
 public class ExamplesTest {
@@ -24,5 +26,13 @@ public class ExamplesTest {
         Example01PackageImport example = new Example01PackageImport();
         example.generateCoolPlanets();
         Assertions.assertFalse(example.getPlanetList().isEmpty(), "Expected planet list to contain at least one planet");
+    }
+
+    @Test
+    @Order(2)
+    void example02Test() {
+        Example02SingleStaticImport example = new Example02SingleStaticImport();
+        example.getSingleStaticImport();
+        Assertions.assertTrue(example.isHasImportedStaticMember(), "Expected hasImportedStaticMember to be true after calling getSingleStaticImport");
     }
 }

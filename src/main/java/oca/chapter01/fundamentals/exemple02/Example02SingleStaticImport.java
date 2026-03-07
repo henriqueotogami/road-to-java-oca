@@ -16,8 +16,23 @@ import static java.util.Locale.ITALY;
 public class Example02SingleStaticImport {
 
     private static final Logger logger = LogManager.getLogger(Example02SingleStaticImport.class);
+    private boolean hasImportedStaticMember = false;
 
     public static void main(String[] args) {
-            logger.info("Locale: {}", ITALY); // Exibe "Local: it_IT"
+        Example02SingleStaticImport example02 = new Example02SingleStaticImport();
+        example02.getSingleStaticImport(); // Exibe "Local: it_IT"
     }
+
+    /** Metodo para demonstrar a importação de um membro estático específico.
+     * Este metodo utiliza o membro estático ITALY importado para exibir a locale correspondente.
+     */
+    public void getSingleStaticImport() {
+        logger.info("Locale: {}", ITALY);
+        this.hasImportedStaticMember = true;
+    }
+
+    /** Metodo getter para verificar se o membro estático foi importado.
+    * @return boolean - Retorna true se o membro estático foi importado, caso contrário, retorna false.
+    */
+    public boolean isHasImportedStaticMember() { return this.hasImportedStaticMember; }
 }
