@@ -24,7 +24,7 @@ public class ValidString {
     // outros tipos de dados e seu aplicativo será executado corretamente.
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string to be valid: ");
+        logger.info("Enter a string to be valid: ");
         final String userInput          = scanner.nextLine();
         final ValidString validString   = new ValidString();
         validString.isInputValid(userInput);
