@@ -2,6 +2,7 @@ package oca.chapter01;
 
 import oca.chapter01.fundamentals.exemple01.Example01PackageImport;
 import oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport;
+import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -28,11 +29,37 @@ public class ExamplesTest {
         Assertions.assertFalse(example.getPlanetList().isEmpty(), "Expected planet list to contain at least one planet");
     }
 
+    /**
+     * <br>Teste para verificar se a classe Example02SingleStaticImport importa corretamente o membro estático ITALY.
+     * <br>Este teste é importante para garantir que a classe Example02SingleStaticImport esteja funcionando conforme o esperado, importando o membro estático e definindo a variável hasImportedStaticMember como true após chamar o método getSingleStaticImport.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Example02SingleStaticImport
+     */
     @Test
     @Order(2)
     void example02Test() {
         Example02SingleStaticImport example = new Example02SingleStaticImport();
         example.getSingleStaticImport();
         Assertions.assertTrue(example.isHasImportedStaticMember(), "Expected hasImportedStaticMember to be true after calling getSingleStaticImport");
+    }
+
+    /**
+     * <br>Teste para verificar se a classe Example03MultiStaticImport importa corretamente os membros estáticos ITALY, GERMANY e JAPANESE.
+     * <br>Este teste é importante para garantir que a classe Example03MultiStaticImport esteja funcionando conforme o esperado, importando os membros estáticos e definindo a variável hasImportedStaticMember como true após chamar o método getMultiStaticImport.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Example03MultiStaticImport
+     */
+    @Test
+    @Order(3)
+    void example03Test() {
+        Example03MultiStaticImport example = new Example03MultiStaticImport();
+        example.getMultiStaticImport();
+        Assertions.assertTrue(example.isHasImportedStaticMember(), "Expected hasImportedStaticMember to be true after calling getMultiStaticImport");
     }
 }

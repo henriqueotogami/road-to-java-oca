@@ -35,4 +35,9 @@ public class Example02SingleStaticImport {
     * @return boolean - Retorna true se o membro estático foi importado, caso contrário, retorna false.
     */
     public boolean isHasImportedStaticMember() { return this.hasImportedStaticMember; }
+
+    /** Metodo setter para definir o status de importação do membro estático.
+     * @param hasImportedStaticMember - booleano que indica se o membro estático foi importado ou não.
+     */
+    public void setHasImportedStaticMember(final boolean hasImportedStaticMember) { this.hasImportedStaticMember = hasImportedStaticMember; }
 }

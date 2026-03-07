@@ -1,6 +1,7 @@
 package oca.chapter01.fundamentals.exemple03;
 
 /* Importa todos os membros estáticos da classe Locale */
+import oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,13 +13,19 @@ import static java.util.Locale.*;
  * @since 2026-02-04
  * @version 1.0
  */
-public class Example03MultiStaticImport {
+public class Example03MultiStaticImport extends Example02SingleStaticImport {
 
     private static final Logger logger = LogManager.getLogger( Example03MultiStaticImport.class);
 
     public static void main(String[] args) {
+       Example03MultiStaticImport example = new Example03MultiStaticImport();
+       example.getMultiStaticImport();
+    }
+
+    public void getMultiStaticImport() {
         logger.info("Locale: {}", ITALY); // Exibe "Local: it_IT"
         logger.info("Locale: {}", GERMANY); // Exibe "Local: de_DE"
         logger.info("Locale: {}", JAPANESE); // Exibe "Local: ja"
+        this.setHasImportedStaticMember(true);
     }
 }
