@@ -8,6 +8,9 @@ public class Example05GreetingsUniverse {
     private static final Logger logger = LogManager.getLogger(Example05GreetingsUniverse.class);
 
     public static void main(final String[] args) {
-        logger.info("Greetings, Universe!");
+        Example05GreetingsUniverse example = new Example05GreetingsUniverse();
+        example.getGreetings();
     }
+
+    public String getGreetings() { return "Greetings, Universe!"; }
 }

@@ -5,6 +5,7 @@ import oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport;
 import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import oca.chapter01.fundamentals.exemple04.Example04Ship;
 import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
+import oca.chapter01.fundamentals.exemple05.Example05GreetingsUniverse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -86,5 +87,21 @@ public class ExamplesTest {
         ship2.dockShip();
         Assertions.assertTrue(ship2.isDocked(), "Expected ship2 to be docked after calling dockShip()");
         Assertions.assertEquals(Example04Ship.ShipType.FRIGATE.name(), ship2.getShipType(), "Expected ship type to be FRIGATE");
+    }
+
+    /**
+     * <br>Teste para verificar se a classe Example05GreetingsUniverse retorna a saudação correta.
+     * <br>Este teste é importante para garantir que a classe Example05GreetingsUniverse esteja funcionando conforme o esperado, retornando a saudação "Greetings, Universe!" quando o método getGreetings for chamado.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Example05GreetingsUniverse
+     */
+    @Test
+    @Order(5)
+    void example05Test() {
+        Example05GreetingsUniverse example = new Example05GreetingsUniverse();
+        Assertions.assertEquals("Greetings, Universe!", example.getGreetings());
     }
 }
