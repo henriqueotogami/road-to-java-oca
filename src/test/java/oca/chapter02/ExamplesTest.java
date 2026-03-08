@@ -5,6 +5,7 @@ import oca.chapter02.primitives.example02.Conditionals;
 import oca.chapter02.primitives.example03.FishingTrip;
 import oca.chapter02.primitives.example04.IfThenElse;
 import oca.chapter02.primitives.example05.Fish;
+import oca.chapter02.primitives.example06.Bat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -166,5 +167,22 @@ public class ExamplesTest {
                     continue;
             }
         }
+    }
+
+    /**
+     * Testa o metodo {@code generateBait()} da classe {@link Bat} para verificar o comportamento relacionado à geração de nomes de isca com base em um enum.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que o nome da isca gerado corresponde ao valor do enum fornecido, garantindo que os casos FRESH, SALTED e ARTIFICIAL sejam tratados corretamente, bem como o caso padrão.
+     *
+     * Asserções são usadas para validar os resultados esperados em cada etapa do teste, garantindo que o metodo funcione conforme o esperado, mesmo com diferentes valores de enum.
+     */
+    @Test
+    @Order(6)
+    void example06() {
+        Bat.ClamBait bait = Bat.ClamBait.SALTED;
+        Bat bat = new Bat();
+        final String nameBait = bat.generateBait(bait);
+        Assertions.assertEquals("Salted clams", nameBait, "Expected 'Salted clams' for ClamBait.SALTED");
     }
 }
