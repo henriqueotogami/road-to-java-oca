@@ -19,9 +19,10 @@ public class Fish {
 
     private static final Logger logger = LogManager.getLogger(Fish.class);
     private final SecureRandom randomObject = new SecureRandom();
+    private int randomNumber = 0;
 
     public String generateRandomFish() {
-        final int randomNumber = this.randomObject.nextInt(4);
+        randomNumber = this.randomObject.nextInt(4);
         switch (randomNumber) {
             case 0: return "Blue Fish";
             case 1: return "Red Drum";
@@ -29,6 +30,13 @@ public class Fish {
             default: return "Unknown Fish Type";
         }
     }
+
+    /**
+     * Retorna o número aleatório gerado pela última chamada do metodo {@code generateRandomFish()}.
+     *
+     * @return o número aleatório gerado, que pode ser 0, 1, 2 ou 3.
+     */
+    public int getRandomNumber() { return this.randomNumber; }
 
     public static void main(String[] args) {
         final Fish fish = new Fish();

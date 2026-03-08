@@ -4,6 +4,7 @@ import oca.chapter02.primitives.example01.Attribution;
 import oca.chapter02.primitives.example02.Conditionals;
 import oca.chapter02.primitives.example03.FishingTrip;
 import oca.chapter02.primitives.example04.IfThenElse;
+import oca.chapter02.primitives.example05.Fish;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -134,5 +135,36 @@ public class ExamplesTest {
         final IfThenElse ifThenElse = new IfThenElse();
         Assertions.assertEquals(5, ifThenElse.defaultIfElse(), "Default if-else should return the absolute value of -5");
         Assertions.assertEquals(5, ifThenElse.ternaryIfElse(), "Ternary if-else should return the absolute value of -5");
+    }
+
+    /**
+     * Testa o metodo {@code generateRandomFish()} da classe {@link Fish} para verificar o comportamento relacionado à geração de tipos de peixe aleatórios.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que o tipo de peixe gerado corresponde ao número aleatório gerado, garantindo que os casos 0, 1, 2 e o caso padrão sejam tratados corretamente.
+     *
+     * Asserções são usadas para validar os resultados esperados em cada etapa do teste, garantindo que o metodo funcione conforme o esperado, mesmo com resultados aleatórios.
+     */
+    @Test
+    @Order(5)
+    void example05() {
+        final Fish fish = new Fish();
+        for (int index = 0; index < 10; index++) {
+            final String fishName = fish.generateRandomFish();
+            switch (fish.getRandomNumber()) {
+                case 0:
+                    Assertions.assertEquals("Blue Fish", fishName, "Expected 'Blue Fish' for random number 0");
+                    continue;
+                case 1:
+                    Assertions.assertEquals("Red Drum", fishName, "Expected 'Red Drum' for random number 1");
+                    continue;
+                case 2:
+                    Assertions.assertEquals("Striped Bass", fishName, "Expected 'Striped Bass' for random number 2");
+                    continue;
+                default:
+                    Assertions.assertEquals("Unknown Fish Type", fishName, "Expected 'Unknown Fish Type' for random numbers 3 and above");
+                    continue;
+            }
+        }
     }
 }
