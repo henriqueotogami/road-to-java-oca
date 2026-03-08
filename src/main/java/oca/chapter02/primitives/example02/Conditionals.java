@@ -140,7 +140,7 @@ public class Conditionals {
         }
     }
 
-    public static void strangeBooleanCondition() {
+    public boolean strangeBooleanCondition() {
         boolean b;
         boolean bValue = (b = true);
 
@@ -154,9 +154,10 @@ public class Conditionals {
         if (bValue == false) logger.info("TRUE");
         else logger.info("FALSE");
 
+        return bValue;
     }
 
-    public static void wrapperBooleanCondition() {
+    public boolean wrapperBooleanCondition() {
         Boolean wrapperBoolean = new Boolean("true");
 
         /* Válido */
@@ -165,7 +166,11 @@ public class Conditionals {
         /* Válido por causa do unboxing */
         boolean primitiveBoolean2 = wrapperBoolean;
 
-        if (wrapperBoolean) logger.info("Funciona em razão do unboxing");
+        if (wrapperBoolean) {
+            logger.info("Funciona em razão do unboxing");
+        }
+
+        return wrapperBoolean;
     }
 
     /**
@@ -187,8 +192,8 @@ public class Conditionals {
         // usa o nome exato da constante enum
         assert (conditionals.getWeatherType("ITS_RAINING") != null) : "Weather type should not be null!";
 
-        strangeBooleanCondition();
-        wrapperBooleanCondition();
+        conditionals.strangeBooleanCondition();
+        conditionals.wrapperBooleanCondition();
     }
 
 }
