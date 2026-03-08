@@ -2,6 +2,7 @@ package oca.chapter02;
 
 import oca.chapter02.primitives.example01.Attribution;
 import oca.chapter02.primitives.example02.Conditionals;
+import oca.chapter02.primitives.example03.FishingTrip;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -95,5 +96,26 @@ public class ExamplesTest {
 
         Assertions.assertFalse(conditionals.strangeBooleanCondition());
         Assertions.assertTrue(conditionals.wrapperBooleanCondition());
+    }
+
+    /**
+     * Testa o metodo {@code castForFish()} da classe {@link FishingTrip} para verificar o comportamento relacionado a lançamentos de pesca.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que o resultado do lançamento não é nulo.
+     * - Se um peixe for pego, validação de que o resultado do peixe e o tipo do peixe não são nulos.
+     *
+     * Asserções são usadas para validar os resultados esperados em cada etapa do teste, garantindo que o metodo funcione conforme o esperado, mesmo com resultados aleatórios.
+     */
+    @Test
+    @Order(3)
+    void example03Test() {
+        final FishingTrip trip = new FishingTrip();
+        trip.castForFish();
+        Assertions.assertNotNull(trip.getFishingSession().getCastResult(), "Cast result should not be null!");
+        if (trip.getFishingSession().getCastResult().equals("fish")) {
+            Assertions.assertNotNull(trip.getFishingSession().getFishResult(), "Fish result should not be null when a fish is caught!");
+            Assertions.assertNotNull(trip.getFishingSession().getFishResult().getTypeOfFish(), "Type of fish should not be null when a fish is caught!");
+        }
     }
 }

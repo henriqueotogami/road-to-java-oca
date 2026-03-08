@@ -58,6 +58,13 @@ public class FishingTrip {
         }
     }
 
+    /**
+     * Retorna a instância de {@link FishingSession} associada a esta viagem de pesca.
+     *
+     * @return a instância de {@code FishingSession} usada para simular os lançamentos de pesca.
+     */
+    public FishingSession getFishingSession() { return this.fishingSession; }
+
     public static void main(String[] args) {
         final FishingTrip trip = new FishingTrip();
         trip.castForFish();
