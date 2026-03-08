@@ -3,6 +3,8 @@ package oca.chapter01;
 import oca.chapter01.fundamentals.exemple01.Example01PackageImport;
 import oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport;
 import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
+import oca.chapter01.fundamentals.exemple04.Example04Ship;
+import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -61,5 +63,28 @@ public class ExamplesTest {
         Example03MultiStaticImport example = new Example03MultiStaticImport();
         example.getMultiStaticImport();
         Assertions.assertTrue(example.isHasImportedStaticMember(), "Expected hasImportedStaticMember to be true after calling getMultiStaticImport");
+    }
+
+    /**
+     * <br>Teste para verificar se a classe Example04Spaceship acopla corretamente a nave espacial.
+     * <br>Este teste é importante para garantir que a classe Example04Spaceship esteja funcionando conforme o esperado, acoplando a nave espacial e definindo a variável isDocked como true após chamar o método dockShip.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Example04Spaceship
+     */
+    @Test
+    @Order(4)
+    void example04Test() {
+        Example04Spaceship ship1 = new Example04Spaceship ();
+        ship1.dockShip();
+        Assertions.assertTrue(ship1.isDocked(), "Expected ship1 to be docked after calling dockShip()");
+        Assertions.assertEquals(Example04Ship.ShipType.BATTLESHIP.name(), ship1.getShipType(), "Expected default ship type to be BATTLESHIP");
+
+        Example04Spaceship ship2 = new Example04Spaceship(Example04Ship.ShipType.FRIGATE);
+        ship2.dockShip();
+        Assertions.assertTrue(ship2.isDocked(), "Expected ship2 to be docked after calling dockShip()");
+        Assertions.assertEquals(Example04Ship.ShipType.FRIGATE.name(), ship2.getShipType(), "Expected ship type to be FRIGATE");
     }
 }
