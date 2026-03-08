@@ -3,6 +3,7 @@ package oca.chapter02;
 import oca.chapter02.primitives.example01.Attribution;
 import oca.chapter02.primitives.example02.Conditionals;
 import oca.chapter02.primitives.example03.FishingTrip;
+import oca.chapter02.primitives.example04.IfThenElse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -117,5 +118,21 @@ public class ExamplesTest {
             Assertions.assertNotNull(trip.getFishingSession().getFishResult(), "Fish result should not be null when a fish is caught!");
             Assertions.assertNotNull(trip.getFishingSession().getFishResult().getTypeOfFish(), "Type of fish should not be null when a fish is caught!");
         }
+    }
+
+    /**
+     * Testa os métodos {@code defaultIfElse()} e {@code ternaryIfElse()} da classe {@link IfThenElse} para verificar o cálculo do valor absoluto.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que ambos os métodos retornam o valor absoluto correto para um número negativo.
+     *
+     * Asserções são usadas para validar os resultados esperados, garantindo que ambos os métodos funcionem conforme o esperado, mesmo com a mesma lógica subjacente.
+     */
+    @Test
+    @Order(4)
+    void example04() {
+        final IfThenElse ifThenElse = new IfThenElse();
+        Assertions.assertEquals(5, ifThenElse.defaultIfElse(), "Default if-else should return the absolute value of -5");
+        Assertions.assertEquals(5, ifThenElse.ternaryIfElse(), "Ternary if-else should return the absolute value of -5");
     }
 }

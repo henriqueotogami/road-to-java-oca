@@ -27,13 +27,14 @@ public class IfThenElse {
         ifThenElse.ternaryIfElse();
     }
 
-    private void ternaryIfElse() {
+    public int ternaryIfElse() {
         final int x = -5;
         final int valorAbsoluto = (x > 0) ? x : -x;
         logger.info(valorAbsoluto);
+        return valorAbsoluto;
     }
 
-    public void defaultIfElse() {
+    public int defaultIfElse() {
         int x = -5;
         int valorAbsoluto;
         if(x > 0){
@@ -43,5 +44,6 @@ public class IfThenElse {
             valorAbsoluto = -x;
         }
         logger.info(valorAbsoluto);
+        return valorAbsoluto;
     }
 }
