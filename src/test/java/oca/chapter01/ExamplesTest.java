@@ -6,10 +6,13 @@ import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import oca.chapter01.fundamentals.exemple04.Example04Ship;
 import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
 import oca.chapter01.fundamentals.exemple05.Example05GreetingsUniverse;
+import oca.chapter01.fundamentals.plus.Study01StringTokenizer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
+import java.util.StringTokenizer;
 
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
@@ -103,5 +106,35 @@ public class ExamplesTest {
     void example05Test() {
         Example05GreetingsUniverse example = new Example05GreetingsUniverse();
         Assertions.assertEquals("Greetings, Universe!", example.getGreetings());
+    }
+
+    /**
+     * <br>Teste para verificar se a classe Study01StringTokenizer divide corretamente a string em tokens usando o delimitador especificado.
+     * <br>Este teste é importante para garantir que a classe Study01StringTokenizer esteja funcionando conforme o esperado, dividindo a string "um,dois,três" em três tokens ("um", "dois", "três") usando a vírgula como delimitador.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Study01StringTokenizer
+     */
+    @Test
+    @Order(6)
+    void example06Test() {
+        Study01StringTokenizer example = new Study01StringTokenizer();
+        example.setStringTokenizer(new StringTokenizer("um,dois,três", ","));
+
+        Assertions.assertEquals(3, example.getStringTokenizer().countTokens());
+
+        Assertions.assertTrue(example.getStringTokenizer().hasMoreTokens());
+        Assertions.assertTrue(example.getStringTokenizer().hasMoreElements());
+        Assertions.assertEquals("um", example.getStringTokenizer().nextToken());
+
+        Assertions.assertTrue(example.getStringTokenizer().hasMoreTokens());
+        Assertions.assertTrue(example.getStringTokenizer().hasMoreElements());
+        Assertions.assertEquals("dois", example.getStringTokenizer().nextToken());
+
+        Assertions.assertTrue(example.getStringTokenizer().hasMoreTokens());
+        Assertions.assertTrue(example.getStringTokenizer().hasMoreElements());
+        Assertions.assertEquals("três", example.getStringTokenizer().nextToken());
     }
 }

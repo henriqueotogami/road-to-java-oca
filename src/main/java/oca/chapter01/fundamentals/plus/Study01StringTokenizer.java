@@ -15,14 +15,33 @@ import java.util.StringTokenizer;
 public class Study01StringTokenizer {
 
     private static final Logger logger = LogManager.getLogger(Study01StringTokenizer.class);
+    private StringTokenizer stringTokenizer = null;
 
     public static void main(String[] args) {
+        Study01StringTokenizer example = new Study01StringTokenizer();
+        example.setStringTokenizer(new StringTokenizer("um,dois,três", ","));
+        example.printTokens();
+    }
 
-        final StringTokenizer stringTokenizer = new StringTokenizer("um,dois,três", ",");
-
+    /**
+     * Imprime os tokens gerados pelo StringTokenizer.
+     * Este metodo percorre os tokens gerados pelo StringTokenizer e os imprime usando o logger.
+     */
+    public void printTokens() {
         while (stringTokenizer.hasMoreTokens()) {
             logger.info(stringTokenizer.nextToken());
         }
-
     }
+
+    /**
+     * Define o StringTokenizer usado para dividir a string.
+     * @param stringTokenizer O StringTokenizer contendo os tokens da string original.
+     */
+    public void setStringTokenizer(final StringTokenizer stringTokenizer) { this.stringTokenizer = stringTokenizer; }
+
+    /**
+     * Retorna o StringTokenizer usado para dividir a string.
+     * @return O StringTokenizer contendo os tokens da string original.
+     */
+    public StringTokenizer getStringTokenizer() { return this.stringTokenizer; }
 }
