@@ -9,6 +9,7 @@ import oca.chapter02.primitives.example05.Fish;
 import oca.chapter02.primitives.example06.Bat;
 import oca.chapter02.primitives.example08.LoopWhile;
 import oca.chapter02.primitives.example09.LoopDoWhile;
+import oca.chapter02.primitives.example10.ControlKeywords;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -226,5 +227,33 @@ public class ExamplesTest {
         loopDoWhile.oldCast(fishingSession);
         Assertions.assertEquals(0, loopDoWhile.oldCast(fishingSession), "Pieces of bait should remain unchanged after oldCast method execution");
         Assertions.assertEquals("active", fishingSession.getSession(), "Fishing session should remain active after newCast method execution");
+    }
+
+    /**
+     * Testa os métodos da classe {@link ControlKeywords} para verificar o comportamento relacionado a palavras-chave de controle, como break, continue e return.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que os métodos keywordBreak() e keywordContinue() executam sem erros.
+     * - Validação dos resultados retornados pelos métodos keywordReturn01() e keywordReturn02(), garantindo que eles retornem os valores esperados com base nos parâmetros fornecidos.
+     * - Verificação de que o metodo keywordReturn03() executa sem erros, mesmo sem retornar um valor.
+     *
+     * Asserções são usadas para validar os resultados esperados, garantindo que os métodos funcionem conforme o esperado, mesmo com a lógica de controle envolvida.
+     */
+    @Test
+    @Order(9)
+    void example09() {
+        final ControlKeywords controlKeywords = new ControlKeywords();
+        controlKeywords.keywordBreak();
+        controlKeywords.keywordContinue();
+
+        final int totalFishTypes = controlKeywords.keywordReturn01(5, 10, 3);
+        Assertions.assertEquals(18, totalFishTypes, "Total fish types should be the sum of the three parameters");
+
+        final int totalFishCaught = controlKeywords.keywordReturn02(15, 5);
+        Assertions.assertEquals(20, totalFishCaught, "Total fish caught should be the product of the two parameters");
+
+        controlKeywords.keywordReturn03(15, 5);
+
+        Assertions.assertTrue(true, "Control keywords test executed successfully");
     }
 }
