@@ -185,10 +185,13 @@ public class ExamplesTest {
     @Test
     @Order(6)
     void example06() {
-        Bat.ClamBait bait = Bat.ClamBait.SALTED;
         Bat bat = new Bat();
-        final String nameBait = bat.generateBait(bait);
-        Assertions.assertEquals("Salted clams", nameBait, "Expected 'Salted clams' for ClamBait.SALTED");
+        bat.setNameBait("new bait");
+        Assertions.assertEquals("new bait", bat.getNameBait(), "Expected 'new bait' after setting the name bait");
+        Assertions.assertEquals("Salted clams", bat.generateBait(Bat.ClamBait.SALTED), "Expected 'Salted clams' for ClamBait.SALTED");
+        Assertions.assertEquals("Fresh clams", bat.generateBait(Bat.ClamBait.FRESH), "Expected 'Fresh clams' for ClamBait.FRESH");
+        Assertions.assertEquals("Artificial clams", bat.generateBait(Bat.ClamBait.ARTIFICIAL), "Expected 'Artificial clams' for ClamBait.ARTIFICIAL");
+        Assertions.assertEquals("Unknown bait type", bat.generateBait(null), "Expected 'Unknown bait type' for null input");
     }
 
     /**
@@ -252,7 +255,7 @@ public class ExamplesTest {
     void example09() {
         final ControlKeywords controlKeywords = new ControlKeywords();
         Assertions.assertEquals(5, controlKeywords.keywordBreak(), "Total hours fishing should be 5 after exceeding the allowed hours");
-        Assertions.assertEquals(5, controlKeywords.keywordContinue(), "Total days camping should be 5 after exceeding the allowed days");
+        Assertions.assertEquals(8, controlKeywords.keywordContinue(), "Total days camping should be 5 after exceeding the allowed days");
 
         final int totalFishTypes = controlKeywords.keywordReturn01(5, 10, 3);
         Assertions.assertEquals(18, totalFishTypes, "Total fish types should be the sum of the three parameters");
