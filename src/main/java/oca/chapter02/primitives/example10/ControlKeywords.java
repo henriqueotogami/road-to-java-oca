@@ -42,7 +42,7 @@ public class ControlKeywords {
         controlKeywords.labeledInstructions02();
     }
 
-    public void keywordBreak() {
+    public int keywordBreak() {
         int totalHoursFishing   = 0;
         int hoursAllowedFishing = 4;
 
@@ -53,9 +53,10 @@ public class ControlKeywords {
 
             logger.info("Fishing for hour {} .", index);
         }
+        return totalHoursFishing;
     }
 
-    public void keywordContinue() {
+    public int keywordContinue() {
         int totalDaysCamping   = 0;
         int daysAllowedFishing = 5;
 
@@ -68,6 +69,7 @@ public class ControlKeywords {
 
             logger.info("and fishing");
         }
+        return totalDaysCamping;
     }
 
     public int keywordReturn01(int saltWaterFishTotal, int freshWaterFishTotal, int brackishFishTotal) {
@@ -78,11 +80,14 @@ public class ControlKeywords {
         return keeperFish + throwBackFish;
     }
 
-    public void keywordReturn03(int keeperFish, int throwBackFish) {
+    public int keywordReturn03(int keeperFish, int throwBackFish) {
         for (int index = 1; index < 10; ++index) {
-            if (keeperFish + throwBackFish > 20) return;
+            if (keeperFish + throwBackFish > 20) {
+                break;
+            }
             logger.info("Fishing for hour {} ", index);
         }
+        return (keeperFish + throwBackFish);
     }
 
     public void labeledInstructions01() {

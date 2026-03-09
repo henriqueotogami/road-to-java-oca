@@ -223,9 +223,17 @@ public class ExamplesTest {
         final FishingSession fishingSession = new FishingSession();
         fishingSession.setSession("active");
         LoopDoWhile loopDoWhile = new LoopDoWhile();
+
         fishingSession.setBaitAvailable(true);
+        Assertions.assertEquals("Lançando a linha...", loopDoWhile.castForFish());
+
         loopDoWhile.oldCast(fishingSession);
         Assertions.assertEquals(0, loopDoWhile.oldCast(fishingSession), "Pieces of bait should remain unchanged after oldCast method execution");
+        Assertions.assertEquals("active", fishingSession.getSession(), "Fishing session should remain active after newCast method execution");
+
+        fishingSession.setSession("active");
+        fishingSession.setBaitAvailable(true);
+        Assertions.assertEquals(0, loopDoWhile.newCast(5, fishingSession), "Pieces of bait should decrease by 1 after newCast method execution");
         Assertions.assertEquals("active", fishingSession.getSession(), "Fishing session should remain active after newCast method execution");
     }
 
@@ -243,8 +251,8 @@ public class ExamplesTest {
     @Order(9)
     void example09() {
         final ControlKeywords controlKeywords = new ControlKeywords();
-        controlKeywords.keywordBreak();
-        controlKeywords.keywordContinue();
+        Assertions.assertEquals(5, controlKeywords.keywordBreak(), "Total hours fishing should be 5 after exceeding the allowed hours");
+        Assertions.assertEquals(5, controlKeywords.keywordContinue(), "Total days camping should be 5 after exceeding the allowed days");
 
         final int totalFishTypes = controlKeywords.keywordReturn01(5, 10, 3);
         Assertions.assertEquals(18, totalFishTypes, "Total fish types should be the sum of the three parameters");
@@ -252,8 +260,7 @@ public class ExamplesTest {
         final int totalFishCaught = controlKeywords.keywordReturn02(15, 5);
         Assertions.assertEquals(20, totalFishCaught, "Total fish caught should be the product of the two parameters");
 
-        controlKeywords.keywordReturn03(15, 5);
-
+        Assertions.assertDoesNotThrow(() -> controlKeywords.keywordReturn03(15, 5), "keywordReturn03 should execute without throwing an exception");
         Assertions.assertTrue(true, "Control keywords test executed successfully");
     }
 
@@ -276,11 +283,5 @@ public class ExamplesTest {
             Assertions.assertNotNull(fish, "Fish size should not be null");
             Assertions.assertTrue(fish > 0, "Fish size should be greater than 0");
         }
-    }
-
-    @Test
-    @Order(11)
-    void example11() {
-        
     }
 }
