@@ -172,28 +172,4 @@ public class Conditionals {
 
         return wrapperBoolean;
     }
-
-    /**
-     * metodo principal para demonstrar execução simples do exemplo.
-     * <p>
-     * Usa um gerador de números aleatórios para escolher um índice e demonstra
-     * chamadas aos metodos desta classe. As asserções servem apenas para
-     * verificar comportamento durante desenvolvimento com a flag -ea ativada.
-     *
-     * @param args argumentos de linha de comando (não utilizados)
-     */
-    public static void main(String[] args) {
-        final Conditionals conditionals = new Conditionals();
-        // usa um id válido presente no enum para demonstrar a chamada
-        final int randomIndex = Weather.ITS_SUNNY.getId();
-
-        assert (conditionals.getWeatherEvent(Weather.ITS_SUNNY) != null) : "Weather event should not be null!";
-        assert (conditionals.getWeatherType(randomIndex) != null) : "Weather type should not be null!";
-        // usa o nome exato da constante enum
-        assert (conditionals.getWeatherType("ITS_RAINING") != null) : "Weather type should not be null!";
-
-        conditionals.strangeBooleanCondition();
-        conditionals.wrapperBooleanCondition();
-    }
-
 }

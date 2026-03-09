@@ -25,15 +25,6 @@ public class LoopDoWhile {
 
     private static final Logger logger = LogManager.getLogger(LoopDoWhile.class);
 
-    public static void main(String[] args) {
-        final FishingSession fishingSession = new FishingSession();
-        fishingSession.setSession("active");
-        int piecesOfBait = 5;
-        LoopDoWhile loopDoWhile = new LoopDoWhile();
-        fishingSession.setBaitAvailable(true);
-        loopDoWhile.oldCast(fishingSession);
-    }
-
     public int newCast(int piecesOfBait, FishingSession fishingSession) {
         while (piecesOfBait != 0) {
             logger.info(castForFish());

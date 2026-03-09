@@ -158,30 +158,4 @@ public class Attribution {
         }
     }
 
-    /**
-     * <br>Ponto de entrada para executar o exemplo de atribuição.
-     * <br>Este metodo é importante para demonstrar como criar uma instância da classe Attribution, configurar os valores e realizar operações de atribuição.
-     *
-     * @param args Argumentos de linha de comando (não utilizados neste exemplo).
-     */
-    public static void main(String[] args) {
-        Attribution attribution = new Attribution();
-        attribution.setDefaultDegrees();
-        attribution.sumFishes(100, 50);
-
-        if(attribution.getTotalFish() == 150) {
-            attribution.decrementFishes(150);
-        }
-
-        if(attribution.getTotalFish() == 0) {
-            attribution.incrementFishes(30);
-        }
-
-        attribution.afterIncrementDegrees();
-        attribution.afterDecrementDegrees();
-
-        attribution.beforeIncrementDegrees();
-        attribution.beforeDecrementDegrees();
-
-    }
 }

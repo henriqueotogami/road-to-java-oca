@@ -24,24 +24,6 @@ public class ControlKeywords {
 
     private static final Logger logger = LogManager.getLogger(ControlKeywords.class);
 
-    public static void main(String[] args) {
-
-        final ControlKeywords controlKeywords = new ControlKeywords();
-        controlKeywords.keywordBreak();
-        controlKeywords.keywordContinue();
-
-        final int totalFishTypes = controlKeywords.keywordReturn01(5, 10, 3);
-        logger.info("Total fish types: {}.", totalFishTypes);
-
-        final int totalFishCaught = controlKeywords.keywordReturn02(15, 5);
-        logger.info("Total fish caught: {}.", totalFishCaught);
-
-        controlKeywords.keywordReturn03(15, 5);
-
-        controlKeywords.labeledInstructions01();
-        controlKeywords.labeledInstructions02();
-    }
-
     public int keywordBreak() {
         int totalHoursFishing   = 0;
         int hoursAllowedFishing = 4;

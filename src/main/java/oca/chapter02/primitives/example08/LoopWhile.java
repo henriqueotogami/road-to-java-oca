@@ -18,12 +18,6 @@ public class LoopWhile {
     private static final Logger logger = LogManager.getLogger(LoopWhile.class);
     private int fishLimit = 0;
 
-    public static void main(String[] args) {
-        final FishingSession fishingSession = new FishingSession();
-        final LoopWhile loopWhile = new LoopWhile();
-        loopWhile.waitCastFosFish(fishingSession);
-    }
-
     public void waitCastFosFish(FishingSession fishingSession) {
         fishingSession.setSession("active");
         /* INSTRUÇÃO WHILE */

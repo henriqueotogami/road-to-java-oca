@@ -25,14 +25,6 @@ public class Bat {
 
     String nameBait = "No bait";
 
-    public static void main(String[] args) {
-
-        ClamBait bait = ClamBait.SALTED;
-        Bat bat = new Bat();
-        bat.generateBait(bait);
-        logger.info(bat.getNameBait());
-    }
-
     /**
      * Gera o nome da isca com base no valor do enum {@code ClamBait} fornecido.
      *

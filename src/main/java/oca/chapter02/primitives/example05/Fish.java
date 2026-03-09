@@ -37,11 +37,4 @@ public class Fish {
      * @return o número aleatório gerado, que pode ser 0, 1, 2 ou 3.
      */
     public int getRandomNumber() { return this.randomNumber; }
-
-    public static void main(String[] args) {
-        final Fish fish = new Fish();
-        for (int i = 0; i < 10; i++) {
-            logger.info(fish.generateRandomFish());
-        }
-    }
 }

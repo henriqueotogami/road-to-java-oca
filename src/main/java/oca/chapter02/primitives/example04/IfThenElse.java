@@ -20,12 +20,6 @@ import org.apache.logging.log4j.Logger;
 public class IfThenElse {
 
     private static final Logger logger = LogManager.getLogger(IfThenElse.class);
-    
-    public static void main(String[] args) {
-        final IfThenElse ifThenElse = new IfThenElse();
-        ifThenElse.defaultIfElse();
-        ifThenElse.ternaryIfElse();
-    }
 
     public int ternaryIfElse() {
         final int x = -5;

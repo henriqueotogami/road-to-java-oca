@@ -64,9 +64,4 @@ public class FishingTrip {
      * @return a instância de {@code FishingSession} usada para simular os lançamentos de pesca.
      */
     public FishingSession getFishingSession() { return this.fishingSession; }
-
-    public static void main(String[] args) {
-        final FishingTrip trip = new FishingTrip();
-        trip.castForFish();
-    }
 }
