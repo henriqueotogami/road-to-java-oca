@@ -14,7 +14,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Classe de teste para os exemplos de atribuição e estruturas condicionais.
@@ -36,7 +38,6 @@ import java.util.Arrays;
  * @version 1.1
  */
 public class ExamplesTest {
-
 
     /**
      * Testa os métodos da classe {@link Attribution} para verificar a manipulação de graus e peixes.
@@ -221,7 +222,6 @@ public class ExamplesTest {
     void example08() {
         final FishingSession fishingSession = new FishingSession();
         fishingSession.setSession("active");
-        int piecesOfBait = 5;
         LoopDoWhile loopDoWhile = new LoopDoWhile();
         fishingSession.setBaitAvailable(true);
         loopDoWhile.oldCast(fishingSession);
@@ -255,5 +255,26 @@ public class ExamplesTest {
         controlKeywords.keywordReturn03(15, 5);
 
         Assertions.assertTrue(true, "Control keywords test executed successfully");
+    }
+
+    /**
+     * Testa a manipulação de uma lista de tamanhos de peixes para verificar a validação de valores nulos e negativos.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que cada tamanho de peixe na lista não é nulo e é maior que zero, garantindo que os valores sejam válidos para representar tamanhos de peixes.
+     *
+     * Asserções são usadas para validar os resultados esperados, garantindo que a lista de tamanhos de peixes seja manipulada corretamente e que os valores sejam válidos.
+     */
+    @Test
+    @Order(10)
+    void example10() {
+        final List<Float> allFishesSize         = Arrays.asList(10.0f, 15.5f, 18.0f, 29.5f, 45.5f);
+        final ArrayList<Float> fishLengthList   = new ArrayList<>(allFishesSize);
+        final float MINIMUM_SIZE                = 28.0f;
+
+        for(Float fish: fishLengthList) {
+            Assertions.assertNotNull(fish, "Fish size should not be null");
+            Assertions.assertTrue(fish > 0, "Fish size should be greater than 0");
+        }
     }
 }
