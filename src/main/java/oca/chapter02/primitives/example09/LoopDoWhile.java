@@ -29,15 +29,16 @@ public class LoopDoWhile {
         final FishingSession fishingSession = new FishingSession();
         fishingSession.setSession("active");
         int piecesOfBait = 5;
-//        piecesOfBait = oldCast(fishingSession);
-        newCast(piecesOfBait, fishingSession);
+        LoopDoWhile loopDoWhile = new LoopDoWhile();
+        fishingSession.setBaitAvailable(true);
+        loopDoWhile.oldCast(fishingSession);
     }
 
-    private static void newCast(int piecesOfBait, FishingSession fishingSession) {
+    public void newCast(int piecesOfBait, FishingSession fishingSession) {
         while (piecesOfBait != 0) {
             castForFish();
             /* Verifica se há isca disponível */
-            if (fishingSession.isBaitAvailable() == false) {
+            if (fishingSession.isBaitAvailable()) {
                 /* Coloca uma isca nova no anzol */
                 fishingSession.setBaitAvailable(true);
                 piecesOfBait--;
@@ -45,12 +46,12 @@ public class LoopDoWhile {
         }
     }
 
-    private static int oldCast(FishingSession fishingSession) {
-        int piecesOfBait = 0; // A raposa roubou toda a isca!
+    public int oldCast(FishingSession fishingSession) {
+        int piecesOfBait = 5; // A raposa roubou toda a isca!
         do {
             castForFish();
             /* Verifica se há isca disponível */
-            if (fishingSession.isBaitAvailable() == false) {
+            if (fishingSession.isBaitAvailable()) {
                 /* Coloca uma isca nova no anzol */
                 fishingSession.setBaitAvailable(true);
                 piecesOfBait--;

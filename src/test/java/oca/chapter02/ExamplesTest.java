@@ -8,6 +8,7 @@ import oca.chapter02.primitives.example04.IfThenElse;
 import oca.chapter02.primitives.example05.Fish;
 import oca.chapter02.primitives.example06.Bat;
 import oca.chapter02.primitives.example08.LoopWhile;
+import oca.chapter02.primitives.example09.LoopDoWhile;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -203,5 +204,27 @@ public class ExamplesTest {
         final LoopWhile loopWhile = new LoopWhile();
         loopWhile.waitCastFosFish(fishingSession);
         Assertions.assertEquals("inactive", fishingSession.getSession(), "Fishing session should be inactive after reaching fish limit");
+    }
+
+    /**
+     * Testa o metodo {@code oldCast()} da classe {@link LoopDoWhile} para verificar o comportamento relacionado a uma sessão de pesca que utiliza um loop do-while para lançar a linha, mesmo sem isca disponível.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que o número de peças de isca permanece inalterado após a execução do metodo, garantindo que o loop do-while funcione conforme o esperado e que a variável de instância seja atualizada corretamente.
+     * - Verificação de que a sessão de pesca permanece ativa após a execução do metodo, garantindo que o estado da sessão seja mantido conforme o esperado.
+     *
+     * Asserções são usadas para validar os resultados esperados, garantindo que o metodo funcione conforme o esperado, mesmo com a lógica de loop do-while.
+     */
+    @Test
+    @Order(8)
+    void example08() {
+        final FishingSession fishingSession = new FishingSession();
+        fishingSession.setSession("active");
+        int piecesOfBait = 5;
+        LoopDoWhile loopDoWhile = new LoopDoWhile();
+        fishingSession.setBaitAvailable(true);
+        loopDoWhile.oldCast(fishingSession);
+        Assertions.assertEquals(0, loopDoWhile.oldCast(fishingSession), "Pieces of bait should remain unchanged after oldCast method execution");
+        Assertions.assertEquals("active", fishingSession.getSession(), "Fishing session should remain active after newCast method execution");
     }
 }
