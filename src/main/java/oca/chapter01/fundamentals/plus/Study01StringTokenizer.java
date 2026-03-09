@@ -17,12 +17,6 @@ public class Study01StringTokenizer {
     private static final Logger logger = LogManager.getLogger(Study01StringTokenizer.class);
     private StringTokenizer stringTokenizer = null;
 
-    public static void main(String[] args) {
-        Study01StringTokenizer example = new Study01StringTokenizer();
-        example.setStringTokenizer(new StringTokenizer("um,dois,três", ","));
-        example.printTokens();
-    }
-
     /**
      * Imprime os tokens gerados pelo StringTokenizer.
      * Este metodo percorre os tokens gerados pelo StringTokenizer e os imprime usando o logger.

@@ -20,22 +20,6 @@ public class Exercise02Compile {
     private boolean loggingEnabled = false;
 
     /**
-     * <br>Etapas:
-     * <br>- 01. Compilar o progama: javac Exercise02Compile.java
-     * <br>- 02. Executar o programa: java -cp oca/chapter01/fundamentals/exercises/Exercise02Compile
-     * @param args
-     */
-    public static void main(String[] args) {
-        final Exercise02Compile exercise = new Exercise02Compile();
-        exercise.setLoggingEnabled(true);
-        if (exercise.startUniverse()) {
-            if(exercise.isLoggingEnabled()) logger.info("Universe started successfully!");
-        } else {
-            if(exercise.isLoggingEnabled()) logger.info("Failed to start the universe.");
-        }
-    }
-
-    /**
      * <br>Este metodo inicia o universo, criando instâncias dos planetas Terra, Marte e Venus, e chamando seus métodos para dizer olá e verificar se são habitáveis.
      * @return true se o universo foi iniciado com sucesso, false caso contrário.
      */

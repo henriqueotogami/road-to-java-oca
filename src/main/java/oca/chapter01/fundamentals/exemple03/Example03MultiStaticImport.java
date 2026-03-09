@@ -17,11 +17,6 @@ public class Example03MultiStaticImport extends Example02SingleStaticImport {
 
     private static final Logger logger = LogManager.getLogger( Example03MultiStaticImport.class);
 
-    public static void main(String[] args) {
-       Example03MultiStaticImport example = new Example03MultiStaticImport();
-       example.getMultiStaticImport();
-    }
-
     public void getMultiStaticImport() {
         logger.info("Locale: {}", ITALY); // Exibe "Local: it_IT"
         logger.info("Locale: {}", GERMANY); // Exibe "Local: de_DE"

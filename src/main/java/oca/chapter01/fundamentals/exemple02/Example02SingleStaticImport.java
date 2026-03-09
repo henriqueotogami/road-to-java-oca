@@ -18,11 +18,6 @@ public class Example02SingleStaticImport {
     private static final Logger logger = LogManager.getLogger(Example02SingleStaticImport.class);
     private boolean hasImportedStaticMember = false;
 
-    public static void main(String[] args) {
-        Example02SingleStaticImport example02 = new Example02SingleStaticImport();
-        example02.getSingleStaticImport(); // Exibe "Local: it_IT"
-    }
-
     /** Metodo para demonstrar a importação de um membro estático específico.
      * Este metodo utiliza o membro estático ITALY importado para exibir a locale correspondente.
      */
