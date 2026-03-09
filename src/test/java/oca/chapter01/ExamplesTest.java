@@ -6,6 +6,7 @@ import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import oca.chapter01.fundamentals.exemple04.Example04Ship;
 import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
 import oca.chapter01.fundamentals.exemple05.Example05GreetingsUniverse;
+import oca.chapter01.fundamentals.exercise02.Exercise02Compile;
 import oca.chapter01.fundamentals.plus.Study01StringTokenizer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -81,7 +82,7 @@ public class ExamplesTest {
     @Test
     @Order(4)
     void example04Test() {
-        Example04Spaceship ship1 = new Example04Spaceship ();
+        Example04Spaceship ship1 = new Example04Spaceship();
         ship1.dockShip();
         Assertions.assertTrue(ship1.isDocked(), "Expected ship1 to be docked after calling dockShip()");
         Assertions.assertEquals(Example04Ship.ShipType.BATTLESHIP.name(), ship1.getShipType(), "Expected default ship type to be BATTLESHIP");
@@ -136,5 +137,23 @@ public class ExamplesTest {
         Assertions.assertTrue(example.getStringTokenizer().hasMoreTokens());
         Assertions.assertTrue(example.getStringTokenizer().hasMoreElements());
         Assertions.assertEquals("três", example.getStringTokenizer().nextToken());
+    }
+
+    /**
+     * <br>Teste para verificar se a classe Exercise02Compile habilita o logging corretamente e inicia o universo com sucesso.
+     * <br>Este teste é importante para garantir que a classe Exercise02Compile esteja funcionando conforme o esperado, habilitando o logging e iniciando o universo com sucesso quando o logging estiver habilitado.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Exercise02Compile
+     */
+    @Test
+    @Order(7)
+    void example07Test() {
+        final Exercise02Compile exercise = new Exercise02Compile();
+        exercise.setLoggingEnabled(true);
+        Assertions.assertTrue(exercise.isLoggingEnabled(), "Expected logging to be enabled after setting it to true");
+        Assertions.assertTrue(exercise.startUniverse(), "Expected universe to start successfully when logging is enabled");
     }
 }
