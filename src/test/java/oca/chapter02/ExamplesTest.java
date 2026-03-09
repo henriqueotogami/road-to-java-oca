@@ -2,10 +2,12 @@ package oca.chapter02;
 
 import oca.chapter02.primitives.example01.Attribution;
 import oca.chapter02.primitives.example02.Conditionals;
+import oca.chapter02.primitives.example03.FishingSession;
 import oca.chapter02.primitives.example03.FishingTrip;
 import oca.chapter02.primitives.example04.IfThenElse;
 import oca.chapter02.primitives.example05.Fish;
 import oca.chapter02.primitives.example06.Bat;
+import oca.chapter02.primitives.example08.LoopWhile;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -184,5 +186,22 @@ public class ExamplesTest {
         Bat bat = new Bat();
         final String nameBait = bat.generateBait(bait);
         Assertions.assertEquals("Salted clams", nameBait, "Expected 'Salted clams' for ClamBait.SALTED");
+    }
+
+    /**
+     * Testa o metodo {@code waitCastFosFish()} da classe {@link LoopWhile} para verificar o comportamento relacionado a uma sessão de pesca que se torna inativa após atingir um limite de peixes.
+     * <p>
+     * Este teste cobre os seguintes cenários:
+     * - Verificação de que a sessão de pesca se torna inativa após o metodo ser executado, garantindo que o loop while funcione conforme o esperado e que a variável de instância seja atualizada corretamente.
+     *
+     * Asserções são usadas para validar os resultados esperados, garantindo que o metodo funcione conforme o esperado, mesmo com a lógica de loop while.
+     */
+    @Test
+    @Order(7)
+    void example07() {
+        final FishingSession fishingSession = new FishingSession();
+        final LoopWhile loopWhile = new LoopWhile();
+        loopWhile.waitCastFosFish(fishingSession);
+        Assertions.assertEquals("inactive", fishingSession.getSession(), "Fishing session should be inactive after reaching fish limit");
     }
 }

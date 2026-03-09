@@ -24,7 +24,7 @@ public class LoopWhile {
         loopWhile.waitCastFosFish(fishingSession);
     }
 
-    private void waitCastFosFish(FishingSession fishingSession) {
+    public void waitCastFosFish(FishingSession fishingSession) {
         fishingSession.setSession("active");
         /* INSTRUÇÃO WHILE */
         while (fishingSession.getSession().equals("active")) {
