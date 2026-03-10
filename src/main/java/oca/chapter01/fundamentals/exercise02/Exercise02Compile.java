@@ -24,27 +24,21 @@ public class Exercise02Compile {
      * @return true se o universo foi iniciado com sucesso, false caso contrário.
      */
     public boolean startUniverse() {
-        try {
-            final Earth earth   = new Earth();
-            final Mars mars     = new Mars();
-            final Venus venus   = new Venus();
+        final Earth earth   = new Earth();
+        final Mars mars     = new Mars();
+        final Venus venus   = new Venus();
 
-            logger.info("Greetings, Universe!");
+        logger.info("Greetings, Universe!");
 
-            earth.sayHello();
-            mars.sayHello();
-            venus.sayHello();
+        earth.sayHello();
+        mars.sayHello();
+        venus.sayHello();
 
-            logger.info("Is Earth habitable? {}", earth.isHabitable());
-            logger.info("Is Mars habitable?  {}", mars.isHabitable());
-            logger.info("Is Venus habitable? {}", venus.isHabitable());
+        logger.info("Is Earth habitable? {}", earth.isHabitable());
+        logger.info("Is Mars habitable?  {}", mars.isHabitable());
+        logger.info("Is Venus habitable? {}", venus.isHabitable());
 
-            return true;
-
-        } catch (Exception e) {
-            if(isLoggingEnabled()) logger.info("An error occurred while starting the universe: {}", e.getMessage());
-            return false;
-        }
+        return true;
     }
 
     public boolean isLoggingEnabled() {

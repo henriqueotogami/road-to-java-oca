@@ -6,6 +6,7 @@ import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import oca.chapter01.fundamentals.exemple04.Example04Ship;
 import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
 import oca.chapter01.fundamentals.exemple05.Example05GreetingsUniverse;
+import oca.chapter01.fundamentals.exercise01.Exercise01Import;
 import oca.chapter01.fundamentals.exercise02.Exercise02Compile;
 import oca.chapter01.fundamentals.plus.Study01StringTokenizer;
 import org.junit.jupiter.api.Assertions;
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.StringTokenizer;
+import java.util.logging.FileHandler;
 
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
@@ -150,10 +152,28 @@ public class ExamplesTest {
      */
     @Test
     @Order(7)
-    void example07Test() {
+    void exercise02Test() {
         final Exercise02Compile exercise = new Exercise02Compile();
         exercise.setLoggingEnabled(true);
         Assertions.assertTrue(exercise.isLoggingEnabled(), "Expected logging to be enabled after setting it to true");
         Assertions.assertTrue(exercise.startUniverse(), "Expected universe to start successfully when logging is enabled");
+    }
+
+    /**
+     * <br>Teste para verificar se a classe Exercise01Import cria um arquivo de log corretamente.
+     * <br>Este teste é importante para garantir que a classe Exercise01Import esteja funcionando conforme o esperado, criando um arquivo de log com mensagens de log usando o pacote java.util.logging.
+     *
+     * @author henriqueotogami
+     * @since 2026-03-07
+     * @version 1.0
+     * @see Exercise01Import
+     */
+    @Test
+    @Order(8)
+    void exercise01Test() throws Exception {
+        Exercise01Import exercise = new Exercise01Import();
+        FileHandler fileHandler = exercise.getFileHandler("src\\test\\resources\\TestLog.txt");
+        Assertions.assertNotNull(fileHandler, "Expected file handler to be created successfully");
+        Assertions.assertTrue(exercise.createFile(fileHandler), "Expected createFile to return true when file handler is created successfully");
     }
 }
