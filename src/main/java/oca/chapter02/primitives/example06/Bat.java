@@ -21,7 +21,7 @@ public class Bat {
 
     private static final Logger logger = LogManager.getLogger(Bat.class);
     
-    public enum ClamBait { FRESH, SALTED, ARTIFICIAL}
+    public enum ClamBait {FRESH, SALTED, ARTIFICIAL, UNKNOWN}
 
     String nameBait = "No bait";
 

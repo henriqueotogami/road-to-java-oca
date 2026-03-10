@@ -31,25 +31,37 @@ public class ValidString {
         validString.hasSizeValid(userInput);
     }
 
-    private void hasSizeValid(String userInput) {
+    /**
+     * Verifica se a string de entrada tem exatamente 5 caracteres usando uma estrutura switch.
+     *
+     * @param userInput A string de entrada fornecida pelo usuário.
+     * @return true se a string tiver exatamente 5 caracteres, false caso contrário.
+     */
+    public boolean hasSizeValid(String userInput) {
         switch(userInput.length()) {
             case 5:
                 logger.info("This string has 5 characters.");
-                break;
+                return true;
             default:
                 logger.info("This string does not have 5 characters.");
-                break;
+                return false;
         }
     }
 
-    private void isInputValid(String userInput) {
+    /**
+     * Verifica se a string de entrada é "valid" usando uma estrutura switch.
+     *
+     * @param userInput A string de entrada fornecida pelo usuário.
+     * @return true se a string for "valid", false caso contrário.
+     */
+    public boolean isInputValid(String userInput) {
         switch(userInput) {
             case "valid":
                 logger.info("This string is valid.");
-                break;
+                return true;
             default:
                 logger.info("This string is not valid.");
-                break;
+                return false;
         }
     }
 }
