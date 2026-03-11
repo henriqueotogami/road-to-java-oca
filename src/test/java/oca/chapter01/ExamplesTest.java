@@ -6,6 +6,7 @@ import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import oca.chapter01.fundamentals.exemple04.Example04Ship;
 import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
 import oca.chapter01.fundamentals.exemple05.Example05GreetingsUniverse;
+import oca.chapter01.fundamentals.exemple06.Example06PropertiesManager;
 import oca.chapter01.fundamentals.exercise01.Exercise01Import;
 import oca.chapter01.fundamentals.exercise02.Exercise02Compile;
 import oca.chapter01.fundamentals.plus.Study01StringTokenizer;
@@ -111,6 +112,24 @@ public class ExamplesTest {
         Assertions.assertEquals("Greetings, Universe!", example.getGreetings());
     }
 
+
+    @Test
+    @Order(6)
+    void example06Test() {
+        Example06PropertiesManager manager = new Example06PropertiesManager();
+        Assertions.assertNotNull(manager.getProps(), "Expected properties object to be initialized");
+        Assertions.assertEquals(60, manager.getProps().size(), "Expected properties to contain 60 entries (default system properties)");
+        Assertions.assertTrue(manager.printAllProperties(manager.getProps()), "Expected printAllProperties to return true");
+
+        Assertions.assertTrue(manager.isMissingProperty(new String[] {"-list_prop"}), "Expected isMissingProperty to return true when property name is missing");
+        Assertions.assertFalse(manager.isMissingProperty(new String[] {"-list_prop", "java.version", "user.name"}), "Expected isMissingProperty to return false when property name is provided");
+
+        Assertions.assertTrue(manager.isArgsEmpty(new String[0]), "Expected isArgsEmpty to return true when args array is empty");
+        Assertions.assertFalse(manager.isArgsEmpty(new String[] {"-list_all"}), "Expected isArgsEmpty to return false when args array is not empty");
+
+    }
+
+
     /**
      * <br>Teste para verificar se a classe Study01StringTokenizer divide corretamente a string em tokens usando o delimitador especificado.
      * <br>Este teste é importante para garantir que a classe Study01StringTokenizer esteja funcionando conforme o esperado, dividindo a string "um,dois,três" em três tokens ("um", "dois", "três") usando a vírgula como delimitador.
@@ -121,8 +140,8 @@ public class ExamplesTest {
      * @see Study01StringTokenizer
      */
     @Test
-    @Order(6)
-    void example06Test() {
+    @Order(7)
+    void study01Test() {
         Study01StringTokenizer example = new Study01StringTokenizer();
         example.setStringTokenizer(new StringTokenizer("um,dois,três", ","));
 
@@ -151,7 +170,7 @@ public class ExamplesTest {
      * @see Exercise02Compile
      */
     @Test
-    @Order(7)
+    @Order(8)
     void exercise02Test() {
         final Exercise02Compile exercise = new Exercise02Compile();
         exercise.setLoggingEnabled(true);
@@ -169,11 +188,13 @@ public class ExamplesTest {
      * @see Exercise01Import
      */
     @Test
-    @Order(8)
+    @Order(9    )
     void exercise01Test() throws Exception {
         Exercise01Import exercise = new Exercise01Import();
         FileHandler fileHandler = exercise.getFileHandler("src\\test\\resources\\TestLog.txt");
         Assertions.assertNotNull(fileHandler, "Expected file handler to be created successfully");
         Assertions.assertTrue(exercise.createFile(fileHandler), "Expected createFile to return true when file handler is created successfully");
     }
+
+
 }

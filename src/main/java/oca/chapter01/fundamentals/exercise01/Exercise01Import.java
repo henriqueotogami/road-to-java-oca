@@ -25,9 +25,9 @@ public class Exercise01Import {
     public static void main(String[] args) {
         Exercise01Import exercise = new Exercise01Import();
         if (exercise.createFileLog()) {
-            logger.info("Exercise01Import - Falha na criação do arquivo de log");
-        } else {
             logger.info("Exercise01Import - Arquivo de log criado com sucesso");
+        } else {
+            logger.info("Exercise01Import - Falha na criação do arquivo de log");
         }
     }
     /**
@@ -63,7 +63,7 @@ public class Exercise01Import {
         ocajLogger.setLevel(Level.ALL);
         ocajLogger.addHandler(myFileHandler);
 
-        if (createFile(myFileHandler)) return false;
+        if (createFile(myFileHandler)) return true;
 
         return true;
     }
