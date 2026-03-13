@@ -19,11 +19,11 @@ public class Example06PropertiesManager {
 
     private final Properties props = System.getProperties();
 
-    public static void main(String[] args) {
+    public static boolean main(String[] args) {
 
         Example06PropertiesManager manager = new Example06PropertiesManager();
 
-        if (manager.isArgsEmpty(args)) return;
+        if (manager.isArgsEmpty(args)) return false;
 
         /* Exemplo de nova propriedade */
         manager.getProps().setProperty("new_property2", "new_value2");
@@ -35,7 +35,7 @@ public class Example06PropertiesManager {
                 break;
 
             case "-list_prop":
-                if (manager.isMissingProperty(args)) return;
+                if (manager.isMissingProperty(args)) return false;
                 /* Lista valor */
                 logger.info(manager.getProps().getProperty(args[1]));
                 break;
@@ -43,8 +43,9 @@ public class Example06PropertiesManager {
             default:
                 logger.info("Usage: java PropertiesManager[-list_all]");
                 logger.info(" java PropertiesManager[-list_prop[property]]");
-                break;
+                return false;
         }
+        return true;
     }
 
     public Properties getProps() { return this.props; }

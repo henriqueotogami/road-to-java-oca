@@ -136,6 +136,11 @@ public class ExamplesTest {
         Assertions.assertTrue(manager.isArgsEmpty(new String[0]), "Expected isArgsEmpty to return true when args array is empty");
         Assertions.assertFalse(manager.isArgsEmpty(new String[] {"-list_all"}), "Expected isArgsEmpty to return false when args array is not empty");
 
+        Assertions.assertTrue(Example06PropertiesManager.main(new String[] {"-list_all"}), "Expected main method to execute without throwing an exception when -list_all argument is provided");
+        Assertions.assertTrue(Example06PropertiesManager.main(new String[] {"-list_prop", "java.version"}), "Expected main method to execute without throwing an exception when -list_prop argument is provided with a property name");
+        Assertions.assertFalse(Example06PropertiesManager.main(new String[] {"-list_prop"}), "Expected main method to execute without throwing an exception when -list_prop argument is provided without a property name");
+        Assertions.assertFalse(Example06PropertiesManager.main(new String[] {"-invalid_arg"}), "Expected main method to execute without throwing an exception when an invalid argument is provided");
+        Assertions.assertFalse(Example06PropertiesManager.main(new String[0]), "Expected main method to execute without throwing an exception when no arguments are provided");
     }
 
 
