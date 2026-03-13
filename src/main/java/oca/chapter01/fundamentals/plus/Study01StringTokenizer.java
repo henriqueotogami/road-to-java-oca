@@ -21,10 +21,16 @@ public class Study01StringTokenizer {
      * Imprime os tokens gerados pelo StringTokenizer.
      * Este metodo percorre os tokens gerados pelo StringTokenizer e os imprime usando o logger.
      */
-    public void printTokens() {
+    public boolean printTokens() {
         while (stringTokenizer.hasMoreTokens()) {
-            logger.info(stringTokenizer.nextToken());
+            try {
+                logger.info(stringTokenizer.nextToken());
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
         }
+        return false;
     }
 
     /**

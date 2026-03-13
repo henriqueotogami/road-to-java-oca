@@ -153,7 +153,9 @@ public class ExamplesTest {
     void study01Test() {
         Study01StringTokenizer example = new Study01StringTokenizer();
         example.setStringTokenizer(new StringTokenizer("um,dois,três", ","));
+        Assertions.assertTrue(example.printTokens(), "Expected printTokens to return true when printing tokens");
 
+        example.setStringTokenizer(new StringTokenizer("um,dois,três", ","));
         Assertions.assertEquals(3, example.getStringTokenizer().countTokens());
 
         Assertions.assertTrue(example.getStringTokenizer().hasMoreTokens());
@@ -167,6 +169,10 @@ public class ExamplesTest {
         Assertions.assertTrue(example.getStringTokenizer().hasMoreTokens());
         Assertions.assertTrue(example.getStringTokenizer().hasMoreElements());
         Assertions.assertEquals("três", example.getStringTokenizer().nextToken());
+
+        Assertions.assertFalse(example.getStringTokenizer().hasMoreTokens());
+        Assertions.assertFalse(example.getStringTokenizer().hasMoreElements());
+        Assertions.assertFalse(example.printTokens(), "Expected printTokens to return false when there are no more tokens to print");
     }
 
     /**
