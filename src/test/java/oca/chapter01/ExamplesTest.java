@@ -5,6 +5,7 @@ import oca.chapter01.fundamentals.exemple02.Example02SingleStaticImport;
 import oca.chapter01.fundamentals.exemple03.Example03MultiStaticImport;
 import oca.chapter01.fundamentals.exemple04.Example04Ship;
 import oca.chapter01.fundamentals.exemple04.Example04Spaceship;
+import oca.chapter01.fundamentals.exemple04.Example04SpaceshipSimulator;
 import oca.chapter01.fundamentals.exemple05.Example05GreetingsUniverse;
 import oca.chapter01.fundamentals.exemple06.Example06PropertiesManager;
 import oca.chapter01.fundamentals.exercise01.Exercise01Import;
@@ -94,6 +95,8 @@ public class ExamplesTest {
         ship2.dockShip();
         Assertions.assertTrue(ship2.isDocked(), "Expected ship2 to be docked after calling dockShip()");
         Assertions.assertEquals(Example04Ship.ShipType.FRIGATE.name(), ship2.getShipType(), "Expected ship type to be FRIGATE");
+
+        Assertions.assertEquals("oca.chapter01.fundamentals.exemple04.Example04SpaceshipSimulator", Example04SpaceshipSimulator.logger.getName(), "Expected class name to be oca.chapter01.fundamentals.exemple04.Example04SpaceshipSimulator");
     }
 
     /**
