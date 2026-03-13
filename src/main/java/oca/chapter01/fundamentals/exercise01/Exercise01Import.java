@@ -21,25 +21,18 @@ import java.util.logging.*;
 public class Exercise01Import {
 
     private static final org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger(Exercise01Import.class);
-    
-    public static void main(String[] args) throws IOException {
-        Exercise01Import exercise01Import = new Exercise01Import();
-        exercise01Import.createFileLog();
-    }
-
     /**
      * <br>Cria um arquivo de log com mensagens de log usando o pacote java.util.logging.
      * <br>O arquivo de log é criado no diretório "logs" com um nome baseado na data e hora atuais.
      *
      * @return true se o arquivo de log foi criado e as mensagens foram registradas com sucesso, false caso contrário.
      */
-    public boolean createFileLog() {
-//        logger.info("Exercise01Import - BEGIN");
+    public boolean createFileLog(final String path) {
 
         try {
             /* Assegura que o diretório seja criado */
-            Files.createDirectories(Paths.get("logs"));
-        } catch (IOException e) {
+            Files.createDirectories(Paths.get(path));
+        } catch (Exception e) {
             logger.info("Exercise01Import - Falha na criação do diretório logs");
             return false;
         }
@@ -50,28 +43,21 @@ public class Exercise01Import {
         String date                         = localDateTimeNow.format(dateTimeFormatter);
 
         /* Define o nome do arquivo no diretório logs */
-        String logFileName = "logs/testlog-" + date + ".txt";
-//        logger.info("Nome do arquivo: " + logFileName);
-        FileHandler myFileHandler = null;
-
-        try {
-            /* Define Logger */
-            myFileHandler = new FileHandler(logFileName);
-            myFileHandler.setFormatter(new SimpleFormatter());
-        } catch (IOException e) {
-            logger.info("Exercise01Import - Falha na criação do arquivo de log");
-            return false;
-        } catch (SecurityException e) {
-            logger.info("Exercise01Import - Falha na permissão de impressão de logs  ");
-            return false;
-        }
+        final String logFileName = "logs/testlog-" + date + ".txt";
+        final FileHandler myFileHandler = getFileHandler(logFileName);
+        
+        if (myFileHandler == null) return false;
 
         Logger ocajLogger = Logger.getLogger("OCAJ Logger");
         ocajLogger.setLevel(Level.ALL);
         ocajLogger.addHandler(myFileHandler);
 
-        /* Mensagem de log */
-//        ocajLogger.info("\nThis is a logged information message. ");
+        if (createFile(myFileHandler)) return true;
+
+        return true;
+    }
+
+    public boolean createFile(FileHandler myFileHandler) {
         try {
             Thread.sleep(500);
             /* Fecha o arquivo */
@@ -79,13 +65,25 @@ public class Exercise01Import {
             myFileHandler.close();
             Thread.sleep(500);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        } catch (Exception e) {
             logger.info("Falha no salvamento do arquivo");
             return false;
-        } finally {
-//            logger.info("Exercise01Import - END");
         }
-
         return true;
+    }
+
+    public FileHandler getFileHandler(String logFileName) {
+        FileHandler myFileHandler = null;
+        try {
+            /* Define Logger */
+            myFileHandler = new FileHandler(logFileName);
+            myFileHandler.setFormatter(new SimpleFormatter());
+        } catch (Exception e) {
+            logger.info("Exercise01Import - Falha na criação do arquivo de log");
+            return null;
+        }
+        return myFileHandler;
     }
 
 //    Instruções:

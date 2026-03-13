@@ -19,32 +19,19 @@ public class LoopFor {
 
     private static final Logger logger = LogManager.getLogger(LoopFor.class);
 
-    public static void main(String[] args) {
-
-        try {
-            final LoopFor loopFor = new LoopFor();
-            loopFor.variableOutsideLoop();
-            loopFor.variableInsideLoop();
-            loopFor.betterLoop();
-            loopFor.betterLoopGenerics();
-        } catch (Exception e) {
-            logger.error("An error occurred: " + e.getMessage());
-        }
-    }
-
     public void variableOutsideLoop() {
         int m;
         for (m = 1; m < 5; m++) {
-            logger.info("Marker " + m + ", ");
+            logger.info("Marker {} , ", m);
         }
-        logger.info("Last Marker " + m + "\n");
+        logger.info("Last Marker {}\n", m);
     }
 
     public void variableInsideLoop() {
         for (int m = 1; m < 5; m++) {
-            logger.info("Marker " + m + ", ");
+            logger.info("Marker {}, ", m);
         }
-        // logger.info("Last Marker " + m + "\n");
+        // logger.info("Last Marker \n", m);
         // m está fora de escopo
 
         //FAILURE: Build failed with an exception.

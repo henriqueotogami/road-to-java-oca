@@ -7,7 +7,5 @@ public class Example05GreetingsUniverse {
 
     private static final Logger logger = LogManager.getLogger(Example05GreetingsUniverse.class);
 
-    public static void main(final String[] args) {
-        logger.info("Greetings, Universe!");
-    }
+    public String getGreetings() { return "Greetings, Universe!"; }
 }

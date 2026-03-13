@@ -20,20 +20,15 @@ import org.apache.logging.log4j.Logger;
 public class IfThenElse {
 
     private static final Logger logger = LogManager.getLogger(IfThenElse.class);
-    
-    public static void main(String[] args) {
-        final IfThenElse ifThenElse = new IfThenElse();
-        ifThenElse.defaultIfElse();
-        ifThenElse.ternaryIfElse();
-    }
 
-    private void ternaryIfElse() {
+    public int ternaryIfElse() {
         final int x = -5;
         final int valorAbsoluto = (x > 0) ? x : -x;
         logger.info(valorAbsoluto);
+        return valorAbsoluto;
     }
 
-    public void defaultIfElse() {
+    public int defaultIfElse() {
         int x = -5;
         int valorAbsoluto;
         if(x > 0){
@@ -43,5 +38,6 @@ public class IfThenElse {
             valorAbsoluto = -x;
         }
         logger.info(valorAbsoluto);
+        return valorAbsoluto;
     }
 }

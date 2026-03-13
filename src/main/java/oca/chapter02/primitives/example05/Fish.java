@@ -18,32 +18,23 @@ import java.util.Random;
 public class Fish {
 
     private static final Logger logger = LogManager.getLogger(Fish.class);
-    
+    private final SecureRandom randomObject = new SecureRandom();
+    private int randomNumber = 0;
+
     public String generateRandomFish() {
-        String randomFish;
-        SecureRandom randomObject = new SecureRandom();
-        int randomNumber = randomObject.nextInt(4);
+        randomNumber = this.randomObject.nextInt(4);
         switch (randomNumber) {
-            case 0:
-                randomFish = "Blue Fish";
-                break;
-            case 1:
-                randomFish = "Red Drum";
-                break;
-            case 2:
-                randomFish = "Striped Bass";
-                break;
-            default:
-                randomFish = "Unknown Fish Type";
-                break;
+            case 0: return "Blue Fish";
+            case 1: return "Red Drum";
+            case 2: return "Striped Bass";
+            default: return "Unknown Fish Type";
         }
-        return randomFish;
     }
 
-    public static void main(String[] args) {
-        final Fish fish = new Fish();
-        for (int i = 0; i < 10; i++) {
-            logger.info(fish.generateRandomFish());
-        }
-    }
+    /**
+     * Retorna o número aleatório gerado pela última chamada do metodo {@code generateRandomFish()}.
+     *
+     * @return o número aleatório gerado, que pode ser 0, 1, 2 ou 3.
+     */
+    public int getRandomNumber() { return this.randomNumber; }
 }

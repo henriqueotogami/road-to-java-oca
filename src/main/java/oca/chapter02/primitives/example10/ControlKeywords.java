@@ -24,38 +24,21 @@ public class ControlKeywords {
 
     private static final Logger logger = LogManager.getLogger(ControlKeywords.class);
 
-    public static void main(String[] args) {
-
-        final ControlKeywords controlKeywords = new ControlKeywords();
-        controlKeywords.keywordBreak();
-        controlKeywords.keywordContinue();
-
-        final int totalFishTypes = controlKeywords.keywordReturn01(5, 10, 3);
-        logger.info("Total fish types: {}.", totalFishTypes);
-
-        final int totalFishCaught = controlKeywords.keywordReturn02(15, 5);
-        logger.info("Total fish caught: {}.", totalFishCaught);
-
-        controlKeywords.keywordReturn03(15, 5);
-
-        controlKeywords.labeledInstructions01();
-        controlKeywords.labeledInstructions02();
-    }
-
-    public void keywordBreak() {
+    public int keywordBreak() {
         int totalHoursFishing   = 0;
         int hoursAllowedFishing = 4;
 
         for (int index = 1; index < 25; ++index) {
-            totalHoursFishing = ++totalHoursFishing;
+            totalHoursFishing++;
 
             if (totalHoursFishing > hoursAllowedFishing) break;
 
             logger.info("Fishing for hour {} .", index);
         }
+        return totalHoursFishing;
     }
 
-    public void keywordContinue() {
+    public int keywordContinue() {
         int totalDaysCamping   = 0;
         int daysAllowedFishing = 5;
 
@@ -68,22 +51,25 @@ public class ControlKeywords {
 
             logger.info("and fishing");
         }
+        return totalDaysCamping;
     }
 
     public int keywordReturn01(int saltWaterFishTotal, int freshWaterFishTotal, int brackishFishTotal) {
-        int fishTypesTotal = saltWaterFishTotal + freshWaterFishTotal + brackishFishTotal;
-        return fishTypesTotal;
+        return (saltWaterFishTotal + freshWaterFishTotal + brackishFishTotal);
     }
 
     public int keywordReturn02(int keeperFish, int throwBackFish) {
         return keeperFish + throwBackFish;
     }
 
-    public void keywordReturn03(int keeperFish, int throwBackFish) {
+    public int keywordReturn03(int keeperFish, int throwBackFish) {
         for (int index = 1; index < 10; ++index) {
-            if (keeperFish + throwBackFish > 20) return;
-            logger.info("Fishing for hour {} .", index);
+            if (keeperFish + throwBackFish > 20) {
+                break;
+            }
+            logger.info("Fishing for hour {} ", index);
         }
+        return (keeperFish + throwBackFish);
     }
 
     public void labeledInstructions01() {

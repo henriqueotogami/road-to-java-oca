@@ -21,24 +21,46 @@ public class Bat {
 
     private static final Logger logger = LogManager.getLogger(Bat.class);
     
-    private enum ClamBait { FRESH, SALTED, ARTIFICIAL}
+    public enum ClamBait {FRESH, SALTED, ARTIFICIAL, UNKNOWN}
 
-    public static void main(String[] args) {
+    String nameBait = "No bait";
 
-        ClamBait bait = ClamBait.SALTED;
+    /**
+     * Gera o nome da isca com base no valor do enum {@code ClamBait} fornecido.
+     *
+     * @param bait o tipo de isca representado pelo enum {@code ClamBait}, que pode ser FRESH, SALTED ou ARTIFICIAL.
+     * @return o nome da isca correspondente ao valor do enum, que pode ser "No bait", "Fresh clams", "Salted clams" ou "Artificial clams".
+     */
+    public String generateBait(ClamBait bait) {
+        final String nameBait;
         switch (bait) {
             default:
-                logger.info("No bait");
+                nameBait = "No bait";
                 break;
             case FRESH:
-                logger.info("Fresh clams");
+                nameBait = "Fresh clams";
                 break;
             case SALTED:
-                logger.info("Salted clams");
+                nameBait = "Salted clams";
                 break;
             case ARTIFICIAL:
-                logger.info("Artificial clams");
+                nameBait = "Artificial clams";
                 break;
         }
+        return nameBait;
     }
+
+    /**
+     * Retorna o nome da isca atualmente definida.
+     *
+     * @return o nome da isca, que pode ser "No bait", "Fresh clams", "Salted clams" ou "Artificial clams".
+     */
+    public String getNameBait() { return this.nameBait; }
+
+    /**
+     * Define o nome da isca com base no valor fornecido.
+     *
+     * @param nameBait o nome da isca a ser definido, que pode ser "No bait", "Fresh clams", "Salted clams" ou "Artificial clams".
+     */
+    public void setNameBait(final String nameBait) { this.nameBait = nameBait; }
 }

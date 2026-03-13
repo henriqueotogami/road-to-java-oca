@@ -1,9 +1,7 @@
 package oca.chapter02.primitives.example03;
 
-import org.apache.logging.log4j.EventLogger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -60,8 +58,10 @@ public class FishingTrip {
         }
     }
 
-    public static void main(String[] args) {
-        final FishingTrip trip = new FishingTrip();
-        trip.castForFish();
-    }
+    /**
+     * Retorna a instância de {@link FishingSession} associada a esta viagem de pesca.
+     *
+     * @return a instância de {@code FishingSession} usada para simular os lançamentos de pesca.
+     */
+    public FishingSession getFishingSession() { return this.fishingSession; }
 }

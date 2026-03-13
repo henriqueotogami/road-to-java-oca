@@ -15,20 +15,5 @@ import org.apache.logging.log4j.Logger;
  */
 public class Example04SpaceshipSimulator {
 
-    private static final Logger logger = LogManager.getLogger(Example04SpaceshipSimulator.class);
-
-    public static void main(String[] args) {
-
-        // Cria um objeto SpaceShip com o tipo de nave padrão
-        Example04Spaceship ship1 = new Example04Spaceship ();
-
-        // Exibe "The pirate ship is a battleship."
-        logger.info(ship1);
-
-        // Cria um objeto SpaceShip com o tipo de nave especificado
-        Example04Spaceship ship2 = new Example04Spaceship (Example04Spaceship.ShipType.FRIGATE);
-
-        // Exibe "The pirate ship is a frigate ship."
-        logger.info(ship2);
-    }
+    public static final Logger logger = LogManager.getLogger(Example04SpaceshipSimulator.class);
 }

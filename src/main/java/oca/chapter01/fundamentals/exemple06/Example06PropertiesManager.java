@@ -17,33 +17,63 @@ public class Example06PropertiesManager {
 
     private static final Logger logger = LogManager.getLogger(Example06PropertiesManager.class);
 
-    public static void main(String[] args) {
+    private final Properties props = System.getProperties();
 
-        if (args.length == 0) {
-            System.exit(0);
-        }
+    public static boolean main(String[] args) {
 
-        final Properties props = System.getProperties();
+        Example06PropertiesManager manager = new Example06PropertiesManager();
+
+        if (manager.isArgsEmpty(args)) return false;
 
         /* Exemplo de nova propriedade */
-        props.setProperty("new_property2", "new_value2");
+        manager.getProps().setProperty("new_property2", "new_value2");
 
         switch (args[0]) {
 
             case "-list_all":
-                props.list(System.out); // Lista todas as propriedades
+                manager.printAllProperties(manager.getProps());
                 break;
 
             case "-list_prop":
+                if (manager.isMissingProperty(args)) return false;
                 /* Lista valor */
-                logger.info(props.getProperty(args[1]));
+                logger.info(manager.getProps().getProperty(args[1]));
                 break;
 
             default:
                 logger.info("Usage: java PropertiesManager[-list_all]");
                 logger.info(" java PropertiesManager[-list_prop[property]]");
-                break;
+                return false;
         }
+        return true;
+    }
+
+    public Properties getProps() { return this.props; }
+
+    public boolean printAllProperties(Properties props) {
+        try {
+            props.forEach((k, v) -> logger.info("{} = {}", k, v)); // Lista todas as propriedades
+            return true;
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean isMissingProperty(String[] args) {
+        if (args.length < 2) {
+            logger.error("Missing property name");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isArgsEmpty(String[] args) {
+        if (args.length == 0) {
+            logger.info("No arguments provided");
+            return true;
+        }
+        return false;
     }
 
 //    HMAP :: oca/chapter01/fundamentals 1 » cd ../../../
