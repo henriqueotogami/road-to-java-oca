@@ -64,6 +64,8 @@ public class Exercise01Import {
             myFileHandler.flush();
             myFileHandler.close();
             Thread.sleep(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         } catch (Exception e) {
             logger.info("Falha no salvamento do arquivo");
             return false;
