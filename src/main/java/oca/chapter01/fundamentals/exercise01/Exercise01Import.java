@@ -21,28 +21,18 @@ import java.util.logging.*;
 public class Exercise01Import {
 
     private static final org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger(Exercise01Import.class);
-
-    public static void main(String[] args) {
-        Exercise01Import exercise = new Exercise01Import();
-        if (exercise.createFileLog()) {
-            logger.info("Exercise01Import - Arquivo de log criado com sucesso");
-        } else {
-            logger.info("Exercise01Import - Falha na criação do arquivo de log");
-        }
-    }
     /**
      * <br>Cria um arquivo de log com mensagens de log usando o pacote java.util.logging.
      * <br>O arquivo de log é criado no diretório "logs" com um nome baseado na data e hora atuais.
      *
      * @return true se o arquivo de log foi criado e as mensagens foram registradas com sucesso, false caso contrário.
      */
-    public boolean createFileLog() {
-//        logger.info("Exercise01Import - BEGIN");
+    public boolean createFileLog(final String path) {
 
         try {
             /* Assegura que o diretório seja criado */
-            Files.createDirectories(Paths.get("logs"));
-        } catch (IOException e) {
+            Files.createDirectories(Paths.get(path));
+        } catch (Exception e) {
             logger.info("Exercise01Import - Falha na criação do diretório logs");
             return false;
         }
@@ -53,8 +43,7 @@ public class Exercise01Import {
         String date                         = localDateTimeNow.format(dateTimeFormatter);
 
         /* Define o nome do arquivo no diretório logs */
-        String logFileName = "logs/testlog-" + date + ".txt";
-//        logger.info("Nome do arquivo: " + logFileName);
+        final String logFileName = "logs/testlog-" + date + ".txt";
         final FileHandler myFileHandler = getFileHandler(logFileName);
         
         if (myFileHandler == null) return false;
@@ -69,19 +58,15 @@ public class Exercise01Import {
     }
 
     public boolean createFile(FileHandler myFileHandler) {
-        /* Mensagem de log */
-//        ocajLogger.info("\nThis is a logged information message. ");
         try {
             Thread.sleep(500);
             /* Fecha o arquivo */
             myFileHandler.flush();
             myFileHandler.close();
             Thread.sleep(500);
-        } catch (InterruptedException e) {
-//            logger.info("Falha no salvamento do arquivo");
+        } catch (Exception e) {
+            logger.info("Falha no salvamento do arquivo");
             return false;
-        } finally {
-//            logger.info("Exercise01Import - END");
         }
         return true;
     }
@@ -92,11 +77,8 @@ public class Exercise01Import {
             /* Define Logger */
             myFileHandler = new FileHandler(logFileName);
             myFileHandler.setFormatter(new SimpleFormatter());
-        } catch (IOException e) {
+        } catch (Exception e) {
             logger.info("Exercise01Import - Falha na criação do arquivo de log");
-            return null;
-        } catch (SecurityException e) {
-            logger.info("Exercise01Import - Falha na permissão de impressão de logs  ");
             return null;
         }
         return myFileHandler;

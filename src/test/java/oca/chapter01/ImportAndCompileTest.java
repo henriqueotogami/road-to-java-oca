@@ -33,13 +33,13 @@ public class ImportAndCompileTest {
     @Order(1)
     void exercise01ImportTest() {
         final Exercise01Import exercise = new Exercise01Import();
-        final boolean hasCreatedFile    = exercise.createFileLog();
+        final boolean hasCreatedFile    = exercise.createFileLog("logs");
         Assertions.assertTrue(hasCreatedFile, "Expected log file to be created successfully");
     }
 
     /**
      * <br>Teste para verificar se a classe Exercise02Compile compila corretamente e se o metodo startUniverse() retorna true.
-     * <br>Este teste é crucial para garantir que a classe Exercise02Compile esteja corretamente importada e que seu método startUniverse() funcione conforme esperado, permitindo que o exercício seja executado sem erros de compilação.
+     * <br>Este teste é crucial para garantir que a classe Exercise02Compile esteja corretamente importada e que seu metodo startUniverse() funcione conforme esperado, permitindo que o exercício seja executado sem erros de compilação.
      *
      * @author henriqueotogami
      * @since 2026-02-22
