@@ -114,8 +114,10 @@ class ExamplesTest {
         Assertions.assertNotNull(conditionals.getWeatherType(randomIndex),"Weather type should not be null!");
         Assertions.assertNotNull(conditionals.getWeatherType("ITS_RAINING"), "Weather type should not be null!");
 
-        Assertions.assertFalse(conditionals.strangeBooleanCondition());
-        Assertions.assertTrue(conditionals.wrapperBooleanCondition());
+        Assertions.assertFalse(conditionals.strangeBooleanCondition(true));
+        Assertions.assertFalse(conditionals.strangeBooleanCondition(false));
+        Assertions.assertTrue(conditionals.wrapperBooleanCondition(new Boolean("true")));
+        Assertions.assertFalse(conditionals.wrapperBooleanCondition(new Boolean("false")));
     }
 
     /**
@@ -130,7 +132,32 @@ class ExamplesTest {
     @Test
     @Order(3)
     void example03Test() {
-        final FishingTrip trip = new FishingTrip();
+        final oca.chapter02.primitives.example03.Fish fish = new oca.chapter02.primitives.example03.Fish();
+        Assertions.assertEquals("Striped Bass", fish.getTypeOfFish(), "Expected 'Striped Bass' as the default type of fish");
+        fish.setTypeOfFish("Another type of fish");
+        Assertions.assertEquals("Another type of fish", fish.getTypeOfFish(), "Expected 'Another type of fish' as the new type of fish");
+
+        final FishingSession fishingSession = new FishingSession();
+        FishingTrip trip = new FishingTrip();
+        fishingSession.getTypeOfCast(0.20d);
+        Assertions.assertEquals("fish", fishingSession.getCastResult(), "Expected 'fish' as the cast result for random value 0.20");
+        Assertions.assertNotNull(fishingSession.getFishResult(), "Fish result should not be null when a fish is caught!");
+        Assertions.assertEquals("trout", fishingSession.getFishResult().getTypeOfFish(), "Expected 'trout' as the type of fish when a fish is caught for random value 0.20");
+        Assertions.assertEquals("fish", trip.getKindOfCast("fish"), "Expected 'fish' as the kind of cast for result 'fish'");
+
+        fishingSession.getTypeOfCast(0.40d);
+        Assertions.assertEquals("shark", fishingSession.getCastResult(), "Expected 'shark' as the cast result for random value 0.40");
+        Assertions.assertEquals("shark", trip.getKindOfCast("shark"), "Expected 'shark' as the kind of cast for result 'shark'");
+
+        fishingSession.getTypeOfCast(0.60d);
+        Assertions.assertEquals("skate", fishingSession.getCastResult(), "Expected 'skate' as the cast result for random value 0.60");
+        Assertions.assertEquals("skate", trip.getKindOfCast("skate"), "Expected 'skate' as the kind of cast for result 'skate'");
+
+        fishingSession.getTypeOfCast(0.80d);
+        Assertions.assertEquals("no catch", fishingSession.getCastResult(), "Expected 'no catch' as the cast result for random value 0.80");
+        Assertions.assertEquals("no catch", trip.getKindOfCast("no catch"), "Expected 'no catch' as the kind of cast for result 'no catch'");
+
+        trip = new FishingTrip();
         trip.castForFish();
         Assertions.assertNotNull(trip.getFishingSession().getCastResult(), "Cast result should not be null!");
         if (trip.getFishingSession().getCastResult().equals("fish")) {
@@ -151,7 +178,8 @@ class ExamplesTest {
     @Order(4)
     void example04() {
         final IfThenElse ifThenElse = new IfThenElse();
-        Assertions.assertEquals(5, ifThenElse.defaultIfElse(), "Default if-else should return the absolute value of -5");
+        Assertions.assertEquals(5, ifThenElse.defaultIfElse(-5), "Default if-else should return the absolute value of -5");
+        Assertions.assertEquals(10, ifThenElse.defaultIfElse(10), "Default if-else should return the absolute value of 10");
         Assertions.assertEquals(5, ifThenElse.ternaryIfElse(), "Ternary if-else should return the absolute value of -5");
     }
 
