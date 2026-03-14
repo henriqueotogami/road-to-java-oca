@@ -1,7 +1,5 @@
 package oca.chapter02.primitives.example06;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * Esta classe demonstra o uso de enums e estruturas de controle switch em Java.
