@@ -16,4 +16,6 @@ import org.apache.logging.log4j.Logger;
 public class Example04SpaceshipSimulator {
 
     public static final Logger logger = LogManager.getLogger(Example04SpaceshipSimulator.class);
+
+    private Example04SpaceshipSimulator() {}
 }
