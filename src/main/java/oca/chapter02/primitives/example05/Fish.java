@@ -17,7 +17,6 @@ import java.util.Random;
  */
 public class Fish {
 
-    private static final Logger logger = LogManager.getLogger(Fish.class);
     private final SecureRandom randomObject = new SecureRandom();
     private int randomNumber = 0;
 

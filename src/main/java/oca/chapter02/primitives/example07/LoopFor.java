@@ -31,8 +31,7 @@ public class LoopFor {
         for (int m = 1; m < 5; m++) {
             logger.info("Marker {}, ", m);
         }
-        // logger.info("Last Marker \n", m);
-        // m está fora de escopo
+        // por exemplo a linha falha logger.info("Last Marker \n", m); -> m está fora de escopo
 
         //FAILURE: Build failed with an exception.
         //
