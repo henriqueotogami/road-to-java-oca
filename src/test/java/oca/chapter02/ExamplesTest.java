@@ -139,11 +139,13 @@ class ExamplesTest {
 
         final FishingSession fishingSession = new FishingSession();
         FishingTrip trip = new FishingTrip();
+        trip.setFishingSession(fishingSession);
         fishingSession.getTypeOfCast(0.20d);
         Assertions.assertEquals("fish", fishingSession.getCastResult(), "Expected 'fish' as the cast result for random value 0.20");
+        Assertions.assertEquals("fish", trip.getKindOfCast("fish"), "Expected 'fish' as the kind of cast for result 'fish'");
         Assertions.assertNotNull(fishingSession.getFishResult(), "Fish result should not be null when a fish is caught!");
         Assertions.assertEquals("trout", fishingSession.getFishResult().getTypeOfFish(), "Expected 'trout' as the type of fish when a fish is caught for random value 0.20");
-        Assertions.assertEquals("fish", trip.getKindOfCast("fish"), "Expected 'fish' as the kind of cast for result 'fish'");
+
 
         fishingSession.getTypeOfCast(0.40d);
         Assertions.assertEquals("shark", fishingSession.getCastResult(), "Expected 'shark' as the cast result for random value 0.40");

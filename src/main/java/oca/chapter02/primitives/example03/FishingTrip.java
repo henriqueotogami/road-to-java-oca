@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 public class FishingTrip {
 
     private final Logger logger                 = LogManager.getLogger(FishingTrip.class);
-    private final FishingSession fishingSession = new FishingSession();
+    private FishingSession fishingSession = new FishingSession();
 
     /**
      * Simula lançar a linha para pescar e processa o resultado do lançamento.
@@ -36,15 +36,9 @@ public class FishingTrip {
      * o tipo do peixe e o exibe.
      */
     public void castForFish() {
-
-        try {
-            fishingSession.setCatch();
-
-            final String resultOfCast = fishingSession.getCastResult();
-            this.getKindOfCast(resultOfCast);
-        } catch (NoSuchAlgorithmException e) {
-            logger.error(e.getMessage());
-        }
+        fishingSession.setCatch();
+        final String resultOfCast = fishingSession.getCastResult();
+        this.getKindOfCast(resultOfCast);
     }
 
     /**
@@ -78,4 +72,8 @@ public class FishingTrip {
      * @return a instância de {@code FishingSession} usada para simular os lançamentos de pesca.
      */
     public FishingSession getFishingSession() { return this.fishingSession; }
+
+    public void setFishingSession(FishingSession fishingSession) {
+        this.fishingSession = fishingSession;
+    }
 }

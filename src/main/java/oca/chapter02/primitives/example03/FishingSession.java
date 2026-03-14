@@ -32,9 +32,15 @@ public class FishingSession {
      * "no catch". Se um peixe for pego, ele também cria uma instância de {@link Fish}
      * e define o tipo de peixe como "trout".
      */
-    public void setCatch() throws NoSuchAlgorithmException {
+    public void setCatch() {
 
-        double random = SecureRandom.getInstanceStrong().nextDouble();
+        double random = 0;
+        try {
+            random = SecureRandom.getInstanceStrong().nextDouble();
+        } catch (NoSuchAlgorithmException e) {
+            random = Math.random();
+            logger.error(e.getMessage());
+        }
         this.getTypeOfCast(random);
     }
 
