@@ -38,7 +38,6 @@ public class FishingSession {
         try {
             random = SecureRandom.getInstanceStrong().nextDouble();
         } catch (NoSuchAlgorithmException e) {
-            random = Math.random();
             logger.error(e.getMessage());
         }
         this.getTypeOfCast(random);

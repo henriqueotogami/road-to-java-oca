@@ -214,13 +214,15 @@ class ExamplesTest {
     @Order(9)
     void exercise01Test() {
         Exercise01Import exercise = new Exercise01Import();
-        FileHandler fileHandler = exercise.getFileHandler("src\\test\\resources\\TestLog.txt");
+        FileHandler fileHandler = exercise.getFileHandler("logs/TestLog.txt");
         Assertions.assertNotNull(fileHandler, "Expected file handler to be created successfully");
         Assertions.assertTrue(exercise.createFile(fileHandler), "Expected createFile to return true when file handler is created successfully");
 
         Assertions.assertFalse(exercise.createFile(null), "Expected createFile to return false when file handler is null");
         Assertions.assertFalse(exercise.createFileLog(null), "Expected createFileLog to return false when path is null");
         Assertions.assertNull(exercise.getFileHandler(null), "Expected getFileHandler to return null when path is null");
+
+        Assertions.assertTrue(exercise.deleteFile("logs/TestLog.txt"), "Expected deleteFile to return true when log file is deleted successfully");
     }
 
 
