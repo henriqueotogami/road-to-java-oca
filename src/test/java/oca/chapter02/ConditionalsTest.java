@@ -16,7 +16,7 @@ import java.util.Random;
  * @version 1.0
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class ConditionalsTest {
+class ConditionalsTest {
 
     /**
      * <br>Teste de condições em Java.
@@ -27,7 +27,7 @@ public class ConditionalsTest {
      */
     @Test
     @Order(1)
-    public void weatherTest() {
+    void weatherTest() {
         final Conditionals conditionals = new Conditionals();
         final Random random             = new Random();
         final int randomIndex           = random.nextInt(Conditionals.Weather.values().length);
