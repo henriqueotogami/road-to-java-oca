@@ -35,7 +35,10 @@ public class FishingSession {
     public void setCatch() throws NoSuchAlgorithmException {
 
         double random = SecureRandom.getInstanceStrong().nextDouble();
+        this.getTypeOfCast(random);
+    }
 
+    public void getTypeOfCast(double random) {
         if (random < 0.25) {
             castResult = "fish";
             fishResult = new Fish();
