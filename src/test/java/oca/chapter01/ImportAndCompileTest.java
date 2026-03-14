@@ -18,7 +18,7 @@ import org.junit.jupiter.api.TestMethodOrder;
  * @see Exercise02Compile
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class ImportAndCompileTest {
+class ImportAndCompileTest {
 
     /**
      * <br>Teste para verificar se a classe Exercise01Import cria um arquivo de log corretamente.

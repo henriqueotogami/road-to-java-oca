@@ -38,7 +38,7 @@ import java.util.List;
  * @since 2026-02-25
  * @version 1.1
  */
-public class ExamplesTest {
+class ExamplesTest {
 
     /**
      * Testa os métodos da classe {@link Attribution} para verificar a manipulação de graus e peixes.
@@ -298,7 +298,6 @@ public class ExamplesTest {
     void example10() {
         final List<Float> allFishesSize         = Arrays.asList(10.0f, 15.5f, 18.0f, 29.5f, 45.5f);
         final ArrayList<Float> fishLengthList   = new ArrayList<>(allFishesSize);
-        final float MINIMUM_SIZE                = 28.0f;
 
         for(Float fish: fishLengthList) {
             Assertions.assertNotNull(fish, "Fish size should not be null");

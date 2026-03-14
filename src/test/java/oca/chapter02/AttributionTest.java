@@ -16,7 +16,7 @@ import org.junit.jupiter.api.TestMethodOrder;
  * @see Attribution
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class AttributionTest {
+class AttributionTest {
 
     /**
      * <br>Teste para verificar se a classe Attribution realiza atribuições corretamente e lida com exceções de forma adequada.

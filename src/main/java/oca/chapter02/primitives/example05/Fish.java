@@ -1,8 +1,5 @@
 package oca.chapter02.primitives.example05;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -17,7 +14,6 @@ import java.util.Random;
  */
 public class Fish {
 
-    private static final Logger logger = LogManager.getLogger(Fish.class);
     private final SecureRandom randomObject = new SecureRandom();
     private int randomNumber = 0;
 

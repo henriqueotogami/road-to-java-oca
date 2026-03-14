@@ -21,7 +21,7 @@ import java.util.logging.FileHandler;
 
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class ExamplesTest {
+class ExamplesTest {
 
     /**
      * <br>Teste para verificar se a classe Example01PackageImport gera uma lista de planetas corretamente.
@@ -139,11 +139,11 @@ public class ExamplesTest {
         Assertions.assertTrue(manager.isArgsEmpty(new String[0]), "Expected isArgsEmpty to return true when args array is empty");
         Assertions.assertFalse(manager.isArgsEmpty(new String[] {"-list_all"}), "Expected isArgsEmpty to return false when args array is not empty");
 
-        Assertions.assertTrue(Example06PropertiesManager.main(new String[] {"-list_all"}), "Expected main method to execute without throwing an exception when -list_all argument is provided");
-        Assertions.assertTrue(Example06PropertiesManager.main(new String[] {"-list_prop", "java.version"}), "Expected main method to execute without throwing an exception when -list_prop argument is provided with a property name");
-        Assertions.assertFalse(Example06PropertiesManager.main(new String[] {"-list_prop"}), "Expected main method to execute without throwing an exception when -list_prop argument is provided without a property name");
-        Assertions.assertFalse(Example06PropertiesManager.main(new String[] {"-invalid_arg"}), "Expected main method to execute without throwing an exception when an invalid argument is provided");
-        Assertions.assertFalse(Example06PropertiesManager.main(new String[0]), "Expected main method to execute without throwing an exception when no arguments are provided");
+        Assertions.assertTrue(manager.queryProperties(new String[] {"-list_all"}), "Expected main method to execute without throwing an exception when -list_all argument is provided");
+        Assertions.assertTrue(manager.queryProperties(new String[] {"-list_prop", "java.version"}), "Expected main method to execute without throwing an exception when -list_prop argument is provided with a property name");
+        Assertions.assertFalse(manager.queryProperties(new String[] {"-list_prop"}), "Expected main method to execute without throwing an exception when -list_prop argument is provided without a property name");
+        Assertions.assertFalse(manager.queryProperties(new String[] {"-invalid_arg"}), "Expected main method to execute without throwing an exception when an invalid argument is provided");
+        Assertions.assertFalse(manager.queryProperties(new String[0]), "Expected main method to execute without throwing an exception when no arguments are provided");
     }
 
 
@@ -212,7 +212,7 @@ public class ExamplesTest {
      */
     @Test
     @Order(9)
-    void exercise01Test() throws Exception {
+    void exercise01Test() {
         Exercise01Import exercise = new Exercise01Import();
         FileHandler fileHandler = exercise.getFileHandler("src\\test\\resources\\TestLog.txt");
         Assertions.assertNotNull(fileHandler, "Expected file handler to be created successfully");

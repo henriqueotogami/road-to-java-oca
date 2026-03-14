@@ -1,7 +1,5 @@
 package oca.chapter02.primitives.example06;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * Esta classe demonstra o uso de enums e estruturas de controle switch em Java.
@@ -18,8 +16,6 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 public class Bat {
-
-    private static final Logger logger = LogManager.getLogger(Bat.class);
     
     public enum ClamBait {FRESH, SALTED, ARTIFICIAL, UNKNOWN}
 
@@ -32,22 +28,12 @@ public class Bat {
      * @return o nome da isca correspondente ao valor do enum, que pode ser "No bait", "Fresh clams", "Salted clams" ou "Artificial clams".
      */
     public String generateBait(ClamBait bait) {
-        final String nameBait;
         switch (bait) {
-            default:
-                nameBait = "No bait";
-                break;
-            case FRESH:
-                nameBait = "Fresh clams";
-                break;
-            case SALTED:
-                nameBait = "Salted clams";
-                break;
-            case ARTIFICIAL:
-                nameBait = "Artificial clams";
-                break;
+            case FRESH:      return "Fresh clams";
+            case SALTED:     return "Salted clams";
+            case ARTIFICIAL: return "Artificial clams";
+            default:         return "No bait";
         }
-        return nameBait;
     }
 
     /**

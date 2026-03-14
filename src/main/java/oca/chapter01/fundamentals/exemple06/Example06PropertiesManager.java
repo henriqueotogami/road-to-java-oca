@@ -19,8 +19,17 @@ public class Example06PropertiesManager {
 
     private final Properties props = System.getProperties();
 
-    public static boolean main(String[] args) {
+    public static void main(String[] args) {
+        Example06PropertiesManager manager = new Example06PropertiesManager();
+        logger.info("Propriedades consultadas = {}", manager.queryProperties(args));
+    }
 
+    /**
+     * Metodo para consultar propriedades do sistema com base nos argumentos fornecidos.
+     * @param args - Array de strings contendo os argumentos de consulta.
+     * @return boolean - Retorna true se a consulta foi realizada com sucesso, false caso contrário.
+     */
+    public boolean queryProperties(String[] args) {
         Example06PropertiesManager manager = new Example06PropertiesManager();
 
         if (manager.isArgsEmpty(args)) return false;
@@ -36,8 +45,7 @@ public class Example06PropertiesManager {
 
             case "-list_prop":
                 if (manager.isMissingProperty(args)) return false;
-                /* Lista valor */
-                logger.info(manager.getProps().getProperty(args[1]));
+                else logger.info(manager.getProps().getProperty(args[1]));
                 break;
 
             default:
