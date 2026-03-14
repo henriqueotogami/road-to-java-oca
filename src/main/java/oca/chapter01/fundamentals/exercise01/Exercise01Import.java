@@ -1,12 +1,9 @@
 package oca.chapter01.fundamentals.exercise01;
 
-import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.*;
 import java.time.*;
 import java.time.format.*;
-import java.util.*;
 import java.util.logging.*;
 /**
  * <br>Exercício 1: Crie um programa que registre mensagens de log em um arquivo.
@@ -53,8 +50,7 @@ public class Exercise01Import {
         ocajLogger.addHandler(myFileHandler);
 
         if (createFile(myFileHandler)) return true;
-
-        return true;
+        else return false;
     }
 
     public boolean createFile(FileHandler myFileHandler) {
