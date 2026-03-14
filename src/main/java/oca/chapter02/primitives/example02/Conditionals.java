@@ -140,9 +140,21 @@ public class Conditionals {
         }
     }
 
-    public boolean strangeBooleanCondition() {
-        boolean b;
-        boolean bValue = (b = true);
+    /**
+     * Metodo para demonstrar uma condição booleana "estranha" onde a atribuição
+     * é feita dentro da expressão condicional.
+     * <p>
+     * Este metodo avalia a variável {@code bValue} em três condições diferentes:
+     * 1. Usando o valor atribuído (que é o mesmo que o parâmetro {@code condition}).
+     * 2. Atribuindo {@code false} a {@code bValue} dentro da condição.
+     * 3. Comparando {@code bValue} com {@code false}.
+     *
+     * @param condition valor booleano que será atribuído a {@code bValue}
+     * @return o valor final de {@code bValue} após as avaliações
+     */
+    public boolean strangeBooleanCondition(final boolean condition) {
+        boolean b = false;
+        boolean bValue = (b = condition);
 
         // Avaliada como verdadeira
         if (bValue) logger.info("TRUE");
@@ -157,14 +169,26 @@ public class Conditionals {
         return bValue;
     }
 
-    public boolean wrapperBooleanCondition() {
-        Boolean wrapperBoolean = new Boolean("true");
+    /**
+     * Metodo para demonstrar o uso de um wrapper Boolean em uma condição.
+     * <p>
+     * Este metodo mostra que um objeto do tipo {@code Boolean} pode ser usado
+     * em uma expressão condicional devido ao processo de unboxing automático
+     * do Java, onde o valor primitivo é extraído do wrapper para avaliação.
+     *
+     * @param condition valor booleano encapsulado em um wrapper {@code Boolean}
+     * @return o valor booleano primitivo correspondente ao wrapper fornecido
+     */
+    public boolean wrapperBooleanCondition(final Boolean condition) {
+        final Boolean wrapperBoolean = condition;
 
         /* Válido */
-        boolean primitiveBoolean1 = wrapperBoolean.booleanValue();
+        final boolean primitiveBoolean1 = wrapperBoolean.booleanValue();
+        logger.info("primitiveBoolean1: {}", primitiveBoolean1);
 
         /* Válido por causa do unboxing */
-        boolean primitiveBoolean2 = wrapperBoolean;
+        final boolean primitiveBoolean2 = wrapperBoolean;
+        logger.info("primitiveBoolean2: {}", primitiveBoolean2);
 
         if (wrapperBoolean) {
             logger.info("Funciona em razão do unboxing");
