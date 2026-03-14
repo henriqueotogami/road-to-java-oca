@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList; // Importa a classe ArrayList a partir do pacote java.util
 import java.io.*;           // Importa todas as classes do pacote java.io
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,7 @@ public class Example01PackageImport {
 
     private static final Logger logger = LogManager.getLogger(Example01PackageImport.class);
 
-    private final ArrayList<String> planetList = new ArrayList<String>();    // Cria lista de planetas
+    private final ArrayList<String> planetList = new ArrayList<>();    // Cria lista de planetas
 
     public static void main(String[] args) {
         Example01PackageImport example = new Example01PackageImport();
@@ -56,5 +57,5 @@ public class Example01PackageImport {
      /** Metodo getter para acessar a lista de planetas.
      * @return ArrayList<String> - Retorna a lista de planetas.
      */
-    public ArrayList<String> getPlanetList() { return this.planetList; }
+    public List<String> getPlanetList() { return this.planetList; }
 }
