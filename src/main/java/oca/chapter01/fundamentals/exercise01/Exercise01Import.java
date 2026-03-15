@@ -82,6 +82,17 @@ public class Exercise01Import {
         return myFileHandler;
     }
 
+    public boolean deleteFile(String path) {
+        try {
+            Files.deleteIfExists(Paths.get(path));
+        } catch (Exception e) {
+            logger.info("Exercise01Import - Falha na exclusão do arquivo de log");
+            return false;
+        }
+        return true;
+    }
+
+
 //    Instruções:
 //    1. Digite o aplicativo de exemplo em um novo arquivo e chame-o de Exercise01Import.java.
 //    Salve o arquivo.

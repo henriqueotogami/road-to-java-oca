@@ -28,8 +28,7 @@ public class IfThenElse {
         return valorAbsoluto;
     }
 
-    public int defaultIfElse() {
-        int x = -5;
+    public int defaultIfElse(final int x) {
         int valorAbsoluto;
         if(x > 0){
             valorAbsoluto = x;

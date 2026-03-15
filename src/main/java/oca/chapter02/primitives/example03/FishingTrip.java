@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 public class FishingTrip {
 
     private final Logger logger                 = LogManager.getLogger(FishingTrip.class);
-    private final FishingSession fishingSession = new FishingSession();
+    private FishingSession fishingSession = new FishingSession();
 
     /**
      * Simula lançar a linha para pescar e processa o resultado do lançamento.
@@ -36,25 +36,33 @@ public class FishingTrip {
      * o tipo do peixe e o exibe.
      */
     public void castForFish() {
+        fishingSession.setCatch();
+        final String resultOfCast = fishingSession.getCastResult();
+        this.getKindOfCast(resultOfCast);
+    }
 
-        try {
-            fishingSession.setCatch();
-
-            final String resultOfCast = fishingSession.getCastResult();
-
-            if (resultOfCast.equals("fish")) {
-                final Fish keeperFish   = fishingSession.getFishResult();
-                final String type       = keeperFish.getTypeOfFish();
-                logger.info("Wahoo! Keeper fish: {}", type);
-            } else if (resultOfCast.equals("shark")) {
-                logger.info("Need to throw this one back!");
-            } else if (resultOfCast.equals("skate")) {
-                logger.info("Yuck, Leo can take this one off the hook!");
-            } else {
-                logger.info("Darn, no catch!");
-            }
-        } catch (NoSuchAlgorithmException e) {
-            logger.error(e.getMessage());
+    /**
+     * Processa o resultado do lançamento e imprime uma mensagem apropriada.
+     *
+     * @param resultOfCast o resultado do lançamento, que pode ser "fish", "shark",
+     *                     "skate" ou "no catch".
+     * @return uma string indicando o tipo de resultado ("fish", "shark", "skate" ou "no catch").
+     */
+    public String getKindOfCast(String resultOfCast) {
+        if (resultOfCast.equals("fish")) {
+            final Fish keeperFish   = fishingSession.getFishResult();
+            final String type       = keeperFish.getTypeOfFish();
+            logger.info("Wahoo! Keeper fish: {}", type);
+            return "fish";
+        } else if (resultOfCast.equals("shark")) {
+            logger.info("Need to throw this one back!");
+            return "shark";
+        } else if (resultOfCast.equals("skate")) {
+            logger.info("Yuck, Leo can take this one off the hook!");
+            return "skate";
+        } else {
+            logger.info("Darn, no catch!");
+            return "no catch";
         }
     }
 
@@ -64,4 +72,8 @@ public class FishingTrip {
      * @return a instância de {@code FishingSession} usada para simular os lançamentos de pesca.
      */
     public FishingSession getFishingSession() { return this.fishingSession; }
+
+    public void setFishingSession(FishingSession fishingSession) {
+        this.fishingSession = fishingSession;
+    }
 }
