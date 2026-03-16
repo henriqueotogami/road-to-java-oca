@@ -3,8 +3,6 @@ package oca.chapter02.primitives.example03;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.security.NoSuchAlgorithmException;
-
 /**
  * Classe demonstrativa sobre estruturas condicionais em Java, usando um cenário
  * de pesca para ilustrar o uso de if-else.

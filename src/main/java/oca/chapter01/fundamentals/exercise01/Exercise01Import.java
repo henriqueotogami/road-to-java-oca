@@ -49,8 +49,7 @@ public class Exercise01Import {
         ocajLogger.setLevel(Level.ALL);
         ocajLogger.addHandler(myFileHandler);
 
-        if (createFile(myFileHandler)) return true;
-        else return false;
+        return createFile(myFileHandler);
     }
 
     public boolean createFile(FileHandler myFileHandler) {
