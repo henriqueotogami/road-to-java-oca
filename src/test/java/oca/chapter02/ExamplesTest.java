@@ -7,6 +7,7 @@ import oca.chapter02.primitives.example03.FishingTrip;
 import oca.chapter02.primitives.example04.IfThenElse;
 import oca.chapter02.primitives.example05.Fish;
 import oca.chapter02.primitives.example06.Bat;
+import oca.chapter02.primitives.example07.LoopFor;
 import oca.chapter02.primitives.example08.LoopWhile;
 import oca.chapter02.primitives.example09.LoopDoWhile;
 import oca.chapter02.primitives.example10.ControlKeywords;
@@ -353,5 +354,15 @@ class ExamplesTest {
 
         Assertions.assertFalse(validString.isInputValid("invalid"), "Input should not be valid when the string is not 'valid'");
         Assertions.assertFalse(validString.hasSizeValid("invalid"), "Input should not have valid size when the string does not have 5 characters");
+    }
+
+    @Test
+    @Order(12)
+    void example12() {
+        LoopFor loopFor = new LoopFor();
+        Assertions.assertEquals(5, loopFor.variableOutsideLoop(), "Variable m should be 5 after the loop finishes");
+        Assertions.assertDoesNotThrow(loopFor::variableInsideLoop, "Variable m should not be accessible outside the loop, but the method should execute without throwing an exception");
+        Assertions.assertArrayEquals(new int[] { 1, 1, 1, 2, 2, 4, 5, 5, 5, 6, 7, 8, 8, 9 }, loopFor.betterLoop(), "Hook sizes should match the expected array");
+        Assertions.assertEquals(Arrays.asList(1, 4, 5), loopFor.betterLoopGenerics(), "Hook sizes list should match the expected list");
     }
 }
