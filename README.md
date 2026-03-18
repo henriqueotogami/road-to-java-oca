@@ -7,7 +7,7 @@
 </div>
 <br>
 <div align="center">
-<img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/app/src/main/resources/images/rounded-header-otogami.png?raw=true">
+<img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/src/main/resources/images/rounded-header-otogami.png?raw=true">
 </div>
 <br>
 <div align="center">
@@ -47,58 +47,26 @@
 
 Este repositório contém uma coleção organizada de exemplos de código, exercícios e documentação para preparação do exame **Oracle Certified Associate (OCA) Java SE 8 Programmer I**. Os conteúdos seguem o guia oficial de estudos e incluem práticas de pacotes, imports, variáveis, controle de fluxo, OOP e demais tópicos cobrados na certificação.
 
-O projeto utiliza **Gradle** para build e está estruturado por capítulos, facilitando a revisão para a prova e o estudo colaborativo em grupo.
-
-## 📁 Estrutura do Projeto
-
-### Código Fonte (`app/src/main/java/oca/`)
-
-- **chapter01/fundamentals/** - Capítulo 1 (Fundamentos)
-  - **exemple01/** - `Example01PackageImport` (pacotes)
-  - **exemple02/** - `Example02SingleStaticImport` (import estático)
-  - **exemple03/** - `Example03MultiStaticImport` (import estático múltiplo)
-  - **exemple04/** - Interfaces e implementações (`Dockable`, `Ship`, `Spaceship`, `SpaceshipSimulator`)
-  - **exemple05/** - `Example05GreetingsUniverse`
-  - **exemple06/** - `Example06PropertiesManager` (propriedades do sistema)
-  - **exercise01/** - `Exercise01Import` (exercício de imports)
-  - **exercise02/** - `Exercise02Compile`, interface `Planet` e pacote **planets/** (`Earth`, `Mars`, `Venus`)
-  - **plus/** - `Study01StringTokenizer` (material complementar)
-- **chapter01/** - `chapterExam.txt` (anotações do exame)
-
-### Testes (`app/src/test/java/oca/`)
-
-- **chapter01/** - `ImportAndCompileTest` (testes JUnit 5 para `Exercise01Import` e `Exercise02Compile`)
-
-### Documentação (`docs/`)
-
-- **chapter01/** - Anotações do Capítulo 1
-  - `packaging-compiler-interpretation.txt` - Empacotamento, compilação e interpretação
-  - `article.txt` - Artigo do Capítulo 1 (plataforma, empacotamento, compilação, exercícios)
-- `how-to-manage-branches.txt` - Fluxo de branches e trabalho colaborativo
-- `issue-1.txt` - Registro de issues
-
-### Recursos (`app/src/main/resources/`)
-
-- **oca/chapter01/fundamentals/** - Arquivos de apoio (logs, propriedades, instruções)
-  - `Example06PropertiesManager.log`, `Example06SystemProperties.txt`, `Exercise02Compile.txt`
-- **images/** - Imagens e assets do projeto (header, Ko-fi)
+O projeto utiliza **Gradle** para build e está estruturado por capítulos, facilitando a revisão para a prova e o estudo colaborativo em grupo. Além disso, foi adotado um pipeline de qualidade com **JaCoCo** e **SonarCloud** para reforçar boas práticas de testes e código limpo: os relatórios de cobertura ajudam a manter um nível mínimo de testes para cada capítulo, enquanto a análise estática destaca bugs, code smells e problemas de manutenção que são discutidos em grupo como parte do aprendizado.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Java 8 (SE)** - Linguagem e versão alvo da certificação OCA
-- **Gradle** - Build e gerenciamento de dependências
-- **JUnit 5 (Jupiter)** - Testes unitários
-- **Git** - Controle de versão e fluxo colaborativo
-- **GitHub Actions** - CI (build e dependency submission)
+- ☕ **Java 8 (SE)** - Linguagem e versão alvo da certificação OCA
+- 🧱 **Gradle** - Build, testes, cobertura e integração com análise estática
+- ✅ **JUnit 5 (Jupiter)** - Testes unitários
+- 🌱 **Git** - Controle de versão e fluxo colaborativo
+- 📊 **JaCoCo** - Geração de relatórios de cobertura de testes (XML/HTML) integrados ao Gradle
+- 🔍 **SonarCloud (SonarQube SaaS)** - Análise estática de código e cobertura via workflow `SonarCloud Analyze` (`./gradlew build sonar`)
+- 🤖 **GitHub Actions** - CI (build, testes, envio de cobertura para o SonarCloud e dependency submission)
 
 ## 🚀 Como Usar
 
-### Pré-requisitos
+### ⚙️ Pré-requisitos
 
 - [Java 8 JDK](https://adoptium.net/) ou superior
 - [Gradle](https://gradle.org/install/) (ou use o wrapper: `./gradlew`)
 
-### Clonar e Executar
+### 📦 Clonar e Executar
 
 1. **Clone o repositório:**
 ```bash
@@ -131,6 +99,11 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 ./gradlew chapter01
 ```
 
+6. **Execute apenas os testes do Capítulo 2:**
+```bash
+./gradlew chapter02
+```
+
 ## 📚 Conteúdos Abordados
 
 - ✅ Empacotamento e estrutura de pacotes em Java
@@ -140,9 +113,9 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 - ✅ Propriedades do sistema (`-D`, `System.getProperty`)
 - ✅ Exercícios de compilação e pacotes (ex.: `planets`)
 - ✅ Boas práticas de versionamento (branches, issues, tags)
-- 🔲 Variáveis e tipos de dados
-- 🔲 Operadores
-- 🔲 Controle de fluxo
+- ✅ Variáveis e tipos de dados (Capítulo 2 — atribuições, primitivos e wrappers)
+- ✅ Operadores (incremento/decremento, aritméticos, lógicos)
+- ✅ Controle de fluxo (`if/else`, `switch`, `while`, `do-while`, `for`, `for` aprimorado)
 - 🔲 Arrays
 - 🔲 Métodos e encapsulamento
 - 🔲 Herança e polimorfismo
@@ -151,23 +124,23 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 
 ## 🌿 Fluxo de Trabalho
 
-### Estrutura de Branches
+### 🌿 Estrutura de Branches
 
 ```
 main
   |
-  |____ dev-1
-  |____ dev-2
-  |____ dev-3
+  |____ dev-henrique
+  |____ dev-vitor
+  |____ dev-lucas
 ```
 
-### `main`
+### 🌳 `main`
 - Branch principal e consolidada do repositório
 - Representa o estado atual do aprendizado do grupo
 - Contém apenas código revisado e validado
 - ❌ **Não é permitido commit direto**
 
-### `dev-1` / `dev-2` / `dev-3`
+### 🌱 `dev-henrique` / `dev-vitor` / `dev-lucas`
 - Branches individuais dos integrantes
 - Criadas **exclusivamente** para atender uma Issue
 - Devem sempre ser criadas a partir da `main`
@@ -178,20 +151,30 @@ main
 - ❌ Nenhuma branch pode ser criada sem Issue associada
 - A Issue deve descrever: tópico, objetivo e escopo
 
-### Padrão de Nomenclatura
+### 🏷️ Padrão de Nomenclatura
 
-**Branches:** `dev-1/issue-12-variaveis`, `dev-2/issue-15-arrays`  
+**Branches:** `dev-henrique/issue-#12`, `dev-vitor/issue-#15`  
 **Tags (task):** `task-01-variaveis`, `task-02-operadores`  
-**Tags (capítulo):** `cap-01-fundamentos`, `cap-02-java-basico`
+**Tags (capítulo):** `chapter01`, `chapter02`
 
-### Fluxo Completo
+### 🔁 Fluxo Completo
 
 1. Criar **Issue** descrevendo a task
 2. Criar branch individual a partir da `main`
 3. Desenvolver e estudar na branch
-4. Abrir **Pull Request** para `main` ao concluir
-5. Revisar em grupo
-6. Merge → fechar Issue → criar **tag**
+4. Garantir que os testes passem localmente e que a cobertura de testes unitários esteja **≥ 80%** (ver relatórios JaCoCo e painel do SonarCloud)
+5. Abrir **Pull Request** para `main` ao concluir
+6. Aguardar o GitHub Actions rodar `./gradlew build sonar` e verificar o **Quality Gate** do SonarCloud (cobertura ≥ 80%, ausência de novos bugs críticos e code smells bloqueantes)
+7. Revisar em grupo
+8. Merge → fechar Issue → criar **tag**
+
+### 🔗 Integração Gradle + SonarCloud no fluxo
+
+- **Commits e Pull Requests** para qualquer branch disparam o workflow `SonarCloud Analyze` no GitHub Actions.
+- Esse workflow executa os scripts Gradle configurados no projeto:
+  - `./gradlew build` → compila o código, roda os testes (`test`, `chapter01`, `chapter02`) e gera o relatório de cobertura do **JaCoCo**.
+  - `./gradlew sonar` → usa o plugin `org.sonarqube` para enviar código, métricas e o relatório do JaCoCo para o **SonarCloud**.
+- O resultado aparece no painel do SonarCloud, que aplica o **Quality Gate** (incluindo a regra de cobertura ≥ 80%) e sinaliza no PR se o código está ou não em conformidade com os critérios de qualidade.
 
 ## ⚠️ Observações Importantes
 
@@ -213,20 +196,27 @@ Contribuições são bem-vindas! Para contribuir:
 
 1. Faça um **fork** deste repositório
 2. Crie uma **Issue** descrevendo o tópico de estudo
-3. Crie um **branch** a partir da `main` (`dev-X/issue-N-topico`)
+3. Crie um **branch** a partir da `main` (`dev-<name>/issue-<#number>`)
 4. Faça **commit** das suas mudanças
 5. Abra um **Pull Request** referenciando a Issue
 
 ## 📝 Changelog
 
-### Versão 0.3
+### 🆕 Versão 0.4
+- Adição do Capítulo 2 em `chapter02/primitives` (exemplos de variáveis, operadores, controle de fluxo e exercícios `ValidString`, `ValidBigFishes`)
+- Testes automatizados do Capítulo 2: `AttributionTest` e `ConditionalsTest` (JUnit 5)
+- Task Gradle `chapter02` para executar apenas os testes do Capítulo 2 (`./gradlew chapter02`)
+- Documentação: `docs/chapter02/annotations.txt` (anotações de instruções Java) e `chapter02Exame.txt` (simulado final)
+- Pipeline de qualidade: fluxo **JaCoCo + SonarCloud** configurado com plugin `jacoco` e `org.sonarqube`, executado via GitHub Actions (`SonarCloud Analyze`) que roda `./gradlew build sonar` e publica métricas de bugs, code smells e cobertura
+
+### 📌 Versão 0.3
 - Interface `Planet` no pacote `exercise02` (Earth, Mars, Venus implementam a interface)
 - Testes automatizados com JUnit 5: `ImportAndCompileTest` para `Exercise01Import` e `Exercise02Compile`
 - Task Gradle `chapter01` para executar apenas os testes do Capítulo 1 (`./gradlew chapter01`)
 - Documentação: `docs/chapter01/article.txt` (artigo do Capítulo 1: plataforma, empacotamento, compilação)
 - Tecnologias: migração de JUnit 4 para JUnit 5 (Jupiter)
 
-### Versão 0.2
+### 📌 Versão 0.2
 - Exemplos do Capítulo 1 em subpacotes: `exemple01`–`exemple06` (pacotes, imports, interfaces, propriedades)
 - Exercícios: `exercise01` (imports), `exercise02` (compilação e pacote `planets`: Earth, Mars, Venus)
 - Material complementar em `plus/` (StringTokenizer)
@@ -239,11 +229,11 @@ Contribuições são bem-vindas! Para contribuir:
 
 Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-### Hashtags
+### 🔎 Hashtags
 
 #Java #OCA #OracleCertification #JavaSE8 #Certification #Study #Learning #Gradle #OpenSource #GitHub #Programming #Backend
 
-### Meta Keywords
+### 🧠 Meta Keywords
 
 ```
 java oca, oracle certified associate, java se 8, certificação java, 
@@ -253,7 +243,7 @@ aprendizado, boas práticas, versionamento, colaborativo
 
 <div align="center">
 <br>
-<a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/app/src/main/resources/images/kofi-henrique-otogami.jpg?raw=true" alt="Apoie no Ko-fi"></a>
+<a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/src/main/resources/images/kofi-henrique-otogami.jpg?raw=true" alt="Apoie no Ko-fi"></a>
 <br><br>
 <a href="https://ko-fi.com/henriqueotogami" target="_blank"><img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie o Projeto" style="height:50px;"></a>
 <br><br>
