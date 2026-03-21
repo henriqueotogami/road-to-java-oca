@@ -30,11 +30,6 @@ public class Operators {
     /* Construtor inválido */
 //    PirateShip ship = new PirateShip(UNEXPECTED_ARG);
 
-
-    public Operators() {
-
-    }
-
     public int[] getAttribution() {
         final int marines   = 10;
         final int soldiers  = 20;
@@ -133,7 +128,7 @@ public class Operators {
                 this.getRelationalOperatorObjects(),
                 this.getRelationalOperatorObjectsCompareTo(),
                 this.getRelationalOperatorObjectsEquals(),
-                this.getRelationalOperatorObjectsReference()
+                this.getRelationalOperatorSameCopyObject()
         };
     }
 
@@ -161,12 +156,12 @@ public class Operators {
         return areStringsEqualUsingEquals;
     }
 
-    public boolean getRelationalOperatorObjectsReference() {
-        final String object1 = "Hello";
-        final String object2 = new String("Hello");
-        final boolean areStringsEqualUsingReference = (object1 == object2); // Comparação de referências
-        logger.info("Operador Relacional Object (==) = object1 == object2 = {}", areStringsEqualUsingReference);
-        return areStringsEqualUsingReference;
+    public boolean getRelationalOperatorSameCopyObject() {
+        final String original = "Hello";
+        final String copy = original; // Ambas as variáveis referenciam o mesmo objeto
+        final boolean areSameReference = original.equals(copy); // Comparação de referências
+        logger.info("Operador Relacional (==) = original == copy = {}", areSameReference);
+        return areSameReference;
     }
 
     public boolean getRelationalOperatorCHAR() {

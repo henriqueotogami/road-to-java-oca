@@ -23,8 +23,13 @@ class ExamplesTest {
         Assertions.assertArrayEquals(new byte[] { 18, 17, 75, 10, 2 }, allArithmeticOperators);
         Assertions.assertArrayEquals(new boolean[] { true, false, true, false, false, true }, allRelationalOperators);
         Assertions.assertArrayEquals(new boolean[] { true, true, true, true, true, true }, allRelationalOperatorsWithChar);
-        Assertions.assertArrayEquals(new boolean[] { false, true, true, false }, allRelationalOperatorsWithObjects);
+        Assertions.assertArrayEquals(new boolean[] { false, true, true, true }, allRelationalOperatorsWithObjects);
+    }
 
+    @Test
+    @Order(2)
+    void Example01AttributionsTest(){
+        final Operators operators = new Operators();
         Assertions.assertEquals(13,operators.getAttributionSum((byte) 10));
         Assertions.assertEquals(12,operators.getAttributionSubtraction((byte) 15));
         Assertions.assertEquals(60,operators.getAttributionMultiplication((byte) 20));
@@ -36,13 +41,23 @@ class ExamplesTest {
         Assertions.assertEquals(-112,operators.getAttributionLeftShift((byte) 50));
         Assertions.assertEquals(6,operators.getAttributionRightShift((byte) 55));
         Assertions.assertEquals(7,operators.getAttributionUnsignedRightShift((byte) 60));
+    }
 
+    @Test
+    @Order(3)
+    void Example01ArithmeticOperatorsTest(){
+        final Operators operators = new Operators();
         Assertions.assertEquals(13,operators.getArithmeticOperatorSum((byte) 10));
         Assertions.assertEquals(12,operators.getArithmeticOperatorSubtraction((byte) 15));
         Assertions.assertEquals(60,operators.getArithmeticOperatorMultiplication((byte) 20));
         Assertions.assertEquals(8,operators.getArithmeticOperatorDivision((byte) 25));
         Assertions.assertEquals(0,operators.getArithmeticOperatorModulus((byte) 30));
+    }
 
+    @Test
+    @Order(4)
+    void Example01RelationalOperatorsTest(){
+        final Operators operators = new Operators();
         Assertions.assertTrue(operators.getRelationalOperatorGreaterThan((byte) 10));
         Assertions.assertFalse(operators.getRelationalOperatorLessThan((byte) 15));
         Assertions.assertTrue(operators.getRelationalOperatorGreaterThanOrEqual((byte) 20));
@@ -53,6 +68,6 @@ class ExamplesTest {
         Assertions.assertFalse(operators.getRelationalOperatorObjects());
         Assertions.assertTrue(operators.getRelationalOperatorObjectsCompareTo());
         Assertions.assertTrue(operators.getRelationalOperatorObjectsEquals());
-        Assertions.assertFalse(operators.getRelationalOperatorObjectsReference());
+        Assertions.assertTrue(operators.getRelationalOperatorSameCopyObject());
     }
 }
