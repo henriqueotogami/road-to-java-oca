@@ -1,4 +1,4 @@
-package oca.chapter02.primitives.example01;
+package oca.chapter03.operators.example01;
 
 public class PirateShip {
 }
