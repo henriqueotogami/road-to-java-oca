@@ -73,7 +73,7 @@ application {
 }
 
 check {
-    dependsOn 'chapter01', 'chapter02'
+    dependsOn 'chapter01', 'chapter02', 'chapter03'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -105,5 +105,16 @@ tasks.register('chapter02', Test) {
 
     filter {
         includeTestsMatching "oca.chapter02.*"
+    }
+}
+
+tasks.register('chapter03', Test) {
+    description = "Run Chapter 03 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter03.*"
     }
 }
