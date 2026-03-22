@@ -7,11 +7,12 @@ import org.apache.logging.log4j.Logger;
  * <br>Classe de exemplo para demonstrar operadores em Java.
  * <br>Esta classe é importante para ilustrar como os operadores funcionam em Java, incluindo operadores aritméticos, relacionais e de atribuição composta.
  *
+ * @see oca.chapter03.operators.example01.MainOperators
  * @author henriqueotogami
  * @since 2026-02-23
  * @version 0.4
  */
-public class Operators {
+public class Operators extends MainOperators {
 
     public static final Logger logger = LogManager.getLogger(Operators.class);
 
@@ -29,6 +30,11 @@ public class Operators {
 
     /* Construtor inválido */
 //    PirateShip ship = new PirateShip(UNEXPECTED_ARG);
+
+
+    public Operators() {
+        this.setLogger(logger);
+    }
 
     public int[] getAttribution() {
         final int marines   = 10;
@@ -108,12 +114,12 @@ public class Operators {
      */
     public boolean[] getAllRelationalOperatorsWithChar() {
         return new boolean[]{
-                this.getRelationalOperatorCHAR(),
-                this.getRelationalOperatorUNICODE(),
-                this.getRelationalOperatorHEXADECIMAL(),
-                this.getRelationalOperatorINTEGER(),
-                this.getRelationalOperatorOCTAL(),
-                this.getRelationalOperatorCharAndOctal()
+                this.getRelationalOperatorCHAR('a', 'b'),
+                this.getRelationalOperatorUNICODE('\u0041', '\u0042'),
+                this.getRelationalOperatorHEXADECIMAL((byte) 0x0041, (byte) 0x0042),
+                this.getRelationalOperatorINTEGER(65, 66),
+                this.getRelationalOperatorOCTAL(0101, 0102),
+                this.getRelationalOperatorCharAndOctal('A', 0102)
         };
     }
 
@@ -125,198 +131,148 @@ public class Operators {
      */
     public boolean[] getAllRelationalOperatorsWithObjects() {
         return new boolean[]{
-                this.getRelationalOperatorObjects(),
-                this.getRelationalOperatorObjectsCompareTo(),
-                this.getRelationalOperatorObjectsEquals(),
-                this.getRelationalOperatorSameCopyObject()
+                this.getRelationalOperatorObjects(this, this),
+                this.getRelationalOperatorObjectsCompareTo("Compare", "Compare"),
+                this.getRelationalOperatorObjectsEquals("Equals", "Equals"),
+                this.getRelationalOperatorSameCopyObject("Object")
         };
     }
 
-    public boolean getRelationalOperatorObjects() {
-        final Object object1 = new Object();
-        final Object object2 = new Object();
-        final boolean areObjectsEqual = (object1 == object2); // Comparação de referências
+    public boolean getRelationalOperatorObjects(final Object object1, final Object object2) {
+        // Comparação de referências
+        final boolean areObjectsEqual = (object1 == object2);
         logger.info("Operador Relacional (==) = object1 == object2 = {}", areObjectsEqual);
         return areObjectsEqual;
     }
 
-    public boolean getRelationalOperatorObjectsCompareTo() {
-        final String object1 = "Hello";
-        final String object2 = "Hello";
-        final boolean areStringsEqualUsingEquals = (object1.compareTo(object2) == 0); // Comparação usando compareTo
+    public boolean getRelationalOperatorObjectsCompareTo(final String object1, final String object2) {
+        // Comparação usando compareTo
+        final boolean areStringsEqualUsingEquals = (object1.compareTo(object2) == 0);
         logger.info("Operador Relacional (compareTo) = object1.compareTo(object2) == 0 = {}", areStringsEqualUsingEquals);
         return areStringsEqualUsingEquals;
     }
 
-    public boolean getRelationalOperatorObjectsEquals() {
-        final String object1 = "Hello";
-        final String object2 = "Hello";
-        final boolean areStringsEqualUsingEquals = object1.equals(object2); // Comparação usando equals
+    public boolean getRelationalOperatorObjectsEquals(final String object1, final String object2) {
+        // Comparação usando equals
+        final boolean areStringsEqualUsingEquals = object1.equals(object2);
         logger.info("Operador Relacional (equals) = object1.equals(object2) = {}", areStringsEqualUsingEquals);
         return areStringsEqualUsingEquals;
     }
 
-    public boolean getRelationalOperatorSameCopyObject() {
-        final String original = "Hello";
+    public boolean getRelationalOperatorSameCopyObject(final String original) {
         final String copy = original; // Ambas as variáveis referenciam o mesmo objeto
         final boolean areSameReference = original.equals(copy); // Comparação de referências
         logger.info("Operador Relacional (==) = original == copy = {}", areSameReference);
         return areSameReference;
     }
 
-    public boolean getRelationalOperatorCHAR() {
-        final boolean isBGreaterThanA = ('A' < 'B'); // Literais de caracteres
-        logger.info("Operador Relacional (<) = 'A' < 'B' = {}", isBGreaterThanA);
-        return isBGreaterThanA;
+    public boolean getRelationalOperatorCHAR(final char a, final char b) {
+        return this.isGreater(a, b);
     }
 
-    public boolean getRelationalOperatorUNICODE() {
-        final boolean isBGreaterThanA = ('\u0041' < '\u0042'); // Literais Unicode
-        logger.info("Operador Relacional (<) = '\\u0041' < '\\u0042' = {}", isBGreaterThanA);
-        return isBGreaterThanA;
+    public boolean getRelationalOperatorUNICODE(final char a, final char b) {
+        return this.isGreater(a, b);
     }
 
-    public boolean getRelationalOperatorHEXADECIMAL() {
-        final boolean isBGreaterThanA = (0x0041 < 0x0042); // Literais hexadecimais
-        logger.info("Operador Relacional (<) = 0x0041 < 0x0042 = {}", isBGreaterThanA);
-        return isBGreaterThanA;
+    public boolean getRelationalOperatorHEXADECIMAL(final short a, final short b) {
+        return this.isGreater(a, b);
     }
 
-    public boolean getRelationalOperatorINTEGER() {
-        final boolean isBGreaterThanA = (65 < 66); // Literais inteiros que cabem em um char
-        logger.info("Operador Relacional (<) = 65 < 66 = {}", isBGreaterThanA);
-        return isBGreaterThanA;
+    public boolean getRelationalOperatorINTEGER(final int a, final int b) {
+        return this.isGreater(a, b);
     }
 
-    public boolean getRelationalOperatorOCTAL() {
-        final boolean isBGreaterThanA = (0101 < 0102); //Literais octais
-        logger.info("Operador Relacional (<) = 0101 < 0102 = {}", isBGreaterThanA);
-        return isBGreaterThanA;
+    public boolean getRelationalOperatorOCTAL(final int a, final int b) {
+        return this.isGreater(a, b);
     }
 
-    public boolean getRelationalOperatorCharAndOctal() {
-        final boolean isBGreaterThanA = ('A' < 0102); // Literais de caractere e octal
-        logger.info("Operador Relacional (<) = 'A' < 0102 = {}", isBGreaterThanA);
-        return isBGreaterThanA;
+    public boolean getRelationalOperatorCharAndOctal(final char a, final int b) {
+        return this.isGreater(a, b);
     }
 
     public boolean getRelationalOperatorGreaterThan(byte a) {
-        final boolean isGreater = (a > 3);
-        logger.info("Operador Relacional (>) = {} > 3 = {}", a, isGreater);
-        return isGreater;
+        return this.isGreater((byte) 3, a);
     }
 
     public boolean getRelationalOperatorLessThan(byte a) {
-        final boolean isLess = (a < 3);
-        logger.info("Operador Relacional (<) = {} < 3 = {}", a, isLess);
-        return isLess;
+        return this.isLess((byte) 3, a);
     }
 
     public boolean getRelationalOperatorGreaterThanOrEqual(byte a) {
-        final boolean isGreaterThanOrEqual = (a >= 3);
-        logger.info("Operador Relacional (>=) = {} >= 3 = {}", a, isGreaterThanOrEqual);
-        return isGreaterThanOrEqual;
+        return this.isGreaterOrEqual((byte) 3, a);
     }
 
     public boolean getRelationalOperatorLessThanOrEqual(byte a) {
-        final boolean isLessThanOrEqual = (a <= 3);
-        logger.info("Operador Relacional (<=) = {} <= 3 = {}", a, isLessThanOrEqual);
-        return isLessThanOrEqual;
+        return this.isGreaterOrEqual(a, (byte) 3);
     }
 
     public boolean getRelationalOperatorEqual(byte a) {
-        final boolean isEqual = (a == 3);
-        logger.info("Operador Relacional (==) = {} == 3 = {}", a, isEqual);
-        return isEqual;
+        return this.isEqual(a, (byte) 3);
     }
 
     public boolean getRelationalOperatorNotEqual(byte a) {
-        final boolean isNotEqual = (a != 3);
-        logger.info("Operador Relacional (!=) = {} != 3 = {}", a, isNotEqual);
-        return isNotEqual;
+        return this.isNotEqual(a, (byte) 3);
     }
 
     public byte getArithmeticOperatorSum(byte a) {
 //        Atribuição Aritmética = 5 + 3 = 8
-        final byte sum = (byte) (a + 3);
-        logger.info("Atribuição Aritmética = {} + 3 = {}", a, sum);
-        return sum;
+        return (byte) this.getSum(a, (byte) 3);
     }
 
     public byte getArithmeticOperatorSubtraction(byte a) {
 //        Atribuição Aritmética = 10 - 3 = 7
-        final byte subtraction = (byte) (a - 3);
-        logger.info("Atribuição Aritmética = {} - 3 = {}", a, subtraction);
-        return subtraction;
+        return (byte) this.getSubtraction(a, (byte) 3);
     }
 
     public byte getArithmeticOperatorMultiplication(byte a) {
 //        Atribuição Aritmética = 15 * 3 = 45
-        final byte multiplication = (byte) (a * 3);
-        logger.info("Atribuição Aritmética = {} * 3 = {}", a, multiplication);
-        return multiplication;
+        return (byte) this.getMultiplication(a, (byte) 3);
     }
 
     public byte getArithmeticOperatorDivision(byte a) {
 //        Atribuição Aritmética = 20 / 3 = 6 (divisão inteira)
-        final byte division = (byte) (a / 3);
-        logger.info("Atribuição Aritmética = {} / 3 = {}", a, division);
-        return division;
+        return (byte) this.getDivision(a, (byte) 3);
     }
 
     public byte getArithmeticOperatorModulus(byte a) {
 //        Atribuição Aritmética = 25 % 3 = 1
-        final byte modulus = (byte) (a % 3);
-        logger.info("Atribuição Aritmética = {} % 3 = {}", a, modulus);
-        return modulus;
+        return (byte) this.getModulus(a, (byte) 3);
     }
 
     public byte getAttributionUnsignedRightShift(byte a) {
-        final byte unsignedRightShift = (a >>>= 3);
 //        Deslocamento à direita sem sinal
 //        60 = 3 = 60 >>> 3 = 00111100 >>> 3 = 00000111 = 7
-        logger.info("Atribuição Composta (>>>=) = 60 >>>= 3 = 60 >>> 3 = {}", unsignedRightShift);
-        return unsignedRightShift;
+        return (byte) this.getUnsignedRightShift(a, (byte) 3);
     }
 
     public byte getAttributionRightShift(byte a) {
-        final byte rightShift = (a >>= 3);
 //        Deslocamento à direita
 //        55 = 3 = 55 >> 3 = 00110111 >> 3 = 00000110 = 6
-        logger.info("Atribuição Composta (>>=) = 55 >>= 3 = 55 >> 3 = {}", rightShift);
-        return rightShift;
+        return (byte) this.getRightShift(a, (byte) 3);
     }
 
     public byte getAttributionLeftShift(byte a) {
-        final byte leftShift = (a <<= 3);
 //        Deslocamento à esquerda
 //        50 = 3 = 50 << 3 = 00110010 << 3 = 11001000 = 400
-        logger.info("Atribuição Composta (<<=) = 50 <<= 3 = 50 * 2^3 = {}", leftShift);
-        return leftShift;
+        return (byte) this.getLeftShift(a, (byte) 3);
     }
 
     public byte getAttributionOR(byte a) {
-        final byte or = (a |= 3);
 //        Lógica OR
 //        45 = 3 = 45 | 3 = 00101101 | 00000011 = 00101111 = 47
-        logger.info("Atribuição Composta (|=) = 45 |= 3 = 45 | 3 = {}", or);
-        return or;
+        return (byte) this.getOR(a, (byte) 3);
     }
 
     public byte getAttributionXOR(byte a) {
-        final byte xor = (a ^= 3);
 //        Lógica XOR
 //        40 = 3 = 40 ^ 3 = 00101000 ^ 00000011 = 00101011 = 43
-        logger.info("Atribuição Composta (^=) = 40 ^= 3 = 40 ^ 3 = {}", xor);
-        return xor;
+        return (byte) this.getXOR(a, (byte) 3);
     }
 
     public byte getAttributionAND(byte a) {
-        final byte and = (a &= 3);
 //        Lógica AND
 //        35 = 3 = 35 & 3 = 00100011 & 00000011 = 00000011 = 3
-        logger.info("Atribuição Composta (&=) = 35 &= 3 = 35 & 3 = {}", and);
-        return and;
+        return (byte) this.getAND(a, (byte) 3);
     }
 
     public byte getAttributionModulus(byte a) {

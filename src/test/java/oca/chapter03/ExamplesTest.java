@@ -23,7 +23,7 @@ class ExamplesTest {
         Assertions.assertArrayEquals(new byte[] { 18, 17, 75, 10, 2 }, allArithmeticOperators);
         Assertions.assertArrayEquals(new boolean[] { true, false, true, false, false, true }, allRelationalOperators);
         Assertions.assertArrayEquals(new boolean[] { true, true, true, true, true, true }, allRelationalOperatorsWithChar);
-        Assertions.assertArrayEquals(new boolean[] { false, true, true, true }, allRelationalOperatorsWithObjects);
+        Assertions.assertArrayEquals(new boolean[] { true, true, true, true }, allRelationalOperatorsWithObjects);
     }
 
     @Test
@@ -65,9 +65,12 @@ class ExamplesTest {
         Assertions.assertFalse(operators.getRelationalOperatorEqual((byte) 30));
         Assertions.assertTrue(operators.getRelationalOperatorNotEqual((byte) 35));
 
-        Assertions.assertFalse(operators.getRelationalOperatorObjects());
-        Assertions.assertTrue(operators.getRelationalOperatorObjectsCompareTo());
-        Assertions.assertTrue(operators.getRelationalOperatorObjectsEquals());
-        Assertions.assertTrue(operators.getRelationalOperatorSameCopyObject());
+        Assertions.assertFalse(operators.getRelationalOperatorObjects(new Operators(), new Operators()));
+        Assertions.assertFalse(operators.getRelationalOperatorObjectsCompareTo("Hello", "wrong"));
+        Assertions.assertFalse(operators.getRelationalOperatorObjectsEquals("Hello", "HELLO"));
+
+        Assertions.assertTrue(operators.getRelationalOperatorObjectsCompareTo("Hello", "Hello"));
+        Assertions.assertTrue(operators.getRelationalOperatorObjectsEquals("Hello", "Hello"));
+        Assertions.assertTrue(operators.getRelationalOperatorSameCopyObject("Hello"));
     }
 }
