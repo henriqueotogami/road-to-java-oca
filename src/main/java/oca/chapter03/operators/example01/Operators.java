@@ -54,19 +54,19 @@ public class Operators extends MainOperators {
         byte index = 0;
         final byte[] attributions = new byte[11];
 
-        attributions[index++] = this.getAttributionSum(a += 5);
-        attributions[index++] = this.getAttributionSubtraction(a += 5);
-        attributions[index++] = this.getAttributionMultiplication(a += 5);
-        attributions[index++] = this.getAttributionDivision(a += 5);
-        attributions[index++] = this.getAttributionModulus(a += 5);
+        attributions[index++] = this.getAttributionSum(this.increment(a, 5));
+        attributions[index++] = this.getAttributionSubtraction(this.increment(a, 5));
+        attributions[index++] = this.getAttributionMultiplication(this.increment(a, 5));
+        attributions[index++] = this.getAttributionDivision(this.increment(a, 5));
+        attributions[index++] = this.getAttributionModulus(this.increment(a, 5));
 
 //      Opcional já que não faz parte do escopo do exame
-        attributions[index++] = this.getAttributionAND(a += 5);
-        attributions[index++] = this.getAttributionXOR(a += 5);
-        attributions[index++] = this.getAttributionOR(a += 5);
-        attributions[index++] = this.getAttributionLeftShift(a += 5);
-        attributions[index++] = this.getAttributionRightShift(a += 5);
-        attributions[index]   = this.getAttributionUnsignedRightShift(a += 5);
+        attributions[index++] = this.getAttributionAND(this.increment(a, 5));
+        attributions[index++] = this.getAttributionXOR(this.increment(a, 5));
+        attributions[index++] = this.getAttributionOR(this.increment(a, 5));
+        attributions[index++] = this.getAttributionLeftShift(this.increment(a, 5));
+        attributions[index++] = this.getAttributionRightShift(this.increment(a, 5));
+        attributions[index]   = this.getAttributionUnsignedRightShift(this.increment(a, 5));
 
         return attributions;
     }
@@ -80,11 +80,11 @@ public class Operators extends MainOperators {
      */
     public byte[] getAllArithmeticOperators(byte a) {
         return new byte[]{
-                this.getArithmeticOperatorSum(a += 5),
-                this.getArithmeticOperatorSubtraction(a += 5),
-                this.getArithmeticOperatorMultiplication(a += 5),
-                this.getArithmeticOperatorDivision(a += 5),
-                this.getArithmeticOperatorModulus(a += 5)
+                this.getArithmeticOperatorSum(this.increment(a, 5)),
+                this.getArithmeticOperatorSubtraction(this.increment(a, 5)),
+                this.getArithmeticOperatorMultiplication(this.increment(a, 5)),
+                this.getArithmeticOperatorDivision(this.increment(a, 5)),
+                this.getArithmeticOperatorModulus(this.increment(a, 5))
         };
     }
 
@@ -97,13 +97,17 @@ public class Operators extends MainOperators {
      */
     public boolean[] getAllRelationalOperators(byte a) {
         return new boolean[]{
-                this.getRelationalOperatorGreaterThan(a += 5),
-                this.getRelationalOperatorLessThan(a += 5),
-                this.getRelationalOperatorGreaterThanOrEqual(a += 5),
-                this.getRelationalOperatorLessThanOrEqual(a += 5),
-                this.getRelationalOperatorEqual(a += 5),
-                this.getRelationalOperatorNotEqual(a += 5)
+                this.getRelationalOperatorGreaterThan(this.increment(a, 5)),
+                this.getRelationalOperatorLessThan(this.increment(a, 5)),
+                this.getRelationalOperatorGreaterThanOrEqual(this.increment(a, 5)),
+                this.getRelationalOperatorLessThanOrEqual(this.increment(a, 5)),
+                this.getRelationalOperatorEqual(this.increment(a, 5)),
+                this.getRelationalOperatorNotEqual(this.increment(a, 5))
         };
+    }
+
+    private byte increment(int a, int increment) {
+        return (byte) (a += increment);
     }
 
     /**
