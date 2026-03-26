@@ -142,6 +142,18 @@ public class Operators extends MainOperators {
         };
     }
 
+    public boolean getLogicalOperatorNOT(final byte a, final byte b) {
+        return this.isValidNOT(a, b);
+    }
+
+    public boolean getLogicalOperatorOR(final byte a, final byte b) {
+        return this.isValidOR(a, b);
+    }
+
+    public boolean getLogicalOperatorAND(final byte a, final byte b) {
+        return this.isValidAND(a, b);
+    }
+
     public boolean getRelationalOperatorObjects(final Object object1, final Object object2) {
         // Comparação de referências
         final boolean areObjectsEqual = (object1 == object2);
