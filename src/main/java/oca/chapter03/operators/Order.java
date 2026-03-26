@@ -3,6 +3,14 @@ package oca.chapter03.operators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * <br>Classe de exemplo para demonstrar a ordem de precedência dos operadores em Java.
+ * <br>Esta classe é importante para ilustrar como a ordem de precedência dos operadores afeta a avaliação das expressões em Java.
+ *
+ * @author henriqueotogami
+ * @since 2026-02-23
+ * @version 0.4
+ */
 public class Order {
 
     public static final Logger logger = LogManager.getLogger(Order.class.getName());
