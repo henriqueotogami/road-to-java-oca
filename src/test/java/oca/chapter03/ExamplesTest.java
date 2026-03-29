@@ -259,10 +259,10 @@ class ExamplesTest {
     @Test
     @Order(12)
     void example08StringStartsWithTest() {
-        final String pirateMessage = " Buried Treasure Chest! ";
+        final String pirateMessage = "  Buried Treasure Chest! ";
 
         // Retorna true quando a string referenciada começa com a string comparada.
-        final boolean b1 = pirateMessage.startsWith(" Buried Treasure"); // true
+        final boolean b1 = pirateMessage.startsWith("  Buried Treasure"); // true
         Assertions.assertTrue(b1);
 
         // Retorna false quando a string referenciada não começa com a string comparada.
