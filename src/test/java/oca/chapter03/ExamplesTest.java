@@ -252,4 +252,182 @@ class ExamplesTest {
         Assertions.assertEquals("  Buried Treasure Coins! ", s3);
     }
 
+    /**
+     * <br>Teste para validar os resultados dos métodos de string startsWith.
+     * <br>Este teste verifica se os métodos de string startsWith da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(12)
+    void example08StringStartsWithTest() {
+        final String pirateMessage = " Buried Treasure Chest! ";
+
+        // Retorna true quando a string referenciada começa com a string comparada.
+        final boolean b1 = pirateMessage.startsWith(" Buried Treasure"); // true
+        Assertions.assertTrue(b1);
+
+        // Retorna false quando a string referenciada não começa com a string comparada.
+        final boolean b2 = pirateMessage.startsWith(" Discovered"); // false
+        Assertions.assertFalse(b2);
+
+        // Retorna false quando a string referenciada não começa com a string comparada na posição 8.
+        final boolean b3 = pirateMessage.startsWith("Treasure", 8); // false
+        Assertions.assertFalse(b3);
+
+        // Retorna true quando a string referenciada começa com a string comparada na posição 9.
+        final boolean b4 = pirateMessage.startsWith("Treasure", 9); // true
+        Assertions.assertTrue(b4);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string endsWith.
+     * <br>Este teste verifica se os métodos de string endsWith da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(13)
+    void example09StringEndsWithTest() {
+        final String pirateMessage = " Buried Treasure Chest! ";
+
+        // Retorna true quando a string referenciada termina com a string comparada.
+        final boolean e1 = pirateMessage.endsWith("Treasure Chest! "); // true
+        Assertions.assertTrue(e1);
+
+        // Retorna false quando a string referenciada não termina com a string comparada.
+        final boolean e2 = pirateMessage.endsWith("Treasure Rest "); // false
+        Assertions.assertFalse(e2);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string substring.
+     * <br>Este teste verifica se os métodos de string substring da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(14)
+    void example10StringSubstringTest() {
+        final String pirateMessage = "  Buried Treasure Chest! ";
+
+        /* Retorna a string inteira começando no índice 9. */
+        final String ss1 = pirateMessage.substring(9); // Treasure Chest!
+        Assertions.assertEquals("Treasure Chest! ", ss1);
+
+        /* Retorna a string no índice 9. */
+        final String ss2 = pirateMessage.substring(9, 10); // T
+        Assertions.assertEquals("T", ss2);
+
+        /* Retorna a string no índice 9 e terminando no índice 23. */
+        final String ss3 = pirateMessage.substring(9, 23); // Treasure Chest
+        Assertions.assertEquals("Treasure Chest", ss3);
+
+        /* Produz erro de tempo de execução. */
+        // final String ss4 = pirateMessage.substring(9, 8); // faixa inválida
+        Assertions.assertThrows(StringIndexOutOfBoundsException.class, () -> pirateMessage.substring(9, 8));
+
+        /* Retorna um espaço em branco */
+        final String ss5 = pirateMessage.substring(9, 9); // Espaço em branco
+        Assertions.assertEquals("", ss5);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string trim.
+     * <br>Este teste verifica se os métodos de string trim da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(15)
+    void example11StringTrimTest() {
+        final String pirateMessage = "  Buried Treasure Chest! ";
+
+        /* ""Buried Treasure Chest!" sem espaços em branco iniciais ou finais */
+        String t = pirateMessage.trim();
+        Assertions.assertEquals("Buried Treasure Chest!", t);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string toLowerCase.
+     * <br>Este teste verifica se os métodos de string toLowerCase da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(16)
+    void example12StringToLowerCaseTest() {
+        final String pirateMessage = "  Buried Treasure Chest! ";
+
+        /* Retorna todos os caracteres em letras minúsculas " buried treasure chest! " */
+        final String l1 = pirateMessage.toLowerCase();
+        Assertions.assertEquals("  buried treasure chest! ", l1);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string toUpperCase.
+     * <br>Este teste verifica se os métodos de string toUpperCase da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(17)
+    void example13StringToUpperCaseTest() {
+        final String pirateMessage = "  Buried Treasure Chest! ";
+
+        /* Retorna todos os caracteres em letras maiúsculas " BURIED TREASURE CHEST! " */
+        final String u1 = pirateMessage.toUpperCase();
+        Assertions.assertEquals("  BURIED TREASURE CHEST! ", u1);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string equalsIgnoreCase.
+     * <br>Este teste verifica se os métodos de string equalsIgnoreCase da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(18)
+    void example14StringEqualsIgnoreCaseTest() {
+        final String pirateMessage = "  Buried Treasure Chest! ";
+
+        /* Compara " Buried Treasure Chest! " com " Buried TREASURE Chest! */
+        final Boolean b1 = pirateMessage.equalsIgnoreCase("  Buried TREASURE Chest! "); // true
+        Assertions.assertTrue(b1);
+
+        /* Compara " Buried Treasure Chest! " com " Buried XXXXXXX Chest! "*/
+        final Boolean b2 = pirateMessage.equalsIgnoreCase("  Buried XXXXXXX Chest! "); // false
+        Assertions.assertFalse(b2);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string trim, replace e substring.
+     * <br>Este teste verifica se os métodos de string trim, replace e substring da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(19)
+    void example15StringExamTest() {
+
+        // Três alterações precisam ser feitas para ajustarmos a string como desejado:
+        // 1. Remover os espaços em branco do início e do final.
+        // 2. Substituir a substring First Mate por Quartermaster.
+        // 3. Remover and a pistol!.
+        // 4. Adicionar um ponto no fim da frase.
+
+        String msg = " Maroon the First Mate with a flagon of water and a pistol! ";
+
+        msg = msg.trim(); // Remove o espaço em branco
+        Assertions.assertEquals("Maroon the First Mate with a flagon of water and a pistol!", msg);
+
+        msg = msg.replace("First Mate", "Quartermaster");// Substitui o texto
+        Assertions.assertEquals("Maroon the Quartermaster with a flagon of water and a pistol!", msg);
+
+        msg = msg.substring(0,47); // Retorna os primeiros 48 caracteres.
+        Assertions.assertEquals("Maroon the Quartermaster with a flagon of water", msg);
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string trim, replace e substring.
+     * <br>Este teste verifica se os métodos de string trim, replace e substring da classe {@link Operators} estão retornando os valores esperados.
+     */
+    @Test
+    @Order(20)
+    void example16StringExamTest() {
+
+        // Três alterações precisam ser feitas para ajustarmos a string como desejado:
+        // 1. Remover os espaços em branco do início e do final.
+        // 2. Substituir a substring First Mate por Quartermaster.
+        // 3. Remover and a pistol!.
+        // 4. Adicionar um ponto no fim da frase.
+
+        String msg = " Maroon the First Mate with a flagon of water and a pistol! ";
+        msg = msg.trim().replace("First Mate", "Quartermaster").substring(0,47) + ".";
+        Assertions.assertEquals("Maroon the Quartermaster with a flagon of water.", msg);
+    }
 }
