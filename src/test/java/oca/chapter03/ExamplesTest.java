@@ -472,4 +472,45 @@ class ExamplesTest {
         Assertions.assertEquals("Examples: 1 2 1 2 1 2.0 1.0 true", examples.toString());
         /* Exibe "Examples: 1 2 1 2 1 2.0 1.0 true" */
     }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string StringBuilder insert.
+     * <br>Este teste verifica se os métodos de string StringBuilder insert estão retornando os valores esperados.
+     */
+    @Test
+    @Order(22)
+    void example18StringBuilderInsertTest() {
+        final StringBuilder mateyMessage = new StringBuilder ("Shiver Me Timbers!");
+        Assertions.assertEquals("Shiver Me Timbers!", mateyMessage.toString());
+
+        /* Exibe "Shivers Me Timbers! Bad Storm! */
+        Assertions.assertEquals("Shiver Me Timbers! Bad Storm!", mateyMessage.insert(mateyMessage.length(), " Bad Storm!").toString());
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string StringBuilder delete.
+     * <br>Este teste verifica se os métodos de string StringBuilder delete estão retornando os valores esperados.
+     */
+    @Test
+    @Order(23)
+    void example19StringBuilderDeleteTest() {
+        final StringBuilder mateyMessage = new StringBuilder ("Shiver Me Timbers!");
+        Assertions.assertEquals("Shiver Me Timbers!", mateyMessage.toString());
+
+        /* Exibe "Shivers! */
+        Assertions.assertEquals("Shiver", mateyMessage.delete(6, mateyMessage.length()).toString());
+    }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string StringBuilder reverse.
+     * <br>Este teste verifica se os métodos de string StringBuilder reverse estão retornando os valores esperados.
+     */
+    @Test
+    @Order(24)
+    void example20StringBuilderReverseTest() {
+        final StringBuilder mateyMessage = new StringBuilder ("Part");
+        Assertions.assertEquals("Part", mateyMessage.toString());
+
+        Assertions.assertEquals("traP", mateyMessage.reverse().toString());
+    }
 }
