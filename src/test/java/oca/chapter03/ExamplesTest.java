@@ -430,4 +430,46 @@ class ExamplesTest {
         msg = msg.trim().replace("First Mate", "Quartermaster").substring(0,47) + ".";
         Assertions.assertEquals("Maroon the Quartermaster with a flagon of water.", msg);
     }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string StringBuilder append.
+     * <br>Este teste verifica se os métodos de string StringBuilder append estão retornando os valores esperados.
+     */
+    @Test
+    @Order(21)
+    void example17StringBuilderAppendTest() {
+        final StringBuilder mateyMessage = new StringBuilder ("Shiver Me Timbers!");
+        Assertions.assertEquals("Shiver Me Timbers!", mateyMessage.toString());
+
+        /* Exibe "Shivers! Bad Storm! */
+        Assertions.assertEquals("Shiver Me Timbers! Bad Storm!", mateyMessage.append(" Bad Storm!").toString());
+
+        final StringBuilder examples = new StringBuilder ("Examples:");
+        Assertions.assertEquals("Examples:", examples.toString());
+
+        examples.append(" ").append("1");                                                           // String
+        Assertions.assertEquals("Examples: 1", examples.toString());
+
+        examples.append(" ").append(new StringBuffer("2"));                                         // StringBuffer
+        Assertions.assertEquals("Examples: 1 2", examples.toString());
+
+        examples.append(" ").append('\u0031');                                                      // char
+        Assertions.assertEquals("Examples: 1 2 1", examples.toString());
+
+        examples.append(" ").append((int)2);                                                        // int
+        Assertions.assertEquals("Examples: 1 2 1 2", examples.toString());
+
+        examples.append(" ").append(1L);                                                            // long
+        Assertions.assertEquals("Examples: 1 2 1 2 1", examples.toString());
+
+        examples.append(" ").append(2F);                                                            // float
+        Assertions.assertEquals("Examples: 1 2 1 2 1 2.0", examples.toString());
+
+        examples.append(" ").append(1D);                                                            // double
+        Assertions.assertEquals("Examples: 1 2 1 2 1 2.0 1.0", examples.toString());
+
+        examples.append(" ").append(true);                                                          // true
+        Assertions.assertEquals("Examples: 1 2 1 2 1 2.0 1.0 true", examples.toString());
+        /* Exibe "Examples: 1 2 1 2 1 2.0 1.0 true" */
+    }
 }
