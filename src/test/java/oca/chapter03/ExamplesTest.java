@@ -513,4 +513,15 @@ class ExamplesTest {
 
         Assertions.assertEquals("traP", mateyMessage.reverse().toString());
     }
+
+    /**
+     * <br>Teste para validar os resultados dos métodos de string StringBuilder reverse.
+     * <br>Este teste verifica se os métodos de string StringBuilder reverse estão retornando os valores esperados.
+     */
+    @Test
+    @Order(25)
+    void example21OrderTest() {
+        final oca.chapter03.operators.Order order = new oca.chapter03.operators.Order();
+        Assertions.assertTrue(order.printRelativityPriority());
+    }
 }

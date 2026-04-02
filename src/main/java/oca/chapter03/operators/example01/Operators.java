@@ -219,7 +219,7 @@ public class Operators extends MainOperators {
     }
 
     public boolean getRelationalOperatorLessThanOrEqual(byte a) {
-        return this.isGreaterOrEqual(a, (byte) 3);
+        return this.isLessOrEqual((byte) 3, a);
     }
 
     public boolean getRelationalOperatorEqual(byte a) {

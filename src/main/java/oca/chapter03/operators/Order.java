@@ -15,7 +15,7 @@ public class Order {
 
     public static final Logger logger = LogManager.getLogger(Order.class.getName());
 
-    public void printRelativityPriority() {
+    public boolean printRelativityPriority() {
         logger.info("Precedencia | 01 | - Operador []   - Índice de Array");
         logger.info("Precedencia | 01 | - Operador ()   - Chamada de Método");
         logger.info("Precedencia | 01 | - Operador .    - Acesso atributo ou método");
@@ -82,5 +82,7 @@ public class Order {
         logger.info("Precedencia | 16 | - Operador <<=    - Atribuição de deslocamento à esquerda");
         logger.info("Precedencia | 16 | - Operador >>=    - Atribuição de deslocamento à direita com sinal");
         logger.info("Precedencia | 16 | - Operador >>>=   - Atribuição de deslocamento à direita sem sinal");
+
+        return true;
     }
 }
