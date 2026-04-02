@@ -1,0 +1,370 @@
+Teste Final - Capítulo 02
+Data: 31/03/2026
+
+01. Dado o código:
+public class ArithmeticResultsOutput {
+    public static void main (String[] args) {
+        int i = 0;
+        int j = 0;
+        if (i++ == ++j) {
+            System.out.println("True: i=" + i + ", j=" + j);
+        } else {
+            System.out.println("False: i=" + i + ", j=" + j);
+        }
+    }
+}
+
+O que será exibido na saída padrão?
+A. True:    i=0, j=1
+B. True:    i=1, j=1
+C. False:   i=0, j=1
+D. False:   i=1, j=1
+
+Resposta: C | Errei
+
+Resposta certa: D. O valor de j é incrementado antes da avaliação, mas o valor de i não.
+Logo, a expressão é avaliada com um valor boolean false como resultado, já que
+0 não é igual a 1 (isto é, i=0 e j=1). Após a expressão ser avaliada, mas antes da
+instrução print associada ser executada, o valor de i é incrementado de forma pós-
+-fixada (isto é, (i=1)). Portanto, a resposta correta é False: i=1, j=1.
+
+=====================================================================================================================
+
+02. Que conjunto de operadores representa o conjunto completo de operadores de atribuição Java válidos? Lembre-se de
+que os operadores de deslocamento são <<, >>e >>>.
+
+A. %=, &=, *=, $=, :=, /=, ^=, |=, +=, <<=, =, −=, >>=, >>>=
+B. %=, &=, *=, /=, ^=, |=, +=, <<=, <<<=, =, −=, >>=, >>>=
+C. %=, &=, *=, /=, ^=, |=, +=, <<=, =, −=, >>=, >>>=
+D. %=, &=, *=, $=, /=, ^=, |=, +=, <<=, <<<=, =, −=, >>=, >>>=
+
+Resposta: C | Acertei
+
+=====================================================================================================================
+
+03. Dado o segmento de código Java a seguir, o que será exibido, considerando-se o uso dos operadores de módulo?
+
+System.out.print(49 % 26 % 5 % 1);
+
+A. 23
+B. 3
+C. 1
+D. 0
+
+Resposta: D | Acertei
+
+=====================================================================================================================
+
+04. Dado o código:
+
+public class BooleanResultsOutput {
+    public static void main (String[] args) {
+        boolean booleanValue1 = true;
+        boolean booleanValue2 = false;
+        System.out.print(!(booleanValue1 & !booleanValue2) + ", ");
+        System.out.print(!(booleanValue1 | !booleanValue2)+ ", ");
+        System.out.print(!(booleanValue1 ^ !booleanValue2));
+    }
+}
+
+O que será exibido, considerando-se o uso dos operadores lógicos booleanos?
+
+A. false, false, true
+B. false, true, true
+C. true, false, true
+D. true, true, true
+
+Resposta: A | Acertei
+
+=====================================================================================================================
+
+05. Dado o código:
+
+public class ArithmeticResultsOutput {
+
+    public static void main (String[] args) {
+
+        int i1 = 100;
+        int j1 = 200;
+        if ((i1 == 99) & (--j1 == 199)) {
+            System.out.print("Value1: " + (i1 + j1) + " ");
+        } else {
+            System.out.print("Value2: " + (i1 + j1) + " ");
+        }
+
+        int i2 = 100;
+        int j2 = 200;
+        if ((i2 == 99) && (--j2 == 199)) {
+            System.out.print("Value1: " + (i2 + j2) + " ");
+        } else {
+            System.out.print("Value2: " + (i2 + j2) + " ");
+        }
+
+        int i3 = 100;
+        int j3 = 200;
+        if ((i3 == 100) | (--j3 == 200)) {
+            System.out.print("Value1: " + (i3 + j3) + " ");
+        } else {
+            System.out.print("Value2: " + (i3 + j3) + " ");
+        }
+
+        int i4 = 100;
+        int j4 = 200;
+        if ((i4 == 100) || (--j4 == 200)) {
+            System.out.print("Value1: " + (i4 + j4) + " ");
+        } else {
+            System.out.print("Value2: " + (i4 + j4) + " ");
+        }
+    }
+}
+
+O que será exibido na saída padrão?
+
+A. Value2: 300 Value2: 300 Value1: 300 Value1: 300
+B. Value2: 299 Value2: 300 Value1: 299 Value1: 300
+C. Value1: 299 Value1: 300 Value2: 299 Value2: 300
+D. Value1: 300 Value1: 299 Value2: 300 Value2: 299
+
+Resposta: A | Errei
+
+Resposta certa:
+
+B. Value2: 299 Value2: 300 Value1: 299 Value1: 300 será exibido na
+saída padrão. Observe que && e || são operadores de curto-circuito. Quando o pri-
+meiro operando de uma expressão AND condicional (&&) é avaliado como false, o
+segundo operando não é avaliado. Quando o primeiro operando de uma expressão
+OR condicional (||) é avaliado como true, o segundo operando não é avaliado.
+Logo, na segunda e na quarta instrução if, o segundo operando não é avaliado. Os
+operadores de incremento pré-fixados não são, então, executados e não afetam os
+valores das variáveis j[x].
+
+=====================================================================================================================
+
+06. Dado o segmento de código a seguir:
+
+public void validatePrime() {
+    long p = 17496; // candidato a 'número primo'
+    Double primeSquareRoot = Math.sqrt(p);
+    boolean isPrime = true;
+
+    for (long j = 2; j <= primeSquareRoot.longValue(); j++) {
+        if (p % j == 0) {
+            // Exibe divisores
+            System.out.println(j + "x" + p / j);
+            isPrime = false;
+        }
+    }
+
+    System.out.println("Prime number: " + isPrime);
+}
+
+Qual das opções é verdadeira? Dica: 17496 não é número primo.
+
+A. O código não será compilado devido a um erro sintático em algum local.
+B. O código não será compilado já que a expressão (p % j == 0) deveria ter sido escrita como ((p % j) == 0).
+C. Os divisores serão exibidos na saída padrão (por exemplo, 2x8478 e assim por diante), junto com Prime number: false como a saída final.
+D. Os divisores serão exibidos na saída padrão (por exemplo, 2x8478 e assim por diante), junto com Prime number: 0 como a saída final.
+
+Resposta: B | Errei
+
+Resposta certa:
+
+C. Os divisores serão exibidos na saída padrão seguidos por Prime num-
+ber: false. Para quem estiver curioso, a lista completa de divisores impressa
+será 2x8748, 3x5832, 4x4374, 6x2916, 8x2187, 9x1944, 12x1458, 18x972, 24x729,
+27x648, 36x486, 54x324, 72x243, 81x216 e 108x162.
+
+=====================================================================================================================
+
+07. Dado o código:
+
+public class EqualityTests {
+
+    public static void main (String[] args) {
+
+        Integer value1 = new Integer("312");
+        Integer value2 = new Integer("312");
+        Object object1 = new Object();
+        Object object2 = new Object();
+        Object object3 = value1;
+    }
+}
+
+Que expressões serão avaliadas como verdadeiras?
+
+A. value1.equals(value2)
+B. value1.equals(object1)
+C. value1.equals(object3)
+D. object1.equals(object2)
+
+Resposta: A e C | Acertei
+
+=====================================================================================================================
+
+08. Dado o código:
+
+System.out.print( true | false & true + "," );
+System.out.println( false & true | true );
+
+O que será exibido na saída padrão?
+
+A. true, true
+B. true, false
+C. false, true
+D. false, false
+E. Erro de compilação
+
+Resposta: E | Acertei
+
+=====================================================================================================================
+
+09. O que será exibido na saída padrão para o segmento de código a seguir?
+
+int score = 10;
+System.out.println("score: " + score++);
+
+A. 9
+B. 10
+C. 11
+D. Ocorrerá um erro de compilação.
+E. Ocorrerá um erro em tempo de execução.
+
+Resposta: B | Acertei
+
+=====================================================================================================================
+
+10. Da precedência mais alta à mais baixa, que lista de operadores está ordenada apropriadamente?
+
+A. *, +, &&, =
+B. *, &&, +, =
+C. *, =, &&, +
+D. +, *, &&, =
+
+Resposta: A | Acertei
+
+=====================================================================================================================
+
+11. Dado o código:
+
+System.out.print(3 + 3 + "3");
+System.out.print(" and ");
+System.out.println("3" + 3 + 3);
+
+O que será exibido na saída padrão?
+
+A. 333 and 333
+B. 63 and 63
+C. 333 and 63
+D. 63 and 333
+
+Resposta: D | Acertei
+
+=====================================================================================================================
+
+12. Considere a interface CharSequence que é argumento obrigatório em uma das declarações do método replace:
+
+public String replace(CharSequence target, CharSequence replacement) {
+…
+}
+
+Essa interface CharSequence é superinterface de que classes concretas?
+
+A. String
+B. StringBoxer
+C. StringBuffer
+D. StringBuilder
+
+Resposta: A, C e D | Acertei
+
+=====================================================================================================================
+
+13. Que afirmação é falsa no que diz respeito ao método toString?
+
+A. O método toString é um método da classe Object.
+B. O método toString retorna a representação de um objeto no formato string.
+C. O método toString deve retornar as informações de estado do objeto na forma de uma string.
+D. O método toString costuma ser sobrescrito.
+
+Resposta: C | Acertei
+
+=====================================================================================================================
+
+14. Que declaração do método indexOf é inválida?
+
+A. indexOf(int ch)
+B. indexOf(int ch, int fromIndex)
+C. indexOf(String str, int fromIndex)
+D. indexOf(CharSequence str, int fromIndex)
+
+Resposta: D | Acertei
+
+=====================================================================================================================
+
+15. Dado o código:
+
+String tenCharString = "AAAAAAAAAA";
+System.out.println(tenCharString.replace("AAA", "LLL"));
+
+O que é exibido na saída padrão?
+
+A. AAAAAAAAAA
+B. LLLAAAAAAA
+C. LLLLLLLLLA
+D. LLLLLLLLLL
+
+Resposta: B | Errei
+
+Resposta certa:
+
+C. O método replace da classe String substitui todas as instâncias da string
+especificada. As três primeiras instâncias de AAA são substituídas por LLL, o que
+torna LLLLLLLLLA correto.
+
+=====================================================================================================================
+
+16. Considere a ilustração a seguir. Que afirmações, também representadas na ilustração, são verdadeiras?
+
+A. A classe String implementa a interface Object.
+B. A classe String implementa as interfaces Comparable, Serializable e CharSequence.
+C. O método toString sobrescreve seu equivalente da classe Object, permitindo que o objeto string retorne sua própria string.
+D. O método toString é acessível publicamente.
+
+Resposta: B, C e D | Acertei
+
+=====================================================================================================================
+
+17. Qual dessas declarações da classe StringBuilder existe?
+
+A. public StringBuilder reverse(String str) {…}
+B. public StringBuilder reverse(int index, String str) {…}
+C. public StringBuilder reverse () {…}
+D. Todos os itens anteriores
+
+Resposta: C | Acertei
+
+=====================================================================================================================
+
+18. Dado o código:
+
+String name1 = new String ("Benjamin");
+StringBuilder name2 = new StringBuilder ("Benjamin");
+System.out.println(name2.equals(name1));
+
+As classes String e StringBuilder são de tipos comparáveis? Selecione a afirmação correta.
+
+A. As classes String e StringBuilder são de tipos comparáveis.
+B. As classes String e StringBuilder são de tipos incomparáveis.
+
+Resposta: B | Acertei
+
+=====================================================================================================================
+
+19. Que declaração de append não existe em Java 8?
+
+A. public StringBuilder append (short s) {…}
+B. public StringBuilder append (int i) {…}
+C. public StringBuilder append (long l) {…}
+D. public StringBuilder append (float f) {…}
+E. public StringBuilder append (double d) {…}
+
+Resposta: A | Acertei
