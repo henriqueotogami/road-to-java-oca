@@ -231,14 +231,16 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ### 🔎 Hashtags
 
-#Java #OCA #OracleCertification #JavaSE8 #Certification #Study #Learning #Gradle #OpenSource #GitHub #Programming #Backend
+#Java #OCA #OracleCertification #JavaSE8 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CI #GitHubActions #OpenSource #Programming #Backend
 
 ### 🧠 Meta Keywords
 
 ```
-java oca, oracle certified associate, java se 8, certificação java, 
-estudos java, preparação oca, gradle, programação java, backend, 
-aprendizado, boas práticas, versionamento, colaborativo
+java oca, oracle certified associate, java se 8, certificação java,
+estudos java, preparação oca, gradle, junit 5, testes unitários,
+jacoco, cobertura de testes, sonarcloud, sonarqube, quality gate,
+ci, github actions, análise estática, clean code,
+programação java, backend, aprendizado, boas práticas, versionamento, colaborativo
 ```
 
 <div align="center">
