@@ -2,6 +2,7 @@
 
 > Repositório destinado a **estudos colaborativos para a certificação Java OCA (Oracle Certified Associate)**.
 
+<br>
 <div align="center">
 <img src="https://img.shields.io/github/v/release/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
@@ -11,6 +12,7 @@
 </div>
 <br>
 <div align="center">
+<h3>STATUS DO REPOSITÓRIO</h3>
 <img src="https://img.shields.io/github/actions/workflow/status/henriqueotogami/road-to-java-oca/.github%2Fworkflows%2Fgradle.yml?style=for-the-badge">
 <img src="https://img.shields.io/github/release-date/henriqueotogami/road-to-java-oca?style=for-the-badge">
 </div>
@@ -28,16 +30,25 @@
 </div>
 <br>
 <div align="center">
+<h3>STATUS DO SONAR CLOUD</h3>
 <img src="https://sonarcloud.io/api/project_badges/measure?project=henriqueotogami_road-to-java-oca&metric=alert_status">
 <img src="https://sonarcloud.io/api/project_badges/measure?project=henriqueotogami_road-to-java-oca&metric=bugs">
 <img src="https://sonarcloud.io/api/project_badges/measure?project=henriqueotogami_road-to-java-oca&metric=coverage">
 </div>
-<div align="center">
 <br>
+<div align="center">
+<h3>STATUS DO GITHUB ACTIONS</h3>
+<img src="https://github.com/henriqueotogami/road-to-java-oca/actions/workflows/github-code-scanning/codeql/badge.svg?style=for-the-badge">
+<img src="https://github.com/henriqueotogami/road-to-java-oca/actions/workflows/gradle.yml/badge.svg?style=for-the-badge">
+<img src="https://github.com/henriqueotogami/road-to-java-oca/actions/workflows/sonar.yml/badge.svg?style=for-the-badge">
+</div>
+<br>
+<div align="center">
+<h3>STATUS DO WAKATIME</h3>
 <a href="https://wakatime.com/badge/user/1e53636e-c916-4d50-9ce1-f3ac75a883e3/project/3a5e3f46-b18c-49e9-8b81-cda72611432d"><img src="https://wakatime.com/badge/user/1e53636e-c916-4d50-9ce1-f3ac75a883e3/project/3a5e3f46-b18c-49e9-8b81-cda72611432d.svg" alt="wakatime"></a>
 </div>
-<div align="center">
 <br>
+<div align="center">
 <a href="https://ko-fi.com/henriqueotogami" target="_blank">
   <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie o Projeto" style="height:50px;">
 </a>
@@ -106,21 +117,42 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 
 ## 📚 Conteúdos Abordados
 
+**Capítulo 1 (`oca/chapter01`)**
+
 - ✅ Empacotamento e estrutura de pacotes em Java
 - ✅ Compilação e interpretação (javac, JVM, bytecode)
-- ✅ Imports (single, static, multi)
+- ✅ Imports (simples, estático, múltiplo)
 - ✅ Interfaces e implementações
 - ✅ Propriedades do sistema (`-D`, `System.getProperty`)
-- ✅ Exercícios de compilação e pacotes (ex.: `planets`)
+- ✅ Exercícios de compilação, classpath e subpacotes
+- ✅ Material complementar (`StringTokenizer`)
+
+**Capítulo 2 (`oca/chapter02/primitives`)**
+
+- ✅ Variáveis e tipos (primitivos, wrappers, conversões)
+- ✅ Operadores (atribuição, aritméticos, incremento/decremento, lógicos)
+- ✅ Estruturas condicionais (`if`/`else`, ternário, `switch` com `String` e com enum)
+- ✅ Laços (`for`, `for` aprimorado, `while`, `do-while`)
+- ✅ Enums e mapeamento id/nome para constantes
+- ✅ Arrays de primitivos e iteração
+- ✅ Introdução a coleções (`ArrayList` no exercício)
+- ✅ Palavras-chave de transferência de controle (`break`, `continue`, `return` nos exemplos)
+- ✅ Asserções (`assert`) em código didático
+- ✅ Logging com **Log4j2** nos exemplos
+
+**Repositório e qualidade**
+
+- ✅ Testes automatizados por capítulo (JUnit 5, tasks `chapter01` / `chapter02`)
+- ✅ Cobertura **JaCoCo** e análise **SonarCloud** (Quality Gate e métricas no CI)
+- ✅ **GitHub Actions** (build Gradle, workflow Sonar; badge de **CodeQL** no README)
 - ✅ Boas práticas de versionamento (branches, issues, tags)
-- ✅ Variáveis e tipos de dados (Capítulo 2 — atribuições, primitivos e wrappers)
-- ✅ Operadores (incremento/decremento, aritméticos, lógicos)
-- ✅ Controle de fluxo (`if/else`, `switch`, `while`, `do-while`, `for`, `for` aprimorado)
-- 🔲 Arrays
-- 🔲 Métodos e encapsulamento
+
+**Ainda não coberto no código (próximos capítulos OCA)**
+
+- 🔲 Métodos e encapsulamento (tópico completo)
 - 🔲 Herança e polimorfismo
-- 🔲 Exceções
-- 🔲 APIs fundamentais (String, etc.)
+- 🔲 Exceções (tratamento e hierarquia em profundidade)
+- 🔲 APIs fundamentais (`String`, `StringBuilder`, datas, etc.)
 
 ## 🌿 Fluxo de Trabalho
 
@@ -202,12 +234,16 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📝 Changelog
 
-### 🆕 Versão 0.4
-- Adição do Capítulo 2 em `chapter02/primitives` (exemplos de variáveis, operadores, controle de fluxo e exercícios `ValidString`, `ValidBigFishes`)
-- Testes automatizados do Capítulo 2: `AttributionTest` e `ConditionalsTest` (JUnit 5)
-- Task Gradle `chapter02` para executar apenas os testes do Capítulo 2 (`./gradlew chapter02`)
-- Documentação: `docs/chapter02/annotations.txt` (anotações de instruções Java) e `chapter02Exame.txt` (simulado final)
-- Pipeline de qualidade: fluxo **JaCoCo + SonarCloud** configurado com plugin `jacoco` e `org.sonarqube`, executado via GitHub Actions (`SonarCloud Analyze`) que roda `./gradlew build sonar` e publica métricas de bugs, code smells e cobertura
+### 🆕 Versão 0.5
+- README: seção **Conteúdos Abordados** reorganizada por capítulo e alinhada ao que existe em `app/src/main/java` (Cap. 1 e Cap. 2, qualidade de código, itens ainda pendentes na trilha OCA)
+- README: badges agrupados (repositório, SonarCloud, GitHub Actions incluindo CodeQL, Wakatime)
+- Hashtags e meta keywords atualizadas (Log4j2, enums, arrays, CodeQL, estudo colaborativo)
+
+### 📌 Versão 0.4
+- Adição do Capítulo 2 em `chapter02/primitives` (exemplos de variáveis, operadores, controle de fluxo, enums, laços, exercícios com `String`/`ArrayList`)
+- Testes automatizados do Capítulo 2 (JUnit 5) e task Gradle `chapter02` (`./gradlew chapter02`)
+- Documentação: `docs/chapter02/annotations.txt` e `chapter02Exame.txt` (simulado)
+- Pipeline **JaCoCo + SonarCloud** (plugins `jacoco` e `org.sonarqube`, workflow `SonarCloud Analyze`, `./gradlew build sonar`)
 
 ### 📌 Versão 0.3
 - Interface `Planet` no pacote `exercise02` (Earth, Mars, Venus implementam a interface)
@@ -231,16 +267,18 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ### 🔎 Hashtags
 
-#Java #OCA #OracleCertification #JavaSE8 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CI #GitHubActions #OpenSource #Programming #Backend
+#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Enums #Arrays #OpenSource #Backend #CollaborativeStudy
 
 ### 🧠 Meta Keywords
 
 ```
-java oca, oracle certified associate, java se 8, certificação java,
-estudos java, preparação oca, gradle, junit 5, testes unitários,
-jacoco, cobertura de testes, sonarcloud, sonarqube, quality gate,
-ci, github actions, análise estática, clean code,
-programação java, backend, aprendizado, boas práticas, versionamento, colaborativo
+java oca, 1z0-808, oracle certified associate, java se 8 programmer i, certificação java,
+estudos java, preparação oca, guia oca, exemplos java, exercícios java,
+gradle, junit 5, testes unitários, jacoco, cobertura de código,
+sonarcloud, sonarqube, quality gate, code smells, análise estática,
+github actions, codeql, segurança de código, ci cd,
+log4j2, enums, switch string, arraylist, controle de fluxo, primitivos,
+programação java, backend, aprendizado colaborativo, open source
 ```
 
 <div align="center">
