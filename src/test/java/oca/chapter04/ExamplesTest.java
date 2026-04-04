@@ -3,6 +3,7 @@ package oca.chapter04;
 import oca.chapter04.primitives.ExampleBoolean;
 import oca.chapter04.primitives.ExampleByte;
 import oca.chapter04.primitives.ExampleChar;
+import oca.chapter04.primitives.ExampleShort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -57,4 +58,17 @@ class ExamplesTest {
         Assertions.assertEquals(4, exampleByte.getPassengers());
         Assertions.assertEquals(2, exampleByte.getDoors());
     }
+
+    /**
+     * Teste para o exemplo de uso do tipo primitivo short.
+     */
+    @Test
+    @Order(4)
+    void example04Short() {
+        final ExampleShort exampleShort = new ExampleShort();
+        Assertions.assertEquals(2350, exampleShort.getUnladenWeightInLbs());
+        Assertions.assertEquals(427, exampleShort.getCapacityInCu());
+    }
+
+
 }
