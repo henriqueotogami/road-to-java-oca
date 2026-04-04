@@ -1,6 +1,7 @@
 package oca.chapter04;
 
 import oca.chapter04.primitives.ExampleBoolean;
+import oca.chapter04.primitives.ExampleChar;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -25,5 +26,23 @@ class ExamplesTest {
 
         exampleBoolean.activateTurboCharger();
         Assertions.assertTrue(exampleBoolean.getTurboCharger());
+    }
+
+    /**
+     * Teste para o exemplo de uso do tipo primitivo char.
+     */
+    @Test
+    @Order(2)
+    void example02Char() {
+        final ExampleChar exampleChar = new ExampleChar();
+        Assertions.assertEquals('S', exampleChar.getCharCharacter());
+        Assertions.assertEquals('h', exampleChar.getCharUnicode());
+        Assertions.assertEquals('e', exampleChar.getCharHexadecimal());
+        Assertions.assertEquals('l', exampleChar.getCharOctal());
+        Assertions.assertEquals('b', exampleChar.getCharCasting1());
+        Assertions.assertEquals('y', exampleChar.getCharCasting2());
+        Assertions.assertEquals('\'', exampleChar.getCharSpecial());
+        Assertions.assertEquals('s', exampleChar.getCharSimple());
+        Assertions.assertEquals("Shelby's Mustang", exampleChar.getMessage());
     }
 }
