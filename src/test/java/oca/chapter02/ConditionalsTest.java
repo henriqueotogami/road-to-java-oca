@@ -1,6 +1,6 @@
 package oca.chapter02;
 
-import oca.chapter02.primitives.example02.Conditionals;
+import oca.chapter02.instructions.example02.Conditionals;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

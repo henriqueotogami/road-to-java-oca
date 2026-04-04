@@ -1,17 +1,17 @@
 package oca.chapter02;
 
-import oca.chapter02.primitives.example01.Attribution;
-import oca.chapter02.primitives.example02.Conditionals;
-import oca.chapter02.primitives.example03.FishingSession;
-import oca.chapter02.primitives.example03.FishingTrip;
-import oca.chapter02.primitives.example04.IfThenElse;
-import oca.chapter02.primitives.example05.Fish;
-import oca.chapter02.primitives.example06.Bat;
-import oca.chapter02.primitives.example07.LoopFor;
-import oca.chapter02.primitives.example08.LoopWhile;
-import oca.chapter02.primitives.example09.LoopDoWhile;
-import oca.chapter02.primitives.example10.ControlKeywords;
-import oca.chapter02.primitives.exercise01.ValidString;
+import oca.chapter02.instructions.example01.Attribution;
+import oca.chapter02.instructions.example02.Conditionals;
+import oca.chapter02.instructions.example03.FishingSession;
+import oca.chapter02.instructions.example03.FishingTrip;
+import oca.chapter02.instructions.example04.IfThenElse;
+import oca.chapter02.instructions.example05.Fish;
+import oca.chapter02.instructions.example06.Bat;
+import oca.chapter02.instructions.example07.LoopFor;
+import oca.chapter02.instructions.example08.LoopWhile;
+import oca.chapter02.instructions.example09.LoopDoWhile;
+import oca.chapter02.instructions.example10.ControlKeywords;
+import oca.chapter02.instructions.exercise01.ValidString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -133,7 +133,7 @@ class ExamplesTest {
     @Test
     @Order(3)
     void example03Test() {
-        final oca.chapter02.primitives.example03.Fish fish = new oca.chapter02.primitives.example03.Fish();
+        final oca.chapter02.instructions.example03.Fish fish = new oca.chapter02.instructions.example03.Fish();
         Assertions.assertEquals("Striped Bass", fish.getTypeOfFish(), "Expected 'Striped Bass' as the default type of fish");
         fish.setTypeOfFish("Another type of fish");
         Assertions.assertEquals("Another type of fish", fish.getTypeOfFish(), "Expected 'Another type of fish' as the new type of fish");

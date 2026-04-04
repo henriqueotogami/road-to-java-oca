@@ -1,4 +1,4 @@
-package oca.chapter02.primitives.example06;
+package oca.chapter02.instructions.example06;
 
 
 /**

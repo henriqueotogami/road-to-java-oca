@@ -1,4 +1,4 @@
-package oca.chapter02.primitives.example05;
+package oca.chapter02.instructions.example05;
 
 import java.security.SecureRandom;
 import java.util.Random;

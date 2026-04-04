@@ -1,6 +1,6 @@
-package oca.chapter02.primitives.example09;
+package oca.chapter02.instructions.example09;
 
-import oca.chapter02.primitives.example03.FishingSession;
+import oca.chapter02.instructions.example03.FishingSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

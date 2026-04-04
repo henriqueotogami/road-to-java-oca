@@ -1,6 +1,6 @@
 package oca.chapter02;
 
-import oca.chapter02.primitives.example01.Attribution;
+import oca.chapter02.instructions.example01.Attribution;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

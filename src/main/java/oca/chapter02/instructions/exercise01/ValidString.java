@@ -1,4 +1,4 @@
-package oca.chapter02.primitives.exercise01;
+package oca.chapter02.instructions.exercise01;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
