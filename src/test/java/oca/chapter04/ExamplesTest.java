@@ -1,6 +1,7 @@
 package oca.chapter04;
 
 import oca.chapter04.primitives.ExampleBoolean;
+import oca.chapter04.primitives.ExampleByte;
 import oca.chapter04.primitives.ExampleChar;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -44,5 +45,16 @@ class ExamplesTest {
         Assertions.assertEquals('\'', exampleChar.getCharSpecial());
         Assertions.assertEquals('s', exampleChar.getCharSimple());
         Assertions.assertEquals("Shelby's Mustang", exampleChar.getMessage());
+    }
+
+    /**
+     * Teste para o exemplo de uso do tipo primitivo byte.
+     */
+    @Test
+    @Order(3)
+    void example03Byte() {
+        final ExampleByte exampleByte = new ExampleByte();
+        Assertions.assertEquals(4, exampleByte.getPassengers());
+        Assertions.assertEquals(2, exampleByte.getDoors());
     }
 }
