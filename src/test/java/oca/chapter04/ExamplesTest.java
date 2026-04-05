@@ -108,4 +108,17 @@ class ExamplesTest {
         Assertions.assertEquals(36000.0F, exampleFloat.getMyBid());
     }
 
+    /**
+     * Teste para o exemplo de uso do tipo primitivo double, incluindo coerção explícita e implícita.
+     */
+    @Test
+    @Order(8)
+    void example08Double() {
+        final ExampleDouble exampleDouble = new ExampleDouble();
+        Assertions.assertEquals(4.7D, exampleDouble.getLeafSpringCobraEngine());
+        Assertions.assertEquals(5.4D, exampleDouble.getChyrsler331Engine());
+        Assertions.assertEquals(7.0D, exampleDouble.getFord427Engine());
+        Assertions.assertEquals(7.01D, exampleDouble.getFord428Engine());
+        Assertions.assertEquals(5.0D, exampleDouble.getFordV8Engine());
+    }
 }
