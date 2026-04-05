@@ -82,5 +82,17 @@ class ExamplesTest {
         Assertions.assertEquals(405, exampleInt.getPowerToWeightRatio());
     }
 
+    /**
+     * Teste para o exemplo de uso do tipo primitivo long, incluindo coerção explícita e implícita.
+     */
+    @Test
+    @Order(6)
+    void example06Long() {
+        final ExampleLong exampleLong = new ExampleLong();
+        Assertions.assertEquals(146000000L, exampleLong.getMustangBingResults());
+        Assertions.assertEquals(40500000L, exampleLong.getMustangGoogleResults());
+        Assertions.assertEquals(5774L, exampleLong.getMustangAmazonBookResults());
+        Assertions.assertEquals(2380L, exampleLong.getMustangAmazonManualResults());
+    }
 
 }
