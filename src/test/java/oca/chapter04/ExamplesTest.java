@@ -1,9 +1,6 @@
 package oca.chapter04;
 
-import oca.chapter04.primitives.ExampleBoolean;
-import oca.chapter04.primitives.ExampleByte;
-import oca.chapter04.primitives.ExampleChar;
-import oca.chapter04.primitives.ExampleShort;
+import oca.chapter04.primitives.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -68,6 +65,21 @@ class ExamplesTest {
         final ExampleShort exampleShort = new ExampleShort();
         Assertions.assertEquals(2350, exampleShort.getUnladenWeightInLbs());
         Assertions.assertEquals(427, exampleShort.getCapacityInCu());
+    }
+
+    /**
+     * Teste para o exemplo de uso do tipo primitivo int, incluindo conversões implícitas e explícitas.
+     */
+    @Test
+    @Order(5)
+    void example05Int() {
+        final ExampleInt exampleInt = new ExampleInt();
+        Assertions.assertEquals(7800000, exampleInt.getAuctionPrice());
+        Assertions.assertEquals(8, exampleInt.getCyl());
+        Assertions.assertEquals(90, exampleInt.getwBase());
+        Assertions.assertEquals(250, exampleInt.gethPower());
+        Assertions.assertEquals(151, exampleInt.getLength());
+        Assertions.assertEquals(405, exampleInt.getPowerToWeightRatio());
     }
 
 
