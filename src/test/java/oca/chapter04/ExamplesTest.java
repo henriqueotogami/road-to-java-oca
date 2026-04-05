@@ -95,4 +95,17 @@ class ExamplesTest {
         Assertions.assertEquals(2380L, exampleLong.getMustangAmazonManualResults());
     }
 
+    /**
+     * Teste para o exemplo de uso do tipo primitivo float, incluindo coerção explícita e implícita.
+     */
+    @Test
+    @Order(7)
+    void example07Float() {
+        final ExampleFloat exampleFloat = new ExampleFloat();
+        Assertions.assertEquals(80100.99F, exampleFloat.getCurrentBid());
+        Assertions.assertEquals(20000.00F, exampleFloat.getOpeningBid());
+        Assertions.assertEquals(92000.0F, exampleFloat.getReservePrice());
+        Assertions.assertEquals(36000.0F, exampleFloat.getMyBid());
+    }
+
 }
