@@ -1,5 +1,6 @@
 package oca.chapter04;
 
+import oca.chapter04.objects.ExampleWrapperInteger;
 import oca.chapter04.primitives.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -120,5 +121,17 @@ class ExamplesTest {
         Assertions.assertEquals(7.0D, exampleDouble.getFord427Engine());
         Assertions.assertEquals(7.01D, exampleDouble.getFord428Engine());
         Assertions.assertEquals(5.0D, exampleDouble.getFordV8Engine());
+    }
+
+    /**
+     * Teste para o exemplo de uso do tipo wrapper Integer, incluindo autoboxing e unboxing.
+     */
+    @Test
+    @Order(9)
+    void example09WrapperInteger() {
+        final ExampleWrapperInteger exampleWrapperInteger = new ExampleWrapperInteger();
+        Assertions.assertEquals(5, exampleWrapperInteger.getValueA());
+        Assertions.assertEquals(5, exampleWrapperInteger.getNum());
+        Assertions.assertEquals(5, exampleWrapperInteger.getValueB());
     }
 }
