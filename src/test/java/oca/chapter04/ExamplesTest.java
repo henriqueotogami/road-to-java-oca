@@ -1,5 +1,6 @@
 package oca.chapter04;
 
+import oca.chapter04.objects.ExampleObject;
 import oca.chapter04.objects.ExampleWrapperInteger;
 import oca.chapter04.primitives.*;
 import org.junit.jupiter.api.Assertions;
@@ -133,5 +134,15 @@ class ExamplesTest {
         Assertions.assertEquals(5, exampleWrapperInteger.getValueA());
         Assertions.assertEquals(5, exampleWrapperInteger.getNum());
         Assertions.assertEquals(5, exampleWrapperInteger.getValueB());
+    }
+
+    @Test
+    @Order(10)
+    void example10Objects() {
+        final ExampleObject exampleObject = new ExampleObject();
+        Assertions.assertTrue(exampleObject.isBigCarRunning());
+        Assertions.assertTrue(exampleObject.isSmallCarRunning());
+        Assertions.assertFalse(exampleObject.isOldCarRunning());
+        Assertions.assertThrowsExactly(NullPointerException.class, () -> exampleObject.getOldCar().isRunning());
     }
 }
