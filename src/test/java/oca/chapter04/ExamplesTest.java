@@ -1,5 +1,6 @@
 package oca.chapter04;
 
+import oca.chapter04.enums.ExampleEnum;
 import oca.chapter04.objects.ExampleObject;
 import oca.chapter04.objects.ExampleWrapperInteger;
 import oca.chapter04.primitives.*;
@@ -136,6 +137,9 @@ class ExamplesTest {
         Assertions.assertEquals(5, exampleWrapperInteger.getValueB());
     }
 
+    /**
+     * Teste para o exemplo de uso de objetos em Java, incluindo inicialização e acesso a métodos.
+     */
     @Test
     @Order(10)
     void example10Objects() {
@@ -144,5 +148,17 @@ class ExamplesTest {
         Assertions.assertTrue(exampleObject.isSmallCarRunning());
         Assertions.assertFalse(exampleObject.isOldCarRunning());
         Assertions.assertThrowsExactly(NullPointerException.class, () -> exampleObject.getOldCar().isRunning());
+    }
+
+    /**
+     * Teste para o exemplo de uso de enums em Java, incluindo acesso a constantes e comparação.
+     */
+    @Test
+    @Order(11)
+    void example11Enum() {
+        final ExampleEnum.Suit cardSuit = ExampleEnum.Suit.CLUBS;
+        Assertions.assertEquals(ExampleEnum.Suit.CLUBS, cardSuit);
+        Assertions.assertTrue(cardSuit.equals(ExampleEnum.Suit.CLUBS));
+        Assertions.assertEquals(0, cardSuit.compareTo(ExampleEnum.Suit.CLUBS));
     }
 }
