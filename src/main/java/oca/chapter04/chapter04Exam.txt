@@ -1,0 +1,380 @@
+Teste Final - Capítulo 04
+Data: 11/04/2026
+
+Compreender primitivos, enumerações e objetos
+
+01. Você precisa criar um aplicativo para calcular o comparecimento a um jogo de
+beisebol. Que tipo de dado seria mais apropriado para armazenar o valor relativo
+ao comparecimento?
+
+A. boolean
+B. char
+C. float
+D. int
+
+Resposta Henrique: A
+Resposta Certa: D
+=======================================================================================================================
+
+02. Qual o melhor tipo de dado para a execução de muitos cálculos de adição, subtração
+e multiplicação com um número inteiro?
+
+A. double
+B. Double
+C. int
+D. Integer
+
+Resposta Henrique: C
+Resposta Certa: C
+=======================================================================================================================
+
+03. Você está criando uma classe que armazenará o status de um interruptor liga/desliga.
+Que tipo de dado é mais apropriado para armazenar esse valor?
+
+A. boolean
+B. char
+C. short
+D. int
+
+Resposta Henrique: A
+Resposta Certa: A
+=======================================================================================================================
+
+04. Você definiu que tipo de dado será usado para uma variável que armazenará as
+informações do interruptor liga/desliga. Agora precisa determinar um nome para
+ela. Qual desses nomes segue as convenções de nomenclatura Java?
+
+A. LIGHTSWITCHENABLED
+B. LightSwitchEnabled
+C. lightSwitchEnabled
+D. x
+
+Resposta Henrique: C
+Resposta Certa: C
+=======================================================================================================================
+
+05. Qual é o melhor tipo de dado para o armazenamento de um código de status que
+pode ter um dos valores a seguir: sucesso, falha, sucesso com erros ou indeterminado?
+
+A. Objeto
+B. Classe
+C. boolean
+D. enum
+E. int
+
+Resposta Henrique: D
+Resposta Certa: D
+=======================================================================================================================
+
+06. Um sistema tem três sensores conectados a ele. Você precisa de uma maneira de
+representá-lo em seu programa. Qual seria o melhor tipo de dado para modelar
+esse sistema e os sensores?
+
+A. Object
+B. boolean
+C. enum
+D. int
+
+Resposta Henrique: C
+Resposta Certa: A
+=======================================================================================================================
+
+07.A palavra-chave new é usada para inicializar qual dos tipos de dados a seguir? Selecione todos que forem aplicáveis.
+
+A. Object
+B. boolean
+C. Boolean
+D. Float
+E. float
+F. float[]
+
+Resposta Henrique: A, C, D e F
+Resposta Certa: A, C, D e F
+=======================================================================================================================
+
+08. Na linha de código a seguir, o que (int) representa?
+
+number = (int) sensorReading;
+
+A. O arredondamento da variável sensorReading para o int mais próximo.
+B. A coerção (casting) da variável sensorReading para o tipo de dado int.
+C. Nada, está presente como comentário.
+
+Resposta Henrique: B
+Resposta Certa: B
+=======================================================================================================================
+
+09. Dada a linha de código a seguir, qual das linhas de código listadas depois estão
+incorretas? Selecione todas que forem aplicáveis.
+
+char c;
+
+A. c = new char();
+B. c = 'Y';
+C. c = '\u0056';
+D. c = "Yes";
+
+Resposta Henrique: A e D
+Resposta Certa: A e D
+=======================================================================================================================
+
+10. Ao lidar com valores financeiros, que tipo de dado deve ser usado?
+
+A. float
+B. double
+C. BigDecimal
+D. BigNumber
+
+Resposta Henrique: C
+Resposta Certa: C
+=======================================================================================================================
+
+11. Complete a frase. A classe Integer ___________.
+
+A. é igual a um primitivo int
+B. é a classe wrapper dos primitivos de todos os números inteiros
+C. é a classe wrapper apenas de primitivos int
+D. Nenhuma dessas afirmações é válida.
+
+Resposta Henrique: C
+Resposta Certa: C
+=======================================================================================================================
+
+12. Quais dessas afirmações estão corretas? Selecione todas que forem aplicáveis.
+
+A. 3.0 é um literal válido para um int.
+B. 3.0 é um literal válido para um float.
+C. 3 é um literal válido para um int.
+D. 3 é um literal válido para um float.
+E. 3f é um literal válido para um int.
+F. 3f é um literal válido para um float.
+
+Resposta Henrique: B, C e F
+Resposta Certa: C, D e F
+=======================================================================================================================
+
+13. Que valores literais podem ser usados com o primitivo boolean?
+
+A. true e false
+B. true, false e null
+C. true, false, TRUE e FALSE
+D. TRUE e FALSE
+
+Resposta Henrique: A
+Resposta Certa: A
+=======================================================================================================================
+
+Usar primitivos, enumerações e objetos
+
+14. Quais das variáveis a seguir estão sendo configuradas como o uso de um literal?
+Selecione todas que forem aplicáveis.
+
+A. int tvChannel = 4;
+B. char c = '5';
+C. char d = '\u0123';
+D. char e = c;
+E. int oldChannel = tvChannel;
+
+Resposta Henrique: A e E
+Resposta Certa: A, B e C
+=======================================================================================================================
+
+15. Dada a linha de código a seguir, quais das linhas posteriores são válidas? Selecione todas que forem aplicáveis.
+
+enum Sports { FOOTBALL, BASKETBALL, BASEBALL, TRACK }
+
+A. Sports sport = FOOTBALL;
+B. Sports sport = Sports.FOOTBALL;
+C. Sports sport = Sports.HOCKEY;
+D. Sports sport = 'TRACK'
+
+Resposta Henrique: B
+Resposta Certa: B
+=======================================================================================================================
+
+16. O que há de errado com o método a seguir:
+
+public double interestDue(double currentBalance, float interestRate){
+    double interestDue = currentBalance * interestRate;
+    return interestDue;
+}
+
+A. Ele só deve usar primitivos float.
+B. Ele só deve usar objetos Float.
+C. Ele só deve usar primitivos double.
+D. Ele só deve usar objetos Double.
+E. Ele deve usar objetos DigDecimal.
+F. Não há nada de errado com esse método.
+G. Ele não será compilado porque você não pode executar operações matemáticas com primitivos que não sejam do mesmo tipo.
+
+Resposta Henrique: C
+Resposta Certa: E
+=======================================================================================================================
+
+17. Qual é a maneira correta de criar um array com cinco tipos de dados int? Selecione todas que forem aplicáveis.
+
+A. int intArray = new int[5];
+B. int intArray = new int(5);
+C. int[] intArray = new int[5];
+D. int intArray[] = new int[5];
+
+Resposta Henrique: C e D
+Resposta Certa: C e D
+=======================================================================================================================
+
+18. Qual é a maneira correta de inicializar como um novo objeto Book uma variável
+    que foi declarada com o tipo de dado Book?
+
+A. Book b;
+B. Book b = new Book();
+C. Book b = new Book[];
+D. Book b = Book();
+
+Resposta Henrique: B
+Resposta Certa: B
+=======================================================================================================================
+
+19. Qual é a diferença entre um int e um Integer?
+
+A. Nenhuma. Ambos são totalmente intercambiáveis.
+B. Um int é um objeto e Integer é um primitivo. Um int é mais veloz na execução de cálculos.
+C. Um int é um primitivo e Integer é um objeto. Um int é mais veloz na execução de cálculos.
+D. Essa é uma pergunta para confundir. Não existe o que está sendo chamado de Integer.
+E. Essa é uma pergunta para confundir. Um Integer pode ser definido para ser qualquer coisa que um desenvolvedor quiser que ele seja.
+
+Resposta Henrique: C
+Resposta Certa: C
+=======================================================================================================================
+
+20. Qual é o resultado do uso de um método de um objeto não inicializado?
+
+A. Nulo é retornado.
+B. O objeto é inicializado automaticamente e um valor apropriado é retornado.
+C. Uma NullPointerException é lançada pela máquina virtual Java.
+
+Resposta Henrique: C
+Resposta Certa: C
+=======================================================================================================================
+
+21. O que há de errado com o segmento de código a seguir? Selecione todas as opções que forem aplicáveis.
+
+1: float a = 1.2f;
+2: int b = 5;
+3: short c = 9;
+4: long d = 6;
+5: double e = b;
+6: Double f = e;
+7: Short g;
+8: Float h = g.floatValue();
+
+A. Não há nada errado.
+B. Há um erro na linha 1.
+C. Há um erro na linha 2.
+D. Há um erro na linha 3.
+E. Há um erro na linha 4.
+F. Há um erro na linha 5.
+G. Há um erro na linha 6.
+H. Há um erro na linha 7.
+I. Há um erro na linha 8.
+
+Resposta Henrique: E, F, G e I
+Resposta Certa: I
+=======================================================================================================================
+
+22. Qual é o valor da variável x no segmento de código a seguir?
+
+float x =0.0f;
+int y = 5;
+long z;
+x = y + 3.3f;
+x = x + z;
+
+A. 0
+B. 0,0f
+C. 5,0f
+D. 8,3f
+E. 8,3
+F. Esse código não será compilado:
+
+Resposta Henrique: F
+Resposta Certa: F
+=======================================================================================================================
+
+23. Que declaração de inteiro usa um literal octal válido?
+
+A. int value1 = 0000;
+B. int value2 = '\u0777';
+C. int value3 = '\01111';
+D. int value4 = '\x0123';
+
+Resposta Henrique: A
+Resposta Certa: A
+=======================================================================================================================
+
+24.Dado o código:
+
+int b1 = 0b_0101_0101_0101_0101;
+int b2 = 0b_1010_1010_1010_1010;
+int b3 = b1 & b2;
+System.out.println("Value:" + b3);
+
+Qual será o resultado?
+
+A. Value: 0 será exibido.
+B. Value: 65535 será exibido.
+C. 0b_1111_1111_1111_1111 será exibido.
+D. Ocorrerá um erro de compilação.
+
+Resposta Henrique: D
+Resposta Certa: D
+=======================================================================================================================
+
+25. Que exemplo de código faz uso de arrays sem produzir um erro do compilador ou de tempo de execução?
+
+A. public class Actor {
+    String[] characterName = new String[3];
+    {
+        characterName[0] = "Captain Video";
+        characterName[1] = "Quizmaster";
+        characterName[2] = "J.C. Money";
+        characterName[3] = "Jersey Joe";
+    }
+}
+
+B. public class Actor {
+    String[] characterName = new String[1..4]
+    {
+        characterName[0] = "Captain Video";
+        characterName[1] = "Quizmaster";
+        characterName[2] = "J.C. Money";
+        characterName[3] = "Jersey Joe";
+    }
+}
+
+C. public class Actor {
+    String characterName = new String[4];
+    {
+        characterName[0] = "Captain Video";
+        characterName[1] = "Quizmaster";
+        characterName[2] = "J.C. Money";
+        characterName[3] = "Jersey Joe";
+    }
+}
+
+D. public class Actor {
+    String [] characterName = new String[4];
+    {
+        characterName[0] = "Captain Video";
+        characterName[1] = "Quizmaster";
+        characterName[2] = "J.C. Money";
+        characterName[3] = "Jersey Joe";
+    }
+}
+
+Resposta Henrique: D
+Resposta Certa: D
+=======================================================================================================================
+
+Resultado
+Questões Certas: 19
+Questões Erradas: 06
