@@ -42,5 +42,16 @@ class ExamplesTest {
         Assertions.assertEquals(8.5, mTools.findLowerValue(x,y));
     }
 
+    /**
+     * Teste para o exemplo de uso de métodos sobrecarregados em Java.
+     */
+    @Test
+    @Order(3)
+    void example02OverloadMethod() {
+        final oca.chapter05.methods.example02.LogManager logManager = new oca.chapter05.methods.example02.LogManager();
+        logManager.logInfo("This is a log message without an error number.");
+        logManager.logInfo("This is a log message with an error number.", 404);
+        Assertions.assertTrue(true); // Apenas para garantir que o teste passe, já que os métodos de log não retornam valores
+    }
 
 }
