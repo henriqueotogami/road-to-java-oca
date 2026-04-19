@@ -77,42 +77,22 @@ O projeto utiliza **Gradle** para build e está estruturado por capítulos, faci
 - [Java 8 JDK](https://adoptium.net/) ou superior
 - [Gradle](https://gradle.org/install/) (ou use o wrapper: `./gradlew`)
 
-### 📦 Clonar e Executar
+### 📦 Como Executar
 
-1. **Clone o repositório:**
 ```bash
 git clone https://github.com/henriqueotogami/road-to-java-oca.git
 cd road-to-java-oca
-```
-
-2. **Compile o projeto:**
-```bash
 ./gradlew build
-```
-
-3. **Execute exemplos específicos:**
-```bash
-# Via Gradle (classe principal padrão)
-./gradlew run
-
-# Ou diretamente com Java (exemplo de Properties)
-./gradlew :app:compileJava
-java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Example06PropertiesManager -list_all
-```
-
-4. **Execute os testes:**
-```bash
 ./gradlew test
 ```
 
-5. **Execute apenas os testes do Capítulo 1:**
+Tasks por capítulo:
+
 ```bash
 ./gradlew chapter01
-```
-
-6. **Execute apenas os testes do Capítulo 2:**
-```bash
 ./gradlew chapter02
+./gradlew chapter03
+./gradlew chapter04
 ```
 
 ## 📚 Conteúdos Abordados
@@ -127,7 +107,7 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 - ✅ Exercícios de compilação, classpath e subpacotes
 - ✅ Material complementar (`StringTokenizer`)
 
-**Capítulo 2 (`oca/chapter02/primitives`)**
+**Capítulo 2 (`oca/chapter02/instructions` e `oca/chapter02/primitives`)**
 
 - ✅ Variáveis e tipos (primitivos, wrappers, conversões)
 - ✅ Operadores (atribuição, aritméticos, incremento/decremento, lógicos)
@@ -140,19 +120,33 @@ java -cp app/build/classes/java/main oca.chapter01.fundamentals.exemple06.Exampl
 - ✅ Asserções (`assert`) em código didático
 - ✅ Logging com **Log4j2** nos exemplos
 
+**Capítulo 3 (`oca/chapter03/operators`)**
+
+- ✅ Operadores e precedência com cenários práticos
+- ✅ Modelagem de exemplos orientados ao domínio (`Order`, `PirateShip`)
+- ✅ Execução de exemplos e validação por testes automatizados
+
+**Capítulo 4 (`oca/chapter04`)**
+
+- ✅ Tipos primitivos e conversões (`byte` a `double`)
+- ✅ Objetos e wrappers (`Object`, `Integer`)
+- ✅ Enums e regras básicas de uso
+- ✅ Exercícios aplicados (`ERACalculator`) e bateria de testes do capítulo
+
 **Repositório e qualidade**
 
-- ✅ Testes automatizados por capítulo (JUnit 5, tasks `chapter01` / `chapter02`)
+- ✅ Testes automatizados por capítulo (JUnit 5, tasks `chapter01` / `chapter02` / `chapter03` / `chapter04`)
 - ✅ Cobertura **JaCoCo** e análise **SonarCloud** (Quality Gate e métricas no CI)
 - ✅ **GitHub Actions** (build Gradle, workflow Sonar; badge de **CodeQL** no README)
 - ✅ Boas práticas de versionamento (branches, issues, tags)
+- ✅ Estrutura em evolução para módulo `app/` com exemplos e testes dos capítulos iniciais
 
 **Ainda não coberto no código (próximos capítulos OCA)**
 
-- 🔲 Métodos e encapsulamento (tópico completo)
-- 🔲 Herança e polimorfismo
+- 🔲 Métodos e encapsulamento (aprofundamento completo)
+- 🔲 Herança e polimorfismo avançados
 - 🔲 Exceções (tratamento e hierarquia em profundidade)
-- 🔲 APIs fundamentais (`String`, `StringBuilder`, datas, etc.)
+- 🔲 APIs fundamentais (`StringBuilder`, datas, APIs de coleções e utilitários avançados)
 
 ## 🌿 Fluxo de Trabalho
 
@@ -234,7 +228,13 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📝 Changelog
 
-### 🆕 Versão 0.5
+### 🆕 Versão 0.6
+- Expansão documentada da trilha com capítulos adicionais já presentes no código (`chapter03` e `chapter04`), incluindo operadores, primitivos, objetos, wrappers, enums e exercícios.
+- Atualização das tasks e estratégia de testes por capítulo para refletir o fluxo completo (`chapter01` a `chapter04`) no build principal.
+- Inclusão e organização do módulo `app/` com exemplos, testes e recursos dos capítulos iniciais, preparando o repositório para evolução modular.
+- Atualização do README: **Conteúdos Abordados**, hashtags e meta keywords alinhados ao estado atual do projeto.
+
+### 📌 Versão 0.5
 - README: seção **Conteúdos Abordados** reorganizada por capítulo e alinhada ao que existe em `app/src/main/java` (Cap. 1 e Cap. 2, qualidade de código, itens ainda pendentes na trilha OCA)
 - README: badges agrupados (repositório, SonarCloud, GitHub Actions incluindo CodeQL, Wakatime)
 - Hashtags e meta keywords atualizadas (Log4j2, enums, arrays, CodeQL, estudo colaborativo)
@@ -267,7 +267,7 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ### 🔎 Hashtags
 
-#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Enums #Arrays #OpenSource #Backend #CollaborativeStudy
+#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Enums #Arrays #Operators #ControlFlow #Primitives #Wrappers #OpenSource #Backend #CollaborativeStudy
 
 ### 🧠 Meta Keywords
 
@@ -277,7 +277,8 @@ estudos java, preparação oca, guia oca, exemplos java, exercícios java,
 gradle, junit 5, testes unitários, jacoco, cobertura de código,
 sonarcloud, sonarqube, quality gate, code smells, análise estática,
 github actions, codeql, segurança de código, ci cd,
-log4j2, enums, switch string, arraylist, controle de fluxo, primitivos,
+log4j2, enums, switch string, arraylist, controle de fluxo, primitivos, operadores java,
+precedência de operadores, wrappers java, object java, exercícios oca, chapter03, chapter04,
 programação java, backend, aprendizado colaborativo, open source
 ```
 
