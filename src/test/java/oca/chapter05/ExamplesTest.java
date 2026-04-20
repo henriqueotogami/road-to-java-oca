@@ -1,6 +1,9 @@
 package oca.chapter05;
 
 import oca.chapter05.methods.example01.MathTools;
+import oca.chapter05.methods.example02.LogManager;
+import oca.chapter05.methods.example03.Number;
+import oca.chapter05.methods.example04.SampleMethod;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -48,7 +51,7 @@ class ExamplesTest {
     @Test
     @Order(3)
     void example02OverloadMethod() {
-        final oca.chapter05.methods.example02.LogManager logManager = new oca.chapter05.methods.example02.LogManager();
+        final LogManager logManager = new LogManager();
         logManager.logInfo("This is a log message without an error number.");
         logManager.logInfo("This is a log message with an error number.", 404);
         Assertions.assertTrue(true); // Apenas para garantir que o teste passe, já que os métodos de log não retornam valores
@@ -60,7 +63,7 @@ class ExamplesTest {
     @Test
     @Order(4)
     void example03PassByValue() {
-        final oca.chapter05.methods.example03.Number number = new oca.chapter05.methods.example03.Number(3);
+        final Number number = new Number(3);
         number.addTwo(4);
         Assertions.assertEquals(3, number.getNumber(), "O valor do número deve permanecer inalterado, pois os parâmetros primitivos são passados por valor.");
     }
@@ -71,9 +74,19 @@ class ExamplesTest {
     @Test
     @Order(5)
     void example03PassByReference() {
-        final oca.chapter05.methods.example03.Number number = new oca.chapter05.methods.example03.Number(3);
+        final Number number = new Number(3);
         number.addThree(number);
         Assertions.assertEquals(6, number.getNumber(), "O valor do número deve ser alterado, pois os objetos são passados por referência.");
+    }
+
+    /**
+     * Teste para o exemplo de escopo de variáveis em Java.
+     */
+    @Test
+    @Order(6)
+    void example04VariableScope() {
+        final SampleMethod sampleMethod = new SampleMethod();
+        Assertions.assertEquals(9, sampleMethod.sampleMethod(), "A variável local deve ser acessível apenas dentro do método onde foi declarada.");
     }
 
 }
