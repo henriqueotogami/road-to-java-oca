@@ -54,4 +54,26 @@ class ExamplesTest {
         Assertions.assertTrue(true); // Apenas para garantir que o teste passe, já que os métodos de log não retornam valores
     }
 
+    /**
+     * Teste para o exemplo de passagem por valor em Java.
+     */
+    @Test
+    @Order(4)
+    void example03PassByValue() {
+        final oca.chapter05.methods.example03.Number number = new oca.chapter05.methods.example03.Number(3);
+        number.addTwo(4);
+        Assertions.assertEquals(3, number.getNumber(), "O valor do número deve permanecer inalterado, pois os parâmetros primitivos são passados por valor.");
+    }
+
+    /**
+     * Teste para o exemplo de passagem por referência em Java.
+     */
+    @Test
+    @Order(5)
+    void example03PassByReference() {
+        final oca.chapter05.methods.example03.Number number = new oca.chapter05.methods.example03.Number(3);
+        number.addThree(number);
+        Assertions.assertEquals(6, number.getNumber(), "O valor do número deve ser alterado, pois os objetos são passados por referência.");
+    }
+
 }
