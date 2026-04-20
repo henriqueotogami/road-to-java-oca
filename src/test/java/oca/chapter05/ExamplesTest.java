@@ -4,6 +4,7 @@ import oca.chapter05.methods.example01.MathTools;
 import oca.chapter05.methods.example02.LogManager;
 import oca.chapter05.methods.example03.Number;
 import oca.chapter05.methods.example04.SampleMethod;
+import oca.chapter05.methods.example05.Television;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -88,5 +89,20 @@ class ExamplesTest {
         final SampleMethod sampleMethod = new SampleMethod();
         Assertions.assertEquals(9, sampleMethod.sampleMethod(), "A variável local deve ser acessível apenas dentro do método onde foi declarada.");
     }
+
+    /**
+     * Teste para o exemplo de variáveis de instância em Java.
+     */
+    @Test
+    @Order(7)
+    void example05InstanceVariables() {
+        Television tv1 = new Television();
+        Television tv2 = new Television();
+        tv1.setChannel(2);
+        tv2.setChannel(7);
+        Assertions.assertEquals(2, tv1.getChannel(), "A variável de instância deve manter seu valor específico para cada objeto.");
+        Assertions.assertEquals(7, tv2.getChannel(), "A variável de instância deve manter seu valor específico para cada objeto.");
+    }
+
 
 }
