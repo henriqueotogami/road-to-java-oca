@@ -14,22 +14,31 @@ public class LoanDetails {
     private double principal;
 
     public LoanDetails() {
-        term = 180;
-        rate = .0265; //Taxa de juros em formato decimal
-        principal = 0;
+        this.term = 180;
+        this.rate = .0265; //Taxa de juros em formato decimal
+        this.principal = 0;
     }
 
     public LoanDetails(int t, double r, double p){
-        term = t;
-        rate = r;
-        principal = p;
+        this.term = t;
+        this.rate = r;
+        this.principal = p;
     }
 
+    /**
+     * Metodo para definir o valor do termo do empréstimo.
+     * @param p O valor do termo do empréstimo a ser definido.
+     */
     public void setPrincipal(double p) {
-        principal = p;
+        this.principal = p;
     }
 
+    /**
+     * Metodo para calcular o pagamento mensal do empréstimo com base no termo, taxa de juros e valor principal.
+     *
+     * @return O valor do pagamento mensal do empréstimo.
+     */
     public double monthlyPayment() {
-        return (rate * principal / 12) / (1.0 - Math.pow(((rate / 12) + 1.0), (-term)));
+        return (this.rate * this.principal / 12) / (1.0 - Math.pow(((this.rate / 12) + 1.0), (-this.term)));
     }
 }
