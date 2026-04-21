@@ -19,6 +19,12 @@ public class LoanDetails {
         principal = 0;
     }
 
+    public LoanDetails(int t, double r, double p){
+        term = t;
+        rate = r;
+        principal = p;
+    }
+
     public void setPrincipal(double p) {
         principal = p;
     }
