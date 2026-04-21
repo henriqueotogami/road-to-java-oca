@@ -5,6 +5,7 @@ import oca.chapter05.methods.example02.LogManager;
 import oca.chapter05.methods.example03.Number;
 import oca.chapter05.methods.example04.SampleMethod;
 import oca.chapter05.methods.example05.Television;
+import oca.chapter05.methods.example06.LoanDetails;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -104,5 +105,13 @@ class ExamplesTest {
         Assertions.assertEquals(7, tv2.getChannel(), "A variável de instância deve manter seu valor específico para cada objeto.");
     }
 
+    @Test
+    @Order(8)
+    void example06CreateConstructor() {
+        LoanDetails loanDetails = new LoanDetails();
+        loanDetails.setPrincipal(150000);
+        final double expected = 1010.809999701624D;
+        Assertions.assertEquals(expected, loanDetails.monthlyPayment(), "O método monthlyPayment deve calcular o pagamento mensal com base no valor principal e na taxa de juros.");
+    }
 
 }
