@@ -1,5 +1,8 @@
 package oca.chapter04.exercise01;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /*
  * <br>Exercício 1 do capítulo 4 da OCA, que envolve o cálculo de ERA (Earned Run Average) para um jogador de beisebol.
  *
@@ -9,6 +12,8 @@ package oca.chapter04.exercise01;
  */
 public class ERACalculator {
 
+    public static final Logger logger = LogManager.getLogger(ERACalculator.class.getName());
+    
     private int earnedRuns            = 3;
     private int inningsPitched        = 6;
     private int inningsInAGame        = 9;
@@ -50,10 +55,10 @@ public class ERACalculator {
 
         calculator.setYesNo(calculator.isBetterThanAverage() ? 'Y' : 'N');
 
-        System.out.println("Earned Runs\t\t\t" + calculator.getEarnedRuns());
-        System.out.println("Innings Pitched\t\t" + calculator.getInningsPitched());
-        System.out.println("ERA\t\t\t\t\t" + calculator.getEra());
-        System.out.println("League Average ERA\t" + calculator.getLeagueAverageEra());
-        System.out.println("Is player better than league average " + calculator.getYesNo());
+        logger.info("Earned Runs\t\t\t{}", calculator.getEarnedRuns());
+        logger.info("Innings Pitched\t\t{}", calculator.getInningsPitched());
+        logger.info("ERA\t\t\t\t\t{}", calculator.getEra());
+        logger.info("League Average ERA\t{}", calculator.getLeagueAverageEra());
+        logger.info("Is player better than league average {}", calculator.getYesNo());
     }
 }
