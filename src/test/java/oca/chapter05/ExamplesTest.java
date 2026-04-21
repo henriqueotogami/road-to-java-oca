@@ -7,9 +7,13 @@ import oca.chapter05.methods.example04.SampleMethod;
 import oca.chapter05.methods.example05.Television;
 import oca.chapter05.methods.example06.LoanDetails;
 import oca.chapter05.methods.example07.ChildClass;
+import oca.chapter05.methods.example08.Tools;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * <br>Classe de teste para os exemplos de métodos em Java.
@@ -138,5 +142,16 @@ class ExamplesTest {
         ChildClass childClass1 = new ChildClass();
         ChildClass childClass2 = new ChildClass("test");
         Assertions.assertTrue(true);
+    }
+
+    /**
+     * Teste para o exemplo de uso de métodos estáticos em Java.
+     */
+    @Test
+    @Order(11)
+    void example08StaticMethod() {
+        final String formatDate = Tools.formatDate();
+        final String expect = new SimpleDateFormat("MMM-dd-yy").format(new Date());
+        Assertions.assertEquals(expect, formatDate, "O método formatDate deve retornar a data atual formatada como uma string.");
     }
 }
