@@ -105,6 +105,9 @@ class ExamplesTest {
         Assertions.assertEquals(7, tv2.getChannel(), "A variável de instância deve manter seu valor específico para cada objeto.");
     }
 
+    /**
+     * Teste para o exemplo de construtores em Java.
+     */
     @Test
     @Order(8)
     void example06CreateConstructor() {
@@ -112,6 +115,17 @@ class ExamplesTest {
         loanDetails.setPrincipal(150000);
         final double expected = 1010.809999701624D;
         Assertions.assertEquals(expected, loanDetails.monthlyPayment(), "O método monthlyPayment deve calcular o pagamento mensal com base no valor principal e na taxa de juros.");
+    }
+
+    /**
+     * Teste para o exemplo de construtores sobrecarregados em Java.
+     */
+    @Test
+    @Order(9)
+    void example06OverloadConstructor() {
+        LoanDetails loanDetails = new LoanDetails(150000, 0.05, 15);
+        final double expected = 0.0625D;
+        Assertions.assertEquals(expected, loanDetails.monthlyPayment(), "O método monthlyPayment deve calcular o pagamento mensal com base no valor principal, taxa de juros e prazo do empréstimo.");
     }
 
 }
