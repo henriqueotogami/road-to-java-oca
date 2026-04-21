@@ -6,6 +6,7 @@ import oca.chapter05.methods.example03.Number;
 import oca.chapter05.methods.example04.SampleMethod;
 import oca.chapter05.methods.example05.Television;
 import oca.chapter05.methods.example06.LoanDetails;
+import oca.chapter05.methods.example07.ChildClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -128,4 +129,14 @@ class ExamplesTest {
         Assertions.assertEquals(expected, loanDetails.monthlyPayment(), "O método monthlyPayment deve calcular o pagamento mensal com base no valor principal, taxa de juros e prazo do empréstimo.");
     }
 
+    /**
+     * Teste para o exemplo de uso do keyword super em Java.
+     */
+    @Test
+    @Order(10)
+    void example07KeywordSuper() {
+        ChildClass childClass1 = new ChildClass();
+        ChildClass childClass2 = new ChildClass("test");
+        Assertions.assertTrue(true);
+    }
 }
