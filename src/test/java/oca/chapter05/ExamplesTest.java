@@ -8,6 +8,7 @@ import oca.chapter05.methods.example05.Television;
 import oca.chapter05.methods.example06.LoanDetails;
 import oca.chapter05.methods.example07.ChildClass;
 import oca.chapter05.methods.example08.Tools;
+import oca.chapter05.methods.example09.ShippingPackage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -153,5 +154,18 @@ class ExamplesTest {
         final String formatDate = Tools.formatDate();
         final String expect = new SimpleDateFormat("MMM-dd-yy").format(new Date());
         Assertions.assertEquals(expect, formatDate, "O método formatDate deve retornar a data atual formatada como uma string.");
+    }
+
+    /**
+     * Teste para o exemplo de uso de variáveis estáticas em Java.
+     */
+    @Test
+    @Order(12)
+    void example09StaticVariable() {
+        final int initialTrackingNumber = ShippingPackage.nextTrackingNumber;
+        ShippingPackage package1 = new ShippingPackage();
+        ShippingPackage package2 = new ShippingPackage();
+        Assertions.assertEquals(initialTrackingNumber, package1.getPackageTrackingNumber(), "O número de rastreamento do primeiro pacote deve ser igual ao valor inicial da variável estática.");
+        Assertions.assertEquals(initialTrackingNumber + 1, package2.getPackageTrackingNumber(), "O número de rastreamento do segundo pacote deve ser igual ao valor inicial da variável estática mais um.");
     }
 }
