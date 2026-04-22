@@ -1,0 +1,399 @@
+Teste Final - Capítulo 05
+Data: 21/04/2026
+
+Criar e usar métodos
+
+01. Você precisa criar um método que aceite um array de floats como argumento e
+não retorne variáveis. O método deve se chamar setPoints. Qual das declarações
+de método a seguir está correta?
+
+A. setPoints(float[] points) {…}
+B. void setPoints(float points) {…}
+C. void setPoints(float[] points) {…}
+D. float setPoints(float[] points) {…}
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+02. Quando a palavra-chave void é usada, quais dessas afirmações são verdadeiras?
+Selecione todas que forem aplicáveis.
+
+A. Uma instrução return com um valor depois dela deve ser usada.
+A. Uma instrução return com um valor depois dela pode ser opcionalmente usada.
+C. Uma instrução return com um valor depois dela nunca deve ser usada.
+D. Uma instrução return sem nada que a acompanhe deve ser usada.
+E. Uma instrução return sem nada que a acompanhe pode opcionalmente ser usada.
+F. Uma instrução return sem nada que a acompanhe nunca deve ser usada.
+G. Uma instrução return deve ser omitida.
+H. Uma instrução return pode opcionalmente ser omitida.
+I. Uma instrução return nunca deve ser omitida.
+
+Resposta Henrique: C, D, G, H
+Resposta certa: C, E, H
+=======================================================================================================================
+
+03. Dada a classe SampleClass, qual é a saída desse segmento de código?
+
+SampleClass s = new SampleClass();
+s.sampleMethod(4.4, 4);
+
+public class SampleClass {
+    public void sampleMethod(int a, double b){
+        System.out.println("Method 1");
+    }
+
+    public void sampleMethod(double b, int a){
+        System.out.println("Method 2");
+    }
+}
+
+A. Method 1
+B. Method 2
+C. Method 1
+   Method 2
+D. Method 2
+   Method 1
+E. Erro de compilação
+
+Resposta Henrique: E
+Resposta certa: B
+=======================================================================================================================
+
+04. Qual dos métodos a seguir retorna um float e aceita um int como parâmetro?
+
+A. public void method1(int var1, float var2) {/*Corpo do método*/}
+B. public int method2(float var1) {/*Corpo do método*/}
+C. public float method3(int var1) {/*Corpo do método*/}
+D. public float, int method4() {/*Corpo do método*/}
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+05. Você deseja criar um método que receba três caracteres como parâmetros e retorne
+uma string. Que declaração é válida?
+
+A. public void doMethod (char a, char b, char c) {String s = null; return s;}
+B. public String doMethod (Char a, Char b, Char c) {String s = null; return s;}
+C. public String doMethod (char a, char b, char c) {String s = null; return s;}
+D. public string doMethod (char a, char b, char c) {String s = null; return s;}
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+Passar objetos por referência e por valor
+
+06. Dados a classe FloatNumber e o método addHalf, qual será a saída se o segmento
+de código a seguir for executado?
+
+public class FloatNumber {
+    float number;
+    public FloatNumber(float number) {
+        this.number = number;
+    }
+    float getNumber() {
+        return number;
+    }
+    void setNumber(float number) {
+        this.number = number;
+    }
+    void addHalf(FloatNumber value) {
+        value.setNumber(value.getNumber() + (value.getNumber()/2f));
+    }
+}
+
+/* SEGMENTO DE CÓDIGO */
+FloatNumber value = new FloatNumber(1f);
+addHalf(value);
+System.out.println("value = " + value.getNumber());
+
+A. value = 1
+B. value = 1.5
+C. value = 2
+D value = 0
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+07. Os objetos são passados por ________________.
+A. valor
+B. soma
+C. referência
+D. ponteiro
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+08. Os primitivos são passados por ________________.
+A. valor
+B. soma
+C. referência
+D. ponteiro
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+09. Qual será o valor da variável number quando a execução do segmento de código a seguir terminar?
+
+Segmento de código
+int number = 7;
+sampleMethod(number);
+
+Método de suporte:
+public void sampleMethod(int i){
+    i++;
+}
+
+A. 0
+B. 1
+C. 7
+D. 8
+E. Ocorrerá um erro de compilação.
+F. Ocorrerá um erro em tempo de execução.
+
+Resposta Henrique: D
+Resposta certa: C
+=======================================================================================================================
+
+Compreender o escopo de variáveis
+
+10. Você precisa criar uma classe para armazenar informações sobre os livros contidos
+em uma biblioteca. Que escopo é mais adequado para a variável que armazenará o
+título de um livro?
+
+A. Variável local
+B. Variável estática
+C. Variável global
+D. Parâmetro de método
+E. Variável de instância
+
+Resposta Henrique: E
+Resposta certa: E
+=======================================================================================================================
+
+11. Dada a classe SampleClass, quando o segmento de código a seguir for executado,
+qual será o valor da variável de instância size?
+
+SampleClass sampleClass = new SampleClass(5);
+
+public class SampleClass {
+    private int size;
+    public SampleClass(int size) {
+        size = size;
+    }
+}
+
+A. 0
+B. 1
+C. 5
+D. Erro de compilação
+E. Erro em tempo de execução
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+12. Que tipo de variável seria usado para armazenar o estado de um objeto?
+
+A. Variável local
+B. Parâmetro de método
+C. Variável de instância
+D. Variável de objeto
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+Criar e usar construtores
+
+13. Dada a classe SampleClass, qual é a saída desse segmento de código?
+
+SampleClass sampleClass = new SampleClass();
+
+public class SampleClass {
+    private int size;
+    private int priority;
+    public SampleClass(){
+        super();
+        System.out.println("Using default values");
+    }
+    public SampleClass(int size) {
+        this.size = size;
+        System.out.println("Setting size");
+    }
+    public SampleClass(int priority){
+        this.priority = priority;
+        System.out.println("Setting priority");
+    }
+}
+
+A. Using default values
+B. Setting size
+C. Setting priority
+D. Erro de compilação
+
+Resposta Henrique: D
+Resposta certa: D
+=======================================================================================================================
+
+14. Que construtor é equivalente ao listado aqui?
+
+public SampleConstructor() {
+    System.out.println("SampleConstructor");
+}
+
+A. public SampleConstructor() {
+    this();
+    System.out.println("SampleConstructor");
+}
+
+B. public SampleConstructor() {
+    super();
+    System.out.println("SampleConstructor");
+}
+
+C. public SampleConstructor() {
+    this.SampleConstructor();
+    System.out.println("SampleConstructor");
+}
+
+D. public SampleConstructor() {
+    super.SampleConstructor();
+    System.out.println("SampleConstructor");
+}
+
+E. Nenhum dos listados anteriormente
+
+Resposta Henrique: E
+Resposta certa: B
+=======================================================================================================================
+
+15. Se um construtor não incluir um modificador de acesso, que modificador ele usará por padrão?
+
+A. Um construtor que não incluir um modificador de acesso será sempre declarado como public.
+B. Um construtor que não incluir um modificador de acesso fará uso do mesmo modificador usado para sua classe.
+C. Um erro de compilação ocorrerá se um construtor não incluir um modificador de acesso.
+D. Um construtor que não incluir um modificador de acesso terá acesso package-private.
+
+Resposta Henrique: D
+Resposta certa: D
+=======================================================================================================================
+
+Usar as palavras-chave this e super
+
+16. Dada a classe SampleClass, qual é a saída desse segmento de código?
+
+SampleClass sampleClass = new SampleClass();
+
+public class SampleClass {
+    private int size;
+    public SampleClass(){
+        this(1);
+        System.out.println("Using default values");
+    }
+    public SampleClass(int size) {
+        this.size = size;
+        System.out.println("Setting size");
+    }
+}
+
+A. Using default values
+B. Setting size
+C. Using default values Setting size
+D. Setting size Using default values
+E. Erro de compilação
+
+Resposta Henrique: D
+Resposta certa: D
+=======================================================================================================================
+
+17. Qual é o efeito da linha de código a seguir?
+
+super()
+
+A. O método que é sobrescrito pelo método atual é chamado.
+B. O construtor da classe pai é chamado.
+C. O construtor da classe atual é chamado.
+D. O construtor da classe filha é chamado.
+E. O método atual é chamado recursivamente.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+Criar métodos estáticos e variáveis de instância
+
+18. Dada a classe SampleClass, qual é a saída desse segmento de código?
+
+SampleClass s = new SampleClass();
+SampleClass.sampleMethodOne();
+
+public class SampleClass {
+    public static void sampleMethodOne(){
+        sampleMethodTwo();
+        System.out.println("sampleMethodOne");
+    }
+    public void sampleMethodTwo(){
+        System.out.println("sampleMethodTwo");
+    }
+}
+
+A. sampleMethodOne
+B. sampleMethodTwo
+C. sampleMethodOne
+   sampleMethodTwo
+D. sampleMethodTwo
+   sampleMethodOne
+E. Erro de compilação
+
+Resposta Henrique: E
+Resposta certa: E
+=======================================================================================================================
+
+19. Dada a classe SampleClass, qual será o valor de currentCount para a instância de objeto x após o segmento de código ser executado?
+
+SampleClass x = new SampleClass();
+SampleClass y = new SampleClass();
+x.increaseCount();
+
+public class SampleClass {
+    private static int currentCount=0;
+    public SampleClass(){
+        currentCount++;
+    }
+    public void increaseCount(){
+        currentCount++;
+    }
+}
+
+A. 0
+B. 1
+C. 2
+D. 3
+E. Erro de compilação
+F. Erro em tempo de execução
+
+Resposta Henrique: C
+Resposta certa: D
+=======================================================================================================================
+
+20. Os métodos estáticos têm acesso a quais dos itens a seguir? (Selecione todos que forem aplicáveis).
+
+A. Variáveis estáticas
+B. Variáveis de instância
+C. Métodos padrão
+D. Métodos estáticos
+E. Nenhum dos anteriores
+
+Resposta Henrique: A, B, D
+Resposta certa: A e D
+=======================================================================================================================
+
+Resultado
+Questões Certas: 15
+Questões Erradas: 05
