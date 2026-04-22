@@ -273,6 +273,15 @@ Contribuições são bem-vindas! Para contribuir:
 - CI com GitHub Actions (Gradle build e dependency submission)
 - Fluxo de trabalho documentado
 
+### 📌 Versão 0.1
+- Primeiro workflow **GitHub Actions** (`gradle.yml`) com **Java 8** no runner e ajustes para build estável no CI
+- Inclusão do **Gradle Wrapper** (`gradle-wrapper.jar`) e primeira configuração de **JUnit 4** no `build.gradle`
+- Ajustes de imagens e recursos do projeto para pastas adequadas (`resources`)
+
+### 📌 Versão 0.0
+- Bootstrap do repositório com estrutura **Gradle** e material de tutorial em `docs/` (issue #1)
+- Arquivos de build iniciais, **`.gitattributes`** e regras base no **`.gitignore`** para o ecossistema Gradle
+
 ## 📄 Licença
 
 Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
