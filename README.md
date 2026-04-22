@@ -86,18 +86,21 @@ cd road-to-java-oca
 ./gradlew test
 ```
 
-Tasks por capítulo:
+Tasks por capítulo (build na raiz do repositório):
 
 ```bash
 ./gradlew chapter01
 ./gradlew chapter02
 ./gradlew chapter03
 ./gradlew chapter04
+./gradlew chapter05
 ```
 
 ## 📚 Conteúdos Abordados
 
-**Capítulo 1 (`oca/chapter01`)**
+O **build principal** (`./gradlew` na raiz) compila e testa o pacote `src/main/java/oca/`. O diretório `app/` contém um espelho parcial dos capítulos 1 e 2 (Cap. 2 em `primitives/`) para estudo isolado; ele só entra em build se o subprojeto estiver declarado em `settings.gradle`.
+
+**Capítulo 1 — `oca/chapter01/fundamentals` (`src/main/java`)**
 
 - ✅ Empacotamento e estrutura de pacotes em Java
 - ✅ Compilação e interpretação (javac, JVM, bytecode)
@@ -107,7 +110,7 @@ Tasks por capítulo:
 - ✅ Exercícios de compilação, classpath e subpacotes
 - ✅ Material complementar (`StringTokenizer`)
 
-**Capítulo 2 (`oca/chapter02/instructions` e `oca/chapter02/primitives`)**
+**Capítulo 2 — `oca/chapter02/instructions` (`src/main/java`)**
 
 - ✅ Variáveis e tipos (primitivos, wrappers, conversões)
 - ✅ Operadores (atribuição, aritméticos, incremento/decremento, lógicos)
@@ -120,33 +123,38 @@ Tasks por capítulo:
 - ✅ Asserções (`assert`) em código didático
 - ✅ Logging com **Log4j2** nos exemplos
 
-**Capítulo 3 (`oca/chapter03/operators`)**
+**Capítulo 3 — `oca/chapter03/operators` (`src/main/java`)**
 
-- ✅ Operadores e precedência com cenários práticos
-- ✅ Modelagem de exemplos orientados ao domínio (`Order`, `PirateShip`)
-- ✅ Execução de exemplos e validação por testes automatizados
+- ✅ Operadores aritméticos, relacionais e atribuição composta em cenários práticos
+- ✅ Modelagem com classes de apoio (`Order`, `PirateShip`, `MainOperators`)
+- ✅ Testes automatizados do capítulo (`oca.chapter03.*`)
 
-**Capítulo 4 (`oca/chapter04`)**
+**Capítulo 4 — `oca/chapter04` (`src/main/java`)**
 
-- ✅ Tipos primitivos e conversões (`byte` a `double`)
-- ✅ Objetos e wrappers (`Object`, `Integer`)
-- ✅ Enums e regras básicas de uso
-- ✅ Exercícios aplicados (`ERACalculator`) e bateria de testes do capítulo
+- ✅ Tipos primitivos (`byte` … `double`, `char`, `boolean`) e literais
+- ✅ `Object` e wrappers (`Integer`, etc.)
+- ✅ Enums (regras básicas e exemplos dedicados)
+- ✅ Exercício `ERACalculator` e testes `oca.chapter04.*`
+
+**Capítulo 5 — `oca/chapter05/methods` (`src/main/java`)**
+
+- ✅ Declaração de métodos, `return` e **sobrecarga** (mesmo nome, assinaturas diferentes)
+- ✅ Parâmetros, campos e composição em exemplos (`Television`, `ShippingPackage`, `LoanDetails`, etc.)
+- ✅ Introdução a **herança** (`ParentClass` / `ChildClass`) e reutilização de código
+- ✅ Testes automatizados do capítulo (`oca.chapter05.*`)
 
 **Repositório e qualidade**
 
-- ✅ Testes automatizados por capítulo (JUnit 5, tasks `chapter01` / `chapter02` / `chapter03` / `chapter04`)
-- ✅ Cobertura **JaCoCo** e análise **SonarCloud** (Quality Gate e métricas no CI)
-- ✅ **GitHub Actions** (build Gradle, workflow Sonar; badge de **CodeQL** no README)
+- ✅ Testes por capítulo com JUnit 5 (`chapter01` … `chapter05` no `build.gradle` da raiz)
+- ✅ Cobertura **JaCoCo** e análise **SonarCloud** (configuração atual aponta `sonar.sources` / `sonar.tests` para `src/` na raiz)
+- ✅ **GitHub Actions** (Gradle, Sonar; badge **CodeQL** no README)
 - ✅ Boas práticas de versionamento (branches, issues, tags)
-- ✅ Estrutura em evolução para módulo `app/` com exemplos e testes dos capítulos iniciais
 
-**Ainda não coberto no código (próximos capítulos OCA)**
+**Ainda não coberto em profundidade (próximos tópicos OCA)**
 
-- 🔲 Métodos e encapsulamento (aprofundamento completo)
-- 🔲 Herança e polimorfismo avançados
-- 🔲 Exceções (tratamento e hierarquia em profundidade)
-- 🔲 APIs fundamentais (`StringBuilder`, datas, APIs de coleções e utilitários avançados)
+- 🔲 Polimorfismo, interfaces avançadas e design orientado a objetos além dos exemplos iniciais
+- 🔲 Exceções (`try`/`catch`/`finally`, hierarquia, regras de compilação)
+- 🔲 APIs fundamentais (`String`/`StringBuilder`, datas legadas, coleções `List`/`Map` em detalhe)
 
 ## 🌿 Fluxo de Trabalho
 
@@ -181,7 +189,7 @@ main
 
 **Branches:** `dev-henrique/issue-#12`, `dev-vitor/issue-#15`  
 **Tags (task):** `task-01-variaveis`, `task-02-operadores`  
-**Tags (capítulo):** `chapter01`, `chapter02`
+**Tags (capítulo):** `chapter01`, `chapter02`, `chapter03`, `chapter04`, `chapter05`
 
 ### 🔁 Fluxo Completo
 
@@ -198,7 +206,7 @@ main
 
 - **Commits e Pull Requests** para qualquer branch disparam o workflow `SonarCloud Analyze` no GitHub Actions.
 - Esse workflow executa os scripts Gradle configurados no projeto:
-  - `./gradlew build` → compila o código, roda os testes (`test`, `chapter01`, `chapter02`) e gera o relatório de cobertura do **JaCoCo**.
+  - `./gradlew build` → compila o código, roda os testes (`test`, `chapter01` … `chapter05`) e gera o relatório de cobertura do **JaCoCo**.
   - `./gradlew sonar` → usa o plugin `org.sonarqube` para enviar código, métricas e o relatório do JaCoCo para o **SonarCloud**.
 - O resultado aparece no painel do SonarCloud, que aplica o **Quality Gate** (incluindo a regra de cobertura ≥ 80%) e sinaliza no PR se o código está ou não em conformidade com os critérios de qualidade.
 
@@ -228,11 +236,15 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📝 Changelog
 
-### 🆕 Versão 0.6
-- Expansão documentada da trilha com capítulos adicionais já presentes no código (`chapter03` e `chapter04`), incluindo operadores, primitivos, objetos, wrappers, enums e exercícios.
-- Atualização das tasks e estratégia de testes por capítulo para refletir o fluxo completo (`chapter01` a `chapter04`) no build principal.
-- Inclusão e organização do módulo `app/` com exemplos, testes e recursos dos capítulos iniciais, preparando o repositório para evolução modular.
-- Atualização do README: **Conteúdos Abordados**, hashtags e meta keywords alinhados ao estado atual do projeto.
+### 🆕 Versão 0.7
+- README: seção **Conteúdos Abordados** alinhada ao código em `src/main/java/oca/` (Caps. 1–5), com Cap. 2 em `instructions`, Cap. 5 em `methods`, e nota sobre o espelho em `app/` e o escopo do Sonar (`src/`).
+- README: tasks Gradle documentadas até `chapter05`; fluxo Sonar/Gradle e tags de capítulo atualizados.
+- Hashtags e meta keywords revisadas (caps. 3–5, métodos, sobrecarga, herança introdutória).
+
+### 📌 Versão 0.6
+- Código em `src/main/java/oca/` para capítulos 3 (operadores), 4 (primitivos, objetos, enums, exercício) e 5 (métodos, sobrecarga, herança introdutória), com testes `oca.chapter03.*` … `oca.chapter05.*`.
+- `build.gradle` na raiz: tasks `chapter03`, `chapter04`, `chapter05` e `check` dependente dessas suites.
+- README e metadados sociais ajustados na mesma linha de release (conteúdo, CI, descoberta).
 
 ### 📌 Versão 0.5
 - README: seção **Conteúdos Abordados** reorganizada por capítulo e alinhada ao que existe em `app/src/main/java` (Cap. 1 e Cap. 2, qualidade de código, itens ainda pendentes na trilha OCA)
@@ -267,18 +279,20 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ### 🔎 Hashtags
 
-#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Enums #Arrays #Operators #ControlFlow #Primitives #Wrappers #OpenSource #Backend #CollaborativeStudy
+#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Chapter03 #Chapter04 #Chapter05 #Operators #Methods #MethodOverloading #Inheritance #Enums #Arrays #Primitives #Wrappers #OpenSource #Backend #CollaborativeStudy
 
 ### 🧠 Meta Keywords
 
 ```
 java oca, 1z0-808, oracle certified associate, java se 8 programmer i, certificação java,
 estudos java, preparação oca, guia oca, exemplos java, exercícios java,
+oca chapter01, oca chapter02, oca chapter03, oca chapter04, oca chapter05,
 gradle, junit 5, testes unitários, jacoco, cobertura de código,
 sonarcloud, sonarqube, quality gate, code smells, análise estática,
 github actions, codeql, segurança de código, ci cd,
 log4j2, enums, switch string, arraylist, controle de fluxo, primitivos, operadores java,
-precedência de operadores, wrappers java, object java, exercícios oca, chapter03, chapter04,
+precedência de operadores, wrappers java, object java, sobrecarga de métodos, method overloading,
+herança java, inheritance java, métodos java, exercícios oca,
 programação java, backend, aprendizado colaborativo, open source
 ```
 
