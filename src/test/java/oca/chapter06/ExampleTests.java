@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -79,6 +80,55 @@ class ExampleTests {
         Assertions.assertEquals(7, arrayMultiDimensional.getArray3D()[0][0].length);
         Assertions.assertEquals(2, arrayMultiDimensional.getArray3D()[0][1].length);
         Assertions.assertEquals(4, arrayMultiDimensional.getArray3D()[1][0].length);
+    }
+
+    /**
+     * Teste para o exemplo de uso de arrays unidimensionais e ArrayList em Java.
+     */
+    @Test
+    @Order(3)
+    void example03ArrayListAndArrayPrimitive() {
+        // Esse exercício o ajudará a conhecer melhor tanto a classe ArrayList quanto os arrays padrão.
+
+        //1. Crie um projeto Java no IDE de sua escolha.
+        //2. Descubra qual foi a temperatura máxima diária dos últimos sete dias.
+        //3. Crie um array unidimensional padrão e insira nele a temperatura de cada dia. Ele deve conter sete elementos quando você terminar.
+        //4. Crie um ArrayList e insira nele as mesmas sete temperaturas.
+        //5. Use tanto o array padrão quanto o ArrayList e encontre a temperatura média com o passar do tempo.
+        //6. Exiba cada valor na saída padrão.
+        //7. Certifique-se de ter calculado o mesmo valor a partir de cada tipo de array.
+
+        final int[] temperaturesArray             = new int[7];
+        final ArrayList<Integer> temperaturesList = new ArrayList<>(7);
+
+        temperaturesArray[0] = 30;
+        temperaturesArray[1] = 32;
+        temperaturesArray[2] = 28;
+        temperaturesArray[3] = 31;
+        temperaturesArray[4] = 29;
+        temperaturesArray[5] = 27;
+        temperaturesArray[6] = 33;
+
+        temperaturesList.add(30);
+        temperaturesList.add(32);
+        temperaturesList.add(28);
+        temperaturesList.add(31);
+        temperaturesList.add(29);
+        temperaturesList.add(27);
+        temperaturesList.add(33);
+
+        int sumArray = 0;
+        for (int temp : temperaturesArray) {
+            sumArray += temp;
+        }
+        final double averageArray = (temperaturesArray.length > 0) ? (double) sumArray / temperaturesArray.length : 0D;
+
+        int sumList = 0;
+        for (int temp : temperaturesList) {
+            sumList += temp;
+        }
+        final double averageList = (!temperaturesList.isEmpty()) ? (double) sumList / temperaturesList.size() : 0D;
+        Assertions.assertEquals(averageArray, averageList, "A temperatura média calculada a partir do array deve ser igual à temperatura média calculada a partir do ArrayList.");
     }
 
 }
