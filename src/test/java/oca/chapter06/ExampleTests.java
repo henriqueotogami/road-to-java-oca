@@ -131,4 +131,47 @@ class ExampleTests {
         Assertions.assertEquals(averageArray, averageList, "A temperatura média calculada a partir do array deve ser igual à temperatura média calculada a partir do ArrayList.");
     }
 
+    /**
+     * Teste para o exemplo de uso de objetos e métodos em Java.
+     */
+    @Test
+    @Order(4)
+    void example01Clocks() {
+        final Clock clock1 = new Clock(11, 0, 0);
+        final Clock clock2 = new Clock(22, 50, 0);
+
+        Assertions.assertEquals(11, clock1.getHours());
+        Assertions.assertEquals(0, clock1.getMinutes());
+        Assertions.assertEquals(0, clock1.getSeconds());
+
+        Assertions.assertEquals(22, clock2.getHours());
+        Assertions.assertEquals(50, clock2.getMinutes());
+        Assertions.assertEquals(0, clock2.getSeconds());
+
+        clock1.tick();
+
+        Assertions.assertEquals(11, clock1.getHours());
+        Assertions.assertEquals(0, clock1.getMinutes());
+        Assertions.assertEquals(1, clock1.getSeconds());
+
+        clock2.tick();
+
+        Assertions.assertEquals(22, clock2.getHours());
+        Assertions.assertEquals(50, clock2.getMinutes());
+        Assertions.assertEquals(1, clock2.getSeconds());
+
+        for (int seconds = 1; 60 > seconds; seconds++) {
+            clock1.tick();
+            clock2.tick();
+        }
+
+        Assertions.assertEquals(11, clock1.getHours());
+        Assertions.assertEquals(1, clock1.getMinutes());
+        Assertions.assertEquals(0, clock1.getSeconds());
+
+        Assertions.assertEquals(22, clock2.getHours());
+        Assertions.assertEquals(51, clock2.getMinutes());
+        Assertions.assertEquals(0, clock2.getSeconds());
+    }
+
 }
