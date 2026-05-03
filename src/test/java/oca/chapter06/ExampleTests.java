@@ -2,6 +2,7 @@ package oca.chapter06;
 
 import oca.chapter06.arrays.example01.ArrayOneDimensional;
 import oca.chapter06.arrays.example01.Clock;
+import oca.chapter06.arrays.example02.ArrayMultiDimensional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -47,6 +48,37 @@ class ExampleTests {
         arrayOneDimensional.printClockTypes();
         arrayOneDimensional.printClockTypesTarget(expectedClockTypes[0]);
         arrayOneDimensional.printClockTarget(expectedClocks[0].toString());
+    }
+
+    /**
+     * Teste para o exemplo de uso de arrays multidimensionais em Java.
+     */
+    @Test
+    @Order(2)
+    void example02ArrayMultidimensional() {
+        final ArrayMultiDimensional arrayMultiDimensional = new ArrayMultiDimensional();
+        final int[][][] expectedMatrix = {
+                {
+                        { 1, 2, 3 },
+                        { 4, 5, 6 },
+                        { 7, 8, 9 }
+                },
+                {
+                        { 10, 11, 12 },
+                        { 13, 14, 15 },
+                        { 16, 17, 18 }
+                },
+                {
+                        { 19, 20, 21 },
+                        { 22, 23, 24 },
+                        { 25, 26, 27 }
+                }
+        };
+        arrayMultiDimensional.setCube1(expectedMatrix);
+        Assertions.assertTrue(Arrays.deepEquals(expectedMatrix, arrayMultiDimensional.getCube1()));
+        Assertions.assertEquals(7, arrayMultiDimensional.getArray3D()[0][0].length);
+        Assertions.assertEquals(2, arrayMultiDimensional.getArray3D()[0][1].length);
+        Assertions.assertEquals(4, arrayMultiDimensional.getArray3D()[1][0].length);
     }
 
 }
