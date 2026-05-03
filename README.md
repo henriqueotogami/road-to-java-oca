@@ -94,6 +94,7 @@ Tasks por capítulo (build na raiz do repositório):
 ./gradlew chapter03
 ./gradlew chapter04
 ./gradlew chapter05
+./gradlew chapter06
 ```
 
 ## 📚 Conteúdos Abordados
@@ -117,7 +118,7 @@ O **build principal** (`./gradlew` na raiz) compila e testa o pacote `src/main/j
 - ✅ Estruturas condicionais (`if`/`else`, ternário, `switch` com `String` e com enum)
 - ✅ Laços (`for`, `for` aprimorado, `while`, `do-while`)
 - ✅ Enums e mapeamento id/nome para constantes
-- ✅ Arrays de primitivos e iteração
+- ✅ Uso básico de vetores (`int[]` em atribuição e laços)
 - ✅ Introdução a coleções (`ArrayList` no exercício)
 - ✅ Palavras-chave de transferência de controle (`break`, `continue`, `return` nos exemplos)
 - ✅ Asserções (`assert`) em código didático
@@ -141,11 +142,20 @@ O **build principal** (`./gradlew` na raiz) compila e testa o pacote `src/main/j
 - ✅ Declaração de métodos, `return` e **sobrecarga** (mesmo nome, assinaturas diferentes)
 - ✅ Parâmetros, campos e composição em exemplos (`Television`, `ShippingPackage`, `LoanDetails`, etc.)
 - ✅ Introdução a **herança** (`ParentClass` / `ChildClass`) e reutilização de código
+- ✅ Construtores, `this`, `super`, membros estáticos e escopo (exemplos e testes adicionais)
 - ✅ Testes automatizados do capítulo (`oca.chapter05.*`)
+
+**Capítulo 6 — `oca/chapter06/arrays` (`src/main/java`)**
+
+- ✅ Arrays unidimensionais (primitivos, `String`, arrays de objetos com `Clock`)
+- ✅ Arrays multidimensionais (2D e 3D, tamanhos irregulares e inicialização parcial)
+- ✅ Relação entre `ArrayList` e arrays de primitivos (exercício e testes)
+- ✅ Arquivo de apoio `chapter06Exam.txt` (simulado do capítulo)
+- ✅ Testes automatizados (`oca.chapter06.*`) e task `./gradlew chapter06`
 
 **Repositório e qualidade**
 
-- ✅ Testes por capítulo com JUnit 5 (`chapter01` … `chapter05` no `build.gradle` da raiz)
+- ✅ Testes por capítulo com JUnit 5 (`chapter01` … `chapter06` no `build.gradle` da raiz)
 - ✅ Cobertura **JaCoCo** e análise **SonarCloud** (configuração atual aponta `sonar.sources` / `sonar.tests` para `src/` na raiz)
 - ✅ **GitHub Actions** (Gradle, Sonar; badge **CodeQL** no README)
 - ✅ Boas práticas de versionamento (branches, issues, tags)
@@ -189,26 +199,115 @@ main
 
 **Branches:** `dev-henrique/issue-#12`, `dev-vitor/issue-#15`  
 **Tags (task):** `task-01-variaveis`, `task-02-operadores`  
-**Tags (capítulo):** `chapter01`, `chapter02`, `chapter03`, `chapter04`, `chapter05`
+**Tags (capítulo):** `chapter01`, `chapter02`, `chapter03`, `chapter04`, `chapter05`, `chapter06`
 
-### 🔁 Fluxo Completo
+### 🔁 Fluxo Completo (passo-a-passo detalhado)
 
-1. Criar **Issue** descrevendo a task
-2. Criar branch individual a partir da `main`
-3. Desenvolver e estudar na branch
-4. Garantir que os testes passem localmente e que a cobertura de testes unitários esteja **≥ 80%** (ver relatórios JaCoCo e painel do SonarCloud)
-5. Abrir **Pull Request** para `main` ao concluir
-6. Aguardar o GitHub Actions rodar `./gradlew build sonar` e verificar o **Quality Gate** do SonarCloud (cobertura ≥ 80%, ausência de novos bugs críticos e code smells bloqueantes)
-7. Revisar em grupo
-8. Merge → fechar Issue → criar **tag**
+1) Planejamento da task
+
+- 1.1 Criar uma **Issue** descrevendo claramente o tópico, objetivo e escopo da atividade.
+- 1.2 Incluir critérios de aceitação e exemplos esperados (se aplicável).
+- 1.3 Adicionar labels, estimativa de esforço e atribuir responsável(es).
+
+2) Preparar o ambiente local
+
+- 2.1 Atualizar `main` local: `git checkout main && git pull`.
+- 2.2 Criar a branch de trabalho a partir da `main` usando o padrão: `dev-<name>/issue-<#number>`.
+- 2.3 Configurar sua IDE para usar o JDK correto e importar o projeto Gradle.
+
+3) Desenvolvimento e commits
+
+- 3.1 Implementar a funcionalidade/exercício em pequenos passos.
+- 3.2 Escrever testes unitários (JUnit 5) cobrindo os casos principais e borda.
+- 3.3 Fazer commits atômicos com mensagens claras (ex.: `feat: adicionar exemplo de arrays - chapter06`).
+
+4) Verificações locais e qualidade
+
+- 4.1 Rodar testes unitários: `./gradlew test` e as tasks de capítulo relevantes (`./gradlew chapterXX`).
+- 4.2 Gerar relatório de cobertura JaCoCo: `./gradlew jacocoTestReport` e checar percentuais.
+- 4.3 Corrigir warnings, remover code smells óbvios e garantir que o código segue convenções do projeto.
+
+5) Preparar Pull Request (PR)
+
+- 5.1 Subir a branch remota: `git push -u origin dev-<name>/issue-#<number>`.
+- 5.2 Abrir PR contra `main` e referenciar a Issue criada.
+- 5.3 Descrever no PR as mudanças, como testar localmente e resultados dos testes/coverage.
+
+6) Integração contínua e Quality Gate
+
+- 6.1 O CI (GitHub Actions) irá executar `./gradlew build sonar` via workflow `SonarCloud Analyze`.
+- 6.2 Aguardar os resultados: build, testes, report de cobertura e análise estática.
+- 6.3 Certificar-se de que o PR atende ao Quality Gate do SonarCloud (ex.: cobertura ≥ 80%, sem novos bugs críticos).
+
+7) Revisão por pares e correções
+
+- 7.1 Revisores analisarão o PR; responder aos comentários rapidamente e aplicar correções na mesma branch.
+- 7.2 Reexecutar testes localmente após cada mudança importante.
+
+8) Merge, fechamento e pós-merge
+
+- 8.1 Após aprovação, realizar o merge conforme política do projeto (merge commit, squash, rebase).
+- 8.2 Fechar a Issue associada e criar uma **tag** de release se aplicável.
+- 8.3 Atualizar o changelog/documentação e comunicar o time (se necessário).
 
 ### 🔗 Integração Gradle + SonarCloud no fluxo
 
-- **Commits e Pull Requests** para qualquer branch disparam o workflow `SonarCloud Analyze` no GitHub Actions.
-- Esse workflow executa os scripts Gradle configurados no projeto:
-  - `./gradlew build` → compila o código, roda os testes (`test`, `chapter01` … `chapter05`) e gera o relatório de cobertura do **JaCoCo**.
-  - `./gradlew sonar` → usa o plugin `org.sonarqube` para enviar código, métricas e o relatório do JaCoCo para o **SonarCloud**.
-- O resultado aparece no painel do SonarCloud, que aplica o **Quality Gate** (incluindo a regra de cobertura ≥ 80%) e sinaliza no PR se o código está ou não em conformidade com os critérios de qualidade.
+Esta seção descreve passo-a-passo como a integração Gradle ↔ SonarCloud funciona, tanto no CI quanto localmente, e como investigar problemas comuns.
+
+1) Visão geral
+
+- 1.1 Sempre que um commit ou Pull Request é enviado para o repositório, o GitHub Actions dispara o workflow `SonarCloud Analyze` (quando configurado).
+- 1.2 O objetivo é coletar métricas de build, testes e cobertura (JaCoCo) e enviar para o SonarCloud, que aplica o Quality Gate do projeto.
+
+2) O que o CI executa (ex.: GitHub Actions)
+
+- 2.1 Checkout do código e configuração do JDK/Gradle.
+- 2.2 Execução do build principal: `./gradlew clean build` — compila código e executa todos os testes (`test`, `chapter01` … `chapter06`).
+- 2.3 Geração dos relatórios de cobertura (JaCoCo) usados na análise.
+- 2.4 Execução do scanner Sonar: `./gradlew sonar` (o job passa o token/variáveis necessárias via secrets).
+- 2.5 O workflow falha ou sinaliza problemas no PR caso o Quality Gate não seja atendido.
+
+3) Como rodar a análise localmente (passos)
+
+- 3.1 Gerar build e cobertura localmente:
+
+```bash
+./gradlew clean build
+./gradlew jacocoTestReport   # se configurado no build
+```
+
+- 3.2 Enviar a análise ao SonarCloud (requer token com permissão):
+
+```bash
+./gradlew sonar -Dsonar.login=<SONAR_TOKEN>
+```
+
+- 3.3 Observação: o envio local só funcionará se o projeto estiver configurado com as propriedades `sonar.*` corretas (host, organization) e o token estiver disponível. Em ambientes CI, essas propriedades/segredos costumam ser fornecidos pelo workflow.
+
+4) Onde ver os resultados
+
+- 4.1 Relatório JaCoCo (HTML) gerado localmente em: `build/reports/jacoco/test/html/index.html` (caminho padrão do Gradle/JaCoCo).
+- 4.2 Painel do SonarCloud (web) mostra métricas agregadas: cobertura, bugs, vulnerabilities, code smells e o status do Quality Gate.
+- 4.3 O PR no GitHub mostra o badge/feedback do SonarCloud quando o workflow completa.
+
+5) Troubleshooting (problemas comuns)
+
+- 5.1 Falha ao rodar `./gradlew sonar`: verifique se `SONAR_TOKEN` está configurado e se as propriedades `sonar.host.url` e `sonar.organization` estão corretas.
+- 5.2 Erros de build no CI: reexecutar localmente com `--stacktrace --info` para obter detalhes:
+
+```bash
+./gradlew clean build --info --stacktrace
+```
+
+- 5.3 Se a cobertura estiver abaixo do esperado, abra o relatório JaCoCo localmente para identificar classes não cobertas e adicione/ajuste testes.
+- 5.4 Problemas de rede/timeout ao enviar para SonarCloud: checar conectividade e limites de uso da organização.
+
+6) Boas práticas
+
+- 6.1 Rodar `./gradlew clean build` localmente antes de abrir PR para reduzir ciclos de CI falhos.
+- 6.2 Incluir no PR notas sobre quaisquer passos extras necessários para reproduzir a análise (ex.: necessidades de secrets, fluxos alternativos).
+
+Seguindo estes passos, a integração Gradle + SonarCloud fica previsível e debuggable tanto localmente quanto no CI.
 
 ## ⚠️ Observações Importantes
 
@@ -236,10 +335,16 @@ Contribuições são bem-vindas! Para contribuir:
 
 ## 📝 Changelog
 
-### 🆕 Versão 0.7
+### 🆕 Versão 0.8
+- **Capítulo 6** em `oca/chapter06/arrays`: arrays unidimensionais (`ArrayOneDimensional`, `Clock`), multidimensionais (`ArrayMultiDimensional`), e material `chapter06Exam.txt` (issue #38, PR #39).
+- Testes `oca.chapter06.*`, suite Gradle `chapter06` e inclusão em `check` junto com `chapter01` … `chapter05`.
+- Cobertura ampliada (ex.: classe `Clock`) e exercícios/testes com `ArrayList` e arrays de primitivos.
+
+### 📌 Versão 0.7
 - README: seção **Conteúdos Abordados** alinhada ao código em `src/main/java/oca/` (Caps. 1–5), com Cap. 2 em `instructions`, Cap. 5 em `methods`, e nota sobre o espelho em `app/` e o escopo do Sonar (`src/`).
 - README: tasks Gradle documentadas até `chapter05`; fluxo Sonar/Gradle e tags de capítulo atualizados.
 - Hashtags e meta keywords revisadas (caps. 3–5, métodos, sobrecarga, herança introdutória).
+- Merge **PR #37** (issue #36): expansão do Cap. 5 com exemplos e testes de construtores, `this`/`super`, escopo, variáveis de instância e estáticas.
 
 ### 📌 Versão 0.6
 - Código em `src/main/java/oca/` para capítulos 3 (operadores), 4 (primitivos, objetos, enums, exercício) e 5 (métodos, sobrecarga, herança introdutória), com testes `oca.chapter03.*` … `oca.chapter05.*`.
@@ -288,20 +393,21 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 
 ### 🔎 Hashtags
 
-#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Chapter03 #Chapter04 #Chapter05 #Operators #Methods #MethodOverloading #Inheritance #Enums #Arrays #Primitives #Wrappers #OpenSource #Backend #CollaborativeStudy
+#Java #OCA #OracleCertification #JavaSE8 #1Z0808 #Certification #Study #Learning #Gradle #JUnit5 #JaCoCo #SonarCloud #SonarQube #CodeQL #GitHubActions #CI #Log4j2 #Chapter03 #Chapter04 #Chapter05 #Chapter06 #Operators #Methods #MethodOverloading #Inheritance #ThisKeyword #SuperKeyword #StaticMembers #Enums #JavaArrays #MultidimensionalArrays #ArrayList #Primitives #Wrappers #OpenSource #Backend #CollaborativeStudy
 
 ### 🧠 Meta Keywords
 
 ```
 java oca, 1z0-808, oracle certified associate, java se 8 programmer i, certificação java,
-estudos java, preparação oca, guia oca, exemplos java, exercícios java,
-oca chapter01, oca chapter02, oca chapter03, oca chapter04, oca chapter05,
+estudos java, preparação oca, guia oca, exemplos java, exercícios oca,
+oca chapter01, oca chapter02, oca chapter03, oca chapter04, oca chapter05, oca chapter06,
 gradle, junit 5, testes unitários, jacoco, cobertura de código,
 sonarcloud, sonarqube, quality gate, code smells, análise estática,
 github actions, codeql, segurança de código, ci cd,
-log4j2, enums, switch string, arraylist, controle de fluxo, primitivos, operadores java,
+log4j2, enums, switch string, arraylist, arrays java, array multidimensional, array bidimensional,
+arrays de objetos, arrays de primitivos, controle de fluxo, primitivos, operadores java,
 precedência de operadores, wrappers java, object java, sobrecarga de métodos, method overloading,
-herança java, inheritance java, métodos java, exercícios oca,
+herança java, inheritance java, this java, super java, static java, métodos java,
 programação java, backend, aprendizado colaborativo, open source
 ```
 
