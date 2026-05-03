@@ -1,0 +1,310 @@
+Teste Final - Capítulo 06
+Data: 02/05/2026
+
+Trabalhar com arrays Java
+
+01. Que linhas serão compiladas sem erros? Selecione todas que forem aplicáveis.
+
+A. Object obj    = new Object();
+B. Object[] obj  = new Object();
+C. Object obj[]  = new Object();
+D. Object[] obj  = new Object[];
+E. Object[] obj  = new Object[3]();
+F. Object[] obj  = new Object[7];
+G. Object obj[]  = new Object[];
+H. Object obj[]  = new Object[3]();
+I. Object obj[]  = new Object[7];
+J. Object[8] obj = new Object[];
+K. Object[3] obj = new Object[3]();
+L. Object[7] obj = new Object[7];
+M. Object obj[]  = new {new Object(), new Object()};
+N. Object obj[]  = {new Object(), new Object()};
+O. Object obj[]  = {new Object[1], new Object[2]};
+
+Resposta Henrique: A, D, F, G, I, M
+Resposta certa: A, F, I, N e O
+=======================================================================================================================
+
+02. Qual é a saída do segmento de código a seguir?
+
+String[] numbers = {"One","Two","Three"};
+System.out.println(numbers[3] + " " + numbers[2] + " " + numbers[1]);
+
+A. One Two Three
+B. Three Two One
+C. Um erro em tempo de compilação será gerado.
+D. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: C
+Resposta certa: D
+=======================================================================================================================
+
+03. Qual é a saída do segmento de código a seguir?
+
+String[] numbers = {"One","Two","Three"};
+
+for(String s : numbers){
+    System.out.print(s + " ");
+}
+
+A. One Two Three
+B. Three Two One
+C. Um erro em tempo de compilação será gerado.
+D. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+04. Qual é a saída do segmento de código a seguir?
+
+int[] testScores = {80,63,99,87,100};
+System.out.println("Length: " + testScores.length);
+
+A. Length: 4
+B. Length: 5
+C. Length: 100
+C. Um erro em tempo de compilação será gerado.
+E. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+05. Qual é a saída do segmento de código a seguir?
+
+Integer[] integerArray1 = {new Integer(100),new Integer(1),new Integer(30),new Integer(50)};
+Integer[] integerArray2 = new Integer[2];
+integerArray2[0]=new Integer(100);
+System.arraycopy(integerArray1, 2, integerArray2, 1, 1);
+
+for(Integer i : integerArray2){
+    System.out.print(i + " ");
+}
+
+A. 100 1 30 50
+B. 100 1
+C. 100 30
+D. 100 1 30
+E. 600 1
+F. 600 30
+G. 600 1 30
+H. Um erro em tempo de compilação será gerado.
+I. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+06. Que linha irá produzir um erro de compilação?
+
+A. double[][] numbers;
+B. double[][][] numbers;
+C. double[][] numbers = {{1,2,3},{7,8,9},{4,5,6}};
+D. double[][] numbers = {{1,2,3},{7,8},{4,5,6,9}};
+E. double[][][] numbers = new double[7][][];
+F. double[][][] numbers = new double[][][];
+G. double[][][] numbers = new double[7][3][2];
+
+Resposta Henrique: E
+Resposta certa: F
+=======================================================================================================================
+
+07. Qual é o valor da variável sum no fim desse segmento de código?
+
+int[][] square = new int[3][3];
+for(int i=0;i<3;i++){
+    square[i][i] = 5;
+}
+
+int sum=0;
+for(int i=0;i<3;i++){
+    for(int j=0;j<3;j++){
+        sum+=square[i][j];
+    }
+}
+
+A. 0
+B. 5
+C. 10
+D. 15
+E. 20
+F. 25
+G. 30
+H. 35
+I. 40
+J. 45
+K. 50
+L. Ela gerará um erro de compilação.
+
+Resposta Henrique: J
+Resposta certa: D
+=======================================================================================================================
+
+08. O segmento de código a seguir é válido. Verdadeiro ou falso?
+
+int[][] square = new int[2][];
+square[0]= new int[5];
+square[1]=new int[3];
+
+A. Verdadeiro
+B. Falso
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+09.Dado o código:
+
+int sampleArray[]= new int[3];
+sampleArray[1]= 3;
+sampleArray[2]= 5;
+sampleArray[3]= 7;
+
+int var = sampleArray[1+1]; int sampleArray[]= new int[3];
+sampleArray[1]= 3;
+sampleArray[2]= 5;
+sampleArray[3]= 7;
+int var = sampleArray[1+1];
+
+Qual é o valor da variável var?
+A. 3
+B. 5
+C. 7
+D. 6
+E. 8
+F. Ocorrerá um erro de compilação.
+G. Ocorrerá um erro em tempo de execução.
+
+Resposta Henrique: F
+Resposta certa: G
+=======================================================================================================================
+
+10. O que está faltando na declaração de array multidimensional a seguir?
+
+int[][] array = int[10][10];
+
+A. Chaves
+B. Parênteses
+C. A palavra-chave new
+D. Não está faltando nada.
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+Trabalhar com objetos ArrayList e seus métodos
+
+11. O que pode ser armazenado em um ArrayList? Selecione todas as opções que forem aplicáveis.
+A. Primitivos
+B. Objetos
+C. Arrays padrão
+D. Enums
+
+Resposta Henrique: B, C e D
+Resposta certa: B, C e D
+=======================================================================================================================
+
+12. Qual é o valor da variável size na conclusão desse segmento de código?
+
+ArrayList<Object> sampleArrayList = new ArrayList<Object>();
+sampleArrayList.add(new Object());
+sampleArrayList.ensureCapacity(15);
+sampleArrayList.add(new Object());
+int size = sampleArrayList.size();
+
+A. 0
+B. 1
+C. 2
+D. 10
+E. 15
+F. Um erro em tempo de compilação será gerado.
+G. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+13. Para situações padrão, normalmente qual é o melhor tipo de array para se usar?
+
+A. ArrayList
+B. Array unidimensional
+C. Array multidimensional
+
+Resposta Henrique: B
+Resposta certa: A
+=======================================================================================================================
+
+14. Qual é a saída do segmento de código a seguir?
+
+ArrayList<String> sampleArrayList = new ArrayList<String>();
+sampleArrayList.add("One");
+sampleArrayList.add("Two");
+sampleArrayList.add(1,"Three");
+for(String s : sampleArrayList){
+    System.out.print(s + " ");
+}
+
+A. One Two Three
+B. One Three Two
+C. Three One Two
+D. One Three
+E. Three Two
+F. Um erro em tempo de compilação será gerado.
+G. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+15. A classe ArrayList faz parte de que pacote Java?
+
+A. java.lang
+B. java.util
+C. javax.tools
+D. javax.swing
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+16. Que tipo de array tem o maior overhead?
+
+A. Array unidimensional
+B. Array multidimensional
+C. ArrayList
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+17. Que afirmação descreve melhor o resultado do segmento de código a seguir? O ArrayList chamado sampleArrayList foi declarado e inicializado.
+
+int i = 63;
+sampleArrayList.add(i);
+
+A. O int é inserido com sucesso no ArrayList.
+B. O int é convertido em um Integer via autoboxing e inserido no ArrayList.
+C. null é inserido no ArrayList.
+D. Um erro em tempo de compilação será gerado.
+E. Uma exceção em tempo de execução será lançada.
+
+Resposta Henrique: E
+Resposta certa: B
+=======================================================================================================================
+
+18. Quais dos itens a seguir são interfaces de ArrayList? Selecione todos que forem aplicáveis.
+
+A. List
+B. Map
+C. Queue
+D. Set
+E. RandomAccess
+
+Resposta Henrique: A
+Resposta certa: A e E
+=======================================================================================================================
+
+Resultado
+Questões Certas: 10
+Questões Erradas:  08
