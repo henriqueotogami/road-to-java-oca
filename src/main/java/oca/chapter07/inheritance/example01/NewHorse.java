@@ -12,4 +12,9 @@ public class NewHorse extends Animal {
     public void neigh() {
         logger.info("Relincha");
     }
+
+    @Override
+    public void rest() {
+        logger.info("Descansa em pé");
+    }
 }
