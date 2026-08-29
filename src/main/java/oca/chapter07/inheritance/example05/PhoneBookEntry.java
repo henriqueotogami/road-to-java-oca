@@ -1,4 +1,4 @@
-package oca.chapter07.inheritance.example04;
+package oca.chapter07.inheritance.example05;
 
 /**
  * Classe que representa uma entrada na agenda telefônica.
