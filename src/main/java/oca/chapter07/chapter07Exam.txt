@@ -1,0 +1,241 @@
+Teste Final - Capítulo 07
+Data: 02/05/2026
+
+Implementar e usar herança e tipos de classe
+
+01. Que elemento contém métodos e variáveis de instância e pode ser instanciado?
+A. Classe concreta
+B. Classe abstrata
+C. Classe Java
+D. Interface
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+02. Que elemento é usado para definir uma interface pública?
+A. Classe concreta
+B. Classe abstrata
+C. Classe Java
+D. Interface
+
+Resposta Henrique: D
+Resposta certa: D
+=======================================================================================================================
+
+03. Que elemento contém métodos e variáveis de instância não implementados e não pode ser instanciado?
+A. Classe concreta
+B. Classe abstrata
+C. Classe Java
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+04. A herança fornece quais dos recursos a seguir? Selecione todos que forem aplicáveis.
+A. Permite tempos de execução mais rápidos já que os métodos podem herdar tempo de processador das superclasses
+B. Permite que os desenvolvedores insiram em uma classe códigos genéricos dos quais classes mais especializadas possam
+se beneficiar por intermédio da herança
+C. Promove a reutilização de código
+D. É um processo automatizado para transferir código antigo para a versão mais recente de Java
+
+Resposta Henrique: A, B e C
+Resposta certa: B e C
+=======================================================================================================================
+
+05. Uma classe que é herdada é conhecida por que nomes? Selecione todos que forem aplicáveis.
+A. Subclasse
+B. Superclasse
+C. Classe base
+D. Classe soberba
+
+Resposta Henrique: B e C
+Resposta certa: B e C
+=======================================================================================================================
+
+06. Uma classe abstrata deve implementar todos os métodos abstratos herdados de outra classe abstrata?
+A. Sim
+B. Não, mas deve implementar pelo menos um método.
+C. Não; ela não precisa implementar nenhum método.
+D. Não, mas deve implementar qualquer método que seja definido em sua superclasse imediata.
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+07. Que palavra-chave pode ser usada no acesso a métodos sobrescritos?
+A. super
+B. transient
+C. top
+D. upper
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+08. Se a classe A estende a classe B, que termos podem ser usados para descrevê-la?
+Selecione todos que forem aplicáveis.
+A. Subclasse
+B. Superclasse
+C. Classe base
+D. Classe pai
+E. Classe filha
+
+Resposta Henrique: A e E
+Resposta certa: A e E
+=======================================================================================================================
+
+Compreender princípios do encapsulamento
+
+Essa classe deve ser usada nas duas perguntas a seguir.
+public class Account {
+    private int money;
+
+    public int getMoney() {
+        return this.money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+}
+
+09. No segmento de código, o que o método getMoney() é considerado?
+A. Método get
+B. Método de acesso
+C. Método getter
+D. Método de variável de instância
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+10. No segmento de código, o que o método setMoney(int money) é considerado?
+A. Método set
+B. Método de acesso
+C. Método setter
+D. Método de variável de instância
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+11. Qual das opções a seguir define a ocultação de informações?
+A. Ocultação de informações é a ocultação do maior número possível de detalhes da classe para que outras pessoas não possam roubá-los.
+B. Ocultação de informações é a ocultação de detalhes da implementação e a proteção das variáveis para que não sejam usadas da maneira errada.
+C. A ocultação de informações é usada para obscurecer a interoperabilidade da classe para que as classes externas tenham que usar a interface pública.
+
+Resposta Henrique: C
+Resposta certa: B
+=======================================================================================================================
+
+12. Que modificador de acesso é usado para tornar a variável de instância ou o método disponível apenas para a classe em que ele foi definido?
+A. public
+B. private
+C. protected
+D. package-private (padrão)
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+13. Que modificador de acesso é usado para métodos que foram definidos em uma interface?
+A. public
+B. private
+C. protected
+D. package-private (padrão)
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+14. A menos que haja uma razão específica para não o usar, que modificador de acesso, se houver um, deve ser usado em todas as variáveis de instância?
+A. public
+B. private
+C. protected
+D. package-private (padrão)
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+15. Os modificadores de acesso private e protected podem ser usados com que entidades? Selecione todas que forem aplicáveis.
+A. Classes
+B. Interfaces
+C. Construtores
+D. Métodos
+E. Membros de dados
+
+Resposta Henrique: D e E
+Resposta certa: C, D e E
+=======================================================================================================================
+
+Uso avançado de classes com herança e encapsulamento
+
+16. Qual é a assinatura apropriada para a classe X se ela herdar a classe Z?
+A. public class X inherits Z{ … }
+B. public class X extends Z{ … }
+C. public class X implements Z{ … }
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+17. Quantas classes uma classe pode estender diretamente?
+A. Zero
+B. Uma
+C. Duas
+D. Quantas ela precisar
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+18. Quantas interfaces uma classe pode implementar diretamente?
+A. Zero
+B. Uma
+C. Duas
+D. Quantas ela precisar
+
+Resposta Henrique: D
+Resposta certa: D
+=======================================================================================================================
+
+19. Considere a ilustração UML a seguir para resolver essa questão:
+
+<Inteface B>        <Interface C>
+    -----------------------
+                |
+                A
+
+Qual é a assinatura apropriada para a classe A se ela implementar as interfaces B e C?
+A. public class A implements B, implements C{ … }
+B. public class A implements B, C{ … }
+C. public class A interface B, interface C{ … }
+D. public class A interface B, C{ … }
+E. public class A extends B, C{ … }
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+20. Considere a ilustração UML a seguir para resolver essa questão:
+
+<Inteface J>        <Interface K>
+    -----------------------
+                |
+           <Inteface I>
+
+Qual é a assinatura apropriada para a interface I herdar as interfaces J e K?
+A. public interface I extends J, K{ … }<0}
+B. public interface I implements J, K{ … }
+C. public interface I implements J, implements K{ … }<0}
+D. public interface I interface J, K{ … }<0}
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+Resultado
+Questões Certas: 18
+Questões Erradas: 02
