@@ -52,6 +52,7 @@
   <img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie o Projeto" style="height:50px;">
 </a>
 </div>
+
 ## 📋 Sobre o Projeto
 
 Este repositório contém uma coleção organizada de exemplos de código, exercícios e documentação para preparação do exame **Oracle Certified Associate (OCA) Java SE 8 Programmer I**. Os conteúdos seguem o guia oficial de estudos e incluem práticas de pacotes, imports, variáveis, controle de fluxo, OOP e demais tópicos cobrados na certificação.
@@ -64,6 +65,7 @@ O projeto utiliza **Gradle** para build e está estruturado por capítulos, faci
 - 📊 **JaCoCo** - Geração de relatórios de cobertura de testes (XML/HTML) integrados ao Gradle
 - 🔍 **SonarCloud (SonarQube SaaS)** - Análise estática de código e cobertura via workflow `SonarCloud Analyze` (`./gradlew build sonar`)
 - 🤖 **GitHub Actions** - CI (build, testes, envio de cobertura para o SonarCloud e dependency submission)
+- 
 ## 🚀 Como Usar
 
 ### ⚙️ Pré-requisitos
@@ -315,7 +317,7 @@ Contribuições são bem-vindas! Para contribuir:
 - **Capítulo 7** em `oca/chapter07`: herança de classes, classes concretas e abstratas, sobrescrita de métodos, uso de `super`, encapsulamento, modificadores de acesso, getters/setters, imutabilidade e polimorfismo básico (issue #40).
 - Testes automatizados cobrindo herança, sobrescrita e diferentes níveis de acesso, com task Gradle `chapter07`.
 - Dependências do **Log4j2** revertidas para a versão **2.25.4** como rollback temporário para restaurar a estabilidade da pipeline de CI e permitir a execução da análise SonarCloud (issue #43).
-### 🆕 Versão 0.8
+### 📌 Versão 0.8
 - **Capítulo 6** em `oca/chapter06/arrays`: arrays unidimensionais (`ArrayOneDimensional`, `Clock`), multidimensionais (`ArrayMultiDimensional`), e material `chapter06Exam.txt` (issue #38, PR #39).
 - Testes `oca.chapter06.*`, suite Gradle `chapter06` e inclusão em `check` junto com `chapter01` … `chapter05`.
 - Cobertura ampliada (ex.: classe `Clock`) e exercícios/testes com `ArrayList` e arrays de primitivos.
@@ -384,14 +386,14 @@ programação java, backend, aprendizado colaborativo, open source
 ```
 <div align="center">
 <br>
-<a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img width="500" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/src/main/resources/images/kofi-henrique-otogami.jpg?raw=true" alt="Apoie no Ko-fi"></a>
+<a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img width="auto" src="https://github.com/henriqueotogami/road-to-java-oca/blob/main/src/main/resources/images/kofi-henrique-otogami.jpg?raw=true" alt="Apoie no Ko-fi"></a>
 <br><br>
-<a href="https://ko-fi.com/henriqueotogami" target="_blank"><img src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie no Ko-fi"></a>
+<a href="https://ko-fi.com/henriqueotogami" target="_blank"><img width="300" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" alt="Apoie no Ko-fi"></a>
 <br><br>
 <a href="https://dev.to/henriqueotogami" target="_blank"><img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" alt="Dev.to"></a>
 <a href="https://medium.com/@henriqueotogami" target="_blank"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium"></a>
 <a href="https://ko-fi.com/henriqueotogami/tip" target="_blank"><img src="https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
 <a href="https://www.linkedin.com/in/henrique-matheus-alves-pereira" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-<a href="https://instagram.com/henriqueotogami.dev" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405B?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
+<a href="https://instagram.com/henriqueotogami.dev" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
 <br>
 </div>
