@@ -2,6 +2,10 @@ package oca.chapter08;
 
 import oca.chapter08.polymorphism.example01.Phone;
 import oca.chapter08.polymorphism.example01.SmartPhone;
+import oca.chapter08.polymorphism.example02.Describable;
+import oca.chapter08.polymorphism.example02.Farm;
+import oca.chapter08.polymorphism.example02.Goat;
+import oca.chapter08.polymorphism.example02.GoatShelter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -47,9 +51,20 @@ public class ExamplesTest {
             Assertions.assertTrue(smartPhone.isAcceptCall() == userAcceptCall);
         }
         Assertions.assertTrue(smartPhone.isRinging() == !smartPhone.isAcceptCall());
-
+        Assertions.assertInstanceOf(Phone.class, smartPhone);
         smartPhone.sendEmail("Hello, this is a test email.", "henrique.map@outlook.com");
         String retrievedEmail = smartPhone.retrieveEmail();
         Assertions.assertEquals("Hello, this is a test email.", retrievedEmail);
+    }
+
+    @Test
+    @Order(3)
+    public void example02DescribableTest() {
+        Goat goat = new Goat("Bob");
+        GoatShelter goatShelter = new GoatShelter(4, 4, 6);
+        Assertions.assertInstanceOf(Describable.class, goat);
+        Assertions.assertInstanceOf(Describable.class, goatShelter);
+        Assertions.assertEquals("A goat named Bob", Farm.description(goat));
+        Assertions.assertEquals("A goat shelter that is 4 high, 6 long and 4 wide ", Farm.description(goatShelter));
     }
 }
