@@ -6,6 +6,11 @@ import oca.chapter08.polymorphism.example02.Describable;
 import oca.chapter08.polymorphism.example02.Farm;
 import oca.chapter08.polymorphism.example02.Goat;
 import oca.chapter08.polymorphism.example02.GoatShelter;
+import oca.chapter08.polymorphism.example03.Logable;
+import oca.chapter08.polymorphism.example03.Logger;
+import oca.chapter08.polymorphism.example03.NetworkConnection;
+import oca.chapter08.polymorphism.example03.SystemStatus;
+import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -22,6 +27,8 @@ import java.util.Random;
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
 public class ExamplesTest {
+
+    public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(ExamplesTest.class);
 
     @Test
     @Order(1)
@@ -67,4 +74,49 @@ public class ExamplesTest {
         Assertions.assertEquals("A goat named Bob", Farm.description(goat));
         Assertions.assertEquals("A goat shelter that is 4 high, 6 long and 4 wide ", Farm.description(goatShelter));
     }
+
+    @Test
+    @Order(4)
+    public void example03LoggerTest() {
+        try {
+            Logger logger = new Logger();
+            SystemStatus systemStatus = new SystemStatus();
+            NetworkConnection networkConnection = new NetworkConnection();
+
+            Assertions.assertInstanceOf(Logable.class, systemStatus);
+            Assertions.assertInstanceOf(Logable.class, networkConnection);
+            Assertions.assertEquals("Status: -1", systemStatus.getLogableEvent());
+            Assertions.assertEquals("Initialized", networkConnection.getLogableEvent());
+            Assertions.assertEquals("SystemStatus object created " + systemStatus.getInitInfo().split(" ")[3], systemStatus.getInitInfo());
+            Assertions.assertEquals("NetworkConnection object created " + networkConnection.getInitInfo().split(" ")[3], networkConnection.getInitInfo());
+
+            logger.appendToLog(systemStatus);
+            logger.appendToLog(networkConnection);
+            networkConnection.connect();
+
+            Thread.sleep(2000);
+            logger.appendToLog(systemStatus);
+            logger.appendToLog(networkConnection);
+            logger.close();
+
+            Thread.sleep(1000); // Aguarda um segundo para garantir que o arquivo de log seja criado
+            logger.open();
+            Assertions.assertNotNull(logger.getFileRead());
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("SystemStatus object created"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Status: -1"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("NetworkConnection object created"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Initialized"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("SystemStatus object created"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Status: 1"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("NetworkConnection object created"));
+            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Connected at"));
+
+            logger.read();
+            logger.getFileRead().close();
+        } catch (Exception exception) {
+            logger.info("Exception: " + exception.getMessage());
+            exception.printStackTrace();
+        }
+    }
+
 }
