@@ -20,10 +20,25 @@ public class Phone {
     }
 
     public boolean isRinging() {
-        logger.info("Phone: Checking if phone is ringing");
-        boolean ringing = false;
+        logger.info("Phone: Checking is ringing");
         /* Verifica se o telefone está chamando e configura a variável ringing */
-        return ringing;
+        return !this.acceptCall && this.ringing;
     }
 
+    protected boolean acceptCall = false;
+    protected boolean ringing = false;
+
+    public boolean isAcceptCall() {
+        return acceptCall;
+    }
+
+    public void setAcceptCall(boolean acceptCall) {
+        this.acceptCall = acceptCall;
+        this.ringing = !acceptCall;
+    }
+
+    public void setRinging(boolean ringing) {
+        this.ringing = ringing;
+        this.acceptCall = !ringing;
+    }
 }
