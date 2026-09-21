@@ -1,0 +1,200 @@
+Teste Final - Capítulo 07
+Data: 20/09/2026
+
+Compreender polimorfismo
+
+01. Que afirmação é verdadeira sobre o termo polimorfismo?
+A. É uma palavra latina que significa algo como “intercambiável”.
+B. É uma palavra grega que significa algo como “muitas formas”.
+C. É uma palavra do inglês arcaico que significa algo como “insetiforme”.
+D. É um novo termo técnico que significa “objeto Java”.
+
+Resposta Henrique: A
+Resposta certa: B
+=======================================================================================================================
+
+02. Que tipo de objeto pode comportar-se polimorficamente como outro?
+A. Um objeto pode agir como qualquer subclasse da classe a partir da qual ele foi criado.
+B. Um objeto pode agir como qualquer superclasse da classe a partir da qual ele foi criado.
+C. Um objeto pode agir como qualquer classe abstrata.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+03.O polimorfismo ajuda a promover qual dos itens a seguir? Selecione todos que forem aplicáveis.
+A. Código altamente otimizado
+B. Reutilização de código
+C. Obscurecimento do código
+D. Código que seja genérico e flexível
+
+Resposta Henrique: A, B e D
+Resposta certa: B e D
+=======================================================================================================================
+
+04.Qual desses é um relacionamento é‑um correto?
+A. Um objeto específico é‑um objeto mais genérico.
+B. Um objeto genérico é‑um objeto mais específico.
+C. Uma referência nula é‑um objeto.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+05.Qual das afirmações a seguir explica por que um objeto pode comportar-se polimorficamente como uma interface?
+A. Ao implementar a interface, o objeto é obrigado a ter todas as funcionalidades que ela representa.
+B. Ao implementar a interface, o objeto herda todos os métodos requeridos que ela define.
+C. Um objeto pode comportar-se como uma interface porque as interfaces não têm um comportamento específico esperado e,
+portanto, qualquer objeto pode agir como uma interface.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+06.O que significa dizermos que um desenvolvedor está programando para uma interface?
+A. O desenvolvedor está implementando uma interface para a classe em que está trabalhando.
+B. O desenvolvedor recebeu um conjunto de interfaces que ele deve implementar.
+C. O desenvolvedor está definindo o máximo possível a funcionalidade em vez de tipos de objeto estritos.
+
+Resposta Henrique: C
+Resposta certa:C
+=======================================================================================================================
+
+O exemplo de código a seguir será referenciado nas perguntas 7 a 12. Depois, consulte a Figura 8‑3.
+
+public interface Drivable {
+/* Definições de Drivable */
+}
+
+public class Tractor implements Drivable{
+/* Funcionalidade de Tractor */
+}
+
+public class Vehicle {
+/* * Funcionalidade de Vehicle */
+}
+
+public class Car extends Vehicle implements Drivable{
+/* Funcionalidade de Car */
+}
+
+public class Truck extends Vehicle implements Drivable{
+/* Funcionalidade de Truck */
+}
+                 <Interface>
+  |- Vehicle       Drivable
+  |                     |
+  |    ___________________
+  |   |        |         |
+  |  CAR     TRUCK   TRACTOR
+  |   |        |
+  |___|________|
+
+07. Dadas as classes e a interface anteriores, o segmento de código a seguir produziria erros quando compilado?
+
+Car car = new Car();
+Vehicle vehicle = car;
+
+A. Não seriam produzidos erros.
+B. Esse código resultaria em erros de compilação.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+08. Dadas as classes e a interface anteriores, o segmento de código a seguir produziria erros quando compilado?
+
+Truck truck = new Truck();
+Drivable drivable = truck;
+
+A. Não seriam produzidos erros.
+B. Esse código resultaria em erros de compilação.
+
+Resposta Henrique: B
+Resposta certa: A
+=======================================================================================================================
+
+09. Dadas as classes e a interface anteriores, o segmento de código a seguir produziria erros quando compilado?
+
+Tractor tractor = new Tractor();
+Vehicle vehicle = tractor;
+
+A. Não seriam produzidos erros.
+B. Esse código resultaria em erros de compilação
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+10. Dadas as classes e a interface anteriores, o segmento de código a seguir produziria erros quando compilado?
+
+Drivable drivable = new Drivable();
+Truck truck = drivable;
+
+A. Não seriam produzidos erros.
+B. Esse código resultaria em erros de compilação.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+11. Dadas as classes e a interface anteriores, o segmento de código a seguir produziria erros quando compilado?
+
+Vehicle vehicle = new Vehicle();
+Object o = vehicle;
+
+A. Não seriam produzidos erros.
+B. Esse código resultaria em erros de compilação.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+12. Dadas as classes e a interface anteriores, o segmento de código a seguir produziria erros quando compilado?
+
+Truck truck = new Truck();
+Object o = truck;
+Truck truck = new Truck();
+Object o = truck;
+
+A. Não seriam produzidos erros.
+B. Esse código resultaria em erros de compilação.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+Compreender coerção
+
+13. Em que casos a coerção é necessária? Selecione todos que forem aplicáveis.
+A. Na passagem de uma superclasse para a subclasse
+B. Na passagem de uma subclasse para a superclasse
+C. No uso de um int como double
+D. No uso de um float como long
+
+Resposta Henrique: B e C
+Resposta certa: A e D
+=======================================================================================================================
+
+14. Por que a variável a deve sofrer coerção?
+A. Para que futuros desenvolvedores entendam o uso pretendido para ela
+B. Para informar ao compilador que é seguro fazer a conversão de dados
+C. Porque antes ela foi usada polimorficamente
+
+Resposta Henrique: C
+Resposta certa: B
+=======================================================================================================================
+
+15. O que faria uma exceção ser lançada por uma coerção?
+A. A precisão ser perdida devido à coerção.
+B. O objeto ser convertido para uma superclasse de seu tipo atual
+C. O objeto não ter sido instanciado como aquele para o qual a coerção está ocorrendo ou para uma de suas subclasses
+D. O objeto alvo da coerção ser nulo
+
+Resposta Henrique:  C
+Resposta certa: C
+=======================================================================================================================
+
+Resultado
+Questões Certas: 10
+Questões Erradas: 05

@@ -148,7 +148,7 @@ public class ExamplesTest {
 
         // Apenas o obj3 só tem acesso a métodos de ClassA e não pode ser convertido para ClassB, pois não é uma instância de ClassB
         Assertions.assertEquals("ClassA only method", obj3.specialClassAMethod());
-
+        Assertions.assertThrowsExactly(ClassCastException.class, () -> { ((ClassB) obj3).specialClassBMethod(); });
     }
 
 }
