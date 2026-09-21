@@ -10,6 +10,8 @@ import oca.chapter08.polymorphism.example03.Logable;
 import oca.chapter08.polymorphism.example03.Logger;
 import oca.chapter08.polymorphism.example03.NetworkConnection;
 import oca.chapter08.polymorphism.example03.SystemStatus;
+import oca.chapter08.polymorphism.example04.ClassA;
+import oca.chapter08.polymorphism.example04.ClassB;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -117,6 +119,36 @@ public class ExamplesTest {
             logger.info("Exception: " + exception.getMessage());
             exception.printStackTrace();
         }
+    }
+
+    @Test
+    @Order(5)
+    public void example04CastingTest() {
+        ClassB obj1 = new ClassB();
+        ClassA obj2 = new ClassB();
+        ClassA obj3 = new ClassA();
+
+        Assertions.assertInstanceOf(ClassB.class, obj1);
+        Assertions.assertInstanceOf(ClassA.class, obj2);
+        Assertions.assertInstanceOf(ClassA.class, obj3);
+
+        Assertions.assertEquals("ClassB", obj1.whoAmI());
+        Assertions.assertEquals("ClassB", obj2.whoAmI());
+        Assertions.assertEquals("ClassA", obj3.whoAmI());
+
+        // Obj1 tem acesso a métodos de ClassB e ClassA
+        Assertions.assertEquals("ClassA only method", obj1.specialClassAMethod());
+        Assertions.assertEquals("ClassB only method", obj1.specialClassBMethod());
+
+        // Obj2 só tem acesso a métodos de ClassA
+        Assertions.assertEquals("ClassA only method", obj2.specialClassAMethod());
+
+        // Mas, o obj2 é uma instância de ClassB, então podemos fazer um cast para acessar métodos de ClassB
+        Assertions.assertEquals("ClassB only method", ((ClassB) obj2).specialClassBMethod());
+
+        // Apenas o obj3 só tem acesso a métodos de ClassA e não pode ser convertido para ClassB, pois não é uma instância de ClassB
+        Assertions.assertEquals("ClassA only method", obj3.specialClassAMethod());
+
     }
 
 }
