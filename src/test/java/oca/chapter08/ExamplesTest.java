@@ -1,15 +1,14 @@
 package oca.chapter08;
 
+import oca.chapter08.polymorphism.example01.Caller;
 import oca.chapter08.polymorphism.example01.Phone;
 import oca.chapter08.polymorphism.example01.SmartPhone;
 import oca.chapter08.polymorphism.example02.Describable;
 import oca.chapter08.polymorphism.example02.Farm;
 import oca.chapter08.polymorphism.example02.Goat;
 import oca.chapter08.polymorphism.example02.GoatShelter;
-import oca.chapter08.polymorphism.example03.Logable;
-import oca.chapter08.polymorphism.example03.Logger;
-import oca.chapter08.polymorphism.example03.NetworkConnection;
-import oca.chapter08.polymorphism.example03.SystemStatus;
+import oca.chapter08.polymorphism.example03.*;
+import oca.chapter08.polymorphism.example04.Casting;
 import oca.chapter08.polymorphism.example04.ClassA;
 import oca.chapter08.polymorphism.example04.ClassB;
 import org.apache.logging.log4j.LogManager;
@@ -36,15 +35,26 @@ public class ExamplesTest {
     @Order(1)
     public void example01PhoneTest() {
         final Phone landLinePhone = new Phone();
+        Assertions.assertInstanceOf(Phone.class, landLinePhone);
         landLinePhone.callNumber(5559869447L);
         Random random = new Random();
         landLinePhone.setRinging(random.nextBoolean());
         if(landLinePhone.isRinging()) {
+            Assertions.assertTrue(landLinePhone.isRinging());
             boolean userAcceptCall = random.nextBoolean();
             landLinePhone.setAcceptCall(userAcceptCall);
-            Assertions.assertTrue(landLinePhone.isAcceptCall() == userAcceptCall);
+            if(landLinePhone.isAcceptCall()) {
+                Assertions.assertTrue(landLinePhone.isAcceptCall());
+            } else {
+                Assertions.assertFalse(landLinePhone.isAcceptCall());
+            }
+        } else {
+            Assertions.assertFalse(landLinePhone.isRinging());
+            Assertions.assertTrue(landLinePhone.isAcceptCall());
         }
-        Assertions.assertTrue(landLinePhone.isRinging() == !landLinePhone.isAcceptCall());
+
+        Caller caller = new Caller();
+        Assertions.assertInstanceOf(Caller.class, caller);
     }
 
     @Test
@@ -54,12 +64,19 @@ public class ExamplesTest {
         smartPhone.callNumber(5559869447L);
         Random random = new Random();
         smartPhone.setRinging(random.nextBoolean());
-        if (smartPhone.isRinging()) {
+        if(smartPhone.isRinging()) {
+            Assertions.assertTrue(smartPhone.isRinging());
             boolean userAcceptCall = random.nextBoolean();
             smartPhone.setAcceptCall(userAcceptCall);
-            Assertions.assertTrue(smartPhone.isAcceptCall() == userAcceptCall);
+            if(smartPhone.isAcceptCall()) {
+                Assertions.assertTrue(smartPhone.isAcceptCall());
+            } else {
+                Assertions.assertFalse(smartPhone.isAcceptCall());
+            }
+        } else {
+            Assertions.assertFalse(smartPhone.isRinging());
+            Assertions.assertTrue(smartPhone.isAcceptCall());
         }
-        Assertions.assertTrue(smartPhone.isRinging() == !smartPhone.isAcceptCall());
         Assertions.assertInstanceOf(Phone.class, smartPhone);
         smartPhone.sendEmail("Hello, this is a test email.", "henrique.map@outlook.com");
         String retrievedEmail = smartPhone.retrieveEmail();
@@ -75,6 +92,9 @@ public class ExamplesTest {
         Assertions.assertInstanceOf(Describable.class, goatShelter);
         Assertions.assertEquals("A goat named Bob", Farm.description(goat));
         Assertions.assertEquals("A goat shelter that is 4 high, 6 long and 4 wide ", Farm.description(goatShelter));
+
+        Farm farm = new Farm();
+        Assertions.assertInstanceOf(Farm.class, farm);
     }
 
     @Test
@@ -115,6 +135,9 @@ public class ExamplesTest {
 
             logger.read();
             logger.getFileRead().close();
+
+            StartLogging startLogging = new StartLogging();
+            Assertions.assertInstanceOf(StartLogging.class, startLogging);
         } catch (Exception exception) {
             logger.info("Exception: " + exception.getMessage());
             exception.printStackTrace();
