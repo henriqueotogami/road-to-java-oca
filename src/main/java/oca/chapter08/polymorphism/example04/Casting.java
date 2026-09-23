@@ -18,7 +18,6 @@ public class Casting {
             obj3 = this.getClassA();
         } catch (Exception exception) {
             logger.error("Falha na instanciação dos objetos: {}", exception.getMessage());
-            exception.printStackTrace();
         }
 
         try {
@@ -27,17 +26,15 @@ public class Casting {
             logger.info("obj3 is declared as : {}", obj3.getClass().getName());
         } catch (Exception e) {
             logger.error("Falha ao acessar a classe dos objetos: {}", e.getMessage());
-            e.printStackTrace();
         }
 
         try {
             logger.info("\n");
-            logger.info("obj1 is instance of : {}", isInstanceOfWhichClass(obj1));
-            logger.info("obj2 is instance of : {}", isInstanceOfWhichClass(obj2));
-            logger.info("obj3 is instance of : {}", isInstanceOfWhichClass(obj3));
+            logger.info("obj1 is instance of : {}", Casting.isInstanceOfWhichClass(obj1));
+            logger.info("obj2 is instance of : {}", Casting.isInstanceOfWhichClass(obj2));
+            logger.info("obj3 is instance of : {}", Casting.isInstanceOfWhichClass(obj3));
         } catch (Exception e) {
             logger.error("Falha ao verificar a instância dos objetos: {}", e.getMessage());
-            e.printStackTrace();
         }
 
         try {
@@ -47,7 +44,6 @@ public class Casting {
             logger.info("obj3: Who am I ? {} | Special Method 1 : {} | Special Method 2 : ClassA nao pode se comportar como ClassB ", obj3.whoAmI(), obj3.specialClassAMethod());
         } catch (Exception e) {
             logger.error("Falha ao acessar métodos dos objetos: {}", e.getMessage());
-            e.printStackTrace();
         }
     }
 

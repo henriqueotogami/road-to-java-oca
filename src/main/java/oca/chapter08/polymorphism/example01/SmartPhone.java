@@ -17,10 +17,20 @@ public class SmartPhone extends Phone {
         /* Retorna uma String contendo todas as mensagens*/
         return this.emailMessage;
     }
+
+    @Override
     public boolean isRinging() {
         logger.info("SmartPhone: Checking if phone is ringing");
         /* Procura atividade de e-mail e só continua quando ela não existe. */
         /* Verifica se o telefone está chamando e configura a variável ringing */
         return !this.acceptCall && this.ringing;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getEmailMessage() {
+        return emailMessage;
     }
 }

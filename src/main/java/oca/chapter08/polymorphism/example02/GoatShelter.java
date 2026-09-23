@@ -25,6 +25,18 @@ public class GoatShelter implements Describable {
         return description;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
     /*
      * Implementa outros metodos relacionados ao abrigo de um bode
      */

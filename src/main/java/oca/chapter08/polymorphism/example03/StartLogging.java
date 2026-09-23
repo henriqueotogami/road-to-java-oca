@@ -8,7 +8,7 @@ public class StartLogging {
 
     public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(StartLogging.class.getName());
 
-    public StartLogging() throws Exception {
+    public StartLogging() throws IOException, InterruptedException {
         Logger fileLog                       = null;
         SystemStatus systemStatus           = null;
         NetworkConnection networkConnection = null;
@@ -18,7 +18,6 @@ public class StartLogging {
             networkConnection = getNetworkConnection();
         } catch (IOException e) {
             logger.error("Falha na instancia do Logging: {} ", e.getMessage());
-            e.printStackTrace();
         }
 
         try {
@@ -26,7 +25,6 @@ public class StartLogging {
             fileLog.appendToLog(networkConnection);
         } catch (IOException e) {
             logger.error("Falha ao escrever no log 1 : {} ", e.getMessage());
-            e.printStackTrace();
         }
 
         try {
@@ -34,7 +32,7 @@ public class StartLogging {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             logger.error("Falha na conexão de rede: {} ", e.getMessage());
-            e.printStackTrace();
+            throw new InterruptedException("Falha na conexão de rede: " + e.getMessage());
         }
 
         try {
@@ -43,10 +41,10 @@ public class StartLogging {
             fileLog.close();
         } catch (IOException e) {
             logger.error("Falha ao escrever no log 2 : {} ", e.getMessage());
-            e.printStackTrace();
+            throw new IOException("Falha ao escrever no log 2 : " + e.getMessage());
         } catch (InterruptedException e) {
             logger.error("Falha no encerramento do fileLog: {} ", e.getMessage());
-            e.printStackTrace();
+            throw new InterruptedException("Falha no encerramento do fileLog: " + e.getMessage());
         }
     }
 
@@ -67,7 +65,7 @@ public class StartLogging {
             new StartLogging();
         } catch (Exception exception) {
             logger.error("Falha na Inicialização do Logging: {} ", exception.getMessage());
-            exception.printStackTrace();
+            Thread.currentThread().interrupt();
         }
     }
 }

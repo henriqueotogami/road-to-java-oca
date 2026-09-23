@@ -35,7 +35,7 @@ public class ExamplesTest {
 
     @Test
     @Order(1)
-    public void example01PhoneTest() {
+    void example01PhoneTest() {
         final Phone landLinePhone = new Phone();
         Assertions.assertInstanceOf(Phone.class, landLinePhone);
         landLinePhone.callNumber(5559869447L);
@@ -61,7 +61,7 @@ public class ExamplesTest {
 
     @Test
     @Order(2)
-    public void example01SmartPhoneTest() {
+    void example01SmartPhoneTest() {
         final SmartPhone smartPhone = new SmartPhone();
         smartPhone.callNumber(5559869447L);
         Random random = new Random();
@@ -83,11 +83,13 @@ public class ExamplesTest {
         smartPhone.sendEmail("Hello, this is a test email.", "henrique.map@outlook.com");
         String retrievedEmail = smartPhone.retrieveEmail();
         Assertions.assertEquals("Hello, this is a test email.", retrievedEmail);
+        Assertions.assertEquals("henrique.map@outlook.com", smartPhone.getEmailAddress());
+        Assertions.assertEquals("Hello, this is a test email.", smartPhone.getEmailMessage());
     }
 
     @Test
     @Order(3)
-    public void example02DescribableTest() {
+    void example02DescribableTest() {
         Goat goat = null;
         GoatShelter goatShelter = null;
         try {
@@ -103,6 +105,9 @@ public class ExamplesTest {
         Assertions.assertInstanceOf(Describable.class, goatShelter);
         Assertions.assertEquals("A goat named Bob", Farm.description(goat));
         Assertions.assertEquals("A goat shelter that is 4 high, 6 long and 4 wide ", Farm.description(goatShelter));
+        Assertions.assertEquals(4, goatShelter.getHeight());
+        Assertions.assertEquals(4, goatShelter.getWidth());
+        Assertions.assertEquals(6, goatShelter.getLength());
 
         Farm farm = new Farm();
         Assertions.assertInstanceOf(Farm.class, farm);
@@ -110,7 +115,7 @@ public class ExamplesTest {
 
     @Test
     @Order(4)
-    public void example03LoggerTest() {
+    void example03LoggerTest() {
 
         StartLogging startLogging = null;
         Logger fileLog = null;
@@ -140,7 +145,6 @@ public class ExamplesTest {
             fileLog.appendToLog(networkConnection);
             networkConnection.connect();
 
-            Thread.sleep(2000);
             fileLog.appendToLog(systemStatus);
             fileLog.appendToLog(networkConnection);
             fileLog.close();
@@ -153,11 +157,8 @@ public class ExamplesTest {
         }
 
         try {
-            Thread.sleep(1000); // Aguarda um segundo para garantir que o arquivo de log seja criado
+            // Aguarda um segundo para garantir que o arquivo de log seja criado
             fileLog.open();
-        } catch (InterruptedException e) {
-            logger.error("Logging - Falha na abertura do arquivo de log: {} ", e.getMessage());
-            e.printStackTrace();
         } catch (FileNotFoundException e) {
             logger.error("Logging - Arquivo de log não encontrado: {} ", e.getMessage());
             e.printStackTrace();
@@ -189,7 +190,7 @@ public class ExamplesTest {
 
     @Test
     @Order(5)
-    public void example04CastingTest() {
+    void example04CastingTest() {
 
         ClassB obj1 = null;
         ClassA obj2 = null;

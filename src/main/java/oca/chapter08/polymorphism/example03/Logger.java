@@ -16,7 +16,7 @@ public class Logger {
     private BufferedReader in;
     private BufferedWriter out;
 
-    public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(Logger.class);
+    public static final org.apache.logging.log4j.Logger loggermanager = LogManager.getLogger(Logger.class);
 
     public Logger() throws IOException {
         out = new BufferedWriter(new FileWriter("logs/logfile.txt", true));
@@ -44,7 +44,7 @@ public class Logger {
     public void read() throws IOException {
         String line;
         while ((line = in.readLine()) != null) {
-            logger.info(line);
+            loggermanager.info(line);
         }
         in.close();
     }

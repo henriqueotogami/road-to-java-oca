@@ -15,7 +15,7 @@ public class Phone {
     public static final Logger logger = LogManager.getLogger(Phone.class.getName());
 
     public void callNumber(long number) {
-        logger.info("Phone: Calling number " + number);
+        logger.info("Phone: Calling number {} ", number);
         /* Lógica para discar número e manter conexão. */
     }
 
