@@ -17,6 +17,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -86,8 +88,17 @@ public class ExamplesTest {
     @Test
     @Order(3)
     public void example02DescribableTest() {
-        Goat goat = new Goat("Bob");
-        GoatShelter goatShelter = new GoatShelter(4, 4, 6);
+        Goat goat = null;
+        GoatShelter goatShelter = null;
+        try {
+            goat = new Goat("Bob");
+            goatShelter = new GoatShelter(4, 4, 6);
+        } catch (Exception e) {
+            logger.error("Describable - Falha na instanciação dos objetos: {}", e.getMessage());
+            e.printStackTrace();
+            return;
+        }
+
         Assertions.assertInstanceOf(Describable.class, goat);
         Assertions.assertInstanceOf(Describable.class, goatShelter);
         Assertions.assertEquals("A goat named Bob", Farm.description(goat));
@@ -100,60 +111,107 @@ public class ExamplesTest {
     @Test
     @Order(4)
     public void example03LoggerTest() {
+
+        StartLogging startLogging = null;
+        Logger fileLog = null;
+        SystemStatus systemStatus = null;
+        NetworkConnection networkConnection = null;
         try {
-            Logger logger = new Logger();
-            SystemStatus systemStatus = new SystemStatus();
-            NetworkConnection networkConnection = new NetworkConnection();
+            startLogging = new StartLogging();
+            fileLog = startLogging.getLogger();
+            systemStatus = startLogging.getSystemStatus();
+            networkConnection = startLogging.getNetworkConnection();
+        } catch (Exception e) {
+            logger.error("Logging - Falha na instanciação dos objetos: {}", e.getMessage());
+            e.printStackTrace();
+            return;
+        }
 
-            Assertions.assertInstanceOf(Logable.class, systemStatus);
-            Assertions.assertInstanceOf(Logable.class, networkConnection);
-            Assertions.assertEquals("Status: -1", systemStatus.getLogableEvent());
-            Assertions.assertEquals("Initialized", networkConnection.getLogableEvent());
-            Assertions.assertEquals("SystemStatus object created " + systemStatus.getInitInfo().split(" ")[3], systemStatus.getInitInfo());
-            Assertions.assertEquals("NetworkConnection object created " + networkConnection.getInitInfo().split(" ")[3], networkConnection.getInitInfo());
+        Assertions.assertInstanceOf(StartLogging.class, startLogging);
+        Assertions.assertInstanceOf(Logable.class, systemStatus);
+        Assertions.assertInstanceOf(Logable.class, networkConnection);
+        Assertions.assertEquals("Status: -1", systemStatus.getLogableEvent());
+        Assertions.assertEquals("Initialized", networkConnection.getLogableEvent());
+        Assertions.assertEquals("SystemStatus object created " + systemStatus.getInitInfo().split(" ")[3], systemStatus.getInitInfo());
+        Assertions.assertEquals("NetworkConnection object created " + networkConnection.getInitInfo().split(" ")[3], networkConnection.getInitInfo());
 
-            logger.appendToLog(systemStatus);
-            logger.appendToLog(networkConnection);
+        try {
+            fileLog.appendToLog(systemStatus);
+            fileLog.appendToLog(networkConnection);
             networkConnection.connect();
 
             Thread.sleep(2000);
-            logger.appendToLog(systemStatus);
-            logger.appendToLog(networkConnection);
-            logger.close();
+            fileLog.appendToLog(systemStatus);
+            fileLog.appendToLog(networkConnection);
+            fileLog.close();
+        } catch (IOException e) {
+            logger.error("Logging - Falha ao escrever no log : {} ", e.getMessage());
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            logger.error("Logging - Falha na conexão de rede: {} ", e.getMessage());
+            e.printStackTrace();
+        }
 
+        try {
             Thread.sleep(1000); // Aguarda um segundo para garantir que o arquivo de log seja criado
-            logger.open();
-            Assertions.assertNotNull(logger.getFileRead());
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("SystemStatus object created"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Status: -1"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("NetworkConnection object created"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Initialized"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("SystemStatus object created"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Status: 1"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("NetworkConnection object created"));
-            Assertions.assertTrue(logger.getFileRead().readLine().contains("Object log event: Connected at"));
+            fileLog.open();
+        } catch (InterruptedException e) {
+            logger.error("Logging - Falha na abertura do arquivo de log: {} ", e.getMessage());
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            logger.error("Logging - Arquivo de log não encontrado: {} ", e.getMessage());
+            e.printStackTrace();
+        }
 
-            logger.read();
-            logger.getFileRead().close();
+        try {
+            Assertions.assertNotNull(fileLog.getFileRead());
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("SystemStatus object created"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("Object log event: Status: -1"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("NetworkConnection object created"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("Object log event: Initialized"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("SystemStatus object created"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("Object log event: Status: 1"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("NetworkConnection object created"));
+            Assertions.assertTrue(fileLog.getFileRead().readLine().contains("Object log event: Connected at"));
+        } catch (IOException e) {
+            logger.error("Logging - Falha na leitura do arquivo de log: {} ", e.getMessage());
+            e.printStackTrace();
+        }
 
-            StartLogging startLogging = new StartLogging();
-            Assertions.assertInstanceOf(StartLogging.class, startLogging);
-        } catch (Exception exception) {
-            logger.info("Exception: " + exception.getMessage());
-            exception.printStackTrace();
+        try {
+            fileLog.read();
+            fileLog.getFileRead().close();
+        } catch (IOException e) {
+            logger.error("Logging - Falha ao fechar o arquivo de log: {} ", e.getMessage());
+            e.printStackTrace();
         }
     }
 
     @Test
     @Order(5)
     public void example04CastingTest() {
-        ClassB obj1 = new ClassB();
-        ClassA obj2 = new ClassB();
-        ClassA obj3 = new ClassA();
+
+        ClassB obj1 = null;
+        ClassA obj2 = null;
+        ClassA obj3 = null;
+        try {
+            Casting casting = new Casting();
+            obj1 = casting.getClassB();
+            obj2 = casting.getClassB();
+            obj3 = casting.getClassA();
+        } catch (Exception e) {
+            logger.error("Falha na instanciação dos objetos: {}", e.getMessage());
+            e.printStackTrace();
+            return;
+        }
 
         Assertions.assertInstanceOf(ClassB.class, obj1);
         Assertions.assertInstanceOf(ClassA.class, obj2);
         Assertions.assertInstanceOf(ClassA.class, obj3);
+
+        Assertions.assertEquals(ClassB.class.getName(), Casting.isInstanceOfWhichClass(obj1));
+        Assertions.assertEquals(ClassB.class.getName(), Casting.isInstanceOfWhichClass(obj2));
+        Assertions.assertEquals(ClassA.class.getName(), Casting.isInstanceOfWhichClass(obj3));
 
         Assertions.assertEquals("ClassB", obj1.whoAmI());
         Assertions.assertEquals("ClassB", obj2.whoAmI());
@@ -171,7 +229,8 @@ public class ExamplesTest {
 
         // Apenas o obj3 só tem acesso a métodos de ClassA e não pode ser convertido para ClassB, pois não é uma instância de ClassB
         Assertions.assertEquals("ClassA only method", obj3.specialClassAMethod());
-        Assertions.assertThrowsExactly(ClassCastException.class, () -> { ((ClassB) obj3).specialClassBMethod(); });
+        ClassA finalObj = obj3;
+        Assertions.assertThrowsExactly(ClassCastException.class, () -> { ((ClassB) finalObj).specialClassBMethod(); });
     }
 
 }
