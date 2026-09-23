@@ -65,7 +65,7 @@ application {
 }
 
 check {
-    dependsOn 'chapter01', 'chapter02', 'chapter03', 'chapter04', 'chapter05', 'chapter06'
+    dependsOn 'chapter01', 'chapter02', 'chapter03', 'chapter04', 'chapter05', 'chapter06', 'chapter07', 'chapter08'
 }
 
 
@@ -138,5 +138,27 @@ tasks.register('chapter06', Test) {
 
     filter {
         includeTestsMatching "oca.chapter06.*"
+    }
+}
+
+tasks.register('chapter07', Test) {
+    description = "Run Chapter 07 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter07.*"
+    }
+}
+
+tasks.register('chapter08', Test) {
+    description = "Run Chapter 08 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter08.*"
     }
 }
