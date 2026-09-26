@@ -1,6 +1,7 @@
 package oca.chapter09;
 
 import oca.chapter09.exceptions.example01.CEExample;
+import oca.chapter09.exceptions.example02.RecordException;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -25,6 +26,17 @@ public class ExamplesTest {
             Assertions.assertThrows(IOException.class, () -> { new CEExample(); });
         } catch (IOException e) {
             logger.error("Falha na execucão da thread: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(2)
+    public void testRecordException() {
+        try {
+            logger.info("Codigo que faz alguma coisa");
+            throw new RecordException("Lancando RecordException");
+        } catch (RecordException recordException) {
+            Assertions.assertInstanceOf(RecordException.class, recordException);
         }
     }
 }
