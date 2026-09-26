@@ -18,21 +18,21 @@ public class ExamplesTest {
 
     @Test
     @Order(1)
-    public void testCEExample() {
+    void testCEExample() {
         try {
             Thread thread = CEExample.generateNewThread(new CEExample());
             thread.start();
 
             Assertions.assertInstanceOf(Thread.class, CEExample.generateNewThread(new CEExample()));
-            Assertions.assertThrows(IOException.class, () -> { new CEExample(); });
+            Assertions.assertThrows(IOException.class, CEExample::new);
         } catch (IOException e) {
-            logger.error("Falha na execucão da thread: " + e.getMessage());
+            logger.error("Falha na execucão da thread: {}", e.getMessage());
         }
     }
 
     @Test
     @Order(2)
-    public void testRecordException() {
+    void testRecordException() {
         try {
             logger.info("Codigo que faz alguma coisa");
             throw new RecordException("Lancando RecordException");
@@ -43,11 +43,11 @@ public class ExamplesTest {
 
     @Test
     @Order(3)
-    public void testThrower() {
+    void testThrower() {
         final Thrower thrower = new Thrower();
-        Assertions.assertThrows(IOException.class, () -> { thrower.throw1(); });
-        Assertions.assertThrows(IOException.class, () -> { thrower.throw2(); });
-        Assertions.assertThrows(IOException.class, () -> { thrower.throw3(); });
-        Assertions.assertThrows(IOException.class, () -> { thrower.throw4(); });
+        Assertions.assertThrows(IOException.class, thrower::throw1);
+        Assertions.assertThrows(IOException.class, thrower::throw2);
+        Assertions.assertThrows(IOException.class, thrower::throw3);
+        Assertions.assertThrows(IOException.class, thrower::throw4);
     }
 }

@@ -30,7 +30,7 @@ public class Thrower {
         try {
             thrower.throw1();
         } catch (IOException e) {
-            logger.error("Exception: " + e.getMessage());
+            logger.error("Exception: {}", e.getMessage());
         }
     }
 

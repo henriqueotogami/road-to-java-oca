@@ -25,24 +25,29 @@ public class CEExample implements Runnable {
     private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(CEExample.class.getName());
     final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-    public CEExample() throws IOException {
+    public CEExample() throws IOException, InterruptedException {
         final Thread thread = CEExample.generateNewThread(this);
         thread.start();
-        logger.info("Thread gerada : {} às {}", thread.getName(), sdf.format(System.currentTimeMillis()));
+        final String format = sdf.format(System.currentTimeMillis());
+        logger.info("Thread gerada : {} às {}", thread.getName(), format);
         try {
             Thread.sleep(5000);
             logger.info("Primeira soneca de 5 segundos da thread principal");
         } catch (InterruptedException ie) {
             logger.error("Falha ao dormir a thread: {}", ie.getMessage());
+            throw new InterruptedException("thread nao dorme");
         }
         throw new IOException("Oops");
     }
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         try {
             new CEExample();
-        } catch (Exception e) {
+        } catch (IOException e) {
             logger.error("Falha ao gerar a thread: {}", e.getMessage());
+            throw new IOException("Thread esta em coma reverso");
+        } catch (InterruptedException e) {
+            throw new InterruptedException("its over");
         }
     }
 
@@ -53,15 +58,19 @@ public class CEExample implements Runnable {
     public void run() {
         final long MAX_TIME = 30000;
         final long startTime = System.currentTimeMillis();
+        String format = "";
         while (System.currentTimeMillis() - startTime < MAX_TIME) {
             try {
                 Thread.sleep(5000);
-                logger.info("Thread dormiu - {}", sdf.format(System.currentTimeMillis()));
+                format = sdf.format(System.currentTimeMillis());
+                logger.info("Thread dormiu - {}", format);
             } catch (InterruptedException ie) {
                 logger.error("Falha ao dormir a execucao da thread: {}", ie.getMessage());
+                Thread.currentThread().interrupt();
             }
             logger.info("Thread está acordada");
         }
-        logger.info("Thread capotou de vez - {}", sdf.format(System.currentTimeMillis()));
+        format = sdf.format(System.currentTimeMillis());
+        logger.info("Thread capotou de vez - {}", format);
     }
 }
