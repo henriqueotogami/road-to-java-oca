@@ -162,3 +162,14 @@ tasks.register('chapter08', Test) {
         includeTestsMatching "oca.chapter08.*"
     }
 }
+
+tasks.register('chapter09', Test) {
+    description = "Run Chapter 09 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter09.*"
+    }
+}
