@@ -25,7 +25,7 @@ public class ExamplesTest {
 
             Assertions.assertInstanceOf(Thread.class, CEExample.generateNewThread(new CEExample()));
             Assertions.assertThrows(IOException.class, CEExample::new);
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             logger.error("Falha na execucão da thread: {}", e.getMessage());
         }
     }
