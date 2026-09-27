@@ -3,6 +3,7 @@ package oca.chapter09;
 import oca.chapter09.exceptions.example01.CEExample;
 import oca.chapter09.exceptions.example02.RecordException;
 import oca.chapter09.exceptions.example03.Thrower;
+import oca.chapter09.exceptions.example04.TryCatch;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -49,5 +50,13 @@ public class ExamplesTest {
         Assertions.assertThrows(IOException.class, thrower::throw2);
         Assertions.assertThrows(IOException.class, thrower::throw3);
         Assertions.assertThrows(IOException.class, thrower::throw4);
+    }
+
+    @Test
+    @Order(4)
+    void testTryCatch() {
+        final TryCatch tryCatch = new TryCatch();
+        Assertions.assertThrows(ArithmeticException.class, tryCatch::one);
+        Assertions.assertThrows(NumberFormatException.class, tryCatch::multi);
     }
 }
