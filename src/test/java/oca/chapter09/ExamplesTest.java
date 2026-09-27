@@ -4,6 +4,7 @@ import oca.chapter09.exceptions.example01.CEExample;
 import oca.chapter09.exceptions.example02.RecordException;
 import oca.chapter09.exceptions.example03.Thrower;
 import oca.chapter09.exceptions.example04.TryCatch;
+import oca.chapter09.exceptions.example05.TryFinally;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -58,5 +59,14 @@ public class ExamplesTest {
         final TryCatch tryCatch = new TryCatch();
         Assertions.assertThrows(ArithmeticException.class, tryCatch::one);
         Assertions.assertThrows(NumberFormatException.class, tryCatch::multi);
+    }
+
+    @Test
+    @Order(5)
+    void testTryFinally() {
+        final TryFinally tryFinally = new TryFinally();
+        Assertions.assertEquals("Jab and Roundhouse ", tryFinally.one());
+        Assertions.assertNotNull(tryFinally.two());
+        Assertions.assertNotNull(tryFinally.three());
     }
 }
