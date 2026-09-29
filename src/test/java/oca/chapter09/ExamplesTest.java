@@ -1,5 +1,6 @@
 package oca.chapter09;
 
+import oca.chapter09.exceptions.example.MultiCatch;
 import oca.chapter09.exceptions.example01.CEExample;
 import oca.chapter09.exceptions.example02.RecordException;
 import oca.chapter09.exceptions.example03.Thrower;
@@ -77,5 +78,13 @@ public class ExamplesTest {
         final TryWithResources tryWithResources = new TryWithResources();
         Assertions.assertTrue(tryWithResources.tryNoResources());
         Assertions.assertTrue(tryWithResources.tryWithResources());
+    }
+
+    @Test
+    @Order(7)
+    void testMultiCatch() {
+        final MultiCatch multiCatch = new MultiCatch();
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> {multiCatch.one(0);});
+        Assertions.assertThrows(NullPointerException.class, () -> {multiCatch.one(1);});
     }
 }
