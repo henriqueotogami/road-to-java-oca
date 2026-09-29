@@ -5,6 +5,7 @@ import oca.chapter09.exceptions.example02.RecordException;
 import oca.chapter09.exceptions.example03.Thrower;
 import oca.chapter09.exceptions.example04.TryCatch;
 import oca.chapter09.exceptions.example05.TryFinally;
+import oca.chapter09.exceptions.example06.TryWithResources;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
@@ -68,5 +69,13 @@ public class ExamplesTest {
         Assertions.assertEquals("Jab and Roundhouse ", tryFinally.one());
         Assertions.assertNotNull(tryFinally.two());
         Assertions.assertNotNull(tryFinally.three());
+    }
+
+    @Test
+    @Order(6)
+    void testTryWithResources(){
+        final TryWithResources tryWithResources = new TryWithResources();
+        Assertions.assertTrue(tryWithResources.tryNoResources());
+        Assertions.assertTrue(tryWithResources.tryWithResources());
     }
 }
