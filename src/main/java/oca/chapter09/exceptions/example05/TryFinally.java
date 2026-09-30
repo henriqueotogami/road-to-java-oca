@@ -46,8 +46,8 @@ public class TryFinally {
         } finally {
             answer += " and ";
             logger.info(answer); // essa instrução é executada!
-            return answer;
         }
+//            return answer;
 //        answer += " butter";
 //        logger.info(answer); // essa instrução não é alcançada
     }

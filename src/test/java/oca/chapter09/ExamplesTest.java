@@ -1,6 +1,6 @@
 package oca.chapter09;
 
-import oca.chapter09.exceptions.example.MultiCatch;
+import oca.chapter09.exceptions.example07.MultiCatch;
 import oca.chapter09.exceptions.example01.CEExample;
 import oca.chapter09.exceptions.example02.RecordException;
 import oca.chapter09.exceptions.example03.Thrower;

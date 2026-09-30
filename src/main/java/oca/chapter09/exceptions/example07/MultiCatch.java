@@ -1,4 +1,4 @@
-package oca.chapter09.exceptions.example;
+package oca.chapter09.exceptions.example07;
 
 import org.apache.logging.log4j.LogManager;
 
