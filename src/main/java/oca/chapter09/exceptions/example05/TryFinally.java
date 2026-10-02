@@ -25,12 +25,12 @@ public class TryFinally {
         return answer;
     }
 
-    public String two() {
+    public String two(final boolean exit) {
         String answer = "";
         try {
             answer += "Jab";
             logger.info(answer);
-            System.exit(0);
+            if(exit) System.exit(0);
         } finally {
             answer += " and Roundhouse ";
             logger.info(answer);
@@ -38,17 +38,17 @@ public class TryFinally {
         return answer;
     }
 
-    public String three(){
+    public String three(final boolean trow) {
         String answer = "Bread";
         logger.info(answer);
         try {
-            throw new NumberFormatException(); //exceção não verificada
+            if(trow) throw new NumberFormatException(); //exceção não verificada
         } finally {
             answer += " and ";
             logger.info(answer); // essa instrução é executada!
         }
-//            return answer;
 //        answer += " butter";
 //        logger.info(answer); // essa instrução não é alcançada
+        return answer;
     }
 }

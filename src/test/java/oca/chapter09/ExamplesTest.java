@@ -60,7 +60,8 @@ public class ExamplesTest {
     void testTryCatch() {
         final TryCatch tryCatch = new TryCatch();
         Assertions.assertThrows(ArithmeticException.class, tryCatch::one);
-        Assertions.assertThrows(NumberFormatException.class, tryCatch::multi);
+        Assertions.assertThrows(NumberFormatException.class, () -> { tryCatch.multi(1); });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> { tryCatch.multi(2); });
     }
 
     @Test
@@ -68,15 +69,18 @@ public class ExamplesTest {
     void testTryFinally() {
         final TryFinally tryFinally = new TryFinally();
         Assertions.assertEquals("Jab and Roundhouse ", tryFinally.one());
-        Assertions.assertNotNull(tryFinally.two());
-        Assertions.assertNotNull(tryFinally.three());
+        Assertions.assertNotNull(tryFinally.two(true));
+        Assertions.assertNotNull(tryFinally.three(true));
+        Assertions.assertEquals("Jab  and Roundhouse ", tryFinally.two(false));
+        Assertions.assertEquals("Bread and ", tryFinally.three(false));
     }
 
     @Test
     @Order(6)
     void testTryWithResources(){
         final TryWithResources tryWithResources = new TryWithResources();
-        Assertions.assertTrue(tryWithResources.tryNoResources());
+        Assertions.assertTrue(tryWithResources.tryNoResources(true));
+        Assertions.assertTrue(tryWithResources.tryNoResources(false));
         Assertions.assertTrue(tryWithResources.tryWithResources());
     }
 

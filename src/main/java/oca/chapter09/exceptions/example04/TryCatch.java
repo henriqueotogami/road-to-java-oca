@@ -2,6 +2,8 @@ package oca.chapter09.exceptions.example04;
 
 import org.apache.logging.log4j.LogManager;
 
+import java.util.Random;
+
 /**
  * Classe de exemplo de utilização de try/catch.
  *
@@ -13,23 +15,22 @@ public class TryCatch {
 
     private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(TryCatch.class);
 
-    public void multi() throws NumberFormatException{
+    public void multi(final int whichTrow) throws NumberFormatException{
         try {
             logger.info("Codigo que faz alguma coisa");
-            throw new NumberFormatException();
+            if(whichTrow == 1) throw new NumberFormatException();
+            if(whichTrow == 2) throw new IllegalArgumentException();
         } catch (NumberFormatException nfe) { // A exceção é capturada aqui
             logger.error("NumberFormatException: {}", nfe.getMessage());
-//            nfe.printStackTrace();
             throw nfe;
         } catch (IllegalArgumentException iae) {
             logger.error("IllegalArgumentException: {}", iae.getMessage());
-//            iae.printStackTrace();
+            throw iae;
         } catch (RuntimeException re) {
             logger.error("RuntimeException: {}", re.getMessage());
-//            re.printStackTrace();
+            throw re;
         } catch (Exception e) {
             logger.error("Exception: {}", e.getMessage());
-//            e.printStackTrace();
         }
     }
 
@@ -41,11 +42,5 @@ public class TryCatch {
 //            ae.printStackTrace();
             throw ae;
         }
-    }
-
-    public static void main(String[] args) {
-        TryCatch tryCatch = new TryCatch();
-        tryCatch.one();
-        tryCatch.multi();
     }
 }

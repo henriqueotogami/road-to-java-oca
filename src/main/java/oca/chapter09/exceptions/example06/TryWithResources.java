@@ -20,14 +20,16 @@ public class TryWithResources {
 
     private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(TryWithResources.class);
 
-    public boolean tryNoResources(){
+    public boolean tryNoResources(final boolean trow){
         BufferedReader reader = null;
         boolean answer = false;
         try {
-            reader = new BufferedReader(new FileReader("logs/log-try-no-resources.txt"));
-            logger.info(reader.readLine());
+            final FileReader in = new FileReader("logs/log-try-no-resources.txt");
+            reader = new BufferedReader(in);
+            if(reader.lines() != null) logger.info("Linha do arquivo: {}", reader.readLine());
+            if(trow) throw new IOException("Exceção lançada propositalmente");
         } catch (IOException e) {
-            logger.error(e.getMessage());
+            logger.error("Execption: {}", e.getMessage());
         } finally {
             if (reader != null) {
                 try {
@@ -44,10 +46,10 @@ public class TryWithResources {
     public boolean tryWithResources() {
         boolean answer = false;
         try (BufferedReader reader = new BufferedReader(new FileReader("logs/log-try-with-resources.txt"))) {
-            logger.info(reader.readLine());
+            if(reader.lines() != null) logger.info("Linha lida do arquivo: {}", reader.readLine());
             answer = true;
         } catch (IOException e) {
-            logger.error(e.getMessage());
+            logger.error("Exception1: {}", e.getMessage());
         }
         return answer;
     }
