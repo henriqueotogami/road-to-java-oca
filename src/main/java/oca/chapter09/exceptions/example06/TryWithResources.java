@@ -2,9 +2,7 @@ package oca.chapter09.exceptions.example06;
 
 import org.apache.logging.log4j.LogManager;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Classe de exemplo de try with resources.
@@ -20,7 +18,7 @@ public class TryWithResources {
 
     private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(TryWithResources.class);
 
-    public boolean tryNoResources(final boolean trow){
+    public boolean tryNoResources(final boolean trow) throws IOException {
         BufferedReader reader = null;
         boolean answer = false;
         try {
@@ -30,6 +28,7 @@ public class TryWithResources {
             if(trow) throw new IOException("Exceção lançada propositalmente");
         } catch (IOException e) {
             logger.error("Execption: {}", e.getMessage());
+            throw e;
         } finally {
             if (reader != null) {
                 try {
@@ -43,13 +42,15 @@ public class TryWithResources {
         return answer;
     }
 
-    public boolean tryWithResources() {
+    public boolean tryWithResources(final boolean hasThrow) throws IOException {
         boolean answer = false;
         try (BufferedReader reader = new BufferedReader(new FileReader("logs/log-try-with-resources.txt"))) {
             if(reader.lines() != null) logger.info("Linha lida do arquivo: {}", reader.readLine());
             answer = true;
+            if(hasThrow) throw new IOException("Lancando excecao");
         } catch (IOException e) {
             logger.error("Exception1: {}", e.getMessage());
+            throw e;
         }
         return answer;
     }

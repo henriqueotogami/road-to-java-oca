@@ -1,18 +1,19 @@
 package oca.chapter09;
 
-import oca.chapter09.exceptions.example07.MultiCatch;
 import oca.chapter09.exceptions.example01.CEExample;
 import oca.chapter09.exceptions.example02.RecordException;
 import oca.chapter09.exceptions.example03.Thrower;
 import oca.chapter09.exceptions.example04.TryCatch;
 import oca.chapter09.exceptions.example05.TryFinally;
 import oca.chapter09.exceptions.example06.TryWithResources;
+import oca.chapter09.exceptions.example07.MultiCatch;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.awt.*;
 import java.io.IOException;
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
@@ -69,9 +70,13 @@ public class ExamplesTest {
     void testTryFinally() {
         final TryFinally tryFinally = new TryFinally();
         Assertions.assertEquals("Jab and Roundhouse ", tryFinally.one());
-        Assertions.assertNotNull(tryFinally.two(true));
-        Assertions.assertNotNull(tryFinally.three(true));
-        Assertions.assertEquals("Jab  and Roundhouse ", tryFinally.two(false));
+        Assertions.assertThrows(IOException.class, () -> { tryFinally.two(true); });
+        Assertions.assertThrows(NumberFormatException.class, () -> { tryFinally.three(true); });
+        try {
+            Assertions.assertEquals("Jab and Roundhouse ", tryFinally.two(false));
+        } catch (IOException e) {
+            Assertions.fail("Falha no teste do tryFinally");
+        }
         Assertions.assertEquals("Bread and ", tryFinally.three(false));
     }
 
@@ -79,16 +84,33 @@ public class ExamplesTest {
     @Order(6)
     void testTryWithResources(){
         final TryWithResources tryWithResources = new TryWithResources();
-        Assertions.assertTrue(tryWithResources.tryNoResources(true));
-        Assertions.assertTrue(tryWithResources.tryNoResources(false));
-        Assertions.assertTrue(tryWithResources.tryWithResources());
+        Assertions.assertThrows(IOException.class, () -> { tryWithResources.tryNoResources(true); });
+        try {
+            Assertions.assertTrue(tryWithResources.tryNoResources(false));
+        } catch (IOException e) {
+            Assertions.fail();
+        }
+        Assertions.assertThrows(IOException.class, () -> {
+            Assertions.assertTrue(tryWithResources.tryWithResources(true));
+        });
+
+        try {
+            Assertions.assertTrue(tryWithResources.tryWithResources(false));
+        } catch (IOException e) {
+            Assertions.fail();
+        }
+
     }
 
     @Test
     @Order(7)
     void testMultiCatch() {
         final MultiCatch multiCatch = new MultiCatch();
-        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> {multiCatch.one(0);});
-        Assertions.assertThrows(NullPointerException.class, () -> {multiCatch.one(1);});
+        Assertions.assertThrows(IOException.class, () -> {
+            multiCatch.one(1);
+        });
+        Assertions.assertThrows(FontFormatException.class, () -> {
+            multiCatch.two(1);
+        });
     }
 }

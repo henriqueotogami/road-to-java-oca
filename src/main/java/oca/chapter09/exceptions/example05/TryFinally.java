@@ -2,6 +2,8 @@ package oca.chapter09.exceptions.example05;
 
 import org.apache.logging.log4j.LogManager;
 
+import java.io.IOException;
+
 /**
  * Classe de exemplo de utilização de try/finally.
  *
@@ -25,12 +27,12 @@ public class TryFinally {
         return answer;
     }
 
-    public String two(final boolean exit) {
+    public String two(final boolean exit) throws IOException {
         String answer = "";
         try {
             answer += "Jab";
             logger.info(answer);
-            if(exit) System.exit(0);
+            if(exit) throw new IOException("Exit");
         } finally {
             answer += " and Roundhouse ";
             logger.info(answer);
