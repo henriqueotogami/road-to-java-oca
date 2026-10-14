@@ -39,7 +39,7 @@ import java.util.List;
  * @since 2026-02-25
  * @version 1.1
  */
-class ExamplesTest {
+class Chapter02ExamplesTest {
 
     /**
      * Testa os métodos da classe {@link Attribution} para verificar a manipulação de graus e peixes.
@@ -179,7 +179,7 @@ class ExamplesTest {
      */
     @Test
     @Order(4)
-    void example04() {
+    void example04Test() {
         final IfThenElse ifThenElse = new IfThenElse();
         Assertions.assertEquals(5, ifThenElse.defaultIfElse(-5), "Default if-else should return the absolute value of -5");
         Assertions.assertEquals(10, ifThenElse.defaultIfElse(10), "Default if-else should return the absolute value of 10");
@@ -196,7 +196,7 @@ class ExamplesTest {
      */
     @Test
     @Order(5)
-    void example05() {
+    void example05Test() {
         final Fish fish = new Fish();
         for (int index = 0; index < 10; index++) {
             final String fishName = fish.generateRandomFish();
@@ -230,7 +230,7 @@ class ExamplesTest {
      */
     @Test
     @Order(6)
-    void example06() {
+    void example06Test() {
         Bat bat = new Bat();
         Assertions.assertEquals("No bait", bat.getNameBait(), "Expected 'No bait' as the default name bait");
 
@@ -252,7 +252,7 @@ class ExamplesTest {
      */
     @Test
     @Order(7)
-    void example07() {
+    void example07Test() {
         final FishingSession fishingSession = new FishingSession();
         final LoopWhile loopWhile = new LoopWhile();
         loopWhile.waitCastFosFish(fishingSession);
@@ -270,7 +270,7 @@ class ExamplesTest {
      */
     @Test
     @Order(8)
-    void example08() {
+    void example08Test() {
         final FishingSession fishingSession = new FishingSession();
         final LoopDoWhile loopDoWhile       = new LoopDoWhile();
 
@@ -301,7 +301,7 @@ class ExamplesTest {
      */
     @Test
     @Order(9)
-    void example09() {
+    void example09Test() {
         final ControlKeywords controlKeywords = new ControlKeywords();
         Assertions.assertEquals(5, controlKeywords.keywordBreak(), "Total hours fishing should be 5 after exceeding the allowed hours");
         Assertions.assertEquals(7, controlKeywords.keywordContinue(), "Total days camping should be 7 after exceeding the allowed days");
@@ -326,7 +326,7 @@ class ExamplesTest {
      */
     @Test
     @Order(10)
-    void example10() {
+    void example10Test() {
         final List<Float> allFishesSize         = Arrays.asList(10.0f, 15.5f, 18.0f, 29.5f, 45.5f);
         final ArrayList<Float> fishLengthList   = new ArrayList<>(allFishesSize);
 
@@ -347,7 +347,7 @@ class ExamplesTest {
      */
     @Test
     @Order(11)
-    void example11() {
+    void example11Test() {
         final ValidString validString = new ValidString();
         Assertions.assertTrue(validString.isInputValid("valid"), "Input should be valid when the string is 'valid'");
         Assertions.assertTrue(validString.hasSizeValid("valid"), "Input should have valid size when the string has 5 characters");
@@ -358,7 +358,7 @@ class ExamplesTest {
 
     @Test
     @Order(12)
-    void example12() {
+    void example12Test() {
         LoopFor loopFor = new LoopFor();
         Assertions.assertEquals(5, loopFor.variableOutsideLoop(), "Variable m should be 5 after the loop finishes");
         Assertions.assertDoesNotThrow(loopFor::variableInsideLoop, "Variable m should not be accessible outside the loop, but the method should execute without throwing an exception");

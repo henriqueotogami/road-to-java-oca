@@ -15,14 +15,14 @@ import org.junit.jupiter.api.Test;
  * @since 2026-04-04
  * @version 0.5
  */
-class ExamplesTest {
+class Chapter04ExamplesTest {
 
     /**
      * Teste para o exemplo de uso do tipo primitivo boolean.
      */
     @Test
     @Order(1)
-    void example01Boolean() {
+    void example01BooleanTest() {
         final ExampleBoolean exampleBoolean = new ExampleBoolean();
         Assertions.assertFalse(exampleBoolean.getTurboCharger());
 
@@ -35,7 +35,7 @@ class ExamplesTest {
      */
     @Test
     @Order(2)
-    void example02Char() {
+    void example02CharTest() {
         final ExampleChar exampleChar = new ExampleChar();
         Assertions.assertEquals('S', exampleChar.getCharCharacter());
         Assertions.assertEquals('h', exampleChar.getCharUnicode());
@@ -53,7 +53,7 @@ class ExamplesTest {
      */
     @Test
     @Order(3)
-    void example03Byte() {
+    void example03ByteTest() {
         final ExampleByte exampleByte = new ExampleByte();
         Assertions.assertEquals(4, exampleByte.getPassengers());
         Assertions.assertEquals(2, exampleByte.getDoors());
@@ -64,7 +64,7 @@ class ExamplesTest {
      */
     @Test
     @Order(4)
-    void example04Short() {
+    void example04ShortTest() {
         final ExampleShort exampleShort = new ExampleShort();
         Assertions.assertEquals(2350, exampleShort.getUnladenWeightInLbs());
         Assertions.assertEquals(427, exampleShort.getCapacityInCu());
@@ -75,7 +75,7 @@ class ExamplesTest {
      */
     @Test
     @Order(5)
-    void example05Int() {
+    void example05IntTest() {
         final ExampleInt exampleInt = new ExampleInt();
         Assertions.assertEquals(7800000, exampleInt.getAuctionPrice());
         Assertions.assertEquals(8, exampleInt.getCyl());
@@ -90,7 +90,7 @@ class ExamplesTest {
      */
     @Test
     @Order(6)
-    void example06Long() {
+    void example06LongTest() {
         final ExampleLong exampleLong = new ExampleLong();
         Assertions.assertEquals(146000000L, exampleLong.getMustangBingResults());
         Assertions.assertEquals(40500000L, exampleLong.getMustangGoogleResults());
@@ -103,7 +103,7 @@ class ExamplesTest {
      */
     @Test
     @Order(7)
-    void example07Float() {
+    void example07FloatTest() {
         final ExampleFloat exampleFloat = new ExampleFloat();
         Assertions.assertEquals(80100.99F, exampleFloat.getCurrentBid());
         Assertions.assertEquals(20000.00F, exampleFloat.getOpeningBid());
@@ -116,7 +116,7 @@ class ExamplesTest {
      */
     @Test
     @Order(8)
-    void example08Double() {
+    void example08DoubleTest() {
         final ExampleDouble exampleDouble = new ExampleDouble();
         Assertions.assertEquals(4.7D, exampleDouble.getLeafSpringCobraEngine());
         Assertions.assertEquals(5.4D, exampleDouble.getChyrsler331Engine());
@@ -130,7 +130,7 @@ class ExamplesTest {
      */
     @Test
     @Order(9)
-    void example09WrapperInteger() {
+    void example09WrapperIntegerTest() {
         final ExampleWrapperInteger exampleWrapperInteger = new ExampleWrapperInteger();
         Assertions.assertEquals(5, exampleWrapperInteger.getValueA());
         Assertions.assertEquals(5, exampleWrapperInteger.getNum());
@@ -142,7 +142,7 @@ class ExamplesTest {
      */
     @Test
     @Order(10)
-    void example10Objects() {
+    void example10ObjectsTest() {
         final ExampleObject exampleObject = new ExampleObject();
         Assertions.assertTrue(exampleObject.isBigCarRunning());
         Assertions.assertTrue(exampleObject.isSmallCarRunning());
@@ -155,7 +155,7 @@ class ExamplesTest {
      */
     @Test
     @Order(11)
-    void example11Enum() {
+    void example11EnumTest() {
         final ExampleEnum.Suit cardSuit = ExampleEnum.Suit.CLUBS;
         Assertions.assertEquals(ExampleEnum.Suit.CLUBS, cardSuit);
         Assertions.assertTrue(cardSuit.equals(ExampleEnum.Suit.CLUBS));

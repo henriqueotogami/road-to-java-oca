@@ -1,0 +1,56 @@
+package oca.chapter09.exceptions.example05;
+
+import org.apache.logging.log4j.LogManager;
+
+import java.io.IOException;
+
+/**
+ * Classe de exemplo de utilização de try/finally.
+ *
+ * @author henriqueotogami
+ * @since 27/09/2026
+ * @version 1.0
+ */
+public class TryFinally {
+
+    private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(TryFinally.class);
+
+    public String one() {
+        String answer = "";
+        try {
+            answer += "Jab";
+            logger.info(answer);
+        } finally {
+            answer += " and Roundhouse ";
+            logger.info(answer);
+        }
+        return answer;
+    }
+
+    public String two(final boolean exit) throws IOException {
+        String answer = "";
+        try {
+            answer += "Jab";
+            logger.info(answer);
+            if(exit) throw new IOException("Exit");
+        } finally {
+            answer += " and Roundhouse ";
+            logger.info(answer);
+        }
+        return answer;
+    }
+
+    public String three(final boolean trow) {
+        String answer = "Bread";
+        logger.info(answer);
+        try {
+            if(trow) throw new NumberFormatException(); //exceção não verificada
+        } finally {
+            answer += " and ";
+            logger.info(answer); // essa instrução é executada!
+        }
+//        answer += " butter";
+//        logger.info(answer); // essa instrução não é alcançada
+        return answer;
+    }
+}

@@ -1,0 +1,230 @@
+Teste Final - Capítulo 09
+Data: 29/09/2026
+Compreender a base lógica e os tipos de exceções
+
+01. Que classe tem menos subclasses: Exception, RuntimeException ou Error? Selecione a afirmação correta.
+A. A classe Exception tem menos subclasses do que as classes RuntimeException e Error.
+B. A classe RuntimeException tem menos subclasses do que as classes Exception e Error.
+C. A classe Error tem menos subclasses do que as classes Exception e RuntimeException.
+
+Resposta Henrique: B
+Resposta certa: C
+=======================================================================================================================
+
+02. Dos tipos de exceções a seguir, qual um IDE ajudaria a capturar, se ela não fosse tratada em seu código?
+A. Exceções verificadas.
+B. Exceções não verificadas.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+03. Que afirmação sobre a classe Throwable não está correta?
+A. A classe Throwable estende a classe Object.
+B. A classe Throwable implementa a interface Serializable.
+C. As classes RuntimeException e Error são subclasses diretas da classe Throwable.
+D. A classe Throwable faz parte do pacote java.lang.
+
+Resposta Henrique: B
+Resposta certa: C
+=======================================================================================================================
+
+04. As exceções são divididas em três categorias. Qual dessas não é uma categoria das exceções?
+A. Exceções Verificadas
+B. Exceções Não Verificadas
+C. Asserções
+D. Erros
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+05. Que classes são subclasses da classe IOException? Selecione três.
+A. FileNotFoundException
+B. SQLException
+C. ClassNotFoundException
+D. InterruptedIOException
+
+Resposta Henrique: A, B e D
+Resposta certa: A, B e D
+=======================================================================================================================
+
+06. Qual dos fragmentos de código a seguir lançará uma NumberFormatException?
+A. Integer.parseInt("INVALID");
+B. int e = (2 / 0);
+C. Object x = new Float("1.0"); Double d = (Double) x;
+D. String s = null; int i = s.length();
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+Compreender a natureza das exceções
+
+07. Quais das classes a seguir podem ser lançadas? Selecione todas que forem aplicáveis.
+A. throw new Error();
+B. throw new RuntimeException();
+C. throw new Exception();
+D. throw new Assertion();
+E. throw new Throwable();
+
+Resposta Henrique: B, C, e E
+Resposta certa: A, B, C e E
+=======================================================================================================================
+
+08. Dado o código:
+public static void testMethod1() {
+    try {
+        testMethod2();
+    } catch (ArithmeticException ae) {
+        System.out.println("Dock");
+    }
+}
+
+public static void testMethod2() throws ArithmeticException {
+    try {
+        testMethod3();
+    } catch (ArithmeticException ae) {
+        System.out.println("Dickory");
+    }
+}
+
+public static void testMethod3() throws ArithmeticException {
+    throw new ArithmeticException();
+    System.out.println("Hickory");
+}
+
+O que será exibido quando testMethod1 for chamado (após permitirmos que o código seja executado com avisos de compilação)?
+A. “Hickory Dickory Dock” será exibido.
+B. “Dickory” será exibido.
+C. “Dock” será exibido.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+09. Dado o código:
+public static void test() throws FileNotFoundException {
+    try {
+        throw FileNotFoundException();
+    } finally {
+    }
+}
+
+Determine por que ele não será compilado. Que afirmação está correta?
+A. O código não será compilado sem uma cláusula catch.
+B. O código precisa da palavra-chave new depois da palavra-chave throw.
+C. A cláusula finally deveria ser a cláusula final.
+D. Não há uma classe chamada FileNotFoundException.
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+10. Um método pode lançar mais de uma exceção?
+A. Sim, um método pode lançar mais de uma exceção.
+B. Não, um método não pode lançar mais de uma exceção.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+11. Se seguirmos a convenção comum de nomeação do parâmetro da cláusula catch, qual será o parâmetro da exceção EnumConstantNotPresentException?
+A. e
+B. ex
+C. ee
+D. ecnpe
+
+Resposta Henrique: D
+Resposta certa: D
+=======================================================================================================================
+
+Alterar o fluxo do programa
+
+12. Que recursos novos vêm com Java 7 para melhorar as funcionalidades de tratamento de exceções? Selecione todos que forem aplicáveis.
+A. O recurso multi‑catch
+B. O recurso boomerang
+C. O recurso try‑with‑resources
+D. O recurso try‑with‑riches
+
+Resposta Henrique: A e C
+Resposta certa: A e C
+=======================================================================================================================
+
+13. Dado o código:
+  try {
+    throw new IIOException();
+  } catch (IIOException iioe) {
+  } catch (IOException ioe) {
+  } catch (Exception e) {
+  } finally {
+  }
+
+Ele não será compilado. Por que?
+
+A. Embora seja boa prática as classes Exception terem um construtor sem argumentos, nem sempre isso é seguido,
+como no caso da classe IIOException que não tem um construtor sem argumentos.
+B. As exceções listadas nos blocos catch deveriam estar na ordem inversa. Os blocos catch deveriam ser ordenados
+assim: Exception, IOException e IIOException.
+C. O bloco finally deve incluir instruções.
+D. A palavra-chave throws deve ser usada em vez da palavra-chave throw.
+
+Resposta Henrique: A
+Resposta certa: A
+=======================================================================================================================
+
+Reconhecer exceções comuns
+
+14. O que as classes InternalError, OutOfMemoryError, StackOverflowError e UnknownError têm em comum? Selecione todas as
+afirmações que forem aplicáveis.
+
+A. Todas são subclasses da classe VirtualMachineError.
+B. Todas têm um construtor sem argumentos.
+C. Todas têm um construtor que aceita um único argumento String.
+D. Todas são subclasses da classe RuntimeException.
+E. Todos os itens anteriores
+
+Resposta Henrique: E
+Resposta certa: A, B e C
+=======================================================================================================================
+
+15. O campo bytesTrasferred de qual exceção verificada fornece informações de quantos bytes foram transferidos com
+sucesso antes de ocorrer uma interrupção?
+A. IOException
+B. InterruptedIOException
+C. IntrospectionException
+D. TimeoutException
+
+Resposta Henrique: B
+Resposta certa: B
+=======================================================================================================================
+
+16. Dado o código:
+String typeOfDog = "Mini Australian Shepherd";
+typeOfDog = null;
+System.out.println(typeOfDog.length);
+
+Qual das opções é verdadeira?
+A. Uma NullPointerException será lançada.
+B. Uma IllegalStateException será lançada.
+C. Uma IllegalArgumentException será lançada.
+D. Ocorrerá um erro de compilação.
+
+Resposta Henrique: A
+Resposta certa: D
+=======================================================================================================================
+
+17. Qual dos itens a seguir não é uma exceção Java válida?
+A. IOException
+B. InterruptedIOException
+C. CPUProcessException
+D. CloneNotSupportedException
+E. ClassNotFoundException
+
+Resposta Henrique: C
+Resposta certa: C
+=======================================================================================================================
+
+Resultado
+Questões Certas: 13
+Questões Erradas: 04

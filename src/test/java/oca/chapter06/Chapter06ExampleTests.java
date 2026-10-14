@@ -17,14 +17,14 @@ import java.util.Arrays;
  * @since 2026-04-25
  * @version 0.7
  */
-class ExampleTests {
+class Chapter06ExampleTests {
 
     /**
      * Teste para o exemplo de uso de arrays unidimensionais em Java.
      */
     @Test
     @Order(1)
-    void example01ArrayOneDimensional() {
+    void example01ArrayOneDimensionalTest() {
         final ArrayOneDimensional arrayOneDimensional = new ArrayOneDimensional();
         final int[] expectedAlarms1         = { 1, 2, 3, 4, 5 };
         final int[] expectedAlarms2         = { 730, 900 };
@@ -56,7 +56,7 @@ class ExampleTests {
      */
     @Test
     @Order(2)
-    void example02ArrayMultidimensional() {
+    void example02ArrayMultidimensionalTest() {
         final ArrayMultiDimensional arrayMultiDimensional = new ArrayMultiDimensional();
         final int[][][] expectedMatrix = {
                 {
@@ -87,7 +87,7 @@ class ExampleTests {
      */
     @Test
     @Order(3)
-    void example03ArrayListAndArrayPrimitive() {
+    void example03ArrayListAndArrayPrimitiveTest() {
         // Esse exercício o ajudará a conhecer melhor tanto a classe ArrayList quanto os arrays padrão.
 
         //1. Crie um projeto Java no IDE de sua escolha.
@@ -136,7 +136,7 @@ class ExampleTests {
      */
     @Test
     @Order(4)
-    void example01Clocks() {
+    void example01ClocksTest() {
         final Clock clock1 = new Clock(11, 0, 0);
         final Clock clock2 = new Clock(22, 50, 0);
 

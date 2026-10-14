@@ -16,7 +16,7 @@ import java.util.Random;
  * @version 1.0
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-class ConditionalsTest {
+class Chapter02ConditionalsTest {
 
     /**
      * <br>Teste de condições em Java.

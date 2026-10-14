@@ -38,6 +38,7 @@ jacocoTestReport {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.2'
     implementation 'org.apache.logging.log4j:log4j-api:2.25.5'
     implementation 'org.apache.logging.log4j:log4j-core:2.25.5'
 }
@@ -65,7 +66,7 @@ application {
 }
 
 check {
-    dependsOn 'chapter01', 'chapter02', 'chapter03', 'chapter04', 'chapter05', 'chapter06', 'chapter07', 'chapter08'
+    dependsOn 'test'
 }
 
 
@@ -161,4 +162,37 @@ tasks.register('chapter08', Test) {
     filter {
         includeTestsMatching "oca.chapter08.*"
     }
+}
+
+tasks.register('chapter09', Test) {
+    description = "Run Chapter 09 tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        includeTestsMatching "oca.chapter09.*"
+    }
+}
+
+tasks.register('allChapters', Test) {
+    description = "Run all chapter tests"
+    group = "oca-chapters"
+
+    useJUnitPlatform()
+
+    filter {
+        setIncludePatterns(
+                "oca.chapter01.*",
+                "oca.chapter02.*",
+                "oca.chapter03.*",
+                "oca.chapter04.*",
+                "oca.chapter05.*",
+                "oca.chapter06.*",
+                "oca.chapter07.*",
+                "oca.chapter08.*",
+                "oca.chapter09.*"
+        )
+    }
+
 }

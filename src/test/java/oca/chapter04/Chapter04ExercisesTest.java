@@ -12,14 +12,14 @@ import org.junit.jupiter.api.Test;
  * @since 2026-04-10
  * @version 0.5
  */
-public class ExercisesTest {
+public class Chapter04ExercisesTest {
 
     /**
      * Teste para o exercício 1 do capítulo 4, que envolve o cálculo de ERA (Earned Run Average) para um jogador de beisebol.
      */
     @Test
     @Order(1)
-    void exercise01ERACalculator() {
+    void exercise01ERACalculatorTest() {
         final ERACalculator calculator = new ERACalculator();
         calculator.setEra((float) calculator.getEarnedRuns() / (float) calculator.getInningsPitched() * calculator.getInningsInAGame());
 

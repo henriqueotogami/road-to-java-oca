@@ -35,7 +35,7 @@ import java.io.File;
  * @version 1.0
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-class ExamplesTest {
+class Chapter07ExamplesTest {
 
     /**
      * <br>Teste para verificar se a subclasse NewDog possui relação IS-A com a superclasse Animal.
@@ -49,7 +49,7 @@ class ExamplesTest {
      */
     @Test
     @Order(1)
-    void example01InheritanceIsA() {
+    void example01InheritanceIsATest() {
         // Arrange
         final NewDog newDog = new NewDog();
 
@@ -70,7 +70,7 @@ class ExamplesTest {
      */
     @Test
     @Order(2)
-    void example01InheritedMethods() {
+    void example01InheritedMethodsTest() {
         // Arrange
         final NewDog newDog = new NewDog();
         final int direction = 90;
@@ -99,7 +99,7 @@ class ExamplesTest {
      */
     @Test
     @Order(3)
-    void example01MultipleSubclasses() {
+    void example01MultipleSubclassesTest() {
         // Arrange
         final NewCat newCat = new NewCat();
         final NewDog newDog = new NewDog();
@@ -123,7 +123,7 @@ class ExamplesTest {
      */
     @Test
     @Order(4)
-    void example02AbstractClassImplementation() {
+    void example02AbstractClassImplementationTest() {
         // Arrange
         final MP3Player mp3Player = new MP3Player();
 
@@ -149,7 +149,7 @@ class ExamplesTest {
      */
     @Test
     @Order(5)
-    void example02MultipleConcreteSubclasses() {
+    void example02MultipleConcreteSubclassesTest() {
         // Arrange
         final CDPlayer cdPlayer = new CDPlayer();
 
@@ -174,7 +174,7 @@ class ExamplesTest {
      */
     @Test
     @Order(6)
-    void example03CellPhoneInterface() {
+    void example03CellPhoneInterfaceTest() {
         // Arrange
         final CellPhone cellPhone = new CellPhone();
         final int phoneNumber = 1198765432;
@@ -203,7 +203,7 @@ class ExamplesTest {
      */
     @Test
     @Order(7)
-    void example03LandlinePhoneInterface() {
+    void example03LandlinePhoneInterfaceTest() {
         // Arrange
         final LandlinePhone landlinePhone = new LandlinePhone();
         final int phoneNumber = 1133334444;
@@ -231,7 +231,7 @@ class ExamplesTest {
      */
     @Test
     @Order(8)
-    void example04ScoreBoardGetSet() {
+    void example04ScoreBoardGetSetTest() {
         // Arrange
         final ScoreBoard scoreBoard = new ScoreBoard();
         final int expectedScore = 42;
@@ -256,7 +256,7 @@ class ExamplesTest {
      */
     @Test
     @Order(9)
-    void example05PhoneBookEntrySetNameNumber() {
+    void example05PhoneBookEntrySetNameNumberTest() {
         // Arrange
         final PhoneBookEntry entry = new PhoneBookEntry();
         final String expectedName = "Henrique";
@@ -283,7 +283,7 @@ class ExamplesTest {
      */
     @Test
     @Order(10)
-    void example06BicyclePedalRPM() {
+    void example06BicyclePedalRPMTest() {
         // Arrange
         final Bicycle bicycle = new Bicycle();
         final float pedalRPM = 50f;
@@ -299,7 +299,7 @@ class ExamplesTest {
     }
 
     /**
-     * <br>Teste para verificar a sobrescrita do método pedalRPM na subclasse TenSpeedBicycle.
+     * <br>Teste para verificar a sobrescrita do metodo pedalRPM na subclasse TenSpeedBicycle.
      * <br>Este teste é importante para garantir que a subclasse pode sobrescrever comportamento da superclasse com uma relação de marchas configurável.
      *
      * @author henriqueotogami
@@ -310,7 +310,7 @@ class ExamplesTest {
      */
     @Test
     @Order(11)
-    void example06TenSpeedBicycleOverride() {
+    void example06TenSpeedBicycleOverrideTest() {
         // Arrange
         final TenSpeedBicycle tenSpeedBicycle = new TenSpeedBicycle();
         final float gearRatio = 3f;
@@ -343,7 +343,7 @@ class ExamplesTest {
      */
     @Test
     @Order(12)
-    void example07MapleTreeSeasonalGrowth() {
+    void example07MapleTreeSeasonalGrowthTest() {
         // Arrange
         final MapleTree mapleTree = new MapleTree();
         final int expectedAgeAfterSpring = 1;
@@ -378,7 +378,7 @@ class ExamplesTest {
      */
     @Test
     @Order(13)
-    void example07TulipWinterDieDown() {
+    void example07TulipWinterDieDownTest() {
         // Arrange
         final Tulip tulip = new Tulip();
         final int expectedHeightAfterSpring = 1;
@@ -412,7 +412,7 @@ class ExamplesTest {
      */
     @Test
     @Order(14)
-    void example08MultipleInterfaces() {
+    void example08MultipleInterfacesTest() {
         // Arrange
         final PrinterFaxCombo combo = new PrinterFaxCombo();
 
@@ -424,7 +424,7 @@ class ExamplesTest {
     }
 
     /**
-     * <br>Teste para verificar os métodos de PrinterFaxCombo, incluindo a sobrescrita do método default getInkLevel.
+     * <br>Teste para verificar os métodos de PrinterFaxCombo, incluindo a sobrescrita do metodo default getInkLevel.
      * <br>Este teste é importante para garantir que classes concretas podem sobrescrever métodos default de interfaces e executar operações de impressão e fax.
      *
      * @author henriqueotogami
@@ -435,7 +435,7 @@ class ExamplesTest {
      */
     @Test
     @Order(15)
-    void example08PrinterFaxComboMethods() {
+    void example08PrinterFaxComboMethodsTest() {
         // Arrange
         final PrinterFaxCombo combo = new PrinterFaxCombo();
         final File testFile = new File("test-document.txt");
