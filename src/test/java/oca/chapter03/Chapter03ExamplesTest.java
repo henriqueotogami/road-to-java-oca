@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * @since 2026-02-23
  * @version 0.4
  */
-class ExamplesTest {
+class Chapter03ExamplesTest {
 
     /**
      * <br>Teste para validar os resultados dos operadores de atribuição, aritméticos e relacionais.

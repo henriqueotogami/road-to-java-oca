@@ -17,13 +17,13 @@ import java.awt.*;
 import java.io.IOException;
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class ExamplesTest {
+public class Chapter09ExamplesTest {
 
-    public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(ExamplesTest.class.getName());
+    public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(Chapter09ExamplesTest.class.getName());
 
     @Test
     @Order(1)
-    void testCEExample() {
+    void exampleCETest() {
         try {
             Thread thread = CEExample.generateNewThread(new CEExample());
             thread.start();
@@ -37,7 +37,7 @@ public class ExamplesTest {
 
     @Test
     @Order(2)
-    void testRecordException() {
+    void recordExceptionTest() {
         try {
             logger.info("Codigo que faz alguma coisa");
             throw new RecordException("Lancando RecordException");
@@ -48,7 +48,7 @@ public class ExamplesTest {
 
     @Test
     @Order(3)
-    void testThrower() {
+    void throwerTest() {
         final Thrower thrower = new Thrower();
         Assertions.assertThrows(IOException.class, thrower::throw1);
         Assertions.assertThrows(IOException.class, thrower::throw2);
@@ -58,7 +58,7 @@ public class ExamplesTest {
 
     @Test
     @Order(4)
-    void testTryCatch() {
+    void tryCatchTest() {
         final TryCatch tryCatch = new TryCatch();
         Assertions.assertThrows(ArithmeticException.class, tryCatch::one);
         Assertions.assertThrows(NumberFormatException.class, () -> { tryCatch.multi(1); });
@@ -67,7 +67,7 @@ public class ExamplesTest {
 
     @Test
     @Order(5)
-    void testTryFinally() {
+    void tryFinallyTest() {
         final TryFinally tryFinally = new TryFinally();
         Assertions.assertEquals("Jab and Roundhouse ", tryFinally.one());
         Assertions.assertThrows(IOException.class, () -> { tryFinally.two(true); });
@@ -82,7 +82,7 @@ public class ExamplesTest {
 
     @Test
     @Order(6)
-    void testTryWithResources(){
+    void tryWithResourcesTest(){
         final TryWithResources tryWithResources = new TryWithResources();
         Assertions.assertThrows(IOException.class, () -> { tryWithResources.tryNoResources(true); });
         try {
@@ -104,7 +104,7 @@ public class ExamplesTest {
 
     @Test
     @Order(7)
-    void testMultiCatch() {
+    void multiCatchTest() {
         final MultiCatch multiCatch = new MultiCatch();
         Assertions.assertThrows(IOException.class, () -> {
             multiCatch.one(1);

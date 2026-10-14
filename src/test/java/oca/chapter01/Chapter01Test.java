@@ -21,7 +21,7 @@ import java.util.logging.FileHandler;
 
 
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class ExamplesTest {
+public class Chapter01Test {
 
     /**
      * <br>Teste para verificar se a classe Example01PackageImport gera uma lista de planetas corretamente.

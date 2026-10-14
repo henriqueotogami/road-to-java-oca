@@ -23,14 +23,14 @@ import java.util.Date;
  * @since 2026-04-19
  * @version 0.5
  */
-class ExamplesTest {
+class Chapter05ExamplesTest {
 
     /**
      * Teste para o exemplo de uso de métodos em Java.
      */
     @Test
     @Order(1)
-    void example01CreateMethod() {
+    void example01CreateMethodTest() {
         final MathTools mTools = new MathTools();
         final int x = 8;
         final int y = 13;
@@ -44,7 +44,7 @@ class ExamplesTest {
      */
     @Test
     @Order(2)
-    void example01OverloadMethod() {
+    void example01OverloadMethodTest() {
         final MathTools mTools = new MathTools();
         final double x = 8.5;
         final double y = 13.2;
@@ -58,7 +58,7 @@ class ExamplesTest {
      */
     @Test
     @Order(3)
-    void example02OverloadMethod() {
+    void example02OverloadMethodTest() {
         final LogManager logManager = new LogManager();
         logManager.logInfo("This is a log message without an error number.");
         logManager.logInfo("This is a log message with an error number.", 404);
@@ -70,7 +70,7 @@ class ExamplesTest {
      */
     @Test
     @Order(4)
-    void example03PassByValue() {
+    void example03PassByValueTest() {
         final Number number = new Number(3);
         number.addTwo(4);
         Assertions.assertEquals(3, number.getNumber(), "O valor do número deve permanecer inalterado, pois os parâmetros primitivos são passados por valor.");
@@ -81,7 +81,7 @@ class ExamplesTest {
      */
     @Test
     @Order(5)
-    void example03PassByReference() {
+    void example03PassByReferenceTest() {
         final Number number = new Number(3);
         number.addThree(number);
         Assertions.assertEquals(6, number.getNumber(), "O valor do número deve ser alterado, pois os objetos são passados por referência.");
@@ -92,7 +92,7 @@ class ExamplesTest {
      */
     @Test
     @Order(6)
-    void example04VariableScope() {
+    void example04VariableScopeTest() {
         final SampleMethod sampleMethod = new SampleMethod();
         Assertions.assertEquals(9, sampleMethod.sampleMethod(), "A variável local deve ser acessível apenas dentro do método onde foi declarada.");
     }
@@ -102,7 +102,7 @@ class ExamplesTest {
      */
     @Test
     @Order(7)
-    void example05InstanceVariables() {
+    void example05InstanceVariablesTest() {
         Television tv1 = new Television();
         Television tv2 = new Television();
         tv1.setChannel(2);
@@ -116,7 +116,7 @@ class ExamplesTest {
      */
     @Test
     @Order(8)
-    void example06CreateConstructor() {
+    void example06CreateConstructorTest() {
         LoanDetails loanDetails = new LoanDetails();
         loanDetails.setPrincipal(150000);
         final double expected = 1010.809999701624D;
@@ -128,7 +128,7 @@ class ExamplesTest {
      */
     @Test
     @Order(9)
-    void example06OverloadConstructor() {
+    void example06OverloadConstructorTest() {
         LoanDetails loanDetails = new LoanDetails(150000, 0.05, 15);
         final double expected = 0.0625D;
         Assertions.assertEquals(expected, loanDetails.monthlyPayment(), "O método monthlyPayment deve calcular o pagamento mensal com base no valor principal, taxa de juros e prazo do empréstimo.");
@@ -139,7 +139,7 @@ class ExamplesTest {
      */
     @Test
     @Order(10)
-    void example07KeywordSuper() {
+    void example07KeywordSuperTest() {
         ChildClass childClass1 = new ChildClass();
         ChildClass childClass2 = new ChildClass("test");
         Assertions.assertTrue(true);
@@ -150,7 +150,7 @@ class ExamplesTest {
      */
     @Test
     @Order(11)
-    void example08StaticMethod() {
+    void example08StaticMethodTest() {
         final String formatDate = Tools.formatDate();
         final String expect = new SimpleDateFormat("MMM-dd-yy").format(new Date());
         Assertions.assertEquals(expect, formatDate, "O método formatDate deve retornar a data atual formatada como uma string.");
@@ -161,7 +161,7 @@ class ExamplesTest {
      */
     @Test
     @Order(12)
-    void example09StaticVariable() {
+    void example09StaticVariableTest() {
         final int initialTrackingNumber = ShippingPackage.nextTrackingNumber;
         ShippingPackage package1 = new ShippingPackage();
         ShippingPackage package2 = new ShippingPackage();

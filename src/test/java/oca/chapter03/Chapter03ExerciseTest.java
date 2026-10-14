@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  *
  * @see java.lang.StringBuilder
  */
-class ExerciseTest {
+class Chapter03ExerciseTest {
 
 
     /** Testa os construtores da classe StringBuilder.
@@ -17,7 +17,7 @@ class ExerciseTest {
      */
     @Test
     @Order(1)
-    void exercise01StringBuilderConstructor() {
+    void exercise01StringBuilderConstructorTest() {
 
         final StringBuilder constructorEmpty = new StringBuilder();
         Assertions.assertEquals(16, constructorEmpty.capacity());
@@ -47,7 +47,7 @@ class ExerciseTest {
      */
     @Test
     @Order(2)
-    void exercise02StringEquals() {
+    void exercise02StringEqualsTest() {
         final String msg1 = "WALK THE PLANK!";
         final String msg2 = "WALK THE PLANK!";
         final String msg3 = ("WALK THE PLANK!");
@@ -71,7 +71,7 @@ class ExerciseTest {
      */
     @Test
     @Order(3)
-    void exercise03StringComparesTo() {
+    void exercise03StringComparesToTest() {
         final String eggs1 = "Cackle fruit";
         final String eggs2 = "Cackle fruit";
         Assertions.assertEquals(0, eggs1.compareTo(eggs2));

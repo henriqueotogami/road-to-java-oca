@@ -29,9 +29,9 @@ import java.util.Random;
  * @version 0.10
  */
 @TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
-public class ExamplesTest {
+public class Chapter08ExamplesTest {
 
-    public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(ExamplesTest.class);
+    public static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(Chapter08ExamplesTest.class);
 
     @Test
     @Order(1)
